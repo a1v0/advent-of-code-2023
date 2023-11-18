@@ -13,55 +13,32 @@ public class AOCUtils
     {
         int length = result.Length;
         string border = GetBorder(length);
-        string titleRow = GetTitleRow(dayName, border.Length),
-            resultRow = GetResultRow(result,border.Length);
+        string titleRow = GetContentRow("Day " + dayName, border.Length),
+            resultRow = GetContentRow(result, border.Length);
         string output = $"{border}\n{titleRow}\n{resultRow}\n{border}";
         Console.WriteLine(output);
     }
 
-    private static string GetTitleRow(string dayName, int borderLength)
+    private static string GetContentRow(string content, int borderLength)
     {
-        string fullDayName = "Day " + dayName;
-        string titleRow = $"* {fullDayName} *";
+        string contentRow = $"* {content} *";
         bool appendBefore = false;
 
-        while (titleRow.Length < borderLength)
+        while (contentRow.Length < borderLength)
         {
             if (appendBefore)
             {
-                fullDayName = " " + fullDayName;
+                content = " " + content;
             }
             else
             {
-                fullDayName = fullDayName + " ";
+                content = content + " ";
             }
-            titleRow = $"* {fullDayName} *";
+            contentRow = $"* {content} *";
             appendBefore = !appendBefore;
         }
 
-        return titleRow;
-    }
-
-    private static string GetResultRow(string result, int borderLength)
-    {
-        string resultRow = $"* {result} *";
-        bool appendBefore = false;
-
-        while (resultRow.Length < borderLength)
-        {
-            if (appendBefore)
-            {
-                result = " " + result;
-            }
-            else
-            {
-                result = result + " ";
-            }
-            resultRow = $"* {result} *";
-            appendBefore = !appendBefore;
-        }
-
-        return resultRow;
+        return contentRow;
     }
 
     private static string GetBorder(int length)
