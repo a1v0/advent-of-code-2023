@@ -7,5 +7,5 @@ public class AOCUtils
         return "";
     }
 
-    
+    public static void ShowResult(string result) { }
 }
