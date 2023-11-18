@@ -4,7 +4,9 @@ public class AOCUtils
 {
     public static string GetRawInput(string DayName)
     {
-        return "";
+        string path = $"inputs/{DayName}.txt";
+        string rawInput = File.ReadAllText(path);
+        return rawInput;
     }
 
     public static void ShowResult(string result) { }
