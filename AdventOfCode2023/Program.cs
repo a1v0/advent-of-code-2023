@@ -1,10 +1,10 @@
-﻿namespace AdventOfCode2023
+﻿namespace AdventOfCode2023;
+
+internal class Program
 {
-    internal class Program
+    static void Main(string[] args)
     {
-        static void Main(string[] args)
-        {
-            Console.WriteLine(Day1.DayName);
-        }
+        Console.WriteLine(Day1.DayName);
     }
 }
+
