@@ -37,3 +37,16 @@ This repo uses xUnit for testing, though my tests aren't particularly extensive.
 <!-- | 25  |        |        |       | -->
 
 <!-- ❌⭐ emojis to copy/paste -->
+
+## Unit testing with xUnit
+
+Each day has its own test file and each test within that day has a trait of `dp` (day/part) of `x,y`, where `x` is the day and `y` is the part.
+
+To run any specific test, use this command:
+
+```sh
+dotnet test --filter dp=1,2
+                      # ^^^ replace this value as necessary
+```
+
+The majority of tests will be simple `Assert.Equals` tests that ensure each `Solve` method returns what the test data requires.
