@@ -13,8 +13,10 @@ public class AOCUtils
     {
         int length = result.Length;
         string border = GetBorder(length);
+
         string titleRow = GetContentRow("Day " + dayName, border.Length),
             resultRow = GetContentRow(result, border.Length);
+        
         string output = $"{border}\n{titleRow}\n{resultRow}\n{border}";
         Console.WriteLine(output);
     }
@@ -34,6 +36,7 @@ public class AOCUtils
             {
                 content = content + " ";
             }
+
             contentRow = $"* {content} *";
             appendBefore = !appendBefore;
         }
@@ -45,7 +48,7 @@ public class AOCUtils
     {
         if (length < 6) length = 6;
         int padding = 4;
-        string border = new string('*', length + padding);
+        string border = new('*', length + padding);
         return border;
     }
 }
