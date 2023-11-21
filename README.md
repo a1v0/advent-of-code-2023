@@ -52,6 +52,10 @@ The `BaseTest` class, from which every day's test class inherits, has a construc
 
 I don't know if this is the accepted way of doing a Jest-style `beforeAll`, but it certainly works!
 
+## How to run each challenge
+
+# [PLACEHOLDER: THINK ABOUT HOW TO DO THIS. WE COULD HAVE AN ENORMOUS SWITCH STATEMENT THAT TAKES AN ARG FROM THE CONSOLE AND RUNS THE CHALLENGE ACCORDINGLY. IF NO DAY IS GIVEN, DISPLAY A MESSAGE. THAT'S MY PREFERRED OPTION]
+
 ## Unit testing with xUnit
 
 Each day has its own test file and each test within that day has a trait of `dp` (day/part) of `x,y`, where `x` is the day and `y` is the part.
