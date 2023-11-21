@@ -38,6 +38,14 @@ This repo uses xUnit for testing, though my tests aren't particularly extensive.
 
 <!-- ❌⭐ emojis to copy/paste -->
 
+## Environment variables
+
+### `INPUT_PATH`
+
+This is probably just my inexperience in C#, but I can't seem to find a simple way to access the solution's base folder at runtime.
+
+This means that my `AOCUtils.GetRawInput` method can't work with a relative path to the input file. xUnit is looking for a folder called `advent-of-code-2023/AdventOfCode2023.Tests/bin/Debug/net7.0/AdventOfCode2023/inputs/`. Instead of jamming the path full of `../../../`, I thought I would set an environment variable of `INPUT_PATH`. This stores the full path to the `inputs` folder.
+
 ## Unit testing with xUnit
 
 Each day has its own test file and each test within that day has a trait of `dp` (day/part) of `x,y`, where `x` is the day and `y` is the part.
