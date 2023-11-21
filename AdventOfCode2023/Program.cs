@@ -4,7 +4,7 @@ internal class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine(Day1.DayName);
+        Console.WriteLine(Day01.DayName);
     }
 }
 

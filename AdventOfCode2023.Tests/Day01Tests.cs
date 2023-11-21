@@ -6,7 +6,7 @@ namespace AdventOfCode2023.Tests
         [Fact]
         public void Test1()
         {
-            string name = Day1.DayName;
+            string name = Day01.DayName;
             Assert.Equal("01", name);
         }
 
@@ -14,7 +14,7 @@ namespace AdventOfCode2023.Tests
         [Fact]
         public void Test2()
         {
-            string name = Day1.DayName;
+            string name = Day01.DayName;
             Assert.NotEqual("02", name);
         }
     }
