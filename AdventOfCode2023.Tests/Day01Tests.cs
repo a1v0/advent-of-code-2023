@@ -1,12 +1,7 @@
 namespace AdventOfCode2023.Tests;
 
-public class Day01Tests
+public class Day01Tests : BaseTest
 {
-    public Day01Tests()
-    {
-        Environment.SetEnvironmentVariable("RUN_MODE", "TEST");
-    }
-
     [Trait("dp", "1,1")]
     [Fact]
     public void Test1()
