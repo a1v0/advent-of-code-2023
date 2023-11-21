@@ -4,7 +4,22 @@ public class AOCUtils
 {
     public static string GetRawInput(string dayName)
     {
-        string path = $"inputs/{dayName}.txt";
+        string? runMode = Environment.GetEnvironmentVariable("RUN_MODE");
+        bool isTest = runMode == "TEST";
+        string testSuffix = isTest ? ".test" : "";
+        //
+        //
+        //
+        // this is causing bugs.
+        // the tests runs from a different base directory, meaning
+        // that this path will not work during test. As such, I
+        // should do something like hardcode a full path to the
+        // input files as an environment variable.
+        //
+        //
+        //
+        //
+        string path = $"AdventOfCode2023/inputs/{dayName}{testSuffix}.txt";
         string rawInput = File.ReadAllText(path);
         return rawInput;
     }
@@ -16,7 +31,7 @@ public class AOCUtils
 
         string titleRow = GetContentRow("Day " + dayName, border.Length),
             resultRow = GetContentRow(result, border.Length);
-        
+
         string output = $"{border}\n{titleRow}\n{resultRow}\n{border}";
         Console.WriteLine(output);
     }
