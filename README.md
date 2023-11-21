@@ -46,6 +46,12 @@ This is probably just my inexperience in C#, but I can't seem to find a simple w
 
 This means that my `AOCUtils.GetRawInput` method can't work with a relative path to the input file. xUnit is looking for a folder called `advent-of-code-2023/AdventOfCode2023.Tests/bin/Debug/net7.0/AdventOfCode2023/inputs/`. Instead of jamming the path full of `../../../`, I thought I would set an environment variable of `INPUT_PATH`. This stores the full path to the `inputs` folder.
 
+### `RUN_MODE`
+
+The `BaseTest` class, from which every day's test class inherits, has a constructor that sets the environment variable `RUN_MODE` to `TEST`. The `AOCUtils.GetRawInput` method chooses which input file to take based on this variable.
+
+I don't know if this is the accepted way of doing a Jest-style `beforeAll`, but it certainly works!
+
 ## Unit testing with xUnit
 
 Each day has its own test file and each test within that day has a trait of `dp` (day/part) of `x,y`, where `x` is the day and `y` is the part.
