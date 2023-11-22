@@ -4,6 +4,13 @@ internal class Program
 {
     static void Main(string[] args)
     {
+        bool enoughArgs = AOCUtils.EnoughArgs(args);
+
+        if (!enoughArgs)
+        {
+            // throw error here, or request user input
+        }
+        
         Console.WriteLine(Day01.DayName);
         Console.WriteLine(AOCUtils.GetRawInput(Day01.DayName));
 
