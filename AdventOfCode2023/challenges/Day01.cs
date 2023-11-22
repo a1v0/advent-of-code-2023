@@ -1,12 +1,12 @@
 namespace AdventOfCode2023;
 
-public class Day01
+public class Day01 : BaseDay
 {
-    public static string DayName
-    {
-        get
-        {
-            return "01";
-        }
-    }
+    // public static string DayName
+    // {
+    //     get
+    //     {
+    //         return "01";
+    //     }
+    // }
 }
