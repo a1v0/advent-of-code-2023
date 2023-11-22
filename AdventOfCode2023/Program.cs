@@ -39,6 +39,26 @@ internal class Program
         // 
         // 
         // 
+
+
+
+        //
+        //
+        //
+        //
+        //
+        //
+        // since this switch is likely to get pretty big, this could be moved into a separate method on AOCUtils
+        // is there a way to call a class based off a string? E.g. "Day" + chosenDay; ?
+        switch (chosenDay) {
+            case 1:
+                // pass challenge number to Day01 here, and run Solve() method
+                break;
+            default:
+                Console.WriteLine("Something went wrong. Please try again.");
+                // or you could throw an exception
+                return;
+        }
         
         
         Console.WriteLine(Day01.DayName);
