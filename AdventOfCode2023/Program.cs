@@ -10,6 +10,36 @@ internal class Program
         {
             // throw error here, or request user input
         }
+
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+        // this could also be parsed as an integer
+        string chosenDay = args[0];
+        string chosenChallenge = args[1];
+
+        // 
+        // what if we did something like this:
+        // - create ParseArgs method
+        //   - returns a tuple of ints with both args
+        //   - ignores any args beyond the first two
+        //   - checks we have enough args
+        //     - throw different exception if not enough args given to the exception thrown when args are invalid
+        //   - checks if arg is valid (between 1 and 25, etc.) and parses as an int
+        //   - throws exception if not
+        //     - since I'm realistically going to be the only user, there's no need to ask for user input for better UX
+        // 
+        // 
+        // 
+        // 
+        // 
+        
         
         Console.WriteLine(Day01.DayName);
         Console.WriteLine(AOCUtils.GetRawInput(Day01.DayName));
