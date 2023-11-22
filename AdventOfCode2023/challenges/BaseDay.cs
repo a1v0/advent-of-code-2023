@@ -8,29 +8,13 @@ public class BaseDay
         {
             string fullDayName = this.GetType().Name;
             string dayName = fullDayName.Substring(3); // Day name always has format "DayXY", so this will always return last two digits
-            if (dayName.Length != 2)
+
+            bool dayNametooShort=dayName.Length != 2;
+            bool dayNameIsNaN = Int32.TryParse(dayName, out int result);
+            
+            if (dayNametooShort || dayNameIsNaN)
             {
-                //
-                //
-                //
-                //
-                //
-                //
-                //
-                //
-                //
-                //
-                //
-                //
-                //
-                //
-                //
-                //
-                //
-                //
-                //
-                //
-                // throw exception here
+                throw new Exception($"Unable to extract DayName from {fullDayName}.");
             }
             
             return dayName;
