@@ -66,4 +66,9 @@ public class AOCUtils
         string border = new('*', length + padding);
         return border;
     }
+
+    public bool EnoughArgs(string[] args)
+    {
+        return args.Length >= 2;
+    }
 }
