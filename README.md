@@ -54,7 +54,7 @@ I don't know if this is the accepted way of doing a Jest-style `beforeAll`, but 
 
 ## How to run each challenge
 
-# [PLACEHOLDER: THINK ABOUT HOW TO DO THIS. WE COULD HAVE AN ENORMOUS SWITCH STATEMENT THAT TAKES AN ARG FROM THE CONSOLE AND RUNS THE CHALLENGE ACCORDINGLY. IF NO DAY IS GIVEN, DISPLAY A MESSAGE. THAT'S MY PREFERRED OPTION]
+Enter the `AdventOfCode2023` folder and run `dotnet run -- xx y`, where `xx` is the day name **[CLARIFY WHETHER `xx` CAN BE SINGLE-DIGIT IF <10]** and `y` is the problem name (can be 1 or 2). Any additional arguments will be ignored.
 
 ## Unit testing with xUnit
 
