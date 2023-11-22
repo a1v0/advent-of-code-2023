@@ -6,13 +6,34 @@ public class BaseDay
     {
         get
         {
-            //
-            //
-            //
-            // logic to extract day name from class name
-            // return exception or something if no day name is found
-            // perhaps also create unit tests for this method
-            //
+            string fullDayName = this.GetType().Name;
+            string dayName = fullDayName.Substring(3); // Day name always has format "DayXY", so this will always return last two digits
+            if (dayName.Length != 2)
+            {
+                //
+                //
+                //
+                //
+                //
+                //
+                //
+                //
+                //
+                //
+                //
+                //
+                //
+                //
+                //
+                //
+                //
+                //
+                //
+                //
+                // throw exception here
+            }
+            
+            return dayName;
         }
     }
 }
