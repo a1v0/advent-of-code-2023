@@ -20,6 +20,16 @@ public class BaseDay
             return dayName;
         }
     }
+    
+    public BaseTask Task1
+    {
+        get;
+    }
+
+    public BaseTask Task2
+    {
+        get;
+    }
 }
 
 public class BaseTask
