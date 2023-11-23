@@ -52,7 +52,7 @@ internal class Program
         // is there a way to call a class based off a string? E.g. "Day" + chosenDay; ?
         switch (chosenDay) {
             case 1:
-                // pass challenge number to Day01 here, and run Solve() method
+                Day01.Solve(chosenDay);
                 break;
             default:
                 Console.WriteLine("Something went wrong. Please try again.");
