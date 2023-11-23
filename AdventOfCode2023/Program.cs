@@ -22,8 +22,7 @@ internal class Program
                 Day01.Solve(chosenChallenge);
                 break;
             default:
-                Console.WriteLine("Something went wrong. Please try again.");
-                // or you could throw an exception
+                throw new Exception("Something went wrong. Please try again.");
                 return;
         }
         
