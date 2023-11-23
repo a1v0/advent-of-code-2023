@@ -72,7 +72,26 @@ public class AOCUtils
         return args.Length >= 2;
     }
 
-    private int ParseDayArg(string day){}
+    private int ParseDayArg(string day){
+        int parsedDay;
+        try
+        {
+            parsedDay = Int32.Parse(day);
+        }
+        catch(Exception e)
+        {
+            throw new Exception("Invalid Day argument provided.");
+        }
+
+        bool dayNotInRange = parsedDay < 1 || parsedDay > 25;
+
+        if (dayNotInRange)
+        {
+            throw new Exception("Day argument needs to be between 1 and 25.");
+        }
+
+        return parsedDay;
+    }
     
     private int ParseTaskArg(string task){}
 
