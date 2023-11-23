@@ -21,3 +21,25 @@ public class BaseDay
         }
     }
 }
+
+public class BaseTask
+{
+    //
+    // declare Tasks 1 and 2 on BaseTask
+    // Task1 on each day inherits from here
+    // Task2 inherits from Task1
+    //
+    // Solve method on BaseDay invokes Task1 or Task2
+    // We need to declare new tasks in each day, but the Solve method should be fine
+    // 
+    //
+    //
+    //
+    //
+    //
+    //
+    //
+    //
+    //
+    //
+}
