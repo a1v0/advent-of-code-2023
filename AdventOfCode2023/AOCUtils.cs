@@ -72,6 +72,10 @@ public class AOCUtils
         return args.Length >= 2;
     }
 
+    private int ParseDayArg(string day){}
+    
+    private int ParseTaskArg(string task){}
+
     public (int, int) ParseInitialArgs(string[] args)
     {
         bool notEnoughArgs = !EnoughArgs(args);
@@ -79,5 +83,10 @@ public class AOCUtils
         
         string chosenDay = args[0];
         string chosenChallenge = args[1];
+
+        int parsedDay = ParseDayArg(chosenDay);
+        int parsedTask = ParseTaskArg(chosenChallenge);
+
+        return (parsedDay, parsedTask);
     }
 }
