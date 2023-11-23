@@ -4,23 +4,20 @@ public class AOCUtils
 {
     public static string GetRawInput(string dayName)
     {
+        string? basePath = Environment.GetEnvironmentVariable("PATH_TO_SOLUTION");
+
+        if (basePath is null)
+        {
+            throw new Exception("Base path not set in PATH_TO_SOLUTION environment variable.");
+        }
+        
         string? runMode = Environment.GetEnvironmentVariable("RUN_MODE");
         bool isTest = runMode == "TEST";
         string testSuffix = isTest ? ".test" : "";
-        //
-        //
-        //
-        // this is causing bugs.
-        // the tests runs from a different base directory, meaning
-        // that this path will not work during test. As such, I
-        // should do something like hardcode a full path to the
-        // input files as an environment variable.
-        //
-        //
-        //
-        //
-        string path = $"AdventOfCode2023/inputs/{dayName}{testSuffix}.txt";
+        
+        string path = $"{basePath}/AdventOfCode2023/inputs/{dayName}{testSuffix}.txt";
         string rawInput = File.ReadAllText(path);
+        
         return rawInput;
     }
 
