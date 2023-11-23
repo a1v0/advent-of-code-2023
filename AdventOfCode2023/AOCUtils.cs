@@ -27,16 +27,16 @@ public class AOCUtils
     public static void ShowResult(string dayName, string result)
     {
         int length = result.Length;
-        string border = GetBorder(length);
+        string border = GetResultBorder(length);
 
-        string titleRow = GetContentRow("Day " + dayName, border.Length),
-            resultRow = GetContentRow(result, border.Length);
+        string titleRow = GetResultRow("Day " + dayName, border.Length),
+            resultRow = GetResultRow(result, border.Length);
 
         string output = $"{border}\n{titleRow}\n{resultRow}\n{border}";
         Console.WriteLine(output);
     }
 
-    private static string GetContentRow(string content, int borderLength)
+    private static string GetResultRow(string content, int borderLength)
     {
         string contentRow = $"* {content} *";
         bool appendBefore = false;
@@ -59,7 +59,7 @@ public class AOCUtils
         return contentRow;
     }
 
-    private static string GetBorder(int length)
+    private static string GetResultBorder(int length)
     {
         if (length < 6) length = 6;
         int padding = 4;
