@@ -20,6 +20,21 @@ public class BaseDay
             return dayName;
         }
     }
+
+    public void Solve(int task) {
+        switch (task)
+        {
+            case 1:
+                Task1.Solve();
+                break;
+            case 2:
+                Task2.Solve();
+                break;
+            default:
+                throw new Exception("An invalid task number has been selected.");
+                break;
+        }
+    }
     
     public BaseTask Task1
     {
