@@ -93,7 +93,26 @@ public class AOCUtils
         return parsedDay;
     }
     
-    private int ParseTaskArg(string task){}
+    private int ParseTaskArg(string task){
+         int parsedTask;
+        try
+        {
+            parsedTask = Int32.Parse(task);
+        }
+        catch(Exception e)
+        {
+            throw new Exception("Invalid Task argument provided.");
+        }
+
+        bool taskNotInRange = parsedTask != 1 && parsedTask != 2;
+
+        if (taskNotInRange)
+        {
+            throw new Exception("Task argument needs to be 1 or 2.");
+        }
+
+        return parsedTask;
+    }
 
     public (int, int) ParseInitialArgs(string[] args)
     {
