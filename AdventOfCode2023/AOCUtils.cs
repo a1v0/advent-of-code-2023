@@ -67,8 +67,17 @@ public class AOCUtils
         return border;
     }
 
-    public bool EnoughArgs(string[] args)
+    private bool EnoughArgs(string[] args)
     {
         return args.Length >= 2;
+    }
+
+    public (int, int) ParseInitialArgs(string[] args)
+    {
+        bool notEnoughArgs = !EnoughArgs(args);
+        if (notEnoughArgs) throw new Exception("Not enough arguments given. Two are required: Day and Task.");
+        
+        string chosenDay = args[0];
+        string chosenChallenge = args[1];
     }
 }
