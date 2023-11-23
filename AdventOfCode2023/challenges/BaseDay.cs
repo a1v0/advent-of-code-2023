@@ -24,6 +24,11 @@ public class BaseDay
 
 public class BaseTask
 {
+    public void Solve()
+    {
+        Console.WriteLine("If you are seeing this message, it means that no solution has been created for the chosen Task.");
+    }
+    
     //
     // declare Tasks 1 and 2 on BaseTask
     // Task1 on each day inherits from here
