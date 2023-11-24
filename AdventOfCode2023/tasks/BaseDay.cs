@@ -13,7 +13,6 @@ public class BaseDay
                 break;
             default:
                 throw new Exception("An invalid task number has been selected.");
-                break;
         }
     }
 
