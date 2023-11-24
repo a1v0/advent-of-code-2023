@@ -73,7 +73,7 @@ internal class Program
         return parsedTask;
     }
 
-    public (int, int) ParseInitialArgs(string[] args)
+    private (int, int) ParseInitialArgs(string[] args)
     {
         bool notEnoughArgs = !EnoughArgs(args);
         if (notEnoughArgs) throw new Exception("Not enough arguments given. Two are required: Day and Task.");
