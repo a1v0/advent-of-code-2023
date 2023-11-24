@@ -29,20 +29,12 @@ internal class Program
     private static byte ParseDayArg(string day)
     {
         byte parsedDay;
-        try
-        {
-            parsedDay = Byte.Parse(day);
-        }
-        catch (Exception e)
-        {
-            throw new Exception("Invalid Day argument provided.");
-        }
+        bool dayIsNumber = Byte.TryParse(day, out parsedDay);
+        bool dayIsInvalid = !dayIsNumber || parsedDay < 1 || parsedDay > 25;
 
-        bool dayNotInRange = parsedDay < 1 || parsedDay > 25;
-
-        if (dayNotInRange)
+        if (dayIsInvalid)
         {
-            throw new Exception("Day argument needs to be between 1 and 25.");
+            throw new Exception("Day argument must be an integer between 1 and 25.");
         }
 
         return parsedDay;
@@ -56,7 +48,7 @@ internal class Program
 
         if (taskIsInvalid)
         {
-            throw new Exception("Task argument needs to be 1 or 2.");
+            throw new Exception("Task argument must be 1 or 2.");
         }
 
         return parsedTask;
