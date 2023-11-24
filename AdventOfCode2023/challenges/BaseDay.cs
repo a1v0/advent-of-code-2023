@@ -36,12 +36,12 @@ public class BaseDay
         }
     }
     
-    public BaseTask Task1
+    public virtual BaseTask Task1
     {
         get;
     }
 
-    public BaseTask Task2
+    public virtual BaseTask Task2
     {
         get;
     }
@@ -49,7 +49,7 @@ public class BaseDay
 
 public class BaseTask
 {
-    public void Solve()
+    public virtual void Solve()
     {
         Console.WriteLine("If you are seeing this message, it means that no solution has been created for the chosen Task.");
     }
