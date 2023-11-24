@@ -2,14 +2,20 @@ namespace AdventOfCode2023;
 
 public class Day01 : BaseDay
 {
-    public BaseTask Day01Task1
+    public BaseTask Task1
     {
-        get;
+        get
+        {
+            return Day01Task1;
+        }
     }
 
-    public BaseTask Day01Task2
+    public BaseTask Task2
     {
-        get;
+        get
+        {
+            return Day01Task2;
+        }
     }
 }
 
