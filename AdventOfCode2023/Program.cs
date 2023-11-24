@@ -51,18 +51,10 @@ internal class Program
     private static byte ParseTaskArg(string task)
     {
         byte parsedTask;
-        try
-        {
-            parsedTask = Byte.Parse(task);
-        }
-        catch (Exception e)
-        {
-            throw new Exception("Invalid Task argument provided.");
-        }
+        bool taskIsNumber = Byte.TryParse(task, out parsedTask);
+        bool taskIsInvalid = !taskIsNumber || (parsedTask != 1 && parsedTask != 2);
 
-        bool taskNotInRange = parsedTask != 1 && parsedTask != 2;
-
-        if (taskNotInRange)
+        if (taskIsInvalid)
         {
             throw new Exception("Task argument needs to be 1 or 2.");
         }
