@@ -19,7 +19,7 @@ internal class Program
     {
         switch (chosenDay) {
             case 1:
-                Day01.Solve(chosenTask);
+               new Day01().Solve(chosenTask);
                 break;
             default:
                 throw new Exception("Something went wrong. Please try again.");
