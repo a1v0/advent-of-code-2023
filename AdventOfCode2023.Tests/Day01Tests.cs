@@ -6,17 +6,17 @@ public class Day01Tests : BaseTest
     [Fact]
     public void Test1()
     {
-        string name = Day01.DayName;
-        Assert.Equal("01", name);
+        const string expected = "01";
+        string actual = new Day01Task1().Solve();
+        Assert.Equal(expected, actual);
     }
 
     [Trait("dp", "1,2")]
     [Fact]
     public void Test2()
     {
-        Console.WriteLine(AOCUtils.GetRawInput(Day01.DayName));
-
-        string name = Day01.DayName;
-        Assert.NotEqual("02", name);
+        const string expected = "01";
+        string actual = new Day01Task2().Solve();
+        Assert.Equal(expected, actual);
     }
 }
