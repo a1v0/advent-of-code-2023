@@ -2,21 +2,15 @@ namespace AdventOfCode2023;
 
 public class Day01 : BaseDay
 {
-    public BaseTask Task1
+    public override BaseTask Task1
     {
-        get
-        {
-            return Day01Task1;
-        }
-    }
+        get;
+    }=new Day01Task1();
 
-    public BaseTask Task2
+    public override BaseTask Task2
     {
-        get
-        {
-            return Day01Task2;
-        }
-    }
+        get;
+    }=new Day01Task2();
 }
 
 public class Day01Task1 : BaseTask {
