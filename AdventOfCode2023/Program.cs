@@ -76,10 +76,10 @@ internal class Program
         if (notEnoughArgs) throw new Exception("Not enough arguments given. Two are required: Day and Task.");
 
         string chosenDay = args[0];
-        string chosenChallenge = args[1];
+        string chosenTask = args[1];
 
         byte parsedDay = ParseDayArg(chosenDay);
-        byte parsedTask = ParseTaskArg(chosenChallenge);
+        byte parsedTask = ParseTaskArg(chosenTask);
 
         return (parsedDay, parsedTask);
     }
