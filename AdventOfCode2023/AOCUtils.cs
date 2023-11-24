@@ -10,14 +10,14 @@ public class AOCUtils
         {
             throw new Exception("Base path not set in PATH_TO_SOLUTION environment variable.");
         }
-        
+
         string? runMode = Environment.GetEnvironmentVariable("RUN_MODE");
         bool isTest = runMode == "TEST";
         string testSuffix = isTest ? ".test" : "";
-        
+
         string path = $"{basePath}/AdventOfCode2023/inputs/{dayName}{testSuffix}.txt";
         string rawInput = File.ReadAllText(path);
-        
+
         return rawInput;
     }
 

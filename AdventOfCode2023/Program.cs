@@ -3,18 +3,18 @@
 internal class Program
 {
     static void Main(string[] args)
-    {        
+    {
         (int chosenDay, int chosenTask) = ParseInitialArgs(args);
 
-       SolveChosenTask(chosenDay, chosenTask);
-        
+        SolveChosenTask(chosenDay, chosenTask);
     }
 
-   private static void SolveChosenTask(int chosenDay, int chosenTask)
+    private static void SolveChosenTask(int chosenDay, int chosenTask)
     {
-        switch (chosenDay) {
+        switch (chosenDay)
+        {
             case 1:
-               new Day01().Solve(chosenTask);
+                new Day01().Solve(chosenTask);
                 break;
             default:
                 throw new Exception("Something went wrong. Please try again.");
@@ -26,7 +26,8 @@ internal class Program
         return args.Length >= 2;
     }
 
-    private static int ParseDayArg(string day){
+    private static int ParseDayArg(string day)
+    {
         int parsedDay;
         try
         {
@@ -46,14 +47,15 @@ internal class Program
 
         return parsedDay;
     }
-    
-    private static int ParseTaskArg(string task){
-         int parsedTask;
+
+    private static int ParseTaskArg(string task)
+    {
+        int parsedTask;
         try
         {
             parsedTask = Int32.Parse(task);
         }
-        catch(Exception e)
+        catch (Exception e)
         {
             throw new Exception("Invalid Task argument provided.");
         }
@@ -72,7 +74,7 @@ internal class Program
     {
         bool notEnoughArgs = !EnoughArgs(args);
         if (notEnoughArgs) throw new Exception("Not enough arguments given. Two are required: Day and Task.");
-        
+
         string chosenDay = args[0];
         string chosenChallenge = args[1];
 
