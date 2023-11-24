@@ -31,7 +31,7 @@ public class BaseDay
 public class BaseTask
 {
 
-    public string DayName
+    private string DayName
     {
         get
         {
