@@ -3,13 +3,8 @@
 internal class Program
 {
     static void Main(string[] args)
-    {
-        //Console.WriteLine(Day01.DayName);
-        //Console.WriteLine(AOCUtils.GetRawInput(Day01.DayName));
-
-        
-        var parsedArgs = ParseInitialArgs(args);
-        (chosenDay, chosenTask) = parsedArgs;  
+    {        
+        (int chosenDay, int chosenTask) = ParseInitialArgs(args);
 
        SolveChosenTask(chosenDay, chosenTask);
         
