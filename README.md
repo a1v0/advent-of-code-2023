@@ -2,7 +2,7 @@
 
 My code for calculating the answers for Advent of Code 2023, this time in C#.
 
-The tasks can be found **[here](https://adventofcode.com/2023)**. Each day has its own class which contains classes related to that day's task. Daily classes are stored in the `challenges` folder.
+The tasks can be found **[here](https://adventofcode.com/2023)**. Each day has its own class which contains classes related to that day's task. Daily classes are stored in the `tasks` folder.
 
 Inputs are store as plaintext in the `inputs` folder, e.g. `01.txt`, `15.txt` and so on. Test data files are marked as `01.test.txt`.
 
@@ -54,7 +54,12 @@ I don't know if this is the accepted way of doing a Jest-style `beforeAll`, but 
 
 ## How to run each challenge
 
-Enter the `AdventOfCode2023` folder and run `dotnet run -- xx y`, where `xx` is the day name **[CLARIFY WHETHER `xx` CAN BE SINGLE-DIGIT IF <10]** and `y` is the problem name (can be 1 or 2). Any additional arguments will be ignored.
+Enter the `AdventOfCode2023` folder and run `dotnet run -- x y`, where `x` is the day name and `y` is the problem name (can be 1 or 2). Any additional arguments will be ignored.
+
+```sh
+$ dotnet run -- 1 2
+# runs the second challenge of the first day
+```
 
 ## Unit testing with xUnit
 
@@ -63,8 +68,8 @@ Each day has its own test file and each test within that day has a trait of `dp`
 To run any specific test, use this command:
 
 ```sh
-dotnet test --filter dp=1,2
-                      # ^^^ replace this value as necessary
+$ dotnet test --filter dp=1,2
+                        # ^^^ replace this value as necessary
 ```
 
 The majority of tests will be simple `Assert.Equals` tests that ensure each `Solve` method returns what the test data requires.
