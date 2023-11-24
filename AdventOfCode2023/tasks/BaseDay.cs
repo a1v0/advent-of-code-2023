@@ -16,16 +16,16 @@ public class BaseDay
                 break;
         }
     }
-    
+
     public virtual BaseTask Task1
     {
         get;
-    }
+    } = new BaseTask();
 
     public virtual BaseTask Task2
     {
         get;
-    }
+    } = new BaseTask();
 }
 
 public class BaseTask
