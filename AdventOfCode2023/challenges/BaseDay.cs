@@ -2,25 +2,6 @@ namespace AdventOfCode2023;
 
 public class BaseDay
 {
-    public string DayName
-    {
-        get
-        {
-            string fullDayName = this.GetType().Name;
-            string dayName = fullDayName.Substring(3); // Day name always has format "DayXY", so this will always return last two digits
-
-            bool dayNametooShort=dayName.Length != 2;
-            bool dayNameIsNaN = Int32.TryParse(dayName, out int result);
-            
-            if (dayNametooShort || dayNameIsNaN)
-            {
-                throw new Exception($"Unable to extract DayName from {fullDayName}.");
-            }
-            
-            return dayName;
-        }
-    }
-
     public void Solve(int task) {
         switch (task)
         {
@@ -49,6 +30,27 @@ public class BaseDay
 
 public class BaseTask
 {
+
+    public string DayName
+    {
+        get
+        {
+            string fullDayAndTaskName = this.GetType().Name;
+            string dayName = fullDayAndTaskName.Substring(3, 2); // Day name always has format "DayXYTaskZ"
+
+            bool dayNameTooShort = dayName.Length != 2;
+            bool dayNameIsNaN = Int32.TryParse(dayName, out int result);
+            
+            if (dayNameTooShort || dayNameIsNaN)
+            {
+                // This error handling could be more robust but, since it's only me using the repo, I'll leave it at this
+                throw new Exception($"Unable to extract DayName from {fullDayAndTaskName}.");
+            }
+            
+            return dayName;
+        }
+    }
+    
     //
     // need to be able to access input from here so that
     // each day's tasks have access.
