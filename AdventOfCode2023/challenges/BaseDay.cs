@@ -52,24 +52,5 @@ public class BaseTask
     public virtual void Solve()
     {
         Console.WriteLine("If you are seeing this message, it means that no solution has been created for the chosen Task.");
-    }
-    
-    //
-    // declare Tasks 1 and 2 on BaseTask
-    // Task1 on each day inherits from here
-    // Task2 inherits from Task1
-    //
-    // Solve method on BaseDay invokes Task1 or Task2
-    // We need to declare new tasks in each day, but the Solve method should be fine
-    // 
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
+    }    
 }
