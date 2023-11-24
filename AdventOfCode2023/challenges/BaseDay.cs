@@ -50,6 +50,14 @@ public class BaseTask
             return dayName;
         }
     }
+
+    private string Input
+    {
+        get
+        {
+            return AOCUtils.GetRawInput(DayName);
+        }
+    }
     
     //
     // need to be able to access input from here so that
