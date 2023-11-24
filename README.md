@@ -73,3 +73,5 @@ $ dotnet test --filter dp=1,2
 ```
 
 The majority of tests will be simple `Assert.Equals` tests that ensure each `Solve` method returns what the test data requires.
+
+On the assumption that the Advent of Code challenges will all either be numerical or string types, the `Solve` method returns a string every time. Challenges whose answer is numerical will be converted to a string before returning. This is important mainly for the test suite, since the application will print the calculated solution to the console, too.
