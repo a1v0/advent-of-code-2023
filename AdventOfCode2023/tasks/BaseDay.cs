@@ -2,16 +2,14 @@ namespace AdventOfCode2023;
 
 public class BaseDay
 {
-    public void Solve(byte task)
+    public string Solve(byte task)
     {
         switch (task)
         {
             case 1:
-                Task1.Solve();
-                break;
+                return Task1.Solve();
             case 2:
-                Task2.Solve();
-                break;
+                return Task2.Solve();
             default:
                 throw new Exception("An invalid task number has been selected.");
         }
@@ -58,8 +56,9 @@ public class BaseTask
         }
     }
 
-    public virtual void Solve()
+    public virtual string Solve()
     {
         Console.WriteLine("If you are seeing this message, it means that no solution has been created for the chosen Task.");
+        return "";
     }
 }
