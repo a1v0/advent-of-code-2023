@@ -4,12 +4,12 @@ internal class Program
 {
     static void Main(string[] args)
     {
-        (byte chosenDay, int chosenTask) = ParseInitialArgs(args);
+        (byte chosenDay, byte chosenTask) = ParseInitialArgs(args);
 
         SolveChosenTask(chosenDay, chosenTask);
     }
 
-    private static void SolveChosenTask(byte chosenDay, int chosenTask)
+    private static void SolveChosenTask(byte chosenDay, byte chosenTask)
     {
         switch (chosenDay)
         {
@@ -31,7 +31,7 @@ internal class Program
         byte parsedDay;
         try
         {
-            parsedDay = byte.Parse(day);
+            parsedDay = Byte.Parse(day);
         }
         catch (Exception e)
         {
@@ -48,12 +48,12 @@ internal class Program
         return parsedDay;
     }
 
-    private static int ParseTaskArg(string task)
+    private static byte ParseTaskArg(string task)
     {
-        int parsedTask;
+        byte parsedTask;
         try
         {
-            parsedTask = Int32.Parse(task);
+            parsedTask = Byte.Parse(task);
         }
         catch (Exception e)
         {
@@ -70,7 +70,7 @@ internal class Program
         return parsedTask;
     }
 
-    private static (byte, int) ParseInitialArgs(string[] args)
+    private static (byte, byte) ParseInitialArgs(string[] args)
     {
         bool notEnoughArgs = !EnoughArgs(args);
         if (notEnoughArgs) throw new Exception("Not enough arguments given. Two are required: Day and Task.");
@@ -79,7 +79,7 @@ internal class Program
         string chosenChallenge = args[1];
 
         byte parsedDay = ParseDayArg(chosenDay);
-        int parsedTask = ParseTaskArg(chosenChallenge);
+        byte parsedTask = ParseTaskArg(chosenChallenge);
 
         return (parsedDay, parsedTask);
     }

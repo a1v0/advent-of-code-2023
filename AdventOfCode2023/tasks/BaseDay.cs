@@ -2,7 +2,7 @@ namespace AdventOfCode2023;
 
 public class BaseDay
 {
-    public void Solve(int task)
+    public void Solve(byte task)
     {
         switch (task)
         {
