@@ -4,8 +4,8 @@ internal class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine(Day01.DayName);
-        Console.WriteLine(AOCUtils.GetRawInput(Day01.DayName));
+        //Console.WriteLine(Day01.DayName);
+        //Console.WriteLine(AOCUtils.GetRawInput(Day01.DayName));
 
         
         var parsedArgs = ParseInitialArgs(args);
@@ -26,12 +26,12 @@ internal class Program
         }
     }
 
-    private bool EnoughArgs(string[] args)
+    private static bool EnoughArgs(string[] args)
     {
         return args.Length >= 2;
     }
 
-    private int ParseDayArg(string day){
+    private static int ParseDayArg(string day){
         int parsedDay;
         try
         {
@@ -52,7 +52,7 @@ internal class Program
         return parsedDay;
     }
     
-    private int ParseTaskArg(string task){
+    private static int ParseTaskArg(string task){
          int parsedTask;
         try
         {
@@ -73,7 +73,7 @@ internal class Program
         return parsedTask;
     }
 
-    private (int, int) ParseInitialArgs(string[] args)
+    private static (int, int) ParseInitialArgs(string[] args)
     {
         bool notEnoughArgs = !EnoughArgs(args);
         if (notEnoughArgs) throw new Exception("Not enough arguments given. Two are required: Day and Task.");
