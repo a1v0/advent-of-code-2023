@@ -36,12 +36,12 @@ public class BaseTask
             string dayName = fullDayAndTaskName.Substring(3, 2); // Day name always has format "DayXYTaskZ"
 
             bool dayNameTooShort = dayName.Length != 2;
-            bool dayNameIsNaN = Int32.TryParse(dayName, out int result);
+            bool dayNameIsNumber = Int32.TryParse(dayName, out int result);
 
-            if (dayNameTooShort || dayNameIsNaN)
+            if (dayNameTooShort || !dayNameIsNumber)
             {
                 // This error handling could be more robust but, since it's only me using the repo, I'll leave it at this
-                throw new Exception($"Unable to extract DayName from {fullDayAndTaskName}.");
+                throw new Exception($"Unable to extract DayName from {fullDayAndTaskName}. Received {dayName}.");
             }
 
             return dayName;
