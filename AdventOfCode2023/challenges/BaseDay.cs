@@ -30,7 +30,6 @@ public class BaseDay
 
 public class BaseTask
 {
-
     private string DayName
     {
         get
@@ -58,35 +57,6 @@ public class BaseTask
             return AOCUtils.GetRawInput(DayName);
         }
     }
-    
-    //
-    // need to be able to access input from here so that
-    // each day's tasks have access.
-    //
-    // Simplest way would be to pass the DayName over as
-    // a parameter in the constructor. Then BaseTask can
-    // retrieve input via AOCUtils
-    //
-    // I could also put DayName as a property directly on
-    // BaseTask.
-    //
-    // This way, the only purpose of BaseDay and all
-    // derived classes would be to direct request to
-    // specific task objects. I reckon it's a good enough
-    // reason to retain BaseDay. The alternative would be
-    // more switch statements and less dynamism, I think.
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
     
     public virtual void Solve()
     {
