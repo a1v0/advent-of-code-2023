@@ -58,7 +58,7 @@ Enter the `AdventOfCode2023` folder and run `dotnet run -- x y`, where `x` is th
 
 ```sh
 $ dotnet run -- 1 2
-# runs the second challenge of the first day
+runs the second challenge of the first day
 ```
 
 ## Unit testing with xUnit (with test data)
@@ -69,7 +69,7 @@ To run any specific test, use this command:
 
 ```sh
 $ dotnet test --filter dp=1,2
-                        # ^^^ replace this value as necessary
+                          ^^^ replace this value as necessary
 ```
 
 The majority of tests will be simple `Assert.Equals` tests that ensure each `Solve` method returns what the test data requires.
