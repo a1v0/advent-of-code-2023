@@ -4,12 +4,7 @@ public class AOCUtils
 {
     public static string GetRawInput(string dayName)
     {
-        string? basePath = Environment.GetEnvironmentVariable("PATH_TO_SOLUTION");
-
-        if (basePath is null)
-        {
-            throw new Exception("Base path not set in PATH_TO_SOLUTION environment variable.");
-        }
+        string basePath = "/home/alvo/advent-of-code/advent-of-code-2023";
 
         string? runMode = Environment.GetEnvironmentVariable("RUN_MODE");
         bool isTest = runMode == "TEST";
