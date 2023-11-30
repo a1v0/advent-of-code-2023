@@ -42,9 +42,7 @@ This repo uses xUnit for testing, though my tests aren't particularly extensive.
 
 ### `INPUT_PATH`
 
-This is probably just my inexperience in C#, but I can't seem to find a simple way to access the solution's base folder at runtime.
-
-This means that my `AOCUtils.GetRawInput` method can't work with a relative path to the input file. xUnit is looking for a folder called `advent-of-code-2023/AdventOfCode2023.Tests/bin/Debug/net7.0/AdventOfCode2023/inputs/`. Instead of jamming the path full of `../../../`, I thought I would set an environment variable of `INPUT_PATH`. This stores the full path to the `inputs` folder.
+I wanted to set the path to the input files as an environment variable in an `appsettings.json` file but simply couldn't get it to work. I decided there's not too much harm in hard-coding the path inside the `GetRawInput` method.
 
 ### `RUN_MODE`
 
