@@ -15,7 +15,15 @@ public class Day01 : BaseDay
 
 public class Day01Task1 : BaseTask
 {
+    public override string Solve()
+    {
+        string[] unsanitisedCalibrations = ParseInput();
+    }
 
+    private string[] ParseInput()
+    {
+        return Input.Split('\n');
+    }
 }
 
 public class Day01Task2 : Day01Task1
