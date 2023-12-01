@@ -24,21 +24,46 @@ public class Day01Task1 : BaseTask
     public override string Solve()
     {
         int[] calibrations = SanitiseCalibrations();
-    }
-
-    private int[] SanitiseCalibrations()
-    {
-        int[] sanitisedCalibrations = new int[UnsanitisedCalibrations.Length];
+        
         // 
         // loop through each line
         // loop through each char
-        // since TryParse will converrt chars to ints, it's probably easier for now to use a regex to check for no. from 1–9
         // try using one of C#'s double loops to count down as well as up
         // ensure that, if there's only one int, that the int doesn't get counted twice
         // combine both numbers, convert to int and add to sanitisedCals
         // sum array
         // return
         // 
+    }
+
+    private int[] SanitiseCalibrations()
+    {
+        int[] sanitisedCalibrations = new int[UnsanitisedCalibrations.Length];
+
+        for (int i = 0; i < UnsanitisedCalibrations.Length; ++i) 
+        {
+            string currentLine = UnsanitisedCalibrations[i];
+            sanitisedCalibrations[i] = ExtractHiddenValue(currentLine);
+        }
+        
+        return sanitisedCalibrations;
+    }
+
+    private int ExtractHiddenValue(string unsanitisedCalibration)
+    {
+        string validInts = "123456789";
+
+        char firstNumber = "",
+            secondNumber = "";
+
+        foreach (char c in unsanitisedCalibration)
+        {
+            // if firstNum is "" and c is a number, assign
+            // if firstNum is assigned, then assign to secondNum
+        }
+
+        string combinedValue = firstNumber + secondNumber;
+        return int.Parse(combinedValue);
     }
 
     private string[] ParseInput()
