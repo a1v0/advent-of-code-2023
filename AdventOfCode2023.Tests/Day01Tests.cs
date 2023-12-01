@@ -7,7 +7,7 @@ public class Day01Tests : BaseTest
     public void Test1()
     {
         const string expected = "142";
-        string actual = new Day01Task1().Solve();
+        string actual = new Day01().Solve(1);
         Assert.Equal(expected, actual);
     }
 
@@ -16,7 +16,7 @@ public class Day01Tests : BaseTest
     public void Test2()
     {
         const string expected = "sdfghsdfkghksdjfghldsj01";
-        string actual = new Day01Task2().Solve();
+        string actual = new Day01().Solve(2);
         Assert.Equal(expected, actual);
     }
 }
