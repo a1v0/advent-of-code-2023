@@ -87,12 +87,10 @@ public class Day01Task2 : Day01Task1
 {
     protected override int ExtractHiddenValue(string unsanitisedCalibration)
     {
-        string validInts = "123456789";
         NumberAsWord[] validNumberWords = GetValidNumberWords();
 
         string firstNumber = "",
            secondNumber = "";
-
 
         for (int i = 0; i < unsanitisedCalibration.Length; ++i)
         {
@@ -146,6 +144,19 @@ public class Day01Task2 : Day01Task1
         // - create a method that looks for a given value in a string
         // - if number is there, convert to normal int string and the rest is as before
         // - add acknowledgement of inefficiency
+    }
+
+    private static string FindNumberAsWord(NumberAsWord desiredNumber, string substring)
+    {
+        for (int i = 0; i < desiredNumber.AsWord.Length; ++i)
+        {
+            char cDesired = desiredNumber.AsWord[i];
+            char cSubstring = substring[i];
+
+            if (cDesired != cSubstring) return "";
+        }
+
+        return desiredNumber.AsChar;
     }
 
     private NumberAsWord[] GetValidNumberWords()
