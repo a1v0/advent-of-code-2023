@@ -85,7 +85,6 @@ public class Day01Task1 : BaseTask
 
 public class Day01Task2 : Day01Task1
 {
-
     protected override int ExtractHiddenValue(string unsanitisedCalibration)
     {
         string validInts = "123456789";
@@ -93,6 +92,7 @@ public class Day01Task2 : Day01Task1
 
         string firstNumber = "",
            secondNumber = "";
+
         string combinedValue = $"{firstNumber}{secondNumber}";
         return int.Parse(combinedValue);
         // PLAN:
@@ -101,21 +101,21 @@ public class Day01Task2 : Day01Task1
         //   - maybe use a switch for this
         // - create a method that looks for a given value in a string
         // - if number is there, convert to normal int string and the rest is as before
-
+        // - add acknowledgement of inefficiency
     }
 
     private NumberAsWord[] GetValidNumberWords()
     {
         NumberAsWord[] validNumberWords = new NumberAsWord[9]{
-            new NumberAsWord("one", 1),
-            new NumberAsWord("two", 2),
-            new NumberAsWord("three", 3),
-            new NumberAsWord("four", 4),
-            new NumberAsWord("five", 5),
-            new NumberAsWord("six", 6),
-            new NumberAsWord("seven", 7),
-            new NumberAsWord("eight", 8),
-            new NumberAsWord("nine", 9),
+            new NumberAsWord("one", '1'),
+            new NumberAsWord("two", '2'),
+            new NumberAsWord("three", '3'),
+            new NumberAsWord("four", '4'),
+            new NumberAsWord("five", '5'),
+            new NumberAsWord("six", '6'),
+            new NumberAsWord("seven", '7'),
+            new NumberAsWord("eight", '8'),
+            new NumberAsWord("nine", '9'),
         };
 
         return validNumberWords;
@@ -124,10 +124,10 @@ public class Day01Task2 : Day01Task1
 
 class NumberAsWord
 {
-    public NumberAsWord(string asWord, int asInt)
+    public NumberAsWord(string asWord, char asChar)
     {
         _asWord = asWord;
-        _asInt = asInt;
+        _asChar = asChar;
     }
 
     readonly string _asWord;
@@ -139,12 +139,12 @@ class NumberAsWord
         }
     }
 
-    readonly int _asInt;
-    public int AsInt
+    readonly char _asChar;
+    public char AsChar
     {
         get
         {
-            return _asInt;
+            return _asChar;
         }
     }
 }
