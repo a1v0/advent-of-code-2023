@@ -100,6 +100,9 @@ public class Day01Task2 : Day01Task1
         for (int i = 0; i < unsanitisedCalibration.Length; ++i)
         {
             char c = unsanitisedCalibration[i];
+            string remainderOfCalibration = unsanitisedCalibration[i..];
+
+            string? searchResult = null;
 
             string digit = "";
 
@@ -109,46 +112,35 @@ public class Day01Task2 : Day01Task1
                     digit = c.ToString();
                     break;
                 case 'o':
+                    searchResult = CheckForNumbers(oNumbers, remainderOfCalibration);
                     break;
                 case 't':
+                    searchResult = CheckForNumbers(tNumbers, remainderOfCalibration);
                     break;
                 case 'f':
+                    searchResult = CheckForNumbers(fNumbers, remainderOfCalibration);
                     break;
                 case 's':
+                    searchResult = CheckForNumbers(sNumbers, remainderOfCalibration);
                     break;
                 case 'e':
+                    searchResult = CheckForNumbers(eNumbers, remainderOfCalibration);
                     break;
                 case 'n':
+                    searchResult = CheckForNumbers(nNumbers, remainderOfCalibration);
                     break;
                 default:
                     continue;
             }
 
-            // 
-            // assign value to first and second here
-            // 
-            // 
-            // 
-            // 
-            // 
-            // 
-            // 
-            // 
-            // 
-            // 
+            digit = searchResult is null ? digit : searchResult;
+
+            if (firstNumber == "") firstNumber = digit;
+            secondNumber = digit;
         }
-
-
 
         string combinedValue = $"{firstNumber}{secondNumber}";
         return int.Parse(combinedValue);
-        // PLAN:
-        // - check for literal ints
-        // - if not an int, check whether the letter is one of the starting letters of a number
-        //   - maybe use a switch for this
-        // - create a method that looks for a given value in a string
-        // - if number is there, convert to normal int string and the rest is as before
-        // - add acknowledgement of inefficiency
     }
 
     private static string? CheckForNumbers(NumberAsWord[] numbers, string substring)
