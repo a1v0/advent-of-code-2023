@@ -18,13 +18,13 @@ public class Day01Task1 : BaseTask
 
     private string[] UnsanitisedCalibrations
     {
-    get;
+        get;
     } = ParseInput();
 
     public override string Solve()
     {
         int[] calibrations = SanitiseCalibrations();
-        
+
         // 
         // loop through each line
         // loop through each char
@@ -34,18 +34,19 @@ public class Day01Task1 : BaseTask
         // sum array
         // return
         // 
+        return "";
     }
 
     private int[] SanitiseCalibrations()
     {
         int[] sanitisedCalibrations = new int[UnsanitisedCalibrations.Length];
 
-        for (int i = 0; i < UnsanitisedCalibrations.Length; ++i) 
+        for (int i = 0; i < UnsanitisedCalibrations.Length; ++i)
         {
             string currentLine = UnsanitisedCalibrations[i];
             sanitisedCalibrations[i] = ExtractHiddenValue(currentLine);
         }
-        
+
         return sanitisedCalibrations;
     }
 
