@@ -10,8 +10,10 @@ public class BaseDay
         {
             case 1:
                 result = Task1.Solve();
+                break;
             case 2:
                 result = Task2.Solve();
+                break;
             default:
                 throw new Exception("An invalid task number has been selected.");
         }
