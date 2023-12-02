@@ -16,10 +16,20 @@ public class Day01 : BaseDay
 public class Day01Task1 : BaseTask
 {
 
+    private string[]? _unsanitisedCalibrations;
+
     private string[] UnsanitisedCalibrations
     {
-        get;
-    } = ParseInput();
+        get
+        {
+            if (_unsanitisedCalibrations == null)
+            {
+                _unsanitisedCalibrations = ParseInput();
+            }
+
+            return _unsanitisedCalibrations;
+        }
+    }
 
     public override string Solve()
     {
