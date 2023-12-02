@@ -60,7 +60,7 @@ public class Day01Task1 : BaseTask
         return sanitisedCalibrations;
     }
 
-    private int ExtractHiddenValue(string unsanitisedCalibration)
+    private static int ExtractHiddenValue(string unsanitisedCalibration)
     {
         string validInts = "123456789";
 
@@ -69,8 +69,16 @@ public class Day01Task1 : BaseTask
 
         foreach (char c in unsanitisedCalibration)
         {
-            // if firstNum is "" and c is a number, assign
-            // if firstNum is assigned, then assign to secondNum
+            bool isValidInt = validInts.Contains(c);
+            if (!isValidInt) continue;
+
+            if (firstNumber == "")
+            {
+                firstNumber = c.ToString();
+                continue;
+            }
+
+            secondNumber = c.ToString();
         }
 
         string combinedValue = $"{firstNumber}{secondNumber}";
