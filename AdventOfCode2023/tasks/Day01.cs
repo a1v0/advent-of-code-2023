@@ -53,7 +53,7 @@ public class Day01Task1 : BaseTask
         return sanitisedCalibrations;
     }
 
-    private static int ExtractHiddenValue(string unsanitisedCalibration)
+    protected virtual int ExtractHiddenValue(string unsanitisedCalibration)
     {
         string validInts = "123456789";
 
@@ -85,5 +85,14 @@ public class Day01Task1 : BaseTask
 
 public class Day01Task2 : Day01Task1
 {
+    // PLAN:
+    // - 
 
+    protected override int ExtractHiddenValue(string unsanitisedCalibration)
+    {
+        string firstNumber = "",
+           secondNumber = "";
+        string combinedValue = $"{firstNumber}{secondNumber}";
+        return int.Parse(combinedValue);
+    }
 }
