@@ -11,4 +11,9 @@ public abstract class BaseTest
     {
         Environment.SetEnvironmentVariable("RUN_MODE", "TEST");
     }
+
+    protected static void UseSecondTestInput()
+    {
+        Environment.SetEnvironmentVariable("SECONDARY_INPUT_INTERPOLATION", ".2");
+    }
 }

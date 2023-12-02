@@ -6,8 +6,8 @@ public class Day01Tests : BaseTest
     [Fact]
     public void Test1()
     {
-        const string expected = "01";
-        string actual = new Day01Task1().Solve();
+        const string expected = "142";
+        string actual = new Day01().Solve(1);
         Assert.Equal(expected, actual);
     }
 
@@ -15,8 +15,9 @@ public class Day01Tests : BaseTest
     [Fact]
     public void Test2()
     {
-        const string expected = "01";
-        string actual = new Day01Task2().Solve();
+        UseSecondTestInput();
+        const string expected = "281";
+        string actual = new Day01().Solve(2);
         Assert.Equal(expected, actual);
     }
 }

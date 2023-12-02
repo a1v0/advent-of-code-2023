@@ -4,15 +4,19 @@ public class BaseDay
 {
     public string Solve(byte task)
     {
-        switch (task)
+        BaseTask chosenTask;
+
+        if (task == 1) chosenTask = Task1;
+        else if (task == 2) chosenTask = Task2;
+        else
         {
-            case 1:
-                return Task1.Solve();
-            case 2:
-                return Task2.Solve();
-            default:
-                throw new Exception("An invalid task number has been selected.");
+            throw new Exception("An invalid task number has been selected.");
         }
+
+        string result = chosenTask.Solve();
+
+        AOCUtils.ShowResult(chosenTask.DayName, result);
+        return result;
     }
 
     public virtual BaseTask Task1
@@ -28,7 +32,7 @@ public class BaseDay
 
 public class BaseTask
 {
-    private string DayName
+    public string DayName
     {
         get
         {
@@ -48,7 +52,7 @@ public class BaseTask
         }
     }
 
-    private string Input
+    protected string Input
     {
         get
         {

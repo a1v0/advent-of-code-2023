@@ -7,10 +7,11 @@ public class AOCUtils
         string basePath = "/home/alvo/advent-of-code/advent-of-code-2023";
 
         string? runMode = Environment.GetEnvironmentVariable("RUN_MODE");
+        string? secondaryInputInterpolation = Environment.GetEnvironmentVariable("SECONDARY_INPUT_INTERPOLATION");
         bool isTest = runMode == "TEST";
         string testSuffix = isTest ? ".test" : "";
 
-        string path = $"{basePath}/AdventOfCode2023/inputs/{dayName}{testSuffix}.txt";
+        string path = $"{basePath}/AdventOfCode2023/inputs/{dayName}{secondaryInputInterpolation}{testSuffix}.txt";
         string rawInput = File.ReadAllText(path);
 
         return rawInput;
@@ -24,7 +25,7 @@ public class AOCUtils
         string titleRow = GetResultRow("Day " + dayName, border.Length),
             resultRow = GetResultRow(result, border.Length);
 
-        string output = $"{border}\n{titleRow}\n{resultRow}\n{border}";
+        string output = $"\n{border}\n{titleRow}\n{resultRow}\n{border}";
         Console.WriteLine(output);
     }
 

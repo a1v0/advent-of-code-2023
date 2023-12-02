@@ -10,7 +10,7 @@ This repo uses xUnit for testing, though my tests aren't particularly extensive.
 
 | Day | Task 1 | Task 2 | Notes |
 | --- | ------ | ------ | ----- |
-| 01  |        |        |       |
+| 01  | ⭐    | ⭐     |       |
 <!-- | 02  |        |        |       | -->
 <!-- | 03  |        |        |       | -->
 <!-- | 04  |        |        |       | -->
@@ -49,6 +49,10 @@ I wanted to set the path to the input files as an environment variable in an `ap
 The `BaseTest` class, from which every day's test class inherits, has a constructor that sets the environment variable `RUN_MODE` to `TEST`. The `AOCUtils.GetRawInput` method chooses which input file to take based on this variable.
 
 I don't know if this is the accepted way of doing a Jest-style `beforeAll`, but it certainly works!
+
+### `SECONDARY_INPUT_INTERPOLATION`
+
+Sometimes the second task of the day uses different demo data. To automate the loading of the correct data, I've used this (awkwardly named) environment variable. It will add a string to the file path retrieved by the `GetRawInput` method.
 
 ## How to run each challenge (with live data)
 
