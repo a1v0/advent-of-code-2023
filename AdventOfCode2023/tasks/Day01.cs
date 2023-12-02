@@ -94,8 +94,10 @@ public class Day01Task2 : Day01Task1
            secondNumber = "";
 
 
-        foreach (char c in unsanitisedCalibration)
+        for (int i = 0; i < unsanitisedCalibration.Length; ++i)
         {
+            char c = unsanitisedCalibration[i];
+
             string digit = "";
 
             switch (c)
