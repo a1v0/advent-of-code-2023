@@ -35,16 +35,9 @@ public class Day01Task1 : BaseTask
     {
         int[] calibrations = SanitiseCalibrations();
 
-        // 
-        // loop through each line
-        // loop through each char
-        // try using one of C#'s double loops to count down as well as up
-        // ensure that, if there's only one int, that the int doesn't get counted twice
-        // combine both numbers, convert to int and add to sanitisedCals
-        // sum array
-        // return
-        // 
-        return "";
+        int sum = calibrations.Sum();
+
+        return sum.ToString();
     }
 
     private int[] SanitiseCalibrations()
