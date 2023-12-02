@@ -68,7 +68,6 @@ public class Day01Task1 : BaseTask
             if (firstNumber == "")
             {
                 firstNumber = c.ToString();
-                continue;
             }
 
             secondNumber = c.ToString();
