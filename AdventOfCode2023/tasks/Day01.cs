@@ -54,7 +54,7 @@ public class Day01Task1 : BaseTask
     {
         string validInts = "123456789";
 
-        char firstNumber = "",
+        string firstNumber = "",
             secondNumber = "";
 
         foreach (char c in unsanitisedCalibration)
@@ -63,7 +63,7 @@ public class Day01Task1 : BaseTask
             // if firstNum is assigned, then assign to secondNum
         }
 
-        string combinedValue = firstNumber + secondNumber;
+        string combinedValue = $"{firstNumber}{secondNumber}";
         return int.Parse(combinedValue);
     }
 
