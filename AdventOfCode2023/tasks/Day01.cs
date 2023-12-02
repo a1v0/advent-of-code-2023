@@ -89,7 +89,7 @@ public class Day01Task2 : Day01Task1
     protected override int ExtractHiddenValue(string unsanitisedCalibration)
     {
         string validInts = "123456789";
-
+        NumberAsWord[] validNumberWords = GetValidNumberWords();
 
         string firstNumber = "",
            secondNumber = "";
@@ -103,6 +103,23 @@ public class Day01Task2 : Day01Task1
         // - if number is there, convert to normal int string and the rest is as before
 
     }
+
+    private NumberAsWord[] GetValidNumberWords()
+    {
+        NumberAsWord[] validNumberWords = new NumberAsWord[9]{
+            new NumberAsWord("one", 1),
+            new NumberAsWord("two", 2),
+            new NumberAsWord("three", 3),
+            new NumberAsWord("four", 4),
+            new NumberAsWord("five", 5),
+            new NumberAsWord("six", 6),
+            new NumberAsWord("seven", 7),
+            new NumberAsWord("eight", 8),
+            new NumberAsWord("nine", 9),
+        };
+
+        return validNumberWords;
+    }
 }
 
 class NumberAsWord
@@ -112,7 +129,6 @@ class NumberAsWord
         _asWord = asWord;
         _asInt = asInt;
     }
-
 
     readonly string _asWord;
     public string AsWord
