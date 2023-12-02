@@ -160,10 +160,17 @@ public class Day01Task2 : Day01Task1
     {
         for (int i = 0; i < desiredNumber.AsWord.Length; ++i)
         {
-            char cDesired = desiredNumber.AsWord[i];
-            char cSubstring = substring[i];
+            try
+            {
+                char cDesired = desiredNumber.AsWord[i];
+                char cSubstring = substring[i];
 
-            if (cDesired != cSubstring) return null;
+                if (cDesired != cSubstring) return null;
+            }
+            catch (IndexOutOfRangeException)
+            {
+                return null;
+            }
         }
 
         return desiredNumber.AsNumber;
