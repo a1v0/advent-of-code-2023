@@ -93,6 +93,48 @@ public class Day01Task2 : Day01Task1
         string firstNumber = "",
            secondNumber = "";
 
+
+        foreach (char c in unsanitisedCalibration)
+        {
+            string digit = "";
+
+            switch (c)
+            {
+                case '1' or '2' or '3' or '4' or '5' or '6' or '7' or '8' or '9':
+                    digit = c.ToString();
+                    break;
+                case 'o':
+                    break;
+                case 't':
+                    break;
+                case 'f':
+                    break;
+                case 's':
+                    break;
+                case 'e':
+                    break;
+                case 'n':
+                    break;
+                default:
+                    continue;
+            }
+
+            // 
+            // assign value to first and second here
+            // 
+            // 
+            // 
+            // 
+            // 
+            // 
+            // 
+            // 
+            // 
+            // 
+        }
+
+
+
         string combinedValue = $"{firstNumber}{secondNumber}";
         return int.Parse(combinedValue);
         // PLAN:
