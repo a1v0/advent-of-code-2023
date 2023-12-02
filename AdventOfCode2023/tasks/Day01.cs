@@ -88,6 +88,9 @@ public class Day01Task2 : Day01Task1
 
     protected override int ExtractHiddenValue(string unsanitisedCalibration)
     {
+        string validInts = "123456789";
+
+
         string firstNumber = "",
            secondNumber = "";
         string combinedValue = $"{firstNumber}{secondNumber}";
@@ -99,5 +102,33 @@ public class Day01Task2 : Day01Task1
         // - create a method that looks for a given value in a string
         // - if number is there, convert to normal int string and the rest is as before
 
+    }
+}
+
+class NumberAsWord
+{
+    public NumberAsWord(string asWord, int asInt)
+    {
+        _asWord = asWord;
+        _asInt = asInt;
+    }
+
+
+    readonly string _asWord;
+    public string AsWord
+    {
+        get
+        {
+            return _asWord;
+        }
+    }
+
+    readonly int _asInt;
+    public int AsInt
+    {
+        get
+        {
+            return _asInt;
+        }
     }
 }
