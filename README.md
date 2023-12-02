@@ -50,6 +50,10 @@ The `BaseTest` class, from which every day's test class inherits, has a construc
 
 I don't know if this is the accepted way of doing a Jest-style `beforeAll`, but it certainly works!
 
+### `SECONDARY_INPUT_INTERPOLATION`
+
+Sometimes the second task of the day uses different demo data. To automate the loading of the correct data, I've used this (awkwardly named) environment variable. It will add a string to the file path retrieved by the `GetRawInput` method.
+
 ## How to run each challenge (with live data)
 
 Enter the `AdventOfCode2023` folder and run `dotnet run -- x y`, where `x` is the day name and `y` is the problem name (can be 1 or 2). Any additional arguments will be ignored.
