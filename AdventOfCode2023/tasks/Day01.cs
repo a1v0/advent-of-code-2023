@@ -156,21 +156,21 @@ public class Day01Task2 : Day01Task1
             if (cDesired != cSubstring) return "";
         }
 
-        return desiredNumber.AsChar;
+        return desiredNumber.AsNumber;
     }
 
     private NumberAsWord[] GetValidNumberWords()
     {
         NumberAsWord[] validNumberWords = new NumberAsWord[9]{
-            new NumberAsWord("one", '1'),
-            new NumberAsWord("two", '2'),
-            new NumberAsWord("three", '3'),
-            new NumberAsWord("four", '4'),
-            new NumberAsWord("five", '5'),
-            new NumberAsWord("six", '6'),
-            new NumberAsWord("seven", '7'),
-            new NumberAsWord("eight", '8'),
-            new NumberAsWord("nine", '9'),
+            new NumberAsWord("one", "1"),
+            new NumberAsWord("two", "2"),
+            new NumberAsWord("three", "3"),
+            new NumberAsWord("four", "4"),
+            new NumberAsWord("five", "5"),
+            new NumberAsWord("six", "6"),
+            new NumberAsWord("seven", "7"),
+            new NumberAsWord("eight", "8"),
+            new NumberAsWord("nine", "9"),
         };
 
         return validNumberWords;
@@ -179,10 +179,10 @@ public class Day01Task2 : Day01Task1
 
 class NumberAsWord
 {
-    public NumberAsWord(string asWord, char asChar)
+    public NumberAsWord(string asWord, string asNumber)
     {
         _asWord = asWord;
-        _asChar = asChar;
+        _asNumber = asNumber;
     }
 
     readonly string _asWord;
@@ -194,12 +194,12 @@ class NumberAsWord
         }
     }
 
-    readonly char _asChar;
-    public char AsChar
+    readonly string _asNumber;
+    public string AsNumber
     {
         get
         {
-            return _asChar;
+            return _asNumber;
         }
     }
 }
