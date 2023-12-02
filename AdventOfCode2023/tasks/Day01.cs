@@ -87,7 +87,12 @@ public class Day01Task2 : Day01Task1
 {
     protected override int ExtractHiddenValue(string unsanitisedCalibration)
     {
-        NumberAsWord[] validNumberWords = GetValidNumberWords();
+        NumberAsWord[] oNumbers = GetONumberWords();
+        NumberAsWord[] tNumbers = GetTNumberWords();
+        NumberAsWord[] fNumbers = GetFNumberWords();
+        NumberAsWord[] sNumbers = GetSNumberWords();
+        NumberAsWord[] eNumbers = GetENumberWords();
+        NumberAsWord[] nNumbers = GetNNumberWords();
 
         string firstNumber = "",
            secondNumber = "";
@@ -172,17 +177,62 @@ public class Day01Task2 : Day01Task1
         return desiredNumber.AsNumber;
     }
 
-    private NumberAsWord[] GetValidNumberWords()
+    private NumberAsWord[] GetONumberWords()
     {
-        NumberAsWord[] validNumberWords = new NumberAsWord[9]{
+        NumberAsWord[] validNumberWords = new NumberAsWord[1]{
             new NumberAsWord("one", "1"),
+        };
+
+        return validNumberWords;
+    }
+
+
+    private NumberAsWord[] GetTNumberWords()
+    {
+        NumberAsWord[] validNumberWords = new NumberAsWord[2]{
             new NumberAsWord("two", "2"),
             new NumberAsWord("three", "3"),
+        };
+
+        return validNumberWords;
+    }
+
+
+    private NumberAsWord[] GetFNumberWords()
+    {
+        NumberAsWord[] validNumberWords = new NumberAsWord[2]{
             new NumberAsWord("four", "4"),
             new NumberAsWord("five", "5"),
+        };
+
+        return validNumberWords;
+    }
+
+
+    private NumberAsWord[] GetSNumberWords()
+    {
+        NumberAsWord[] validNumberWords = new NumberAsWord[2]{
             new NumberAsWord("six", "6"),
             new NumberAsWord("seven", "7"),
+        };
+
+        return validNumberWords;
+    }
+
+
+    private NumberAsWord[] GetENumberWords()
+    {
+        NumberAsWord[] validNumberWords = new NumberAsWord[1]{
             new NumberAsWord("eight", "8"),
+        };
+
+        return validNumberWords;
+    }
+
+
+    private NumberAsWord[] GetNNumberWords()
+    {
+        NumberAsWord[] validNumberWords = new NumberAsWord[1]{
             new NumberAsWord("nine", "9"),
         };
 
