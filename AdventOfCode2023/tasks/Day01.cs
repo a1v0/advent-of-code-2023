@@ -85,8 +85,6 @@ public class Day01Task1 : BaseTask
 
 public class Day01Task2 : Day01Task1
 {
-    // PLAN:
-    // - 
 
     protected override int ExtractHiddenValue(string unsanitisedCalibration)
     {
@@ -94,5 +92,12 @@ public class Day01Task2 : Day01Task1
            secondNumber = "";
         string combinedValue = $"{firstNumber}{secondNumber}";
         return int.Parse(combinedValue);
+        // PLAN:
+        // - check for literal ints
+        // - if not an int, check whether the letter is one of the starting letters of a number
+        //   - maybe use a switch for this
+        // - create a method that looks for a given value in a string
+        // - if number is there, convert to normal int string and the rest is as before
+
     }
 }
