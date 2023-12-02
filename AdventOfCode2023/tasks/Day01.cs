@@ -100,12 +100,12 @@ public class Day01Task2 : Day01Task1
         for (int i = 0; i < unsanitisedCalibration.Length; ++i)
         {
             char c = unsanitisedCalibration[i];
-            string remainderOfCalibration = unsanitisedCalibration[i..];
-
-            string? searchResult = null;
 
             string digit = "";
 
+            string? searchResult = null;
+
+            string remainderOfCalibration = unsanitisedCalibration[i..];
             switch (c)
             {
                 case '1' or '2' or '3' or '4' or '5' or '6' or '7' or '8' or '9':
@@ -136,7 +136,7 @@ public class Day01Task2 : Day01Task1
             digit = searchResult is null ? digit : searchResult;
 
             if (firstNumber == "") firstNumber = digit;
-            secondNumber = digit;
+            secondNumber = digit == "" ? secondNumber : digit;
         }
 
         string combinedValue = $"{firstNumber}{secondNumber}";
