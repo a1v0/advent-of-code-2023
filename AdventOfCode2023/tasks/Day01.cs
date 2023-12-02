@@ -146,6 +146,19 @@ public class Day01Task2 : Day01Task1
         // - add acknowledgement of inefficiency
     }
 
+    private static string? CheckForNumbers(NumberAsWord[] numbers, string substring)
+    {
+        string? output = null;
+
+        foreach (NumberAsWord numberAsWord in numbers)
+        {
+            output = FindNumberAsWord(numberAsWord, substring);
+            if (output is not null) break;
+        }
+
+        return output;
+    }
+
     private static string? FindNumberAsWord(NumberAsWord desiredNumber, string substring)
     {
         for (int i = 0; i < desiredNumber.AsWord.Length; ++i)
