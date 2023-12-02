@@ -5,7 +5,7 @@ public class BaseDay
     public string Solve(byte task)
     {
         string result;
-        
+
         switch (task)
         {
             case 1:
@@ -53,7 +53,7 @@ public class BaseTask
         }
     }
 
-    private string Input
+    protected string Input
     {
         get
         {
