@@ -11,7 +11,7 @@ This repo uses xUnit for testing, though my tests aren't particularly extensive.
 | Day | Task 1 | Task 2 | Notes |
 | --- | ------ | ------ | ----- |
 | 01  | ⭐    | ⭐     |       |
-| 02  | ⭐    |        |       |
+| 02  | ⭐    | ⭐     |       |
 <!-- | 03  |        |        |       | -->
 <!-- | 04  |        |        |       | -->
 <!-- | 05  |        |        |       | -->
