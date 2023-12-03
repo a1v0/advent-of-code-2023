@@ -36,10 +36,11 @@ public class Day02Task1 : BaseTask
 
     private int GetValidGameID(Game game)
     {
-        var minimumRequirements = new Dictionary<string, int>();
-        minimumRequirements.Add("red", 12);
-        minimumRequirements.Add("green", 13);
-        minimumRequirements.Add("blue", 14);
+        var minimumRequirements = new Dictionary<string, int>() {
+            { "red", 12 },
+            { "green", 13 },
+            { "blue", 14 }
+        };
 
         foreach (Dictionary<string, int> subset in game.Subsets)
         {
