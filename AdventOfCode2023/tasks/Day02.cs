@@ -17,12 +17,27 @@ public class Day02Task1 : BaseTask
 {
     public override string Solve()
     {
+        Game[] games = ParseInput();
         // - parse input as rows
         // - parse rows as games
         //   - Game is a new class
         // - parse games as array of subsets
         // - parse subsets as dictionary or tuple
         // - loop through each game to see whether it fits the desired pattern
+    }
+
+    private Game[] ParseInput()
+    {
+        string[] inputRows = GetInputRows();
+        var games = new Game[inputRows.Length];
+
+        for (int i = 0; i < games.Length; ++i)
+        {
+            string currentRow = inputRows[i];
+            games[i] = new Game(currentRow);
+        }
+
+        return games;
     }
 
     private string[] GetInputRows()
