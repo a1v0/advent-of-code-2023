@@ -60,7 +60,7 @@ public class Day02Task1 : BaseTask
         return game.GameID;
     }
 
-    private Game[] ParseInput()
+    protected Game[] ParseInput()
     {
         string[] inputRows = GetInputRows();
         var games = new Game[inputRows.Length];
@@ -80,7 +80,16 @@ public class Day02Task1 : BaseTask
     }
 }
 
-public class Day02Task2 : Day01Task1 { }
+public class Day02Task2 : Day02Task1
+{
+    public override string Solve()
+    {
+        Game[] games = ParseInput();
+        // go through all games and calculate the minimum quantities of each colour needed to make game possible
+        // calculate product of those values
+        // return sum
+    }
+}
 
 public class Game
 {
