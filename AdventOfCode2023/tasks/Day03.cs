@@ -17,7 +17,6 @@ public class Day03Task1 : BaseTask
 {
     public override string Solve()
     {
-        string[] rows = GetInputRows();
         // parse input into rows
         // loop through rows
         // find all the numbers
@@ -25,6 +24,14 @@ public class Day03Task1 : BaseTask
         // - number, row, start index (and end index, if needed)
         // check up, down, left and right of each number in search of a symbol
         // sum and return
+    }
+
+    protected string[] InputRows
+    {
+        get
+        {
+            return GetInputRows();
+        }
     }
 
     private string[] GetInputRows()
