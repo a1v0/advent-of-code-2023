@@ -67,12 +67,28 @@ public class Game
 
         for (int i = 0; i < subsets.Length; ++i)
         {
-            // 8 green, 6 blue, 20 red
             Dictionary<string, int> subset = GetSubset(subsetsStrings[i]);
             subsets[i] = subset;
         }
 
         return subsets;
+    }
+
+    private static Dictionary<string, int> GetSubset(string subsetString)
+    {
+        var subset = new Dictionary<string, int>();
+        string[] cubesStrings = subsetString.Split(", ");
+
+        foreach (string cubeString in cubesStrings)
+        {
+            string[] cubeData = cubeString.Split(' ');
+            string colour = cubeData[1];
+            int quantity = int.Parse(cubeData[0]);
+
+            subset.Add(colour, quantity);
+        }
+
+        return subset;
     }
 
     private int GetGameID()
