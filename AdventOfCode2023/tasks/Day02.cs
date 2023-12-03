@@ -92,7 +92,16 @@ public class Day02Task2 : Day02Task1
 
     private static int[] GetGamePowers(Game[] games)
     {
-        // loop through each game
+        int[] gamePowers = new int[games.Length];
+
+        for (int i = 0; i < games.Length; ++i)
+        {
+            Game currentGame = games[i];
+            int power = GetGamePower(currentGame);
+            gamePowers[i] = power;
+        }
+
+        return gamePowers;
         // create dictionary of red/blue/green with starter values of 0
         // loop through each subset and modify the dictionary's values as necessary
         // multiply values together (beware of 0?)
