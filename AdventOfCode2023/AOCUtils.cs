@@ -25,7 +25,7 @@ public class AOCUtils
         string titleRow = GetResultRow("Day " + dayName, border.Length),
             resultRow = GetResultRow(result, border.Length);
 
-        string output = $"\n{border}\n{titleRow}\n{resultRow}\n{border}";
+        string output = $"\n{border}\n{titleRow}\n{resultRow}\n{border}\n";
         Console.WriteLine(output);
     }
 
