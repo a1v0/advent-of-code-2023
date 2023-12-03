@@ -26,6 +26,17 @@ public class Day02Task1 : BaseTask
         // - loop through each game to see whether it fits the desired pattern
     }
 
+    private int[] GetPossibleGames(Game[] games)
+    {
+        var possibleGames = new List<int>();
+        foreach (Game game in games)
+        {
+            int gameID = GetValidGameID(game);
+            possibleGames.Add(gameID);
+        }
+        return possibleGames.ToArray();
+    }
+
     private Game[] ParseInput()
     {
         string[] inputRows = GetInputRows();
