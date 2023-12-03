@@ -38,8 +38,10 @@ public class Game
     public Game(string input)
     {
         string rowIncipit = "Game ";
-        Input = input.Substring(rowIncipit.Length);
-        // create ParseInput which returns a tuple (game name, subsets)
+        Input = input[rowIncipit.Length..];
+        (int gameID, Dictionary<string, int>[] subsets) = ParseInput();
+        _gameID = gameID;
+        _subsets = subsets;
     }
 
     private string Input
@@ -47,14 +49,29 @@ public class Game
         get;
     }
 
-    private readonly Dictionary<string, int>[] _subsets;
-
     private readonly int _gameID;
+    public int GameID
+    {
+        get
+        {
+            return _gameID;
+        }
+    }
+
+    private readonly Dictionary<string, int>[] _subsets;
+    public Dictionary<string, int>[] Subsets
+    {
+        get
+        {
+            return _subsets;
+        }
+    }
 
     private (int gameID, Dictionary<string, int>[] subsets) ParseInput()
     {
         int gameID = GetGameID();
         Dictionary<string, int>[] subsets = GetSubsets();
+        return (gameID, subsets);
     }
 
     private Dictionary<string, int>[] GetSubsets()
