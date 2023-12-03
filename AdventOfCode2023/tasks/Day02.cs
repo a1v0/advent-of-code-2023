@@ -123,13 +123,20 @@ public class Day02Task2 : Day02Task1
                 }
             }
         }
-        int[] hello = new int[5];
+
         int power = MultiplyValues(minimumValues);
         return power;
     }
+
+    private static int MultiplyValues(Dictionary<string, int> values)
+    {
+        int red = values["red"],
+        green = values["green"],
+        blue = values["blue"];
+
+        return red * green * blue;
+    }
 }
-
-
 
 public class Game
 {
