@@ -18,12 +18,14 @@ public class Day02Task1 : BaseTask
     public override string Solve()
     {
         Game[] games = ParseInput();
+        int[] possibleGames = GetPossibleGames(games);
         // - parse input as rows
         // - parse rows as games
         //   - Game is a new class
         // - parse games as array of subsets
         // - parse subsets as dictionary or tuple
         // - loop through each game to see whether it fits the desired pattern
+        return "";
     }
 
     private int[] GetPossibleGames(Game[] games)
@@ -35,6 +37,31 @@ public class Day02Task1 : BaseTask
             possibleGames.Add(gameID);
         }
         return possibleGames.ToArray();
+    }
+
+    private int GetValidGameID(Game game)
+    {
+        var minimumRequirements = new Dictionary<string, int>();
+        minimumRequirements.Add("red", 12);
+        minimumRequirements.Add("green", 13);
+        minimumRequirements.Add("blue", 14);
+
+        foreach (Dictionary<string, int> subset in game.Subsets)
+        {
+            foreach (KeyValuePair<string, int> pair in minimumRequirements)
+            {
+                string key = pair.Key;
+                int value = pair.Value;
+
+                bool hasKey = subset.ContainsKey(key);
+                if (!hasKey) return 0;
+
+                bool hasTooManyCubes = subset[key] > value;
+                if (hasTooManyCubes) return 0;
+            }
+        }
+
+        return game.GameID;
     }
 
     private Game[] ParseInput()
