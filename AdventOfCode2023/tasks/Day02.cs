@@ -102,12 +102,34 @@ public class Day02Task2 : Day02Task1
         }
 
         return gamePowers;
-        // create dictionary of red/blue/green with starter values of 0
-        // loop through each subset and modify the dictionary's values as necessary
-        // multiply values together (beware of 0?)
-        // put power into an array
+    }
+
+    private static int GetGamePower(Game game)
+    {
+        var minimumValues = new Dictionary<string, int>(){
+            { "red", 0 },
+            { "green", 0 },
+            { "blue", 0 },
+        };
+
+        foreach (Dictionary<string, int> subset in game.Subsets)
+        {
+            foreach (KeyValuePair<string, int> pair in subset)
+            {
+                bool higherThanMinimum = pair.Value > minimumValues[pair.Key];
+                if (higherThanMinimum)
+                {
+                    minimumValues[pair.Key] = pair.Value;
+                }
+            }
+        }
+        int[] hello = new int[5];
+        int power = MultiplyValues(minimumValues);
+        return power;
     }
 }
+
+
 
 public class Game
 {
