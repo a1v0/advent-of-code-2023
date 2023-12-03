@@ -31,16 +31,38 @@ public class Day02Task1 : BaseTask
     }
 }
 
-public class Day02Task2 : Day01Task1
-{ }
+public class Day02Task2 : Day01Task1 { }
+
 public class Game
 {
     public Game(string input)
     {
+        string rowIncipit = "Game ";
+        Input = input.Substring(rowIncipit.Length);
         // create ParseInput which returns a tuple (game name, subsets)
+    }
+
+    private string Input
+    {
+        get;
     }
 
     private readonly Dictionary<string, int>[] _subsets;
 
     private readonly int _gameID;
+
+    private (int gameID, Dictionary<string, int>[] subsets) ParseInput()
+    {
+        int gameID = GetGameID();
+        // create substring without 'Game '
+        // find location of ':' and take everything up to there as the gameID
+        // split remainder on '; ' and parse them separately
+    }
+
+    private int GetGameID()
+    {
+        int colonIndex = Input.IndexOf(':');
+        string gameID = Input.Substring(0, colonIndex);
+        return int.Parse(gameID);
+    }
 }
