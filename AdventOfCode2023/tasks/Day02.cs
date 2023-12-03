@@ -19,13 +19,8 @@ public class Day02Task1 : BaseTask
     {
         Game[] games = ParseInput();
         int[] possibleGames = GetPossibleGames(games);
-        // - parse input as rows
-        // - parse rows as games
-        //   - Game is a new class
-        // - parse games as array of subsets
-        // - parse subsets as dictionary or tuple
-        // - loop through each game to see whether it fits the desired pattern
-        return "";
+        int sumOfGameIDs = possibleGames.Sum();
+        return sumOfGameIDs.ToString();
     }
 
     private int[] GetPossibleGames(Game[] games)
