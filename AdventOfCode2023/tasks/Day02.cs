@@ -49,7 +49,7 @@ public class Day02Task1 : BaseTask
                 int value = pair.Value;
 
                 bool hasKey = subset.ContainsKey(key);
-                if (!hasKey) return 0;
+                if (!hasKey) continue;
 
                 bool hasTooManyCubes = subset[key] > value;
                 if (hasTooManyCubes) return 0;
