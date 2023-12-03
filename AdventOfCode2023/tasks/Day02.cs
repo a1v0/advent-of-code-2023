@@ -54,15 +54,31 @@ public class Game
     private (int gameID, Dictionary<string, int>[] subsets) ParseInput()
     {
         int gameID = GetGameID();
-        // create substring without 'Game '
-        // find location of ':' and take everything up to there as the gameID
-        // split remainder on '; ' and parse them separately
+        Dictionary<string, int>[] subsets = GetSubsets();
+    }
+
+    private Dictionary<string, int>[] GetSubsets()
+    {
+        int spaceAfterColonIndex = Input.IndexOf(':') + 1;
+        string subsetsInOneString = Input[(spaceAfterColonIndex + 1)..];
+        string[] subsetsStrings = subsetsInOneString.Split("; ");
+
+        var subsets = new Dictionary<string, int>[subsetsStrings.Length];
+
+        for (int i = 0; i < subsets.Length; ++i)
+        {
+            // 8 green, 6 blue, 20 red
+            Dictionary<string, int> subset = GetSubset(subsetsStrings[i]);
+            subsets[i] = subset;
+        }
+
+        return subsets;
     }
 
     private int GetGameID()
     {
         int colonIndex = Input.IndexOf(':');
-        string gameID = Input.Substring(0, colonIndex);
+        string gameID = Input[..colonIndex];
         return int.Parse(gameID);
     }
 }
