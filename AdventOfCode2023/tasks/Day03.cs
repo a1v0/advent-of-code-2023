@@ -26,11 +26,17 @@ public class Day03Task1 : BaseTask
         // sum and return
     }
 
+    private string[]? _inputRows;
+
     protected string[] InputRows
     {
         get
         {
-            return GetInputRows();
+            if (_inputRows is null)
+            {
+                _inputRows = GetInputRows();
+            }
+            return _inputRows;
         }
     }
 
