@@ -17,7 +17,13 @@ public class Day03Task1 : BaseTask
 {
     public override string Solve()
     {
-
+        // parse input into rows
+        // loop through rows
+        // find all the numbers
+        // store numbers in a tuple (or similar)
+        // - number, row, start index (and end index, if needed)
+        // check up, down, left and right of each number in search of a symbol
+        // sum and return
     }
 }
 
