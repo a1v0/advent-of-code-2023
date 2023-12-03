@@ -85,6 +85,10 @@ public class Day02Task2 : Day02Task1
     public override string Solve()
     {
         Game[] games = ParseInput();
+        int[] gamePowers = GetGamePowers(games);
+        int sumOfGamePowers = gamePowers.Sum();
+        return sumOfGamePowers.ToString();
+
         // go through all games and calculate the minimum quantities of each colour needed to make game possible
         // calculate product of those values
         // return sum
