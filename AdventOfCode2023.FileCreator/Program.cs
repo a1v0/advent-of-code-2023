@@ -11,8 +11,9 @@
 
         static void CreateDay(string dayName)
         {
-            string basePath = "/home/alvo/advent-of-code/advent-of-code-2023";
         }
+
+        public string BasePath { get; } = "/home/alvo/advent-of-code/advent-of-code-2023";
 
         static string ParseArgs(string[] args)
         {
