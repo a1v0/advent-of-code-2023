@@ -81,6 +81,16 @@ public class Day03Task1 : BaseTask
         return false;
     }
 
+    private bool IsMatchInRow(int row, int leftBound, int rightBound)
+    {
+        for (int i = leftBound; i <= rightBound; ++i)
+        {
+            bool isCurrentCharAMatch = IsMatch(row, i);
+            if (isCurrentCharAMatch) return true;
+        }
+        return false;
+    }
+
     private bool IsMatch(int rowIndex, int columnIndex)
     {
         string row = InputRows[rowIndex];
