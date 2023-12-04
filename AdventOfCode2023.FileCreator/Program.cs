@@ -44,7 +44,9 @@
 
         static string ParseArgs(string[] args)
         {
-            bool isInt = int.TryParse(args[0], out int result);
+            string dayName = args[0];
+
+            bool isInt = int.TryParse(dayName, out int result);
             var error = new Exception("Invalid argument given.");
 
             if (!isInt) throw error;
@@ -52,7 +54,9 @@
             bool resultInRange = result >= 1 && result <= 25;
             if (!resultInRange) throw error;
 
-            return args[0];
+            if (dayName.Length == 1) dayName = "0" + dayName;
+
+            return dayName;
         }
     }
 }
