@@ -1,3 +1,5 @@
+using System.Security.Cryptography.X509Certificates;
+
 namespace AdventOfCode2023;
 
 public class Day03 : BaseDay
@@ -38,12 +40,16 @@ public class Day03Task1 : BaseTask
 
     private int[] GetPartNumbers()
     {
+        int[] partNumbers = new int[InputRows.Length];
+        // for(int i = 0;i<partNumbers.Length;++i)
+        // {
+        //     partNumbers[i]=
+        // }
         // loop through rows
         // find all the numbers
         // store numbers in a tuple (or similar)
         // - number, row, start index (and end index, if needed)
         // check up, down, left and right of each number in search of a symbol
-
     }
 
     private string[] GetInputRows()
@@ -54,3 +60,17 @@ public class Day03Task1 : BaseTask
 
 public class Day03Task2 : Day03Task1
 { }
+
+public class SchematicNumber
+{
+    public SchematicNumber(string value, int x, int y)
+    {
+        Value = value;
+        X = x;
+        Y = y;
+    }
+
+    public int X { get; }
+    public int Y { get; }
+    public string Value { get; }
+}
