@@ -5,7 +5,7 @@
         static void Main(string[] args)
         {
             string dayName = ParseArgs(args);
-            new FileCreatorUtils().CreateDay(dayName);
+            FileCreatorUtils.CreateDay(dayName);
             Console.WriteLine($"Blank classes and tests created for Day {dayName}.");
             Console.WriteLine("\nDon't forget to add today to the `switch` statement in Program!");
         }
@@ -30,31 +30,39 @@
 
     public class FileCreatorUtils
     {
-        public void CreateDay(string dayName)
+        public static void CreateDay(string dayName)
         {
-            bool classExists = File.Exists(BasePath + $"/AdventOfCode2023/tasks/Day{dayName}.cs"),
-            testExists = File.Exists(BasePath + $"/AdventOfCode2023.Tests/Day{dayName}Tests.cs");
+            CreateClass(dayName);
+            CreateTest(dayName);
+        }
 
+        private static void CreateClass(string dayName)
+        {
+            bool classExists = File.Exists(BasePath + $"/AdventOfCode2023/tasks/Day{dayName}.cs");
             if (classExists)
             {
                 Console.WriteLine($"Class file for Day {dayName} already exists.");
+                return;
             }
-            else
-            {
-                // otherwise create file
-            }
+            // get file contents
+            // replace strings as necessary
+            // create .cs file at appropriate path
+        }
 
+        private static void CreateTest(string dayName)
+        {
+            bool testExists = File.Exists(BasePath + $"/AdventOfCode2023.Tests/Day{dayName}Tests.cs");
             if (testExists)
             {
                 Console.WriteLine($"Test file for Day {dayName} already exists.");
+                return;
             }
-            else
-            {
-                // otherwise create file
-            }
+            // get file contents
+            // replace strings as necessary
+            // create .cs file at appropriate path
         }
 
-        public string BasePath
+        private static string BasePath
         {
             get
             {
