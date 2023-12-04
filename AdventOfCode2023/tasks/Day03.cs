@@ -45,9 +45,9 @@ public class Day03Task1 : BaseTask
 
         foreach (SchematicNumber schematicNumber in schematicNumbers)
         {
-            bool isSchematicNumber = CheckSchematicNumber(schematicNumber);
+            bool isPartNumber = CheckSchematicNumber(schematicNumber);
 
-            if (isSchematicNumber)
+            if (isPartNumber)
             {
                 int value = int.Parse(schematicNumber.Value);
                 partNumbers.Add(value);
@@ -109,6 +109,7 @@ public class Day03Task1 : BaseTask
             bool isCurrentCharAMatch = IsMatch(row, i);
             if (isCurrentCharAMatch) return true;
         }
+
         return false;
     }
 
@@ -160,7 +161,16 @@ public class Day03Task1 : BaseTask
 }
 
 public class Day03Task2 : Day03Task1
-{ }
+{
+    public override string Solve()
+    {
+        // create dictionary for all *: key "x,y", value List of part numbers
+        // modify IsMatch to add to that dictionary
+        // loop over dictionary and multiply only those where there are two values in the list
+        // sum and return
+    }
+
+}
 
 public class SchematicNumber
 {
