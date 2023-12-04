@@ -219,6 +219,51 @@ public class Day03Task2 : Day03Task1
         return isAsterisk;
     }
 
+    private bool CheckSchematicNumber(SchematicNumber schematicNumber)
+    {
+        //
+        //
+        // this method is messy beyond belief
+        // desperately needs a refactor
+        //
+        //
+        //
+        int currentRow = schematicNumber.Y;
+
+        int leftBound = schematicNumber.X == 0 ? 0 : schematicNumber.X - 1;
+        int rightBound = schematicNumber.X + schematicNumber.Value.Length;
+        bool isTooFarRight = rightBound >= InputRows[currentRow].Length - 1;
+
+        if (isTooFarRight) --rightBound;
+        else
+        {
+            bool isRightMatch = IsMatch(currentRow, rightBound, schematicNumber);
+            if (isRightMatch) return true;
+        }
+
+        bool isLeftMatch = IsMatch(currentRow, leftBound, schematicNumber);
+        if (isLeftMatch) return true;
+
+        int rowAbove = currentRow - 1,
+        rowBelow = currentRow + 1;
+
+        bool isFirstRow = currentRow == 0;
+        if (!isFirstRow)
+        {
+            bool isMatchAbove = IsMatchInRow(rowAbove, leftBound, rightBound, schematicNumber);
+            if (isMatchAbove) return true;
+        }
+
+        bool isLastRow = currentRow == InputRows.Length - 1;
+        if (!isLastRow)
+        {
+            bool isMatchBelow = IsMatchInRow(rowBelow, leftBound, rightBound, schematicNumber);
+            if (isMatchBelow) return true;
+        }
+
+        return false;
+    }
+
     private bool IsMatchInRow(int row, int leftBound, int rightBound, SchematicNumber schematicNumber)
     {
         for (int i = leftBound; i <= rightBound; ++i)
