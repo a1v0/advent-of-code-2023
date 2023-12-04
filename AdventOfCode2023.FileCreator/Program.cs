@@ -5,9 +5,11 @@
         static void Main(string[] args)
         {
             string dayName = ParseArgs(args);
+            CreateDay(dayName);
+            Console.WriteLine($"Blank classes and tests created for Day {dayName}.");
         }
 
-        static void CreateDay()
+        static void CreateDay(string dayName)
         {
             string basePath = "/home/alvo/advent-of-code/advent-of-code-2023";
         }
