@@ -40,7 +40,7 @@ public class Day03Task1 : BaseTask
 
     private int[] GetPartNumbers()
     {
-        int[] partNumbers = new int[InputRows.Length];
+        SchematicNumber[] schematicNumbers = GetSchematicNumbers();
         // for(int i = 0;i<partNumbers.Length;++i)
         // {
         //     partNumbers[i]=
@@ -50,6 +50,19 @@ public class Day03Task1 : BaseTask
         // store numbers in a tuple (or similar)
         // - number, row, start index (and end index, if needed)
         // check up, down, left and right of each number in search of a symbol
+    }
+
+    private SchematicNumber[] GetSchematicNumbers()
+    {
+        var schematicNumbers = new List<SchematicNumber>();
+
+        for (int i = 0; i < InputRows.Length; ++i)
+        {
+            List<SchematicNumber> numbersInRow = GetNumbersInRow(i);
+            schematicNumbers.AddRange(numbersInRow);
+        }
+
+        return schematicNumbers.ToArray();
     }
 
     private string[] GetInputRows()
