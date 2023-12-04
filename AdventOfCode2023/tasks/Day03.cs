@@ -57,6 +57,39 @@ public class Day03Task1 : BaseTask
         return partNumbers.ToArray();
     }
 
+    private bool CheckSchematicNumber(SchematicNumber schematicNumber)
+    {
+        int leftBound = schematicNumber.X - 1,
+        rightBound = schematicNumber.X + schematicNumber.Value.Length;
+        int currentRow = schematicNumber.Y;
+
+        bool isLeftMatch = IsMatch(currentRow, leftBound);
+        if (isLeftMatch) return true;
+
+        bool isRightMatch = IsMatch(currentRow, rightBound);
+        if (isRightMatch) return true;
+
+        int rowAbove = currentRow - 1,
+        rowBelow = currentRow + 1;
+
+        bool isMatchAbove = IsMatchInRow(rowAbove, leftBound, rightBound);
+        if (isMatchAbove) return true;
+
+        bool isMatchBelow = IsMatchInRow(rowBelow, leftBound, rightBound);
+        if (isMatchBelow) return true;
+
+        return false;
+    }
+
+    private bool IsMatch(int rowIndex, int columnIndex)
+    {
+        string row = InputRows[rowIndex];
+        string value = row[columnIndex].ToString();
+
+        var symbolRegex = new Regex(@"[^\d.]");
+        return symbolRegex.IsMatch(value);
+    }
+
     private SchematicNumber[] GetSchematicNumbers()
     {
         var schematicNumbers = new List<SchematicNumber>();
