@@ -59,16 +59,28 @@ public class Day03Task1 : BaseTask
 
     private bool CheckSchematicNumber(SchematicNumber schematicNumber)
     {
+        //
+        //
+        // this method is messy beyond belief
+        // desperately needs a refactor
+        //
+        //
+        //
+        int currentRow = schematicNumber.Y;
+
         int leftBound = schematicNumber.X == 0 ? 0 : schematicNumber.X - 1;
         int rightBound = schematicNumber.X + schematicNumber.Value.Length;
+        bool isTooFarRight = rightBound >= InputRows[currentRow].Length - 1;
 
-        int currentRow = schematicNumber.Y;
+        if (isTooFarRight) --rightBound;
+        else
+        {
+            bool isRightMatch = IsMatch(currentRow, rightBound);
+            if (isRightMatch) return true;
+        }
 
         bool isLeftMatch = IsMatch(currentRow, leftBound);
         if (isLeftMatch) return true;
-
-        bool isRightMatch = IsMatch(currentRow, rightBound);
-        if (isRightMatch) return true;
 
         int rowAbove = currentRow - 1,
         rowBelow = currentRow + 1;
@@ -132,7 +144,7 @@ public class Day03Task1 : BaseTask
         {
             string value = match.Value;
             int column = match.Index;
-            var schematicNumber = new SchematicNumber(value, row, column);
+            var schematicNumber = new SchematicNumber(value, column, row);
             numbersInRow.Add(schematicNumber);
         }
 
