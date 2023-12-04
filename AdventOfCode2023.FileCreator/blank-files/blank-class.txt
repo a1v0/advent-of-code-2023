@@ -1,0 +1,23 @@
+namespace AdventOfCode2023;
+
+public class DayDAY_NAME_HERE : BaseDay
+{
+    public override BaseTask Task1
+    {
+        get;
+    } = new DayDAY_NAME_HERETask1();
+
+    public override BaseTask Task2
+    {
+        get;
+    } = new DayDAY_NAME_HERETask2();
+}
+
+public class DayDAY_NAME_HERETask1 : BaseTask
+{
+    public override string Solve()
+    { }
+}
+
+public class DayDAY_NAME_HERETask2 : DayDAY_NAME_HERETask1
+{ }
