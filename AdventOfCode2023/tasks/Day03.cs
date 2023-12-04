@@ -38,7 +38,7 @@ public class Day03Task1 : BaseTask
         }
     }
 
-    private int[] GetPartNumbers()
+    protected int[] GetPartNumbers()
     {
         SchematicNumber[] schematicNumbers = GetSchematicNumbers();
         var partNumbers = new List<int>();
@@ -164,13 +164,32 @@ public class Day03Task2 : Day03Task1
 {
     public override string Solve()
     {
+        // This is a bit sneaky, because GetPartNumbers
+        // does a number of things that I don't care
+        // about in this solution. Really, I should
+        // probably rewrite the whole method, but I'm
+        // reusing as much code as possible in the
+        // interest of time
+        GetPartNumbers();
         int[] gearRatios = GetGearRatios();
         int sumOfGearRatios = gearRatios.Sum();
         return sumOfGearRatios.ToString();
-        // create dictionary for all *: key "x,y", value List of part numbers
+    }
+
+    private int[] GetGearRatios()
+    {
+        var gearRatios = new List<int>();
+        foreach (KeyValuePair<string, List<int>> pair in PossibleGears)
+        {
+            if (pair.Value.Count != 2) continue;
+
+            int gearRatio = pair.Value[0] * pair.Value[1];
+            gearRatios.Add(gearRatio);
+        }
+
+        return gearRatios.ToArray();
         // modify IsMatch to add to that dictionary
         // loop over dictionary and multiply only those where there are two values in the list
-        // sum and return
     }
 
     private Dictionary<string, List<int>> PossibleGears
