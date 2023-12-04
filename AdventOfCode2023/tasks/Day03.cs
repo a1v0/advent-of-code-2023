@@ -59,8 +59,9 @@ public class Day03Task1 : BaseTask
 
     private bool CheckSchematicNumber(SchematicNumber schematicNumber)
     {
-        int leftBound = schematicNumber.X - 1,
-        rightBound = schematicNumber.X + schematicNumber.Value.Length;
+        int leftBound = schematicNumber.X == 0 ? 0 : schematicNumber.X - 1;
+        int rightBound = schematicNumber.X + schematicNumber.Value.Length;
+
         int currentRow = schematicNumber.Y;
 
         bool isLeftMatch = IsMatch(currentRow, leftBound);
