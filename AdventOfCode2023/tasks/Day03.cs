@@ -57,7 +57,7 @@ public class Day03Task1 : BaseTask
         return partNumbers.ToArray();
     }
 
-    private bool CheckSchematicNumber(SchematicNumber schematicNumber)
+    protected virtual bool CheckSchematicNumber(SchematicNumber schematicNumber)
     {
         //
         //
@@ -219,7 +219,7 @@ public class Day03Task2 : Day03Task1
         return isAsterisk;
     }
 
-    private bool CheckSchematicNumber(SchematicNumber schematicNumber)
+    protected override bool CheckSchematicNumber(SchematicNumber schematicNumber)
     {
         //
         //
