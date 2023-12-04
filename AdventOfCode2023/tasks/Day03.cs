@@ -188,8 +188,35 @@ public class Day03Task2 : Day03Task1
         }
 
         return gearRatios.ToArray();
-        // modify IsMatch to add to that dictionary
-        // loop over dictionary and multiply only those where there are two values in the list
+    }
+
+    protected bool IsMatch(int rowIndex, int columnIndex, SchematicNumber schematicNumber)
+    {
+        string row = InputRows[rowIndex];
+        string value = row[columnIndex].ToString();
+
+        var symbolRegex = new Regex(@"\*");
+
+        bool isAsterisk = symbolRegex.IsMatch(value);
+
+        if (isAsterisk)
+        {
+            string coordinate = $"{columnIndex},{rowIndex}";
+            int productNumber = int.Parse(schematicNumber.Value);
+
+            bool keyExists = PossibleGears.ContainsKey(coordinate);
+            if (keyExists)
+            {
+                PossibleGears[coordinate].Add(productNumber);
+            }
+            else
+            {
+                var possibleGear = new List<int>() { productNumber };
+                PossibleGears.Add(coordinate, possibleGear);
+            }
+        }
+
+        return isAsterisk;
     }
 
     private Dictionary<string, List<int>> PossibleGears
