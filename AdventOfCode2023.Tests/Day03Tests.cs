@@ -15,7 +15,7 @@ public class Day03Tests : BaseTest
     [Fact]
     public void Test2()
     {
-        const string expected = "d.fkghkdfjghlakejrghdjkfbkdjfghkjer";
+        const string expected = "467835";
         string actual = new Day03().Solve(2);
         Assert.Equal(expected, actual);
     }
