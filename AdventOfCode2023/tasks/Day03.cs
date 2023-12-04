@@ -164,12 +164,19 @@ public class Day03Task2 : Day03Task1
 {
     public override string Solve()
     {
+        int[] gearRatios = GetGearRatios();
+        int sumOfGearRatios = gearRatios.Sum();
+        return sumOfGearRatios.ToString();
         // create dictionary for all *: key "x,y", value List of part numbers
         // modify IsMatch to add to that dictionary
         // loop over dictionary and multiply only those where there are two values in the list
         // sum and return
     }
 
+    private Dictionary<string, List<int>> PossibleGears
+    {
+        get;
+    } = new Dictionary<string, List<int>>();
 }
 
 public class SchematicNumber
