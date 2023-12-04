@@ -12,7 +12,7 @@ This repo uses xUnit for testing, though my tests aren't particularly extensive.
 | --- | ------ | ------ | ----------------------------------------------- |
 | 01  | ⭐    | ⭐     |                                                 |
 | 02  | ⭐    | ⭐     |                                                 |
-| 03  | ⭐    |        | `CheckSchematicNumber` could do with refactoring |
+| 03  | ⭐    | ⭐     | I sacrificed good practice for reusability. _Mea culpa._ Could do with a major refactor. |
 <!-- | 04  |        |        |                                                 | -->
 <!-- | 05  |        |        |                                                 | -->
 <!-- | 06  |        |        |                                                 | -->
