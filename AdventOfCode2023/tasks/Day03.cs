@@ -86,16 +86,18 @@ public class Day03Task1 : BaseTask
         rowBelow = currentRow + 1;
 
         bool isFirstRow = currentRow == 0;
-        if (isFirstRow) return false;
-
-        bool isMatchAbove = IsMatchInRow(rowAbove, leftBound, rightBound);
-        if (isMatchAbove) return true;
+        if (!isFirstRow)
+        {
+            bool isMatchAbove = IsMatchInRow(rowAbove, leftBound, rightBound);
+            if (isMatchAbove) return true;
+        }
 
         bool isLastRow = currentRow == InputRows.Length - 1;
-        if (isLastRow) return false;
-
-        bool isMatchBelow = IsMatchInRow(rowBelow, leftBound, rightBound);
-        if (isMatchBelow) return true;
+        if (!isLastRow)
+        {
+            bool isMatchBelow = IsMatchInRow(rowBelow, leftBound, rightBound);
+            if (isMatchBelow) return true;
+        }
 
         return false;
     }
