@@ -41,15 +41,20 @@ public class Day03Task1 : BaseTask
     private int[] GetPartNumbers()
     {
         SchematicNumber[] schematicNumbers = GetSchematicNumbers();
-        // for(int i = 0;i<partNumbers.Length;++i)
-        // {
-        //     partNumbers[i]=
-        // }
-        // loop through rows
-        // find all the numbers
-        // store numbers in a tuple (or similar)
-        // - number, row, start index (and end index, if needed)
-        // check up, down, left and right of each number in search of a symbol
+        var partNumbers = new List<int>();
+
+        foreach (SchematicNumber schematicNumber in schematicNumbers)
+        {
+            bool isSchematicNumber = CheckSchematicNumber(schematicNumber);
+
+            if (isSchematicNumber)
+            {
+                int value = int.Parse(schematicNumber.Value);
+                partNumbers.Add(value);
+            }
+        }
+
+        return partNumbers.ToArray();
     }
 
     private SchematicNumber[] GetSchematicNumbers()
