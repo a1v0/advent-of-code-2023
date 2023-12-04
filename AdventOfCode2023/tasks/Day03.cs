@@ -1,4 +1,4 @@
-using System.Security.Cryptography.X509Certificates;
+using System.Text.RegularExpressions;
 
 namespace AdventOfCode2023;
 
@@ -63,6 +63,25 @@ public class Day03Task1 : BaseTask
         }
 
         return schematicNumbers.ToArray();
+    }
+
+    private List<SchematicNumber> GetNumbersInRow(int row)
+    {
+        string currentRow = InputRows[row];
+        var numRegex = new Regex(@"\d+");
+        MatchCollection matches = numRegex.Matches(currentRow);
+
+        var numbersInRow = new List<SchematicNumber>();
+
+        foreach (Match match in matches)
+        {
+            string value = match.Value;
+            int column = match.Index;
+            var schematicNumber = new SchematicNumber(value, row, column);
+            numbersInRow.Add(schematicNumber);
+        }
+
+        return numbersInRow;
     }
 
     private string[] GetInputRows()
