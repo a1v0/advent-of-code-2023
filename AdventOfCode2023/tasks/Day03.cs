@@ -219,6 +219,17 @@ public class Day03Task2 : Day03Task1
         return isAsterisk;
     }
 
+    private bool IsMatchInRow(int row, int leftBound, int rightBound, SchematicNumber schematicNumber)
+    {
+        for (int i = leftBound; i <= rightBound; ++i)
+        {
+            bool isCurrentCharAMatch = IsMatch(row, i, schematicNumber);
+            if (isCurrentCharAMatch) return true;
+        }
+
+        return false;
+    }
+
     private Dictionary<string, List<int>> PossibleGears
     {
         get;
