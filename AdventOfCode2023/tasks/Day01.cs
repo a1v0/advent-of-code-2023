@@ -79,7 +79,7 @@ public class Day01Task1 : BaseTask
 
     private string[] ParseInput()
     {
-        return Input.Split('\n');
+        return GetInputRows();
     }
 }
 

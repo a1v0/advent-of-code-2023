@@ -73,11 +73,6 @@ public class Day02Task1 : BaseTask
 
         return games;
     }
-
-    private string[] GetInputRows()
-    {
-        return Input.Split('\n');
-    }
 }
 
 public class Day02Task2 : Day02Task1

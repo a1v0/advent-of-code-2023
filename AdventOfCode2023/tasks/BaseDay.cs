@@ -60,6 +60,11 @@ public class BaseTask
         }
     }
 
+    protected string[] GetInputRows()
+    {
+        return Input.Split('\n');
+    }
+
     public virtual string Solve()
     {
         Console.WriteLine("If you are seeing this message, it means that no solution has been created for the chosen Task.");

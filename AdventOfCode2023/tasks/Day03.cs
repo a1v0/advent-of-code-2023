@@ -153,11 +153,6 @@ public class Day03Task1 : BaseTask
 
         return numbersInRow;
     }
-
-    private string[] GetInputRows()
-    {
-        return Input.Split('\n');
-    }
 }
 
 public class Day03Task2 : Day03Task1
