@@ -46,6 +46,33 @@ public class Day04Task1 : BaseTask
         return cards;
     }
 
+    private (List<int>, List<int>) ParseRow(string row)
+    {
+        int cardNameLength = 10; // e.g. "Card   1: "
+        string rowWithoutCarName = row[cardNameLength..];
+        string[] rowHalves = rowWithoutCarName.Split(" | ");
+        List<int> winningNumbers = ExtractNumbers(rowHalves[0]);
+        List<int> selectedNumbers = ExtractNumbers(rowHalves[1]);
+        return (winningNumbers, selectedNumbers);
+    }
+
+    private List<int> ExtractNumbers(string set)
+    {
+        var extractedNumbers = new List<int>();
+
+        string[] setContents = set.Split(" ");
+        foreach (string setItem in setContents)
+        {
+            bool isValidItem = setItem.Length > 0;
+            if (!isValidItem) continue;
+
+            int number = int.Parse(setItem);
+            extractedNumbers.Add(number);
+        }
+
+        return extractedNumbers;
+    }
+
     private (List<int>, List<int>)[] Cards { get; } = GetCards();
 }
 
