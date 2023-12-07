@@ -110,4 +110,16 @@ public class Day04Task1 : BaseTask
 }
 
 public class Day04Task2 : Day04Task1
-{ }
+{
+    public override string Solve()
+    {
+        // create properties:
+        // - dictionary WinningNumbers (maybe find better name) int: card number, int: number of winning numbers
+        // - dictionary CardsHeld int: card number, int: quantity held (default 0)
+        // populate WinningNumbers
+        // loop through CardsHeld
+        // - for every card held, add a suitable amount of additional cards (depending on number of winning numbers)
+        // - don't add any beyond end of cards list
+        // add up and stringify CardsHeld
+    }
+}
