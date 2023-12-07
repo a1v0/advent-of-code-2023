@@ -15,7 +15,7 @@
             string dayName = args[0];
 
             bool isInt = int.TryParse(dayName, out int result);
-            var error = new Exception("Invalid argument given.");
+            var error = new Exception("Invalid argument given. Must be integer between 1 and 25.");
 
             if (!isInt) throw error;
 
@@ -38,15 +38,17 @@
 
         private static void CreateClass(string dayName)
         {
-            bool classExists = File.Exists(BasePath + $"/AdventOfCode2023/tasks/Day{dayName}.cs");
+            string fullPath = BasePath + $"/AdventOfCode2023/tasks/Day{dayName}.cs";
+            bool classExists = File.Exists(fullPath);
             if (classExists)
             {
                 Console.WriteLine($"Class file for Day {dayName} already exists.");
                 return;
             }
-            // get file contents
-            // replace strings as necessary
-            // create .cs file at appropriate path
+
+            string fileTemplate = File.ReadAllText("blank-files/blank-class.txt");
+            string fileContents = fileTemplate.Replace("DAY_NAME_HERE", dayName);
+            File.WriteAllText(fullPath, fileContents);
         }
 
         private static void CreateTest(string dayName)
