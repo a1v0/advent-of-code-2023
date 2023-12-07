@@ -1,0 +1,22 @@
+namespace AdventOfCode2023.Tests;
+
+public class DayDAY_NAME_HERETests : BaseTest
+{
+    [Trait("dp", "DAY_NAME_INT_HERE,1")]
+    [Fact]
+    public void Test1()
+    {
+        const string expected = "RANDOM VALUE TO ENSURE TEST FAILS UNTIL REAL VALUE IS ENTERED";
+        string actual = new Day02().Solve(1);
+        Assert.Equal(expected, actual);
+    }
+
+    [Trait("dp", "DAY_NAME_INT_HERE,2")]
+    [Fact]
+    public void Test2()
+    {
+        const string expected = "RANDOM VALUE TO ENSURE TEST FAILS UNTIL REAL VALUE IS ENTERED";
+        string actual = new DayDAY_NAME_HERE().Solve(2);
+        Assert.Equal(expected, actual);
+    }
+}
