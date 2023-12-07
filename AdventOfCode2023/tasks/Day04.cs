@@ -24,11 +24,19 @@ public class Day04Task1 : BaseTask
 
     private int[] GetPoints()
     {
+        var points = new List<int>();
         (List<int>, List<int>)[] cards = GetCards(); // maybe make this into a property
-        // split into list of winning numbers and actual numbers
-        // - array of tuples?
-        // loop over winning numbers per day to find amount of winning numbers
-        // calculate points based on amount of winning numbers
+
+        foreach (var card in cards)
+        {
+            int amountOfWinningNumbers = CountWinningNumbers(card);
+            if (amountOfWinningNumbers == 0) continue;
+
+            int exponent = amountOfWinningNumbers - 1;
+            int pointsInCard = 2 ^ exponent;
+            points.Add(pointsInCard);
+        }
+        return points.ToArray();
     }
 
     private (List<int>, List<int>)[] GetCards()
