@@ -17,14 +17,18 @@ public class Day04Task1 : BaseTask
 {
     public override string Solve()
     {
-        int[] pointsForAllCards = GetPoints();
-        int totalPoints = pointsForAllCards.Sum();
+        double[] pointsForAllCards = GetPoints();
+        foreach (double point in pointsForAllCards)
+        {
+            System.Console.WriteLine(point);
+        }
+        double totalPoints = pointsForAllCards.Sum();
         return totalPoints.ToString();
     }
 
-    private int[] GetPoints()
+    private double[] GetPoints()
     {
-        var points = new List<int>();
+        var points = new List<double>();
         (List<int>, List<int>)[] cards = GetCards(); // maybe make this into a property
 
         foreach (var card in cards)
@@ -33,9 +37,10 @@ public class Day04Task1 : BaseTask
             if (amountOfWinningNumbers == 0) continue;
 
             int exponent = amountOfWinningNumbers - 1;
-            int pointsInCard = 2 ^ exponent;
+            double pointsInCard = Math.Pow(2, exponent);
             points.Add(pointsInCard);
         }
+
         return points.ToArray();
     }
 
