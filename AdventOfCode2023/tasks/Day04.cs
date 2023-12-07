@@ -39,6 +39,19 @@ public class Day04Task1 : BaseTask
         return points.ToArray();
     }
 
+    private static int CountWinningNumbers((List<int> winningNumbers, List<int> selectedNumbers) card)
+    {
+        int winningNumbersCount = 0;
+
+        foreach (int winningNumber in card.winningNumbers)
+        {
+            bool winningNumberSelected = card.selectedNumbers.Contains(winningNumber);
+            if (winningNumberSelected) ++winningNumbersCount;
+        }
+
+        return winningNumbersCount;
+    }
+
     private (List<int>, List<int>)[] GetCards()
     {
         string[] inputRows = GetInputRows();
