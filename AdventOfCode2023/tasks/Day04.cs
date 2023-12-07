@@ -18,10 +18,6 @@ public class Day04Task1 : BaseTask
     public override string Solve()
     {
         double[] pointsForAllCards = GetPoints();
-        foreach (double point in pointsForAllCards)
-        {
-            System.Console.WriteLine(point);
-        }
         double totalPoints = pointsForAllCards.Sum();
         return totalPoints.ToString();
     }
@@ -75,8 +71,8 @@ public class Day04Task1 : BaseTask
     private (List<int>, List<int>) ParseRow(string row)
     {
         int cardNameLength = 10; // e.g. "Card   1: "
-        string rowWithoutCarName = row[cardNameLength..];
-        string[] rowHalves = rowWithoutCarName.Split(" | ");
+        string rowWithoutCardName = row[cardNameLength..];
+        string[] rowHalves = rowWithoutCardName.Split(" | ");
         List<int> winningNumbers = ExtractNumbers(rowHalves[0]);
         List<int> selectedNumbers = ExtractNumbers(rowHalves[1]);
         return (winningNumbers, selectedNumbers);
