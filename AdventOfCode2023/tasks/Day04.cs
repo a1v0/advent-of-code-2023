@@ -122,4 +122,17 @@ public class Day04Task2 : Day04Task1
         // - don't add any beyond end of cards list
         // add up and stringify CardsHeld
     }
+
+    Dictionary<int, int>? _winningNumbers;
+    private Dictionary<int, int> WinningNumbers
+    {
+        get
+        {
+            if (_winningNumbers is null)
+            {
+                _winningNumbers = GetWinningNumbers();
+            }
+            return _winningNumbers;
+        }
+    }
 }
