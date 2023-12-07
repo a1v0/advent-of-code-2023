@@ -17,13 +17,14 @@ public class Day04Task1 : BaseTask
 {
     public override string Solve()
     {
+        int[] pointsForAllCards = GetPoints();
+        int totalPoints = pointsForAllCards.Sum();
+        return totalPoints.ToString();
         // split into list of winning numbers and actual numbers
         // - array of tuples?
         // loop over winning numbers per day to find amount of winning numbers
         // calculate points based on amount of winning numbers
         // sum all points
-        //
-        //
     }
 }
 
