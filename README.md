@@ -77,3 +77,7 @@ $ dotnet test --filter dp=1,2
 The majority of tests will be simple `Assert.Equals` tests that ensure each `Solve` method returns what the test data requires.
 
 On the assumption that the answers to the Advent of Code challenges will all either be numerical or string types, the `Solve` method returns a string every time. Challenges whose answer is numerical will be converted to a string before returning. This is important mainly for assertions in the test suite; the `Solve` method otherwise prints the solution to the console, rather than returning the value anywhere.
+
+## Auto-generating daily files
+
+To auto-generate boilerplate files for a day's tasks, open the `AdventOfCode2023.FileCreator` directory, run `dotnet run -- DAY_NAME` where `DAY_NAME` is the date you want files made for. It will create a blank class, a blank test file, and two empty input files.
