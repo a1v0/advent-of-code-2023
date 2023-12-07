@@ -70,8 +70,8 @@ public class Day04Task1 : BaseTask
 
     private (List<int>, List<int>) ParseRow(string row)
     {
-        int cardNameLength = 10; // e.g. "Card   1: "
-        string rowWithoutCardName = row[cardNameLength..];
+        string[] cardNameAndContent = row.Split(": ");
+        string rowWithoutCardName = cardNameAndContent[1];
         string[] rowHalves = rowWithoutCardName.Split(" | ");
         List<int> winningNumbers = ExtractNumbers(rowHalves[0]);
         List<int> selectedNumbers = ExtractNumbers(rowHalves[1]);
