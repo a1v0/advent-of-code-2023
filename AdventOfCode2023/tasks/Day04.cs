@@ -100,10 +100,7 @@ public class Day04Task1 : BaseTask
     {
         get
         {
-            if (_cards is null)
-            {
-                _cards = GetCards();
-            }
+            _cards ??= GetCards();
             return _cards;
         }
     }
@@ -128,10 +125,7 @@ public class Day04Task2 : Day04Task1
     {
         get
         {
-            if (_cardsHeld is null)
-            {
-                _cardsHeld = GetCardsHeld();
-            }
+            _cardsHeld ??= GetCardsHeld();
             return _cardsHeld;
         }
     }
@@ -141,10 +135,7 @@ public class Day04Task2 : Day04Task1
     {
         get
         {
-            if (_winningNumbers is null)
-            {
-                _winningNumbers = GetWinningNumbers();
-            }
+            _winningNumbers ??= GetWinningNumbers();
             return _winningNumbers;
         }
     }

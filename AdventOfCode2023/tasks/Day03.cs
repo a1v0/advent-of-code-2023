@@ -30,10 +30,7 @@ public class Day03Task1 : BaseTask
     {
         get
         {
-            if (_inputRows is null)
-            {
-                _inputRows = GetInputRows();
-            }
+            _inputRows ??= GetInputRows();
             return _inputRows;
         }
     }
