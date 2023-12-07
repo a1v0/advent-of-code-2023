@@ -77,7 +77,7 @@ public class Day04Task1 : BaseTask
         return (winningNumbers, selectedNumbers);
     }
 
-    private List<int> ExtractNumbers(string set)
+    private static List<int> ExtractNumbers(string set)
     {
         var extractedNumbers = new List<int>();
 
@@ -94,7 +94,18 @@ public class Day04Task1 : BaseTask
         return extractedNumbers;
     }
 
-    private (List<int>, List<int>)[] Cards { get; } = GetCards();
+    (List<int>, List<int>)[]? _cards;
+    private (List<int>, List<int>)[] Cards
+    {
+        get
+        {
+            if (_cards is null)
+            {
+                _cards = GetCards();
+            }
+            return _cards;
+        }
+    }
 }
 
 public class Day04Task2 : Day04Task1
