@@ -129,6 +129,20 @@ public class Day04Task2 : Day04Task1
         return cardsHeld;
     }
 
+    private Dictionary<int, int> GetWinningNumbers()
+    {
+        var winningNumbers = new Dictionary<int, int>();
+        int numberOfCards = InputRows.Length;
+
+        for (int i = 1; i <= numberOfCards; ++i)
+        {
+            // get winning numbers here
+            // use stuff from GetPoints method
+        }
+
+        return winningNumbers;
+    }
+
     Dictionary<int, int>? _cardsHeld;
     private Dictionary<int, int> CardsHeld
     {
