@@ -60,7 +60,18 @@ public class BaseTask
         }
     }
 
-    protected string[] GetInputRows()
+    private string[]? _inputRows;
+
+    protected string[] InputRows
+    {
+        get
+        {
+            _inputRows ??= GetInputRows();
+            return _inputRows;
+        }
+    }
+
+    private string[] GetInputRows()
     {
         return Input.Split('\n');
     }

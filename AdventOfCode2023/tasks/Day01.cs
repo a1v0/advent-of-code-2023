@@ -79,7 +79,7 @@ public class Day01Task1 : BaseTask
 
     private string[] ParseInput()
     {
-        return GetInputRows();
+        return InputRows;
     }
 }
 

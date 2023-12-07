@@ -24,17 +24,6 @@ public class Day03Task1 : BaseTask
         return sumOfPartNumbers.ToString();
     }
 
-    private string[]? _inputRows;
-
-    protected string[] InputRows
-    {
-        get
-        {
-            _inputRows ??= GetInputRows();
-            return _inputRows;
-        }
-    }
-
     protected int[] GetPartNumbers()
     {
         SchematicNumber[] schematicNumbers = GetSchematicNumbers();
