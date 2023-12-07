@@ -53,15 +53,18 @@
 
         private static void CreateTest(string dayName)
         {
-            bool testExists = File.Exists(BasePath + $"/AdventOfCode2023.Tests/Day{dayName}Tests.cs");
+            string fullPath = BasePath + $"/AdventOfCode2023.Tests/Day{dayName}Tests.cs";
+            bool testExists = File.Exists(fullPath);
             if (testExists)
             {
                 Console.WriteLine($"Test file for Day {dayName} already exists.");
                 return;
             }
-            // get file contents
-            // replace strings as necessary
-            // create .cs file at appropriate path
+
+            string fileTemplate = File.ReadAllText("blank-files/blank-test.txt");
+            string fileContents = fileTemplate.Replace("DAY_NAME_HERE", dayName);
+            fileContents = fileContents.Replace("DAY_NAME_INT_HERE", int.Parse(dayName).ToString());
+            File.WriteAllText(fullPath, fileContents);
         }
 
         private static string BasePath
