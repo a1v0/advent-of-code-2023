@@ -55,12 +55,11 @@ public class Day04Task1 : BaseTask
 
     private (List<int>, List<int>)[] GetCards()
     {
-        string[] inputRows = GetInputRows();
-        var cards = new (List<int>, List<int>)[inputRows.Length];
+        var cards = new (List<int>, List<int>)[InputRows.Length];
 
-        for (int i = 0; i < inputRows.Length; ++i)
+        for (int i = 0; i < InputRows.Length; ++i)
         {
-            string row = inputRows[i];
+            string row = InputRows[i];
             (List<int>, List<int>) parsedRow = ParseRow(row);
             cards[i] = parsedRow;
         }
@@ -110,14 +109,24 @@ public class Day04Task2 : Day04Task1
 {
     public override string Solve()
     {
-        // create properties:
-        // - dictionary WinningNumbers (maybe find better name) int: card number, int: number of winning numbers
-        // - dictionary CardsHeld int: card number, int: quantity held (default 0)
         // populate WinningNumbers
         // loop through CardsHeld
         // - for every card held, add a suitable amount of additional cards (depending on number of winning numbers)
         // - don't add any beyond end of cards list
         // add up and stringify CardsHeld
+    }
+
+    private Dictionary<int, int> GetCardsHeld()
+    {
+        var cardsHeld = new Dictionary<int, int>();
+        int numberOfCards = InputRows.Length;
+
+        for (int i = 1; i <= numberOfCards; ++i)
+        {
+            cardsHeld[i] = 1;
+        }
+
+        return cardsHeld;
     }
 
     Dictionary<int, int>? _cardsHeld;
