@@ -5,8 +5,9 @@
         static void Main(string[] args)
         {
             string dayName = ParseArgs(args);
+            Console.WriteLine($"CREATING FILES FOR DAY {dayName}.\n--------------------------");
             FileCreatorUtils.CreateDay(dayName);
-            Console.WriteLine($"Blank classes and tests created for Day {dayName}.");
+            Console.WriteLine($"\nOperation complete for Day {dayName}.");
             Console.WriteLine("\nDon't forget to add today to the `switch` statement in Program!");
         }
 
@@ -49,6 +50,8 @@
             string fileTemplate = File.ReadAllText("blank-files/blank-class.txt");
             string fileContents = fileTemplate.Replace("DAY_NAME_HERE", dayName);
             File.WriteAllText(fullPath, fileContents);
+
+            Console.WriteLine($"Day {dayName} class created successfully.");
         }
 
         private static void CreateTest(string dayName)
@@ -65,6 +68,8 @@
             string fileContents = fileTemplate.Replace("DAY_NAME_HERE", dayName);
             fileContents = fileContents.Replace("DAY_NAME_INT_HERE", int.Parse(dayName).ToString());
             File.WriteAllText(fullPath, fileContents);
+
+            Console.WriteLine($"Day {dayName} class created successfully.");
         }
 
         private static string BasePath
