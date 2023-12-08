@@ -63,3 +63,17 @@ public class Day05Task1 : BaseTask
 
 public class Day05Task2 : Day05Task1
 { }
+
+public class AlmanacMap
+{
+    public AlmanacMap(string mapInput)
+    {
+        _mapInput = mapInput;
+        // parse input into rows
+        // parse rows tuples
+        // add to array of tuples
+        // store in a public property
+    }
+
+    private readonly string _mapInput;
+}
