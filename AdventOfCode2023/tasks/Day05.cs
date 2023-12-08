@@ -48,6 +48,17 @@ public class Day05Task1 : BaseTask
         long[] seeds = ExtractSeeds(splitRow);
         return seeds;
     }
+
+    private static long[] ExtractSeeds(string[] row)
+    {
+        var seeds = new List<long>();
+        for (int i = 1; i < row.Length; ++i)
+        {
+            long seed = long.Parse(row[i]);
+            seeds.Add(seed);
+        }
+        return seeds.ToArray();
+    }
 }
 
 public class Day05Task2 : Day05Task1
