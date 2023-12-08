@@ -77,6 +77,13 @@ public class AlmanacMap
     }
 
     private readonly string _mapInput;
+    private string MapInput
+    {
+        get
+        {
+            return _mapInput;
+        }
+    }
 
     private (int, int, int)[]? _ranges;
     private (int, int, int)[] Ranges
