@@ -110,7 +110,7 @@ public class Day05Task1 : BaseTask
     {
         get
         {
-            string[] maps = Input.Split("\n\n\n");
+            string[] maps = Input.Split("\n\n");
             string[] mapsWithoutTitles = RemoveTitles(maps[1..]);
             _unprocessedMaps ??= mapsWithoutTitles; // 0 would be the seeds
             return _unprocessedMaps;
@@ -123,7 +123,7 @@ public class Day05Task1 : BaseTask
 
         for (int i = 0; i < mapsWithTitle.Length; ++i)
         {
-            string[] splitMap = mapsWithTitle[i].Split(':');
+            string[] splitMap = mapsWithTitle[i].Split(":\n");
             mapsWithoutTitle[i] = splitMap[1];
         }
 
