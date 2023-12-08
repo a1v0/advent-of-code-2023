@@ -71,6 +71,19 @@ public class Day05Task1 : BaseTask
         }
     }
 
+    private static string[] RemoveTitles(string[] mapsWithTitle)
+    {
+        string[] mapsWithoutTitle = new string[mapsWithTitle.Length];
+
+        for (int i = 0; i < mapsWithTitle.Length; ++i)
+        {
+            string[] splitMap = mapsWithTitle[i].Split(':');
+            mapsWithoutTitle[i] = splitMap[1];
+        }
+
+        return mapsWithoutTitle;
+    }
+
     private long[]? _seeds;
     private long[] Seeds
     {
