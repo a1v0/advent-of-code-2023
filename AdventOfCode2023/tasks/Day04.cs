@@ -109,6 +109,12 @@ public class Day04Task2 : Day04Task1
 {
     public override string Solve()
     {
+        ProcessAllCards();
+        int[] finalCardQuantities = GetCardQuantities();
+        int totalCards = finalCardQuantities.Sum();
+        return totalCards.ToString();
+
+
         // populate WinningNumbers
         // loop through CardsHeld
         // - for every card held, add a suitable amount of additional cards (depending on number of winning numbers)
