@@ -128,9 +128,19 @@ public class Day04Task2 : Day04Task1
                 ProcessCard(i);
             }
         }
-        // loop through CardsHeld
-        // - for every card held, add a suitable amount of additional cards (depending on number of winning numbers)
-        // - don't add any beyond end of cards list
+    }
+
+    private void ProcessCard(int cardNumber)
+    {
+        int maxCardNumber = CardsHeld.Count;
+        int winningNumbers = WinningNumbers[cardNumber];
+        int upperBound = cardNumber + winningNumbers;
+        if (upperBound > maxCardNumber) upperBound = maxCardNumber;
+
+        for (int i = cardNumber + 1; i <= upperBound; ++i)
+        {
+            ++CardsHeld[i];
+        }
     }
 
     private int[] GetCardQuantities()
