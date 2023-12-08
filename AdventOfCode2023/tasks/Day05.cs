@@ -19,9 +19,9 @@ public class Day05Task1 : BaseTask
 {
     public override string Solve()
     {
-        // parse input into individual maps (could be a separate class)
-        // maps are arrays of tuples (source, translation, length)
-        // maps are sorted by source number
+        long[] locationNumbers = GetLocationNumbers();
+        long smallestLocationNumber = locationNumbers.Min();
+        return smallestLocationNumber.ToString();
         // loop over seed numbers, then:
         // loop over map contents
         // - if seed number >= source number, then check whether seed number is within range
