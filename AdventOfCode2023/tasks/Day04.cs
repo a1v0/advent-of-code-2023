@@ -40,7 +40,7 @@ public class Day04Task1 : BaseTask
         return points.ToArray();
     }
 
-    private static int CountWinningNumbers((List<int> winningNumbers, List<int> selectedNumbers) card)
+    protected static int CountWinningNumbers((List<int> winningNumbers, List<int> selectedNumbers) card)
     {
         int winningNumbersCount = 0;
 
@@ -53,7 +53,7 @@ public class Day04Task1 : BaseTask
         return winningNumbersCount;
     }
 
-    private (List<int>, List<int>)[] GetCards()
+    protected (List<int>, List<int>)[] GetCards()
     {
         var cards = new (List<int>, List<int>)[InputRows.Length];
 
@@ -131,13 +131,15 @@ public class Day04Task2 : Day04Task1
 
     private Dictionary<int, int> GetWinningNumbers()
     {
+        (List<int>, List<int>)[] cards = GetCards();
         var winningNumbers = new Dictionary<int, int>();
-        int numberOfCards = InputRows.Length;
+        int currentCard = 1;
 
-        for (int i = 1; i <= numberOfCards; ++i)
+        foreach (var card in cards)
         {
-            // get winning numbers here
-            // use stuff from GetPoints method
+            int amountOfWinningNumbers = CountWinningNumbers(card);
+            winningNumbers[currentCard] = amountOfWinningNumbers;
+            ++currentCard;
         }
 
         return winningNumbers;
