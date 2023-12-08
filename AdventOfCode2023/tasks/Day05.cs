@@ -33,6 +33,18 @@ public class Day05Task1 : BaseTask
         // find smallest location number, stringify, return
     }
 
+    private string[]? _unprocessedMaps;
+
+    private string[] UnprocessedMaps
+    {
+        get
+        {
+            string[] maps = Input.Split("\n\n\n");
+            _unprocessedMaps ??= maps[1..]; // 0 would be the seeds
+            return _unprocessedMaps;
+        }
+    }
+
     private long[]? _seeds;
     private long[] Seeds
     {
