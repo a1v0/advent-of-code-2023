@@ -31,14 +31,22 @@ public class Day05Task1 : BaseTask
         // find smallest location number, stringify, return
     }
 
-    private int[] _seeds;
-    private int[] Seeds
+    private long[]? _seeds;
+    private long[] Seeds
     {
         get
         {
             _seeds ??= ParseSeeds();
             return _seeds;
         }
+    }
+
+    private long[] ParseSeeds()
+    {
+        string seedsRow = InputRows[0];
+        string[] splitRow = seedsRow.Split(' ');
+        long[] seeds = ExtractSeeds(splitRow);
+        return seeds;
     }
 }
 
