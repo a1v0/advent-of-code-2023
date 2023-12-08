@@ -30,6 +30,16 @@ public class Day05Task1 : BaseTask
         // put final number into array of location numbers
         // find smallest location number, stringify, return
     }
+
+    private int[] _seeds;
+    private int[] Seeds
+    {
+        get
+        {
+            _seeds ??= ParseSeeds();
+            return _seeds;
+        }
+    }
 }
 
 public class Day05Task2 : Day05Task1
