@@ -122,6 +122,16 @@ public class Day04Task2 : Day04Task1
         // add up and stringify CardsHeld
     }
 
+    private int[] GetCardQuantities()
+    {
+        int[] cardQuantities = new int[CardsHeld.Count];
+        for (int i = 0; i < CardsHeld.Count; ++i)
+        {
+            cardQuantities[i] = CardsHeld[i + 1];
+        }
+        return cardQuantities;
+    }
+
     private Dictionary<int, int> GetCardsHeld()
     {
         var cardsHeld = new Dictionary<int, int>();
