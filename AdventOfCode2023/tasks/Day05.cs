@@ -33,6 +33,17 @@ public class Day05Task1 : BaseTask
         // find smallest location number, stringify, return
     }
 
+    private (long, long, long)[][]? _maps;
+
+    private (long, long, long)[][] Maps
+    {
+        get
+        {
+            _maps ??= GetMaps();
+            return _maps;
+        }
+    }
+
     private string[]? _unprocessedMaps;
 
     private string[] UnprocessedMaps
