@@ -61,12 +61,22 @@ public class Day05Task1 : BaseTask
             bool numberWithinRange = IsNumberWithinRange(sourceValue, range);
             if (!numberWithinRange) continue;
 
-            long index = Math.Abs(range.sourceStart - sourceValue);
-            translatedValue = range.destinationStart + index;
+            long positionInRange = Math.Abs(range.sourceStart - sourceValue);
+            translatedValue = range.destinationStart + positionInRange;
             break;
         }
 
         return translatedValue;
+    }
+
+    private static bool IsNumberWithinRange(long value, (long, long sourceStart, long length) range)
+    {
+        long min = range.sourceStart,
+             max = min + range.length - 1;
+
+        if (value < min) return false;
+        if (value > max) return false;
+        return true;
     }
 
     private object[]? _maps;
