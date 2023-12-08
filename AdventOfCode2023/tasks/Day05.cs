@@ -85,8 +85,8 @@ public class AlmanacMap
         }
     }
 
-    private (int, int, int)[]? _ranges;
-    private (int, int, int)[] Ranges
+    private (long, long, long)[]? _ranges;
+    private (long, long, long)[] Ranges
     {
         get
         {
@@ -95,10 +95,10 @@ public class AlmanacMap
         }
     }
 
-    private (int, int, int)[] GetRanges()
+    private (long, long, long)[] GetRanges()
     {
         string[] mapRows = MapInput.Split('\n');
-        var ranges = new (int, int, int)[mapRows.Length];
+        var ranges = new (long, long, long)[mapRows.Length];
 
         for (int i = 0; i < ranges.Length; ++i)
         {
@@ -107,5 +107,15 @@ public class AlmanacMap
         }
 
         return ranges;
+    }
+
+    private static (long, long, long) ParseRange(string row)
+    {
+        string[] rowContents = row.Split(' ');
+        long destination = long.Parse(rowContents[0]),
+        source = long.Parse(rowContents[1]),
+        length = long.Parse(rowContents[2]);
+
+        return (destination, source, length);
     }
 }
