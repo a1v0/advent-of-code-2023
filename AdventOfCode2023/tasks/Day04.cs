@@ -113,13 +113,24 @@ public class Day04Task2 : Day04Task1
         int[] finalCardQuantities = GetCardQuantities();
         int totalCards = finalCardQuantities.Sum();
         return totalCards.ToString();
+    }
 
+    private void ProcessAllCards()
+    {
+        for (int i = 1; i <= CardsHeld.Count; ++i)
+        {
+            int quantityHeld = CardsHeld[i];
+            for (int j = 0; j < quantityHeld; ++j)
+            {
+                // This second loop doesn't feel ideal to me.
+                // I could probably do it another way.
 
-        // populate WinningNumbers
+                ProcessCard(i);
+            }
+        }
         // loop through CardsHeld
         // - for every card held, add a suitable amount of additional cards (depending on number of winning numbers)
         // - don't add any beyond end of cards list
-        // add up and stringify CardsHeld
     }
 
     private int[] GetCardQuantities()
