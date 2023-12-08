@@ -1,3 +1,5 @@
+using System.Collections;
+
 namespace AdventOfCode2023;
 
 public class Day05 : BaseDay
@@ -69,11 +71,6 @@ public class AlmanacMap
     public AlmanacMap(string mapInput)
     {
         _mapInput = mapInput;
-        // parse input into rows
-        // parse rows tuples
-        // add to array of tuples
-        // sort array
-        // store in a public property
     }
 
     private readonly string _mapInput;
@@ -86,7 +83,7 @@ public class AlmanacMap
     }
 
     private (long, long, long)[]? _ranges;
-    private (long, long, long)[] Ranges
+    public (long, long, long)[] Ranges
     {
         get
         {
@@ -106,6 +103,8 @@ public class AlmanacMap
             ranges[i] = ParseRange(currentRow);
         }
 
+        Array.Sort(ranges);
+
         return ranges;
     }
 
@@ -113,8 +112,8 @@ public class AlmanacMap
     {
         string[] rowContents = row.Split(' ');
         long destination = long.Parse(rowContents[0]),
-        source = long.Parse(rowContents[1]),
-        length = long.Parse(rowContents[2]);
+             source = long.Parse(rowContents[1]),
+             length = long.Parse(rowContents[2]);
 
         return (destination, source, length);
     }
