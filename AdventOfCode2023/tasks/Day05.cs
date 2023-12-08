@@ -33,6 +33,19 @@ public class Day05Task1 : BaseTask
         // find smallest location number, stringify, return
     }
 
+    private long[] GetLocationNumbers()
+    {
+        long[] locationNumbers = new long[Seeds.Length];
+
+        for (int i = 0; i < Seeds.Length; ++i)
+        {
+            long currentSeed = Seeds[i];
+            locationNumbers[i] = GetLocationNumber(currentSeed);
+        }
+
+        return locationNumbers;
+    }
+
     private object[]? _maps;
 
     private object[] Maps
