@@ -94,4 +94,18 @@ public class AlmanacMap
             return _ranges;
         }
     }
+
+    private (int, int, int)[] GetRanges()
+    {
+        string[] mapRows = MapInput.Split('\n');
+        var ranges = new (int, int, int)[mapRows.Length];
+
+        for (int i = 0; i < ranges.Length; ++i)
+        {
+            string currentRow = mapRows[i];
+            ranges[i] = ParseRange(currentRow);
+        }
+
+        return ranges;
+    }
 }
