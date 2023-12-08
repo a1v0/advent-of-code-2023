@@ -33,15 +33,29 @@ public class Day05Task1 : BaseTask
         // find smallest location number, stringify, return
     }
 
-    private (long, long, long)[][]? _maps;
+    private object[]? _maps;
 
-    private (long, long, long)[][] Maps
+    private object[] Maps
     {
         get
         {
             _maps ??= GetMaps();
             return _maps;
         }
+    }
+
+    private object[] GetMaps()
+    {
+        // I honestly don't know whether using "object" here is a bodge or best practice.
+        // It feels like a bodge but I can't think of a better, non-clunky way to do it.
+        var maps = new object[UnprocessedMaps.Length];
+
+        for (int i = 0; i < maps.Length; ++i)
+        {
+            maps[i] = new AlmanacMap(UnprocessedMaps[i]);
+        }
+
+        return maps;
     }
 
     private string[]? _unprocessedMaps;
@@ -51,7 +65,8 @@ public class Day05Task1 : BaseTask
         get
         {
             string[] maps = Input.Split("\n\n\n");
-            _unprocessedMaps ??= maps[1..]; // 0 would be the seeds
+            string[] mapsWithoutTitles = RemoveTitles(maps[1..]);
+            _unprocessedMaps ??= mapsWithoutTitles; // 0 would be the seeds
             return _unprocessedMaps;
         }
     }
