@@ -72,8 +72,19 @@ public class AlmanacMap
         // parse input into rows
         // parse rows tuples
         // add to array of tuples
+        // sort array
         // store in a public property
     }
 
     private readonly string _mapInput;
+
+    private (int, int, int)[]? _ranges;
+    private (int, int, int)[] Ranges
+    {
+        get
+        {
+            _ranges ??= GetRanges();
+            return _ranges;
+        }
+    }
 }
