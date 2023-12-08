@@ -35,6 +35,36 @@
         {
             CreateClass(dayName);
             CreateTest(dayName);
+            CreateInputFiles(dayName);
+        }
+
+        private static void CreateInputFiles(string dayName)
+        {
+            string inputFolderPath = BasePath + "/AdventOfCode2023/inputs";
+            string inputPath = inputFolderPath + $"/{dayName}.txt",
+            testInputPath = inputFolderPath + $"/{dayName}.test.txt";
+
+            bool inputExists = File.Exists(inputPath);
+            if (inputExists)
+            {
+                Console.WriteLine($"Input file for Day {dayName} already exists.");
+            }
+            else
+            {
+                File.Create(inputPath);
+                Console.WriteLine($"Day {dayName} input file created successfully.");
+            }
+
+            bool testInputExists = File.Exists(testInputPath);
+            if (testInputExists)
+            {
+                Console.WriteLine($"Test input file for Day {dayName} already exists.");
+            }
+            else
+            {
+                File.Create(testInputPath);
+                Console.WriteLine($"Day {dayName} input file created successfully.");
+            }
         }
 
         private static void CreateClass(string dayName)

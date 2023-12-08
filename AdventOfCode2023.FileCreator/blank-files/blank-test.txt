@@ -7,7 +7,7 @@ public class DayDAY_NAME_HERETests : BaseTest
     public void Test1()
     {
         const string expected = "RANDOM VALUE TO ENSURE TEST FAILS UNTIL REAL VALUE IS ENTERED";
-        string actual = new Day02().Solve(1);
+        string actual = new DayDAY_NAME_HERE().Solve(1);
         Assert.Equal(expected, actual);
     }
 

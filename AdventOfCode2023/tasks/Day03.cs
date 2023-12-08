@@ -24,20 +24,6 @@ public class Day03Task1 : BaseTask
         return sumOfPartNumbers.ToString();
     }
 
-    private string[]? _inputRows;
-
-    protected string[] InputRows
-    {
-        get
-        {
-            if (_inputRows is null)
-            {
-                _inputRows = GetInputRows();
-            }
-            return _inputRows;
-        }
-    }
-
     protected int[] GetPartNumbers()
     {
         SchematicNumber[] schematicNumbers = GetSchematicNumbers();
@@ -152,11 +138,6 @@ public class Day03Task1 : BaseTask
         }
 
         return numbersInRow;
-    }
-
-    private string[] GetInputRows()
-    {
-        return Input.Split('\n');
     }
 }
 

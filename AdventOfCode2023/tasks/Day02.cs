@@ -62,21 +62,15 @@ public class Day02Task1 : BaseTask
 
     protected Game[] ParseInput()
     {
-        string[] inputRows = GetInputRows();
-        var games = new Game[inputRows.Length];
+        var games = new Game[InputRows.Length];
 
         for (int i = 0; i < games.Length; ++i)
         {
-            string currentRow = inputRows[i];
+            string currentRow = InputRows[i];
             games[i] = new Game(currentRow);
         }
 
         return games;
-    }
-
-    private string[] GetInputRows()
-    {
-        return Input.Split('\n');
     }
 }
 

@@ -60,6 +60,22 @@ public class BaseTask
         }
     }
 
+    private string[]? _inputRows;
+
+    protected string[] InputRows
+    {
+        get
+        {
+            _inputRows ??= GetInputRows();
+            return _inputRows;
+        }
+    }
+
+    private string[] GetInputRows()
+    {
+        return Input.Split('\n');
+    }
+
     public virtual string Solve()
     {
         Console.WriteLine("If you are seeing this message, it means that no solution has been created for the chosen Task.");
