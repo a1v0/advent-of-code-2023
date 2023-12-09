@@ -160,17 +160,22 @@ public class Day05Task1 : BaseTask
 
 public class Day05Task2 : Day05Task1
 {
-    // 
-    // parse seeds as tuples (start, length)
-    // loop over seed ranges
-    // - parse each seed within range as before
-    // - store location numbers on a per-range basis
-    // - find lowest location per range and store in an array
-    // return lowest location from lowest-location array
-    // 
-    // quite a lot needs updating, especially since the data type of Seeds is changing
-    // I'll do my best not to cause too much repetition
-    // 
+    public override string Solve()
+    {
+        long[] lowestLocationNumbers = GetLowestLocationNumbers();
+        long smallestLocationNumber = lowestLocationNumbers.Min();
+        return smallestLocationNumber.ToString();
+        // 
+        // loop over seed ranges
+        // - parse each seed within range as before
+        // - store location numbers on a per-range basis
+        // - find lowest location per range and store in an array
+        // return lowest location from lowest-location array
+        // 
+        // quite a lot needs updating, especially since the data type of Seeds is changing
+        // I'll do my best not to cause too much repetition
+        // 
+    }
 
     private (long, long)[]? _seedRanges;
     private (long start, long length)[] SeedRanges
