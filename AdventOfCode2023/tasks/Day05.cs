@@ -210,7 +210,7 @@ public class Day05Task2 : Day05Task1
     {
         string seedsRow = InputRows[0];
         string[] splitRow = seedsRow.Split(' ');
-        (long, long)[] seedRanges = ExtractSeedRanges(splitRow);
+        (long, long)[] seedRanges = ExtractSeedRanges(splitRow[1..]);
         return seedRanges;
     }
 
