@@ -162,6 +162,15 @@ public class Day05Task2 : Day05Task1
 {
     public override string Solve()
     {
+        // This solution is too slow; dotnet randomly stops
+        // running it after a while and it never reaches the
+        // end. It needs to be optimised.
+        // 
+        // Need to find ways to return early
+        // - if seed is in range X, then it'll definitely return a location higher than one we already have, so no point in evaluating
+        // 
+        // - add early return to translation method: if current seed > highest start+length, return
+        // 
         long[] lowestLocationNumbers = GetLowestLocationNumbers();
         long smallestLocationNumber = lowestLocationNumbers.Min();
         return smallestLocationNumber.ToString();
