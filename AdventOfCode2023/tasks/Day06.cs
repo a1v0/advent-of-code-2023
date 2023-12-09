@@ -82,7 +82,7 @@ public class Day06Task1 : BaseTask
         return races;
     }
 
-    private (string[], string[]) SplitInput()
+    protected virtual (string[], string[]) SplitInput()
     {
         string timeRow = InputRows[0],
                recordRow = InputRows[1];
@@ -95,7 +95,21 @@ public class Day06Task1 : BaseTask
 }
 
 public class Day06Task2 : Day06Task1
-{ }
+{
+    protected override (string[], string[]) SplitInput()
+    {
+        string timeRow = InputRows[0],
+               recordRow = InputRows[1];
+
+        string timeWithoutTitle = timeRow.Replace("Time:", ""),
+               recordWithoutTitle = recordRow.Replace("Distance:", "");
+
+        string[] time = new string[] { timeWithoutTitle.Replace(" ", "") },
+                 record = new string[] { recordWithoutTitle.Replace(" ", "") };
+
+        return (time, record);
+    }
+}
 
 public class Race
 {
