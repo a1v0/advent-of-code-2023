@@ -54,7 +54,7 @@ public class Day05Task1 : BaseTask
     {
         long translatedValue = sourceValue;
 
-        foreach ((long destinationStart, long sourceStart, long length) range in map.Ranges)
+        foreach ((long sourceStart, long destinationStart, long length) range in map.Ranges)
         {
             if (sourceValue < range.sourceStart) break;
 
@@ -69,7 +69,7 @@ public class Day05Task1 : BaseTask
         return translatedValue;
     }
 
-    private static bool IsNumberWithinRange(long value, (long, long sourceStart, long length) range)
+    private static bool IsNumberWithinRange(long value, (long sourceStart, long, long length) range)
     {
         long min = range.sourceStart,
              max = min + range.length - 1;
@@ -212,6 +212,6 @@ public class AlmanacMap
              source = long.Parse(rowContents[1]),
              length = long.Parse(rowContents[2]);
 
-        return (destination, source, length);
+        return (source, destination, length); // NOTE: this is a different order to what is given by the input
     }
 }
