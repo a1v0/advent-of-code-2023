@@ -172,8 +172,8 @@ public class Day05Task2 : Day05Task1
     // I'll do my best not to cause too much repetition
     // 
 
-    private (int, int)[]? _seedRanges;
-    private (int start, int length)[] SeedRanges
+    private (long, long)[]? _seedRanges;
+    private (long start, long length)[] SeedRanges
     {
         get
         {
@@ -182,16 +182,26 @@ public class Day05Task2 : Day05Task1
         }
     }
 
-    private (int, int)[] ParseSeedRanges()
+    private (long, long)[] ParseSeedRanges()
     {
         string seedsRow = InputRows[0];
         string[] splitRow = seedsRow.Split(' ');
-        (int, int)[] seedRanges = ExtractSeedRanges(splitRow);
+        (long, long)[] seedRanges = ExtractSeedRanges(splitRow);
         return seedRanges;
-        // remove seed row's title
-        // split by " "
-        // for loop where i+=2
-        // generate tuple
+    }
+
+    private static (long, long)[] ExtractSeedRanges(string[] seedNumbers)
+    {
+        (long, long)[] seedRanges = new (long, long)[seedNumbers.Length / 2];
+
+        for (int i = 0, j = 0; i < seedRanges.Length; ++i, j += 2)
+        {
+            long rangeStart = long.Parse(seedNumbers[j]);
+            long rangeLength = long.Parse(seedNumbers[j + 1]);
+            seedRanges[i] = (rangeStart, rangeLength);
+        }
+
+        return seedRanges;
     }
 }
 
