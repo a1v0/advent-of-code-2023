@@ -175,6 +175,7 @@ public class Day05Task2 : Day05Task1
         {
             long[] locationNumbers = GetLocationNumbers(i);
             lowestLocationNumbers[i] = locationNumbers.Min();
+            Console.WriteLine($"Seed range {i} processed.\n");
         }
 
         return lowestLocationNumbers;
@@ -191,6 +192,11 @@ public class Day05Task2 : Day05Task1
             long currentSeed = i;
             long locationNumber = GetLocationNumber(currentSeed);
             locationNumbers.Add(locationNumber);
+
+            if (i % 1000000 == 0)
+            {
+                Console.WriteLine($"Seed {i}/{maxSeedNumber} processed.");
+            }
         }
 
         return locationNumbers.ToArray();
