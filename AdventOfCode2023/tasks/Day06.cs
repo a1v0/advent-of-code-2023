@@ -18,7 +18,6 @@ public class Day06Task1 : BaseTask
     public override string Solve()
     {
         // create list property to store quantity of beaten records per race
-        // create Race class with properties of Time and Record
         // parse input as races
         // loop through races
         // loop through seconds in each race and find numbers that'd beat the record
@@ -28,3 +27,30 @@ public class Day06Task1 : BaseTask
 
 public class Day06Task2 : Day06Task1
 { }
+
+public class Race
+{
+    public Race(string time, string record)
+    {
+        _time = int.Parse(time);
+        _record = int.Parse(record);
+    }
+
+    private int _time;
+    public int Time
+    {
+        get
+        {
+            return _time;
+        }
+    }
+
+    private int _record;
+    public int Record
+    {
+        get
+        {
+            return _record;
+        }
+    }
+}
