@@ -25,6 +25,15 @@ public class Day06Task1 : BaseTask
         return product.ToString();
     }
 
+    private void PopulateBeatenRecords()
+    {
+        // loop through records
+        // create variable to store quantity of records broken
+        // loop through range of seconds
+        // if seconds of button presses * remaining seconds > record, add to no of records
+        // add amount of broken records to BeatenRecords
+    }
+
     private List<int> _beatenRecords = new List<int>();
     private List<int> BeatenRecords
     {
