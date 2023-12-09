@@ -165,6 +165,19 @@ public class Day05Task2 : Day05Task1
         long[] lowestLocationNumbers = GetLowestLocationNumbers();
         long smallestLocationNumber = lowestLocationNumbers.Min();
         return smallestLocationNumber.ToString();
+    }
+
+    private long[] GetLowestLocationNumbers()
+    {
+        long[] lowestLocationNumbers = new long[SeedRanges.Length];
+
+        for (int i = 0; i < SeedRanges.Length; ++i)
+        {
+            long[] locationNumbers = GetLocationNumbers(i);
+            lowestLocationNumbers[i] = locationNumbers.Min();
+        }
+
+        return lowestLocationNumbers;
         // 
         // loop over seed ranges
         // - parse each seed within range as before
