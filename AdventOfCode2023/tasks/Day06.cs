@@ -41,6 +41,15 @@ public class Day06Task1 : BaseTask
             return _races;
         }
     }
+
+    private Race[] GetRaces()
+    {
+        // split into lines
+        // split into numbers via regex
+        // create array
+        // parse strings into Race
+        // return
+    }
 }
 
 public class Day06Task2 : Day06Task1
