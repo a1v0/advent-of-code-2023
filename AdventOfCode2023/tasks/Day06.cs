@@ -20,8 +20,8 @@ public class Day06Task1 : BaseTask
     public override string Solve()
     {
         PopulateBeatenRecords();
-        int[] beatenRecords = BeatenRecords.ToArray();
-        int product = beatenRecords.Aggregate((a, b) => a * b);
+        long[] beatenRecords = BeatenRecords.ToArray();
+        long product = beatenRecords.Aggregate((a, b) => a * b);
         return product.ToString();
     }
 
@@ -29,26 +29,26 @@ public class Day06Task1 : BaseTask
     {
         foreach (Race race in Races)
         {
-            int recordsBeaten = GetRecordsBeaten(race);
+            long recordsBeaten = GetRecordsBeaten(race);
             BeatenRecords.Add(recordsBeaten);
         }
     }
 
-    private static int GetRecordsBeaten(Race race)
+    private static long GetRecordsBeaten(Race race)
     {
         int recordsBroken = 0;
-        for (int buttonPressDuration = 1; buttonPressDuration < race.Time; ++buttonPressDuration)
+        for (long buttonPressDuration = 1; buttonPressDuration < race.Time; ++buttonPressDuration)
         {
-            int remainingDuration = race.Time - buttonPressDuration;
-            int distanceTravelled = buttonPressDuration * remainingDuration;
+            long remainingDuration = race.Time - buttonPressDuration;
+            long distanceTravelled = buttonPressDuration * remainingDuration;
 
             if (distanceTravelled > race.Record) ++recordsBroken;
         }
         return recordsBroken;
     }
 
-    private List<int> _beatenRecords = new List<int>();
-    private List<int> BeatenRecords
+    private List<long> _beatenRecords = new List<long>();
+    private List<long> BeatenRecords
     {
         get
         {
@@ -96,6 +96,24 @@ public class Day06Task1 : BaseTask
 
 public class Day06Task2 : Day06Task1
 {
+    // 
+    // 
+    // 
+    // Task 2 requires a lot more thought
+    // The numbers involved are so big.
+    // There may well be a mathematical formula that'll solve it in an instant
+    // e.g. the sum of a series
+    // 
+    // 
+    // 
+    // 
+    // 
+    // 
+    // 
+    // 
+    // 
+    // 
+    // 
     protected override (string[], string[]) SplitInput()
     {
         string timeRow = InputRows[0],
@@ -115,12 +133,12 @@ public class Race
 {
     public Race(string time, string record)
     {
-        _time = int.Parse(time);
-        _record = int.Parse(record);
+        _time = long.Parse(time);
+        _record = long.Parse(record);
     }
 
-    private int _time;
-    public int Time
+    private long _time;
+    public long Time
     {
         get
         {
@@ -128,8 +146,8 @@ public class Race
         }
     }
 
-    private int _record;
-    public int Record
+    private long _record;
+    public long Record
     {
         get
         {
