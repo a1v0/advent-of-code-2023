@@ -96,24 +96,6 @@ public class Day06Task1 : BaseTask
 
 public class Day06Task2 : Day06Task1
 {
-    // 
-    // 
-    // 
-    // Task 2 requires a lot more thought
-    // The numbers involved are so big.
-    // There may well be a mathematical formula that'll solve it in an instant
-    // e.g. the sum of a series
-    // 
-    // 
-    // 
-    // 
-    // 
-    // 
-    // 
-    // 
-    // 
-    // 
-    // 
     protected override (string[], string[]) SplitInput()
     {
         string timeRow = InputRows[0],
