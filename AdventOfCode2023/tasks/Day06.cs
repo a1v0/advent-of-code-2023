@@ -17,7 +17,6 @@ public class Day06Task1 : BaseTask
 {
     public override string Solve()
     {
-        // create list property to store quantity of beaten records per race
         // parse input as races
         // loop through races
         // loop through seconds in each race and find numbers that'd beat the record
@@ -30,6 +29,16 @@ public class Day06Task1 : BaseTask
         get
         {
             return _beatenRecords;
+        }
+    }
+
+    private Race[]? _races;
+    private Race[] Races
+    {
+        get
+        {
+            _races ??= GetRaces();
+            return _races;
         }
     }
 }
