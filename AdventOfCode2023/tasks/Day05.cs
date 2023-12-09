@@ -177,9 +177,21 @@ public class Day05Task2 : Day05Task1
     {
         get
         {
-            _seedRanges ??= GetSeedRanges();
+            _seedRanges ??= ParseSeedRanges();
             return _seedRanges;
         }
+    }
+
+    private (int, int)[] ParseSeedRanges()
+    {
+        string seedsRow = InputRows[0];
+        string[] splitRow = seedsRow.Split(' ');
+        (int, int)[] seedRanges = ExtractSeedRanges(splitRow);
+        return seedRanges;
+        // remove seed row's title
+        // split by " "
+        // for loop where i+=2
+        // generate tuple
     }
 }
 
