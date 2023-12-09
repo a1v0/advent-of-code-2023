@@ -14,7 +14,7 @@ This repo uses xUnit for testing, though my tests aren't particularly extensive.
 | 02  | ⭐    | ⭐     |       |
 | 03  | ⭐    | ⭐     | I sacrificed good practice for reusability. _Mea culpa._ Could do with a major refactor. |
 | 04  | ⭐    | ⭐     |       |
-<!-- | 05  |        |        |       | -->
+| 05  | ⭐    | ❌     | Need to find a shortcut to the right answer, otherwise it takes too long to run. |
 <!-- | 06  |        |        |       | -->
 <!-- | 07  |        |        |       | -->
 <!-- | 08  |        |        |       | -->
