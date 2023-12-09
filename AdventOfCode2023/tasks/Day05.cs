@@ -1,5 +1,3 @@
-using System.Collections;
-
 namespace AdventOfCode2023;
 
 public class Day05 : BaseDay
@@ -140,7 +138,7 @@ public class Day05Task1 : BaseTask
         }
     }
 
-    protected virtual long[] ParseSeeds()
+    private long[] ParseSeeds()
     {
         string seedsRow = InputRows[0];
         string[] splitRow = seedsRow.Split(' ');
@@ -148,7 +146,7 @@ public class Day05Task1 : BaseTask
         return seeds;
     }
 
-    protected virtual long[] ExtractSeeds(string[] row)
+    private static long[] ExtractSeeds(string[] row)
     {
         var seeds = new List<long>();
         for (int i = 1; i < row.Length; ++i)
@@ -162,22 +160,17 @@ public class Day05Task1 : BaseTask
 
 public class Day05Task2 : Day05Task1
 {
-    private override long[] ParseSeeds()
-    {
-        // 
-        // parse seeds as tuples (start, length)
-        // loop over seed ranges
-        // - parse each seed within range as before
-        // - store location numbers on a per-range basis
-        // - find lowest location per range and store in an array
-        // return lowest location from lowest-location array
-        // 
-        // quite a lot needs updating, especially since the data type of Seeds is changing
-        // I'll do my best not to cause too much repetition
-        // 
-    }
-
-    private override long[] ExtractSeeds(string[] row) { }
+    // 
+    // parse seeds as tuples (start, length)
+    // loop over seed ranges
+    // - parse each seed within range as before
+    // - store location numbers on a per-range basis
+    // - find lowest location per range and store in an array
+    // return lowest location from lowest-location array
+    // 
+    // quite a lot needs updating, especially since the data type of Seeds is changing
+    // I'll do my best not to cause too much repetition
+    // 
 }
 
 public class AlmanacMap
