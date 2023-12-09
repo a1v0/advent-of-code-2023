@@ -140,7 +140,7 @@ public class Day05Task1 : BaseTask
         }
     }
 
-    private long[] ParseSeeds()
+    protected virtual long[] ParseSeeds()
     {
         string seedsRow = InputRows[0];
         string[] splitRow = seedsRow.Split(' ');
@@ -148,7 +148,7 @@ public class Day05Task1 : BaseTask
         return seeds;
     }
 
-    private static long[] ExtractSeeds(string[] row)
+    protected virtual long[] ExtractSeeds(string[] row)
     {
         var seeds = new List<long>();
         for (int i = 1; i < row.Length; ++i)
@@ -161,7 +161,24 @@ public class Day05Task1 : BaseTask
 }
 
 public class Day05Task2 : Day05Task1
-{ }
+{
+    private override long[] ParseSeeds()
+    {
+        // 
+        // parse seeds as tuples (start, length)
+        // loop over seed ranges
+        // - parse each seed within range as before
+        // - store location numbers on a per-range basis
+        // - find lowest location per range and store in an array
+        // return lowest location from lowest-location array
+        // 
+        // quite a lot needs updating, especially since the data type of Seeds is changing
+        // I'll do my best not to cause too much repetition
+        // 
+    }
+
+    private override long[] ExtractSeeds(string[] row) { }
+}
 
 public class AlmanacMap
 {
