@@ -23,6 +23,15 @@ public class Day06Task1 : BaseTask
         // loop through seconds in each race and find numbers that'd beat the record
         // multiple quantities, stringify and return
     }
+
+    private List<int> _beatenRecords = new List<int>();
+    private List<int> BeatenRecords
+    {
+        get
+        {
+            return _beatenRecords;
+        }
+    }
 }
 
 public class Day06Task2 : Day06Task1
