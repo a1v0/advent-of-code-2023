@@ -35,7 +35,7 @@ public class Day05Task1 : BaseTask
         return locationNumbers;
     }
 
-    private long GetLocationNumber(long seed)
+    protected long GetLocationNumber(long seed)
     {
         long currentTranslation = seed;
 
@@ -178,16 +178,22 @@ public class Day05Task2 : Day05Task1
         }
 
         return lowestLocationNumbers;
-        // 
-        // loop over seed ranges
-        // - parse each seed within range as before
-        // - store location numbers on a per-range basis
-        // - find lowest location per range and store in an array
-        // return lowest location from lowest-location array
-        // 
-        // quite a lot needs updating, especially since the data type of Seeds is changing
-        // I'll do my best not to cause too much repetition
-        // 
+    }
+
+    private long[] GetLocationNumbers(int seedRangeIndex)
+    {
+        (long rangeStart, long rangeLength) = SeedRanges[seedRangeIndex];
+        long maxSeedNumber = rangeStart + rangeLength - 1;
+        var locationNumbers = new List<long>();
+
+        for (long i = rangeStart; i <= maxSeedNumber; ++i)
+        {
+            long currentSeed = i;
+            long locationNumber = GetLocationNumber(currentSeed);
+            locationNumbers.Add(locationNumber);
+        }
+
+        return locationNumbers.ToArray();
     }
 
     private (long, long)[]? _seedRanges;
