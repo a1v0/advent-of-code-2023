@@ -32,11 +32,19 @@ public class Day06Task1 : BaseTask
             int recordsBeaten = GetRecordsBeaten(race);
             BeatenRecords.Add(recordsBeaten);
         }
-        // loop through races
-        // create variable to store quantity of records broken
-        // loop through range of seconds
-        // if seconds of button presses * remaining seconds > record, add to no of records
-        // add amount of broken records to BeatenRecords
+    }
+
+    private static int GetRecordsBeaten(Race race)
+    {
+        int recordsBroken = 0;
+        for (int buttonPressDuration = 1; buttonPressDuration < race.Time; ++buttonPressDuration)
+        {
+            int remainingDuration = race.Time - buttonPressDuration;
+            int distanceTravelled = buttonPressDuration * remainingDuration;
+
+            if (distanceTravelled > race.Record) ++recordsBroken;
+        }
+        return recordsBroken;
     }
 
     private List<int> _beatenRecords = new List<int>();
