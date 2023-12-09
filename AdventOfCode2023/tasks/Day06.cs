@@ -19,9 +19,10 @@ public class Day06Task1 : BaseTask
 {
     public override string Solve()
     {
-        // loop through races
-        // loop through seconds in each race and find numbers that'd beat the record
-        // multiple quantities, stringify and return
+        PopulateBeatenRecords();
+        int[] beatenRecords = BeatenRecords.ToArray();
+        int product = beatenRecords.Aggregate((a, b) => a * b);
+        return product.ToString();
     }
 
     private List<int> _beatenRecords = new List<int>();
@@ -61,8 +62,6 @@ public class Day06Task1 : BaseTask
 
     private (string[], string[]) SplitInput()
     {
-        // split into lines
-        // split into numbers via regex
         string timeRow = InputRows[0],
                recordRow = InputRows[1];
         var spaceRegex = new Regex(@"\s+");
