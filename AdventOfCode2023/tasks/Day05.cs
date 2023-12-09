@@ -171,6 +171,16 @@ public class Day05Task2 : Day05Task1
     // quite a lot needs updating, especially since the data type of Seeds is changing
     // I'll do my best not to cause too much repetition
     // 
+
+    private (int, int)[]? _seedRanges;
+    private (int start, int length)[] SeedRanges
+    {
+        get
+        {
+            _seedRanges ??= GetSeedRanges();
+            return _seedRanges;
+        }
+    }
 }
 
 public class AlmanacMap
