@@ -44,6 +44,18 @@ public class Day06Task1 : BaseTask
 
     private Race[] GetRaces()
     {
+        (string[] times, string[] records) = SplitInput();
+        var races = new Race[times.Length];
+
+        for (int i = 0; i < races.Length; ++i)
+        {
+            string currentTime = times[i],
+                   currentRecord = records[i];
+            var race = new Race(currentTime, currentRecord);
+            races[i] = race;
+        }
+
+        return races;
         // split into lines
         // split into numbers via regex
         // create array
