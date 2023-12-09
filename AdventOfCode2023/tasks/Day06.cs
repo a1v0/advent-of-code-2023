@@ -1,3 +1,5 @@
+using System.Text.RegularExpressions;
+
 namespace AdventOfCode2023;
 
 public class Day06 : BaseDay
@@ -17,7 +19,6 @@ public class Day06Task1 : BaseTask
 {
     public override string Solve()
     {
-        // parse input as races
         // loop through races
         // loop through seconds in each race and find numbers that'd beat the record
         // multiple quantities, stringify and return
@@ -56,11 +57,19 @@ public class Day06Task1 : BaseTask
         }
 
         return races;
+    }
+
+    private (string[], string[]) SplitInput()
+    {
         // split into lines
         // split into numbers via regex
-        // create array
-        // parse strings into Race
-        // return
+        string timeRow = InputRows[0],
+               recordRow = InputRows[1];
+        var spaceRegex = new Regex(@"\s+");
+        string[] times = spaceRegex.Split(timeRow)[1..]; // I could probably have made this a bit more elegant...
+        string[] records = spaceRegex.Split(recordRow)[1..];
+
+        return (times, records);
     }
 }
 
