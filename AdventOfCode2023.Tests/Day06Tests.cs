@@ -6,7 +6,7 @@ public class Day06Tests : BaseTest
     [Fact]
     public void Test1()
     {
-        const string expected = "RANDOM VALUE TO ENSURE TEST FAILS UNTIL REAL VALUE IS ENTERED";
+        const string expected = "288";
         string actual = new Day06().Solve(1);
         Assert.Equal(expected, actual);
     }
