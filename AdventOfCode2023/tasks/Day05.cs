@@ -52,6 +52,11 @@ public class Day05Task1 : BaseTask
     {
         long translatedValue = sourceValue;
 
+        (long lastSourceStart, long lastDestination, long lastLength) = map.Ranges[^1];
+
+        bool sourceBeyondRange = sourceValue >= lastSourceStart + lastLength;
+        if (sourceBeyondRange) return sourceValue;
+
         foreach ((long sourceStart, long destinationStart, long length) range in map.Ranges)
         {
             if (sourceValue < range.sourceStart) break;
