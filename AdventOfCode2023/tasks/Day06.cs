@@ -27,7 +27,12 @@ public class Day06Task1 : BaseTask
 
     private void PopulateBeatenRecords()
     {
-        // loop through records
+        foreach (Race race in Races)
+        {
+            int recordsBeaten = GetRecordsBeaten(race);
+            BeatenRecords.Add(recordsBeaten);
+        }
+        // loop through races
         // create variable to store quantity of records broken
         // loop through range of seconds
         // if seconds of button presses * remaining seconds > record, add to no of records
