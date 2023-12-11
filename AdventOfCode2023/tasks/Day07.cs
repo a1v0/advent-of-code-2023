@@ -74,8 +74,9 @@ public class Hand
 
     private byte IdentifyType()
     {
-        // create copy of card
-        // sort alphabetically
+        char[] cardsCopy = Cards.ToCharArray();
+        Array.Sort(cardsCopy);
+        string handCombination = GetHandCombination();
         // loop through characters
         // keep track of previous char
         // make counter variable
@@ -83,6 +84,8 @@ public class Hand
         // else append counter to a list, reset counter, previous == current char
         // list to array, sort, to string <-- this is maybe inelegant
         // switch statement to return
+        byte handType = GetType(handCombination);
+        return handType;
 
     }
 }
