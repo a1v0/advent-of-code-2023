@@ -20,7 +20,12 @@ public class Day07Task1 : BaseTask
         // create sorting method to sort the array
         // - if a.type > b.type, a goes last
         // - a.type < b.type, a goes first
-        // - a.type == b.type, use some sort of switch statement method to assess which is greater
+        // - a.type == b.type
+        //   - great public static method on Hand class for comparing hands
+        //   - map each card's value to an int via switch
+        //     - if a letter, return corresponding number
+        //     - else byte.Parse...
+        //   - loop over numbers and compare
         // sort array
         // iterate over array to find total score
         // - maybe use an aggregator method, as a learning exercise
