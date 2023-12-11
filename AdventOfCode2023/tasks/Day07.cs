@@ -81,16 +81,31 @@ public class Hand
         return handType;
     }
 
+    private static byte GetType(string combination)
+    {
+        switch (combination)
+        {
+            case "5":
+                return 6;
+            case "41":
+                return 5;
+            case "32":
+                return 4;
+            case "311":
+                return 3;
+            case "221":
+                return 2;
+            case "2111":
+                return 1;
+            case "11111":
+                return 0;
+            default:
+                throw new Exception("Unknown hand combination encountered.");
+        }
+    }
+
     private static string GetHandCombination(char[] cards)
     {
-        // loop through characters
-        // keep track of previous char
-        // make counter variable
-        // if char == previous, ++counter
-        // else append counter to a list, reset counter, previous == current char
-        // list to array, sort, to string <-- this is maybe inelegant
-        // switch statement to return
-
         var pattern = new List<byte>();
 
         char current = cards[0];
