@@ -42,6 +42,17 @@ public class Hand
         string[] elements = handInput.Split(' ');
         _cards = elements[0];
         _bid = int.Parse(elements[1]);
+        _type = IdentifyType();
+    }
+
+    private readonly byte _type;
+
+    public byte Type
+    {
+        get
+        {
+            return _type;
+        }
     }
 
     private readonly int _bid;
