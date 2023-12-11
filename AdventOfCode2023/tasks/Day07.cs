@@ -51,4 +51,14 @@ public class Hand
             return _bid;
         }
     }
+
+    private readonly string _cards;
+
+    public string Cards
+    {
+        get
+        {
+            return _cards;
+        }
+    }
 }
