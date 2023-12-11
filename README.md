@@ -81,3 +81,7 @@ On the assumption that the answers to the Advent of Code challenges will all eit
 ## Auto-generating daily files
 
 To auto-generate boilerplate files for a day's tasks, open the `AdventOfCode2023.FileCreator` directory, run `dotnet run -- DAY_NAME` where `DAY_NAME` is the date you want files made for. It will create a blank class, a blank test file, and two empty input files.
+
+## Input files
+
+Having seen only after Day 7 that the daily inputs are subject to copyright, I have added all subsequent inputs to the `.gitignore` file. Next year I will make sure not to upload my inputs to GitHub. My apologies to Advent of Code.
