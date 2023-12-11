@@ -34,3 +34,21 @@ public class Day07Task1 : BaseTask
 
 public class Day07Task2 : Day07Task1
 { }
+
+public class Hand
+{
+    public Hand(string handInput)
+    {
+
+    }
+
+    private readonly int _bid;
+
+    public int Bid
+    {
+        get
+        {
+            return _bid;
+        }
+    }
+}
