@@ -17,10 +17,6 @@ public class Day07Task1 : BaseTask
 {
     public override string Solve()
     {
-        // parse input into array of custom Hand objects
-        // - int bid
-        // - string cards
-        // - int type (strongest type is 6, weakest is 0)
         // create sorting method to sort the array
         // - if a.type > b.type, a goes last
         // - a.type < b.type, a goes first
@@ -29,6 +25,16 @@ public class Day07Task1 : BaseTask
         // iterate over array to find total score
         // - maybe use an aggregator method, as a learning exercise
         // return as string
+    }
+
+    private Hand[]? _hands;
+    private Hand[] Hands
+    {
+        get
+        {
+            _hands ??= GetHands();
+            return _hands;
+        }
     }
 }
 
