@@ -39,7 +39,9 @@ public class Hand
 {
     public Hand(string handInput)
     {
-
+        string[] elements = handInput.Split(' ');
+        _cards = elements[0];
+        _bid = int.Parse(elements[1]);
     }
 
     private readonly int _bid;
