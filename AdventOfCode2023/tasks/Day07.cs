@@ -36,6 +36,19 @@ public class Day07Task1 : BaseTask
             return _hands;
         }
     }
+
+    private Hand[] GetHands()
+    {
+        var hands = new Hand[InputRows.Length];
+
+        for (int i = 0; i < hands.Length; ++i)
+        {
+            string currentRow = InputRows[i];
+            hands[i] = new Hand(currentRow);
+        }
+
+        return hands;
+    }
 }
 
 public class Day07Task2 : Day07Task1
