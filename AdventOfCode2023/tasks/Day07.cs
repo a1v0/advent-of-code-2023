@@ -46,7 +46,6 @@ public class Hand
     }
 
     private readonly byte _type;
-
     public byte Type
     {
         get
@@ -56,7 +55,6 @@ public class Hand
     }
 
     private readonly int _bid;
-
     public int Bid
     {
         get
@@ -66,12 +64,25 @@ public class Hand
     }
 
     private readonly string _cards;
-
     public string Cards
     {
         get
         {
             return _cards;
         }
+    }
+
+    private byte IdentifyType()
+    {
+        // create copy of card
+        // sort alphabetically
+        // loop through characters
+        // keep track of previous char
+        // make counter variable
+        // if char == previous, ++counter
+        // else append counter to a list, reset counter, previous == current char
+        // list to array, sort, to string <-- this is maybe inelegant
+        // switch statement to return
+
     }
 }
