@@ -76,7 +76,13 @@ public class Hand
     {
         char[] cardsCopy = Cards.ToCharArray();
         Array.Sort(cardsCopy);
-        string handCombination = GetHandCombination();
+        string handCombination = GetHandCombination(cardsCopy);
+        byte handType = GetType(handCombination);
+        return handType;
+    }
+
+    private static string GetHandCombination(char[] cards)
+    {
         // loop through characters
         // keep track of previous char
         // make counter variable
@@ -84,8 +90,31 @@ public class Hand
         // else append counter to a list, reset counter, previous == current char
         // list to array, sort, to string <-- this is maybe inelegant
         // switch statement to return
-        byte handType = GetType(handCombination);
-        return handType;
 
+        var pattern = new List<byte>();
+
+        char current = cards[0];
+        byte counter = 0;
+
+        foreach (char card in cards)
+        {
+            if (card == current)
+            {
+                ++counter;
+                continue;
+            }
+
+            pattern.Add(counter);
+            counter = 0;
+            current = card;
+        }
+
+        // the end of this method feels super clunky
+        // a refactor wouldn't go amiss, if I can think of anything...
+        byte[] patternNumbers = pattern.ToArray();
+        Array.Sort(patternNumbers);
+        Array.Reverse(patternNumbers);
+        string handCombination = string.Join("", patternNumbers);
+        return handCombination;
     }
 }
