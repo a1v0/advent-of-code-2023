@@ -17,11 +17,16 @@ public class Day07Task1 : BaseTask
 {
     public override string Solve()
     {
-
-        // sort array
+        // foreach (Hand hand in Hands)
+        // {
+        //     System.Console.WriteLine(hand.Cards);
+        // }
+        // return "";
         // iterate over array to find total score
         // - maybe use an aggregator method, as a learning exercise
         // return as string
+        int totalScore = GetTotalScore();
+        return totalScore.ToString();
     }
 
     private Hand[]? _hands;
