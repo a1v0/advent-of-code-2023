@@ -64,7 +64,16 @@ public class Day07Task1 : BaseTask
 }
 
 public class Day07Task2 : Day07Task1
-{ }
+{
+    // change value of J to 1 in switch (GetCardValue)
+    // find way to make Js act as jokers when identifying the type of hand
+    // - count the Js
+    // - sort
+    // - identify the most populous card
+    // - if I'm not mistaken, you should *always* set J = most populous card
+    //   - I can't think of a scenario when you'd need to allocate J to multiple values
+    //   - if there's no most populous one, then J = [0]
+}
 
 public class Hand : IComparable
 {
