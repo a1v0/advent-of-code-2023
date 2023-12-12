@@ -153,19 +153,27 @@ public class Hand : IComparable
         if (comparison is null) return 1;
 
         Hand hand = (Hand)comparison;
-        // create sorting method to sort the array
-        // - if a.type > b.type, a goes last
-        // - a.type < b.type, a goes first
-        // - a.type == b.type
-        //   - great public static method on Hand class for comparing hands
-        //   - map each card's value to an int via switch
-        //     - if a letter, return corresponding number
-        //     - else byte.Parse...
-        //   - loop over numbers and compare
         if (Type > hand.Type) return 1;
         if (Type < hand.Type) return -1;
 
         return CompareHandWithSameType(hand);
+    }
+
+    private int CompareHandWithSameType(Hand hand)
+    {
+        for (int i = 0; i < Cards.Length; ++i)
+        {
+            byte x = GetCardValue(Cards[i]),
+            y = GetCardValue(hand.Cards[i]);
+
+            if (x == y) continue;
+
+            if (x > y) return 1;
+
+            return -1;
+        }
+
+        return 0; // this line will never be executed, since the input contains no duplicate hands
     }
 
     private static byte GetCardValue(char card)
