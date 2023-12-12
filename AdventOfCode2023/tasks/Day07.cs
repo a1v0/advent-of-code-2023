@@ -17,6 +17,7 @@ public class Day07Task1 : BaseTask
 {
     public override string Solve()
     {
+
         // sort array
         // iterate over array to find total score
         // - maybe use an aggregator method, as a learning exercise
@@ -42,6 +43,8 @@ public class Day07Task1 : BaseTask
             string currentRow = InputRows[i];
             hands[i] = new Hand(currentRow);
         }
+
+        Array.Sort(hands);
 
         return hands;
     }
@@ -115,7 +118,7 @@ public class Hand : IComparable
             case "11111":
                 return 0;
             default:
-                throw new Exception("Unknown hand combination encountered.");
+                throw new Exception($"Unknown hand combination encountered: {combination}.");
         }
     }
 
@@ -126,8 +129,10 @@ public class Hand : IComparable
         char current = cards[0];
         byte counter = 0;
 
-        foreach (char card in cards)
+        for (int i = 0; i < cards.Length; ++i)
         {
+            char card = cards[i];
+
             if (card == current)
             {
                 ++counter;
@@ -137,7 +142,9 @@ public class Hand : IComparable
             pattern.Add(counter);
             counter = 0;
             current = card;
+            --i;
         }
+        pattern.Add(counter); // ensures that the last card is counted
 
         // the end of this method feels super clunky
         // a refactor wouldn't go amiss, if I can think of anything...
