@@ -168,5 +168,24 @@ public class Hand : IComparable
         return CompareHandWithSameType(hand);
     }
 
-
+    private static byte GetCardValue(char card)
+    {
+        switch (card)
+        {
+            case 'A':
+                return 14;
+            case 'K':
+                return 13;
+            case 'Q':
+                return 12;
+            case 'J':
+                return 11;
+            case 'T':
+                return 10;
+            case '9' or '8' or '7' or '6' or '5' or '4' or '3' or '2':
+                return byte.Parse(card.ToString());
+            default:
+                throw new Exception($"Invalid card type received: {card}.");
+        }
+    }
 }
