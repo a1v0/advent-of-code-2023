@@ -25,8 +25,24 @@ public class Day07Task1 : BaseTask
         // iterate over array to find total score
         // - maybe use an aggregator method, as a learning exercise
         // return as string
-        int totalScore = GetTotalScore();
-        return totalScore.ToString();
+        int winnings = GetTotalWinnings();
+        return winnings.ToString();
+    }
+
+    private int GetTotalWinnings()
+    {
+        int totalWinnings = 0;
+        int rank = 1;
+
+        foreach (Hand hand in Hands)
+        {
+            int winnings = rank * hand.Bid;
+            totalWinnings += winnings;
+
+            ++rank;
+        }
+
+        return totalWinnings;
     }
 
     private Hand[]? _hands;
