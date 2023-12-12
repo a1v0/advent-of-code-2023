@@ -16,7 +16,7 @@ This repo uses xUnit for testing, though my tests aren't particularly extensive.
 | 04  | ⭐    | ⭐     |       |
 | 05  | ⭐    | ❌     | Need to find a shortcut to the right answer, otherwise it takes too long to run. |
 | 06  | ⭐    | ⭐     |       |
-<!-- | 07  |        |        |       | -->
+| 07  | ⭐    |        |       |
 <!-- | 08  |        |        |       | -->
 <!-- | 09  |        |        |       | -->
 <!-- | 10  |        |        |       | -->
