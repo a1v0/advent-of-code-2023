@@ -17,15 +17,6 @@ public class Day07Task1 : BaseTask
 {
     public override string Solve()
     {
-        // create sorting method to sort the array
-        // - if a.type > b.type, a goes last
-        // - a.type < b.type, a goes first
-        // - a.type == b.type
-        //   - great public static method on Hand class for comparing hands
-        //   - map each card's value to an int via switch
-        //     - if a letter, return corresponding number
-        //     - else byte.Parse...
-        //   - loop over numbers and compare
         // sort array
         // iterate over array to find total score
         // - maybe use an aggregator method, as a learning exercise
@@ -59,7 +50,7 @@ public class Day07Task1 : BaseTask
 public class Day07Task2 : Day07Task1
 { }
 
-public class Hand
+public class Hand : IComparable
 {
     public Hand(string handInput)
     {
@@ -156,4 +147,26 @@ public class Hand
         string handCombination = string.Join("", patternNumbers);
         return handCombination;
     }
+
+    public int CompareTo(object? comparison)
+    {
+        if (comparison is null) return 1;
+
+        Hand hand = (Hand)comparison;
+        // create sorting method to sort the array
+        // - if a.type > b.type, a goes last
+        // - a.type < b.type, a goes first
+        // - a.type == b.type
+        //   - great public static method on Hand class for comparing hands
+        //   - map each card's value to an int via switch
+        //     - if a letter, return corresponding number
+        //     - else byte.Parse...
+        //   - loop over numbers and compare
+        if (Type > hand.Type) return 1;
+        if (Type < hand.Type) return -1;
+
+        return CompareHandWithSameType(hand);
+    }
+
+
 }
