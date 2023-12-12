@@ -31,6 +31,9 @@ internal class Program
             case 6:
                 new Day06().Solve(chosenTask);
                 break;
+            case 7:
+                new Day07().Solve(chosenTask);
+                break;
             default:
                 throw new Exception("Something went wrong. Please try again.");
         }
