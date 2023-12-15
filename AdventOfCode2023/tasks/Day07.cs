@@ -66,22 +66,30 @@ public class Day07Task1 : BaseTask
 public class Day07Task2 : Day07Task1
 {
     // find way to make Js act as jokers when identifying the type of hand
-    // - count the Js
     // - sort
-    // - identify the most populous card
-    // - if I'm not mistaken, you should *always* set J = most populous card
-    //   - I can't think of a scenario when you'd need to allocate J to multiple values
+    // - identify the most populous non-J card
     //   - if there's no most populous one, then J = [0]
+    // - set J = most populous card
 }
 
 public class Hand : IComparable
 {
-    public Hand(string handInput)
+    public Hand(string handInput, byte task = 1)
     {
         string[] elements = handInput.Split(' ');
         _cards = elements[0];
         _bid = int.Parse(elements[1]);
         _type = IdentifyType();
+        _task = task;
+    }
+
+    private readonly byte _task;
+    public byte Task
+    {
+        get
+        {
+            return _task;
+        }
     }
 
     private readonly byte _type;
@@ -204,7 +212,7 @@ public class Hand : IComparable
         return 0; // this line will never be executed, since the input contains no duplicate hands
     }
 
-    private static byte GetCardValue(char card, byte task = 1)
+    private byte GetCardValue(char card)
     {
         switch (card)
         {
@@ -215,7 +223,7 @@ public class Hand : IComparable
             case 'Q':
                 return 12;
             case 'J':
-                return task == 2 ? (byte)1 : (byte)11;
+                return Task == 2 ? (byte)1 : (byte)11;
             case 'T':
                 return 10;
             case '9' or '8' or '7' or '6' or '5' or '4' or '3' or '2':
