@@ -32,9 +32,32 @@ public class Day08Task1 : BaseTask
             string nextLocation = Directory[currentLocation][direction];
             currentLocation = nextLocation;
             ++stepsRequired;
+            ++InstructionIndex;
         }
 
         return stepsRequired;
+    }
+
+    private int _instructionIndex = 0;
+    private int InstructionIndex
+    {
+        get
+        {
+            return _instructionIndex;
+        }
+        set
+        {
+            int length = Instructions.Length;
+
+            if (value < length)
+            {
+                _instructionIndex = value;
+                return;
+            }
+
+            int difference = value - length;
+            _instructionIndex = difference;
+        }
     }
 
     private Dictionary<string, Dictionary<char, string>> ParseDirectory()
