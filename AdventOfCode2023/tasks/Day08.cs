@@ -36,6 +36,11 @@ public class Day08Task1 : BaseTask
             return _instructions;
         }
     }
+
+    private string ParseInstructions()
+    {
+        return InputRows[0];
+    }
 }
 
 public class Day08Task2 : Day08Task1
