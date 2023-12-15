@@ -17,6 +17,8 @@ public class Day08Task1 : BaseTask
 {
     public override string Solve()
     {
+        int stepsRequired = CountSteps();
+        return stepsRequired.ToString();
         // parse instructions to string
         // parse nodes as dictionary<string, dictionary>
         // - parse node contents as dictionary<char, string>, e.g. 'L': "BBB"
