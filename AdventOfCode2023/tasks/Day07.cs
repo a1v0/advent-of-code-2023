@@ -227,6 +227,8 @@ public class Hand : IComparable
 
         char[] cardsWithoutJokers = ReplaceJokers(cards, mostUsedCard);
 
+        Array.Sort(cardsWithoutJokers);
+
         return cardsWithoutJokers;
     }
 
@@ -262,8 +264,16 @@ public class Hand : IComparable
 
         if (Task == 2)
         {
+            // this if statement might be redundant
+            // 
+            // 
+            // 
+            // check
+            // 
+            // 
+            // 
             char[] myCardsWithoutJoker = HandleJokers(myCards.ToCharArray()),
-                   comparedCardsWithoutJoker = HandleJokers(comparedCardsCards.ToCharArray());
+                   comparedCardsWithoutJoker = HandleJokers(comparedCards.ToCharArray());
             myCards = new string(myCardsWithoutJoker);
             comparedCards = new string(comparedCardsWithoutJoker);
         }
