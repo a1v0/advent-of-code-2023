@@ -88,12 +88,12 @@ public class Hand : IComparable
         string[] elements = handInput.Split(' ');
         _cards = elements[0];
         _bid = int.Parse(elements[1]);
-        _type = IdentifyType();
         _task = task;
+        _type = IdentifyType();
     }
 
     private readonly byte _task;
-    public byte Task
+    private byte Task
     {
         get
         {
@@ -102,7 +102,7 @@ public class Hand : IComparable
     }
 
     private readonly byte _type;
-    public byte Type
+    private byte Type
     {
         get
         {
@@ -207,7 +207,7 @@ public class Hand : IComparable
         foreach (char card in cards)
         {
             // the logic in here feels poorly written
-            if (card == 'j') continue;
+            if (card == 'J') continue;
 
             if (quantities.ContainsKey(card))
             {
