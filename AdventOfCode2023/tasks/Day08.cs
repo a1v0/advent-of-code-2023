@@ -26,8 +26,23 @@ public class Day08Task1 : BaseTask
         // - count cycles 
     }
 
+    private Dictionary<string, Dictionary<char, string>> ParseDirectory()
+    {
+        string[] entries = InputRows[2..];
+        var directory = new Dictionary<string, Dictionary<char, string>>();
+
+        foreach (string entry in entries)
+        {
+            string location = ParseLocation(entry);
+            var neighbours = ParseNeighbours(entry);
+            directory.Add(location, neighbours);
+        }
+
+        return directory;
+    }
+
     private Dictionary<string, Dictionary<char, string>>? _directory;
-    private Dictionary<string, Dictionary<char, string>>? Directory
+    private Dictionary<string, Dictionary<char, string>> Directory
     {
         get
         {
