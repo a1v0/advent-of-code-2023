@@ -41,6 +41,19 @@ public class Day08Task1 : BaseTask
         return directory;
     }
 
+    private Dictionary<char, string> ParseNeighbours(string entry)
+    {
+        // I could use a regex here but thought it might be easier to do it this way
+        string left = entry.Substring(7, 3),
+        right = entry.Substring(12, 3);
+
+        var neighbours = new Dictionary<char, string>();
+        neighbours['L'] = left;
+        neighbours['R'] = right;
+
+        return neighbours;
+    }
+
     private static string ParseLocation(string entry)
     {
         return entry[..3];
