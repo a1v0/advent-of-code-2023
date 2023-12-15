@@ -164,7 +164,7 @@ public class Hand : IComparable
     {
         if (Task == 2)
         {
-            cards = ReplaceJokers(cards);
+            cards = HandleJokers(cards);
         }
 
         var pattern = new List<byte>();
@@ -198,7 +198,7 @@ public class Hand : IComparable
         return handCombination;
     }
 
-    private static char[] ReplaceJokers(char[] cards)
+    private static char[] HandleJokers(char[] cards)
     {
         var quantities = new Dictionary<char, byte>();
         byte largestAmountOfSameCard = 0;
@@ -224,11 +224,10 @@ public class Hand : IComparable
                 mostUsedCard = card;
             }
         }
-        // find way to make Js act as jokers when identifying the type of hand
-        // - sort
-        // - identify the most populous non-J card
-        //   - if there's no most populous one, then J = [0]
-        // - set J = most populous card
+
+        char[] cardsWithoutJokers = ReplaceJokers(cards, mostUsedCard);
+
+        return cardsWithoutJokers;
     }
 
     public int CompareTo(object? comparison)
