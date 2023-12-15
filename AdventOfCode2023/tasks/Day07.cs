@@ -47,7 +47,7 @@ public class Day07Task1 : BaseTask
         }
     }
 
-    private Hand[] GetHands()
+    protected virtual Hand[] GetHands()
     {
         var hands = new Hand[InputRows.Length];
 
@@ -70,6 +70,21 @@ public class Day07Task2 : Day07Task1
     // - identify the most populous non-J card
     //   - if there's no most populous one, then J = [0]
     // - set J = most populous card
+
+    protected override Hand[] GetHands()
+    {
+        var hands = new Hand[InputRows.Length];
+
+        for (int i = 0; i < hands.Length; ++i)
+        {
+            string currentRow = InputRows[i];
+            hands[i] = new Hand(currentRow, 2);
+        }
+
+        Array.Sort(hands);
+
+        return hands;
+    }
 }
 
 public class Hand : IComparable
