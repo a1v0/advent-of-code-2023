@@ -16,7 +16,14 @@ public class Day08 : BaseDay
 public class Day08Task1 : BaseTask
 {
     public override string Solve()
-    { }
+    {
+        // parse instructions to string
+        // parse nodes as dictionary<string, dictionary>
+        // - parse node contents as dictionary<char, string>, e.g. 'L': "BBB"
+        // while loop until we reach ZZZ
+        // - navigate through locations using indices
+        // - count cycles 
+    }
 }
 
 public class Day08Task2 : Day08Task1
