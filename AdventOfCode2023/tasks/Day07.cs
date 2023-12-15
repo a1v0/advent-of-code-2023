@@ -204,7 +204,7 @@ public class Hand : IComparable
         return 0; // this line will never be executed, since the input contains no duplicate hands
     }
 
-    private static byte GetCardValue(char card, int task = 1)
+    private static byte GetCardValue(char card, byte task = 1)
     {
         switch (card)
         {
@@ -215,7 +215,7 @@ public class Hand : IComparable
             case 'Q':
                 return 12;
             case 'J':
-                return task == 2 ? 1 : 11;
+                return task == 2 ? (byte)1 : (byte)11;
             case 'T':
                 return 10;
             case '9' or '8' or '7' or '6' or '5' or '4' or '3' or '2':
