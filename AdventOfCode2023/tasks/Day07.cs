@@ -257,10 +257,21 @@ public class Hand : IComparable
 
     private int CompareHandWithSameType(Hand hand)
     {
-        for (int i = 0; i < Cards.Length; ++i)
+        string myCards = Cards,
+        comparedCards = hand.Cards;
+
+        if (Task == 2)
         {
-            byte x = GetCardValue(Cards[i]),
-            y = GetCardValue(hand.Cards[i]);
+            char[] myCardsWithoutJoker = HandleJokers(myCards.ToCharArray()),
+                   comparedCardsWithoutJoker = HandleJokers(comparedCardsCards.ToCharArray());
+            myCards = new string(myCardsWithoutJoker);
+            comparedCards = new string(comparedCardsWithoutJoker);
+        }
+
+        for (int i = 0; i < myCards.Length; ++i)
+        {
+            byte x = GetCardValue(myCards[i]),
+                 y = GetCardValue(comparedCards[i]);
 
             if (x == y) continue;
 
