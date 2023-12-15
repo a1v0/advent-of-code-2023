@@ -120,4 +120,10 @@ public class Day08Task1 : BaseTask
 }
 
 public class Day08Task2 : Day08Task1
-{ }
+{
+    // extract logic fro 'while' to helper methods to make it easier to track current locations
+    // create property to store current locations
+    // create method to validate final letters of all locations
+    // add console log, in case it takes ages to run
+    // the rest should be the same, methinks. I don't foresee any problems (famous last words...)
+}
