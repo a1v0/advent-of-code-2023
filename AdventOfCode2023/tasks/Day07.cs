@@ -166,8 +166,13 @@ public class Hand : IComparable
         }
     }
 
-    private static string GetHandCombination(char[] cards)
+    private string GetHandCombination(char[] cards)
     {
+        if (Task == 2)
+        {
+            cards = ReplaceJokers(cards);
+        }
+
         var pattern = new List<byte>();
 
         char current = cards[0];
