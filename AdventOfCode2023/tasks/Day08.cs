@@ -41,6 +41,11 @@ public class Day08Task1 : BaseTask
         return directory;
     }
 
+    private static string ParseLocation(string entry)
+    {
+        return entry[..3];
+    }
+
     private Dictionary<string, Dictionary<char, string>>? _directory;
     private Dictionary<string, Dictionary<char, string>> Directory
     {
