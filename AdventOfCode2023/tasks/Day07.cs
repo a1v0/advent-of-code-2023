@@ -65,12 +65,6 @@ public class Day07Task1 : BaseTask
 
 public class Day07Task2 : Day07Task1
 {
-    // find way to make Js act as jokers when identifying the type of hand
-    // - sort
-    // - identify the most populous non-J card
-    //   - if there's no most populous one, then J = [0]
-    // - set J = most populous card
-
     protected override Hand[] GetHands()
     {
         var hands = new Hand[InputRows.Length];
@@ -202,6 +196,39 @@ public class Hand : IComparable
         Array.Reverse(patternNumbers);
         string handCombination = string.Join("", patternNumbers);
         return handCombination;
+    }
+
+    private static char[] ReplaceJokers(char[] cards)
+    {
+        var quantities = new Dictionary<char, byte>();
+        byte largestAmountOfSameCard = 0;
+        char mostUsedCard;
+
+        foreach (char card in cards)
+        {
+            // the logic in here feels poorly written
+            if (card == 'j') continue;
+
+            if (quantities.ContainsKey(card))
+            {
+                ++quantities[card];
+            }
+            else
+            {
+                quantities[card] = 1;
+            }
+
+            if (quantities[card] > largestAmountOfSameCard)
+            {
+                largestAmountOfSameCard = quantities[card];
+                mostUsedCard = card;
+            }
+        }
+        // find way to make Js act as jokers when identifying the type of hand
+        // - sort
+        // - identify the most populous non-J card
+        //   - if there's no most populous one, then J = [0]
+        // - set J = most populous card
     }
 
     public int CompareTo(object? comparison)
