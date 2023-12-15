@@ -19,11 +19,22 @@ public class Day08Task1 : BaseTask
     {
         int stepsRequired = CountSteps();
         return stepsRequired.ToString();
-        // parse nodes as dictionary<string, dictionary>
-        // - parse node contents as dictionary<char, string>, e.g. 'L': "BBB"
-        // while loop until we reach ZZZ
-        // - navigate through locations using indices
-        // - count cycles 
+    }
+
+    private int CountSteps()
+    {
+        int stepsRequired = 0;
+        string currentLocation = "AAA";
+
+        while (currentLocation is not "ZZZ")
+        {
+            char direction = Instructions[InstructionIndex];
+            string nextLocation = Directory[currentLocation][direction];
+            currentLocation = nextLocation;
+            ++stepsRequired;
+        }
+
+        return stepsRequired;
     }
 
     private Dictionary<string, Dictionary<char, string>> ParseDirectory()
@@ -41,7 +52,7 @@ public class Day08Task1 : BaseTask
         return directory;
     }
 
-    private Dictionary<char, string> ParseNeighbours(string entry)
+    private static Dictionary<char, string> ParseNeighbours(string entry)
     {
         // I could use a regex here but thought it might be easier to do it this way
         string left = entry.Substring(7, 3),
