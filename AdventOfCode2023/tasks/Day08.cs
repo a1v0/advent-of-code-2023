@@ -19,12 +19,21 @@ public class Day08Task1 : BaseTask
     {
         int stepsRequired = CountSteps();
         return stepsRequired.ToString();
-        // parse instructions to string
         // parse nodes as dictionary<string, dictionary>
         // - parse node contents as dictionary<char, string>, e.g. 'L': "BBB"
         // while loop until we reach ZZZ
         // - navigate through locations using indices
         // - count cycles 
+    }
+
+    private Dictionary<string, Dictionary<char, string>>? _directory;
+    private Dictionary<string, Dictionary<char, string>>? Directory
+    {
+        get
+        {
+            _directory ??= ParseDirectory();
+            return _directory;
+        }
     }
 
     private string? _instructions;
