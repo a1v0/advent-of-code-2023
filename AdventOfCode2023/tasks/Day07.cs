@@ -202,7 +202,7 @@ public class Hand : IComparable
     {
         var quantities = new Dictionary<char, byte>();
         byte largestAmountOfSameCard = 0;
-        char mostUsedCard;
+        char mostUsedCard = 'A'; // assigning here because input contains 'JJJJJ'
 
         foreach (char card in cards)
         {
@@ -228,6 +228,20 @@ public class Hand : IComparable
         char[] cardsWithoutJokers = ReplaceJokers(cards, mostUsedCard);
 
         return cardsWithoutJokers;
+    }
+
+    private static char[] ReplaceJokers(char[] cards, char mostUsedCard)
+    {
+        for (int i = 0; i < cards.Length; ++i)
+        {
+            char card = cards[i];
+            if (card == 'J')
+            {
+                cards[i] = mostUsedCard;
+            }
+        }
+
+        return cards;
     }
 
     public int CompareTo(object? comparison)
