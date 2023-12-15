@@ -26,6 +26,16 @@ public class Day08Task1 : BaseTask
         // - navigate through locations using indices
         // - count cycles 
     }
+
+    private string? _instructions;
+    private string Instructions
+    {
+        get
+        {
+            _instructions ??= ParseInstructions();
+            return _instructions;
+        }
+    }
 }
 
 public class Day08Task2 : Day08Task1
