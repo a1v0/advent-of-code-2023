@@ -94,7 +94,7 @@ public class Day08Task1 : BaseTask
     }
 
     private Dictionary<string, Dictionary<char, string>>? _directory;
-    private Dictionary<string, Dictionary<char, string>> Directory
+    protected Dictionary<string, Dictionary<char, string>> Directory
     {
         get
         {
@@ -151,5 +151,16 @@ public class Day08Task2 : Day08Task1
             _currentLocations ??= InitialiseCurrentLocations();
             return _currentLocations;
         }
+    }
+
+    private string[] InitialiseCurrentLocations()
+    {
+        var locations = new List<string>();
+        foreach (string location in Directory.Keys)
+        {
+            bool endsInA = location[2] == 'A';
+            if (endsInA) locations.Add(location);
+        }
+        return locations.ToArray();
     }
 }
