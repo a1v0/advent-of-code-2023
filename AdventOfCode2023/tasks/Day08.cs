@@ -143,6 +143,17 @@ public class Day08Task2 : Day08Task1
         // return stepsRequired;
     }
 
+    private bool AllLocationsEndInZ()
+    {
+        foreach (string location in CurrentLocations)
+        {
+            bool endsInZ = location[2] == 'Z';
+            if (!endsInZ) return false;
+        }
+
+        return true;
+    }
+
     private string[]? _currentLocations;
     private string[] CurrentLocations
     {
