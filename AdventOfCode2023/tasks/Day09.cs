@@ -36,6 +36,16 @@ public class Sequence
         _contents = ParseInput(input);
         _nextValue = GetNextValue();
     }
+    public Sequence(int[] input)
+    {
+        _contents = input;
+        _nextValue = GetNextValue();
+    }
+
+    private int GetNextValue()
+    {
+        // this needs to contain all the logic to check difference between values etc.
+    }
 
     private static int[] ParseInput(string input)
     {
