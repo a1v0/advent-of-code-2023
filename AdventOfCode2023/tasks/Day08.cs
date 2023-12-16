@@ -130,6 +130,11 @@ public class Day08Task2 : Day08Task1
             UpdateAllLocations();
             ++stepsRequired;
             ++InstructionIndex;
+
+            if (stepsRequired % 1000 == 0)
+            {
+                Console.WriteLine($"{stepsRequired} moves processed.");
+            }
         }
 
         return stepsRequired;
