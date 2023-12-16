@@ -17,10 +17,6 @@ public class Day09Task1 : BaseTask
 {
     public override string Solve()
     {
-        // create class Sequence
-        // - contents, array
-        // - child (optional), Sequence
-        // - next value, recursive method
         // parse input as array of Sequences
         // create list of ints to store next values
         // - iterate through Sequences and find next value
@@ -32,3 +28,26 @@ public class Day09Task1 : BaseTask
 
 public class Day09Task2 : Day09Task1
 { }
+
+public class Sequence
+{
+    public Sequence(string input)
+    {
+        _contents = ParseInput();
+        // create class Sequence
+        // - contents, array
+        // - child (optional), Sequence
+        // - next value, recursive method
+    }
+
+
+
+    private string[] _contents;
+    private string[] Contents
+    {
+        get
+        {
+            return _contents;
+        }
+    }
+}
