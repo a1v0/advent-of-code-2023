@@ -28,6 +28,16 @@ public class Day09Task1 : BaseTask
         // return as string
     }
 
+    private Sequence[]? _sequences;
+    private Sequence[] Sequences
+    {
+        get
+        {
+            _sequences ??= GetSequences();
+            return _sequences;
+        }
+    }
+
     private int[] GetExtrapolatedValues()
     {
         int[] values = new int[Sequences.Length];
