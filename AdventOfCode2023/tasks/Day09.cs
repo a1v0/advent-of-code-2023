@@ -76,7 +76,23 @@ public class Sequence
 
     private int GetNextValue()
     {
+        // BEFORE WRITING ANY CODE, GO THROUGH THE PROBLEM DESCRIPTION AND SEE IF THIS MAKES SENSE
+        // 
+        // 
         // this needs to contain all the logic to check difference between values etc.
+        // 
+        // check if child sequence is needed (i.e. validate whether all values are 0)
+        // - this might actually make a good Boolean property
+        // if no child is needed, i.e. if all values are 0, return 0
+        // if child is null and child is needed, create a child
+        // - create int[] containing differences between values
+        // - create new sequence and set it as child property
+        // once child is created, child will run its own GetNextValue
+        // run "last member of sequence + child's next value" and return
+        // 
+        // 
+        // 
+        // 
     }
 
     private static int[] ParseInput(string input)
