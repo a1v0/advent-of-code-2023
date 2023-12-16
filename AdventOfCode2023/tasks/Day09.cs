@@ -93,7 +93,7 @@ public class Sequence
     }
 
     private readonly int _nextValue;
-    private int NextValue
+    public int NextValue
     {
         get
         {
