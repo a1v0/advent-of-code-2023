@@ -33,11 +33,8 @@ public class Sequence
 {
     public Sequence(string input)
     {
-        _contents = ParseInput();
-        // create class Sequence
-        // - contents, array
-        // - child (optional), Sequence
-        // - next value, recursive method
+        _contents = ParseInput(input);
+        _nextValue = GetNextValue();
     }
 
     private Sequence? Child
@@ -46,17 +43,16 @@ public class Sequence
         set;
     }
 
-    private int? _nextValue;
+    private readonly int _nextValue;
     private int NextValue
     {
         get
         {
-            _nextValue ??= GetNextValue();
             return _nextValue;
         }
     }
 
-    private string[] _contents;
+    private readonly string[] _contents;
     private string[] Contents
     {
         get
