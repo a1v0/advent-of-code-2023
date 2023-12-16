@@ -21,7 +21,7 @@ public class Day08Task1 : BaseTask
         return stepsRequired.ToString();
     }
 
-    private int CountSteps()
+    protected virtual int CountSteps()
     {
         int stepsRequired = 0;
         string currentLocation = "AAA";
@@ -121,9 +121,35 @@ public class Day08Task1 : BaseTask
 
 public class Day08Task2 : Day08Task1
 {
-    // extract logic fro 'while' to helper methods to make it easier to track current locations
+    // extract logic from 'while' to helper methods to make it easier to track current locations
     // create property to store current locations
     // create method to validate final letters of all locations
     // add console log, in case it takes ages to run
     // the rest should be the same, methinks. I don't foresee any problems (famous last words...)
+    protected override int CountSteps()
+    {
+        // int stepsRequired = 0;
+        // string currentLocation = "AAA";
+
+        // while (currentLocation is not "ZZZ")
+        // {
+        //     char direction = Instructions[InstructionIndex];
+        //     string nextLocation = Directory[currentLocation][direction];
+        //     currentLocation = nextLocation;
+        //     ++stepsRequired;
+        //     ++InstructionIndex;
+        // }
+
+        // return stepsRequired;
+    }
+
+    private string[]? _currentLocations;
+    private string[] CurrentLocations
+    {
+        get
+        {
+            _currentLocations ??= InitialiseCurrentLocations();
+            return _currentLocations;
+        }
+    }
 }
