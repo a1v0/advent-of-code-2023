@@ -38,6 +38,18 @@ public class Day09Task1 : BaseTask
         }
     }
 
+    private Sequence[] GetSequences()
+    {
+        var sequences = new Sequence[InputRows.Length];
+
+        for (int i = 0; i < sequences.Length; ++i)
+        {
+            sequences[i] = new Sequence(InputRows[i]);
+        }
+
+        return sequences;
+    }
+
     private int[] GetExtrapolatedValues()
     {
         int[] values = new int[Sequences.Length];
