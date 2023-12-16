@@ -17,6 +17,9 @@ public class Day09Task1 : BaseTask
 {
     public override string Solve()
     {
+        int[] extrapolatedValues = GetExtrapolatedValues();
+        int sumOfExtrapolatedValues = extrapolatedValues.Sum();
+        return sumOfExtrapolatedValues.ToString();
         // parse input as array of Sequences
         // create list of ints to store next values
         // - iterate through Sequences and find next value
