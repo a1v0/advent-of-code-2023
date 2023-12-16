@@ -39,7 +39,7 @@ public class Day08Task1 : BaseTask
     }
 
     private int _instructionIndex = 0;
-    private int InstructionIndex
+    protected int InstructionIndex
     {
         get
         {
@@ -121,26 +121,26 @@ public class Day08Task1 : BaseTask
 
 public class Day08Task2 : Day08Task1
 {
-    // extract logic from 'while' to helper methods to make it easier to track current locations
-    // create property to store current locations
-    // create method to validate final letters of all locations
-    // add console log, in case it takes ages to run
-    // the rest should be the same, methinks. I don't foresee any problems (famous last words...)
     protected override int CountSteps()
     {
-        // int stepsRequired = 0;
-        // string currentLocation = "AAA";
+        // extract logic from 'while' to helper methods to make it easier to track current locations
+        // the rest should be the same, methinks. I don't foresee any problems (famous last words...)
 
-        // while (currentLocation is not "ZZZ")
-        // {
+        int stepsRequired = 0;
+
+        while (!AllLocationsEndInZ())
+        {
+            UpdateAllLocations();
+            ++stepsRequired;
+            ++InstructionIndex;
+        }
+
+        return stepsRequired;
+
         //     char direction = Instructions[InstructionIndex];
         //     string nextLocation = Directory[currentLocation][direction];
         //     currentLocation = nextLocation;
-        //     ++stepsRequired;
-        //     ++InstructionIndex;
-        // }
 
-        // return stepsRequired;
     }
 
     private bool AllLocationsEndInZ()
