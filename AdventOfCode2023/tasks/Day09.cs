@@ -40,6 +40,12 @@ public class Sequence
         // - next value, recursive method
     }
 
+    private Sequence? Child
+    {
+        get;
+        set;
+    }
+
     private int? _nextValue;
     private int NextValue
     {
