@@ -40,7 +40,15 @@ public class Sequence
         // - next value, recursive method
     }
 
-
+    private int? _nextValue;
+    private int NextValue
+    {
+        get
+        {
+            _nextValue ??= GetNextValue();
+            return _nextValue;
+        }
+    }
 
     private string[] _contents;
     private string[] Contents
