@@ -37,6 +37,19 @@ public class Sequence
         _nextValue = GetNextValue();
     }
 
+    private static int[] ParseInput(string input)
+    {
+        string[] numbersText = input.Split(' ');
+        int[] numbers = new int[numbersText.Length];
+
+        for (int i = 0; i < numbers.Length; ++i)
+        {
+            numbers[i] = int.Parse(numbersText[i]);
+        }
+
+        return numbers;
+    }
+
     private Sequence? Child
     {
         get;
@@ -52,8 +65,8 @@ public class Sequence
         }
     }
 
-    private readonly string[] _contents;
-    private string[] Contents
+    private readonly int[] _contents;
+    private int[] Contents
     {
         get
         {
