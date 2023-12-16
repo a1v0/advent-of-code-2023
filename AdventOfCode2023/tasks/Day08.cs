@@ -104,7 +104,7 @@ public class Day08Task1 : BaseTask
     }
 
     private string? _instructions;
-    private string Instructions
+    protected string Instructions
     {
         get
         {
@@ -123,9 +123,6 @@ public class Day08Task2 : Day08Task1
 {
     protected override int CountSteps()
     {
-        // extract logic from 'while' to helper methods to make it easier to track current locations
-        // the rest should be the same, methinks. I don't foresee any problems (famous last words...)
-
         int stepsRequired = 0;
 
         while (!AllLocationsEndInZ())
@@ -136,11 +133,18 @@ public class Day08Task2 : Day08Task1
         }
 
         return stepsRequired;
+    }
 
-        //     char direction = Instructions[InstructionIndex];
-        //     string nextLocation = Directory[currentLocation][direction];
-        //     currentLocation = nextLocation;
+    private void UpdateAllLocations()
+    {
+        char direction = Instructions[InstructionIndex];
 
+        for (int i = 0; i < CurrentLocations.Length; ++i)
+        {
+            string currentLocation = CurrentLocations[i];
+            string nextLocation = Directory[currentLocation][direction];
+            CurrentLocations[i] = nextLocation;
+        }
     }
 
     private bool AllLocationsEndInZ()
