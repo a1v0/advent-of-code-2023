@@ -27,7 +27,20 @@ public class Day09Task1 : BaseTask
         // sum list
         // return as string
     }
+
+    private int[] GetExtrapolatedValues()
+    {
+        int[] values = new int[Sequences.Length];
+
+        for (int i = 0; i < values.Length; ++i)
+        {
+            values[i] = Sequences[i].NextValue;
+        }
+
+        return values;
+    }
 }
+
 
 public class Day09Task2 : Day09Task1
 { }
