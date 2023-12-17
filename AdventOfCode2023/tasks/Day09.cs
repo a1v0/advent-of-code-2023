@@ -103,11 +103,27 @@ public class Sequence
         return nextValue;
     }
 
-    private static Sequence CreateChild()
+    private Sequence CreateChild()
     {
         int[] differences = GetDifferences();
         var child = new Sequence(differences);
         return child;
+    }
+
+    private int[] GetDifferences()
+    {
+        int[] differences = new int[Contents.Length - 1];
+
+        for (int i = 0; i < differences.Length; ++i)
+        {
+            int firstNumber = Contents[i],
+                secondNumber = Contents[i + 1];
+            int difference = secondNumber - firstNumber;
+
+            differences[i] = difference;
+        }
+
+        return differences;
     }
 
     private int GenerateNextValue()
