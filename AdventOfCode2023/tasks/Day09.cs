@@ -74,11 +74,18 @@ public class Sequence
         _nextValue = GetNextValue();
     }
 
+    private bool? _needsChild;
+    private bool NeedsChild
+    {
+        get
+        {
+            _needsChild ??= CheckIfChildSequenceIsNeeded();
+            return _needsChild;
+        }
+    }
+
     private int GetNextValue()
     {
-        // BEFORE WRITING ANY CODE, GO THROUGH THE PROBLEM DESCRIPTION AND SEE IF THIS MAKES SENSE
-        // 
-        // 
         // this needs to contain all the logic to check difference between values etc.
         // 
         // check if child sequence is needed (i.e. validate whether all values are 0)
