@@ -82,6 +82,7 @@ public class Sequence
     {
         _contents = ParseInput(input);
         _needsChild = IsChildSequenceNeeded();
+        if (NeedsChild) Child = CreateChild();
         _nextValue = GetNextValue();
         _previousValue = GetPreviousValue();
     }
@@ -89,6 +90,8 @@ public class Sequence
     public Sequence(int[] input)
     {
         _contents = input;
+        _needsChild = IsChildSequenceNeeded();
+        if (NeedsChild) Child = CreateChild();
         _nextValue = GetNextValue();
         _previousValue = GetPreviousValue();
     }
@@ -120,7 +123,6 @@ public class Sequence
     {
         if (!NeedsChild) return 0;
 
-        Child = CreateChild();
         int nextValue = GenerateNextValue();
         return nextValue;
     }
