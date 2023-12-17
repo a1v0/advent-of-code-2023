@@ -71,7 +71,6 @@ public class Day09Task2 : Day09Task1
 
         return values;
     }
-    // seems straightforward enough
     // imitate functionality of NextValue using new property, GetPreviousValue
     // the rest should work in more or less the same way, just with subtraction instead of addition
     // might need to tweak the logic in all sorts of place for this to work
@@ -88,6 +87,7 @@ public class Sequence
     {
         _contents = input;
         _nextValue = GetNextValue();
+        _previousValue = GetPreviousValue();
     }
 
     private bool? _needsChild;
@@ -165,6 +165,15 @@ public class Sequence
     {
         get;
         set;
+    }
+
+    private readonly int _previousValue;
+    public int PreviousValue
+    {
+        get
+        {
+            return _previousValue;
+        }
     }
 
     private readonly int _nextValue;
