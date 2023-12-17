@@ -97,11 +97,15 @@ public class Sequence
     private int GetNextValue()
     {
         if (!NeedsChild) return 0;
+
+        Child = CreateChild();
         // if child is null and child is needed, create a child
         // - create int[] containing differences between values
         // - create new sequence and set it as child property
+        int nextValue = GenerateNextValue();
         // once child is created, child will run its own GetNextValue
         // run "last member of sequence + child's next value" and return
+        return nextValue;
     }
 
     private static int[] ParseInput(string input)
