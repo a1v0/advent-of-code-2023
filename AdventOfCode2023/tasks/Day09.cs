@@ -80,7 +80,7 @@ public class Sequence
         get
         {
             _needsChild ??= IsChildSequenceNeeded();
-            return (bool)_needsChild; // The case was added because the compiler told me to, though I'm surprised. I've not needed to make such casts before
+            return (bool)_needsChild; // The case was added because the compiler told me to, though I'm surprised. I've not needed to make such casts before. Why can other types implicitly convert and not `bool`?
         }
     }
 
@@ -96,20 +96,12 @@ public class Sequence
 
     private int GetNextValue()
     {
-        // this needs to contain all the logic to check difference between values etc.
-        // 
-        // check if child sequence is needed (i.e. validate whether all values are 0)
-        // - this might actually make a good Boolean property
-        // if no child is needed, i.e. if all values are 0, return 0
+        if (!NeedsChild) return 0;
         // if child is null and child is needed, create a child
         // - create int[] containing differences between values
         // - create new sequence and set it as child property
         // once child is created, child will run its own GetNextValue
         // run "last member of sequence + child's next value" and return
-        // 
-        // 
-        // 
-        // 
     }
 
     private static int[] ParseInput(string input)
