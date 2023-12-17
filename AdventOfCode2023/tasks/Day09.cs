@@ -23,7 +23,7 @@ public class Day09Task1 : BaseTask
     }
 
     private Sequence[]? _sequences;
-    private Sequence[] Sequences
+    protected Sequence[] Sequences
     {
         get
         {
@@ -44,7 +44,7 @@ public class Day09Task1 : BaseTask
         return sequences;
     }
 
-    private int[] GetExtrapolatedValues()
+    protected virtual int[] GetExtrapolatedValues()
     {
         int[] values = new int[Sequences.Length];
 
@@ -60,6 +60,17 @@ public class Day09Task1 : BaseTask
 
 public class Day09Task2 : Day09Task1
 {
+    protected override int[] GetExtrapolatedValues()
+    {
+        int[] values = new int[Sequences.Length];
+
+        for (int i = 0; i < values.Length; ++i)
+        {
+            values[i] = Sequences[i].PreviousValue;
+        }
+
+        return values;
+    }
     // seems straightforward enough
     // imitate functionality of NextValue using new property, GetPreviousValue
     // the rest should work in more or less the same way, just with subtraction instead of addition
