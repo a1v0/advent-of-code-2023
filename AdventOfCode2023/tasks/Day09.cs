@@ -71,9 +71,6 @@ public class Day09Task2 : Day09Task1
 
         return values;
     }
-    // imitate functionality of NextValue using new property, GetPreviousValue
-    // the rest should work in more or less the same way, just with subtraction instead of addition
-    // might need to tweak the logic in all sorts of place for this to work
 }
 
 public class Sequence
@@ -81,8 +78,10 @@ public class Sequence
     public Sequence(string input)
     {
         _contents = ParseInput(input);
+
         _needsChild = IsChildSequenceNeeded();
         if (NeedsChild) Child = CreateChild();
+
         _nextValue = GetNextValue();
         _previousValue = GetPreviousValue();
     }
@@ -90,8 +89,10 @@ public class Sequence
     public Sequence(int[] input)
     {
         _contents = input;
+
         _needsChild = IsChildSequenceNeeded();
         if (NeedsChild) Child = CreateChild();
+
         _nextValue = GetNextValue();
         _previousValue = GetPreviousValue();
     }
