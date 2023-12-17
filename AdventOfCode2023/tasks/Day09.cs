@@ -117,6 +117,10 @@ public class Sequence
 
     private int GetPreviousValue()
     {
+        if (!NeedsChild) return 0;
+
+        int previousValue = GeneratePreviousValue();
+        return previousValue;
     }
 
     private int GetNextValue()
