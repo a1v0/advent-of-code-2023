@@ -81,8 +81,11 @@ public class Sequence
     public Sequence(string input)
     {
         _contents = ParseInput(input);
+        _needsChild = IsChildSequenceNeeded();
         _nextValue = GetNextValue();
+        _previousValue = GetPreviousValue();
     }
+
     public Sequence(int[] input)
     {
         _contents = input;
@@ -90,13 +93,12 @@ public class Sequence
         _previousValue = GetPreviousValue();
     }
 
-    private bool? _needsChild;
+    private readonly bool _needsChild;
     private bool NeedsChild
     {
         get
         {
-            _needsChild ??= IsChildSequenceNeeded();
-            return (bool)_needsChild; // The case was added because the compiler told me to, though I'm surprised. I've not needed to make such casts before. Why can other types implicitly convert and not `bool`?
+            return _needsChild;
         }
     }
 
@@ -108,6 +110,10 @@ public class Sequence
         }
 
         return false;
+    }
+
+    private int GetPreviousValue()
+    {
     }
 
     private int GetNextValue()
