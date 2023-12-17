@@ -99,11 +99,15 @@ public class Sequence
         if (!NeedsChild) return 0;
 
         Child = CreateChild();
-        // if child is null and child is needed, create a child
-        // - create int[] containing differences between values
-        // - create new sequence and set it as child property
         int nextValue = GenerateNextValue();
         return nextValue;
+    }
+
+    private static Sequence CreateChild()
+    {
+        int[] differences = GetDifferences();
+        var child = new Sequence(differences);
+        return child;
     }
 
     private int GenerateNextValue()
