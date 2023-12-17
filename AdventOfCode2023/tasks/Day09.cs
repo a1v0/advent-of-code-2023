@@ -160,6 +160,12 @@ public class Sequence
         return Contents[^1] + Child.NextValue;
     }
 
+    private int GeneratePreviousValue()
+    {
+        if (Child is null) throw new Exception("Child is null. If this error is thrown, there is a logical flaw in the code.");
+        return Contents[0] - Child.PreviousValue;
+    }
+
     private static int[] ParseInput(string input)
     {
         string[] numbersText = input.Split(' ');
