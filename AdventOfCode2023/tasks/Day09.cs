@@ -79,9 +79,19 @@ public class Sequence
     {
         get
         {
-            _needsChild ??= CheckIfChildSequenceIsNeeded();
-            return _needsChild;
+            _needsChild ??= IsChildSequenceNeeded();
+            return (bool)_needsChild; // The case was added because the compiler told me to, though I'm surprised. I've not needed to make such casts before
         }
+    }
+
+    private bool IsChildSequenceNeeded()
+    {
+        foreach (int value in Contents)
+        {
+            if (value != 0) return true;
+        }
+
+        return false;
     }
 
     private int GetNextValue()
