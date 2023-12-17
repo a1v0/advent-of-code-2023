@@ -103,9 +103,13 @@ public class Sequence
         // - create int[] containing differences between values
         // - create new sequence and set it as child property
         int nextValue = GenerateNextValue();
-        // once child is created, child will run its own GetNextValue
-        // run "last member of sequence + child's next value" and return
         return nextValue;
+    }
+
+    private int GenerateNextValue()
+    {
+        if (Child is null) throw new Exception("Child is null. If this error is thrown, there is a logical flaw in the code.");
+        return Contents[^1] + Child.NextValue;
     }
 
     private static int[] ParseInput(string input)
