@@ -17,6 +17,9 @@ public class Day10Task1 : BaseTask
 {
     public override string Solve()
     {
+        List<Pipe> pipeCircuit = GetPipeCircuit();
+        int farthestPoint = pipeCircuit.Count / 2;
+        return farthestPoint.ToString();
         // parse input as a list of pipe sections
         // find coordinates of S, then start parsing
         // look in all four directions to find a direction to go in
@@ -25,7 +28,7 @@ public class Day10Task1 : BaseTask
         // add new coordinate to end of list
         // ensure you handle the possibility of an out-of-bounds exception in X and Y
         // add node to list and follow the path
-        // return length of list / 2 (figure out whether to round up or down if it's an odd number)
+        // return length of list / 2 (figure out whether to round up or down if it's an odd number) - can it ever actually be an odd number?
     }
 }
 
