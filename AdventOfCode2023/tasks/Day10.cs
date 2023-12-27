@@ -44,8 +44,7 @@ public class Day10Task1 : BaseTask
         // 
         // 
         // 
-        List<Pipe> pipeCircuit = GetPipeCircuit();
-        int farthestPoint = pipeCircuit.Count / 2;
+        int farthestPoint = PipeCircuit.Count / 2;
         return farthestPoint.ToString();
     }
 
@@ -73,6 +72,16 @@ public class Day10Task1 : BaseTask
         // add new coordinate to end of list
         // ensure you handle the possibility of an out-of-bounds exception in X and Y
         // add node to list and follow the path
+    }
+
+    private List<Pipe>? _pipeCircuit;
+    private List<Pipe> PipeCircuit
+    {
+        get
+        {
+            _pipeCircuit ??= GetPipeCircuit();
+            return _pipeCircuit;
+        }
     }
 }
 
