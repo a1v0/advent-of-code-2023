@@ -6,7 +6,7 @@ public class Day10Tests : BaseTest
     [Fact]
     public void Test1()
     {
-        const string expected = "4";
+        const string expected = "8";
         string actual = new Day10().Solve(1);
         Assert.Equal(expected, actual);
     }
