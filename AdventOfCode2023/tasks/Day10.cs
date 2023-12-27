@@ -52,16 +52,9 @@ public class Day10Task1 : BaseTask
     {
         var pipeCircuit = new List<Pipe>();
         Pipe startingPoint = GetStartingPoint();
+        pipeCircuit.Add(startingPoint);
 
-        while (true)
-        {
-            Pipe nextPipe = GetNextPipe();
-
-            bool isStart = nextPipe.X == startingPoint.X && nextPipe.Y == startingPoint.Y;
-            if (isStart) break;
-
-            pipeCircuit.Add(nextPipe);
-        }
+        ExploreCircuit(pipeCircuit);
 
         return pipeCircuit;
         // parse input as a list of pipe sections
@@ -72,6 +65,20 @@ public class Day10Task1 : BaseTask
         // add new coordinate to end of list
         // ensure you handle the possibility of an out-of-bounds exception in X and Y
         // add node to list and follow the path
+    }
+
+    private void ExploreCircuit(List<Pipe> pipeCircuit)
+    {
+        Pipe startingPoint = pipeCircuit.First();
+        while (true)
+        {
+            Pipe nextPipe = GetNextPipe();
+
+            bool isStart = nextPipe.X == startingPoint.X && nextPipe.Y == startingPoint.Y;
+            if (isStart) break;
+
+            pipeCircuit.Add(nextPipe);
+        }
     }
 
     private List<Pipe>? _pipeCircuit;
