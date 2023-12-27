@@ -17,6 +17,33 @@ public class Day10Task1 : BaseTask
 {
     public override string Solve()
     {
+        // 
+        // 
+        // 
+        // 
+        // we might come a cropper because of the List type
+        // I don't think Lists are ordered, meaning we might not always
+        // retrieve the correct pipe when accessing the latest pipe
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
         List<Pipe> pipeCircuit = GetPipeCircuit();
         int farthestPoint = pipeCircuit.Count / 2;
         return farthestPoint.ToString();
