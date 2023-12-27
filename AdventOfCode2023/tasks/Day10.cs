@@ -17,9 +17,6 @@ public class Day10Task1 : BaseTask
 {
     public override string Solve()
     {
-        // create class for pipe sections
-        // - coordinates
-        // - value
         // parse input as a list of pipe sections
         // find coordinates of S, then start parsing
         // look in all four directions to find a direction to go in
@@ -34,3 +31,40 @@ public class Day10Task1 : BaseTask
 
 public class Day10Task2 : Day10Task1
 { }
+
+class Pipe
+{
+    public Pipe(string value, int x, int y)
+    {
+        _value = value;
+        _x = x;
+        _y = y;
+    }
+
+    private readonly int _x;
+    public int X
+    {
+        get
+        {
+            return _x;
+        }
+    }
+
+    private readonly int _y;
+    public int Y
+    {
+        get
+        {
+            return _y;
+        }
+    }
+
+    private readonly string _value;
+    public string Value
+    {
+        get
+        {
+            return _value;
+        }
+    }
+}
