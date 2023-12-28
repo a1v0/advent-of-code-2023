@@ -62,7 +62,6 @@ public class Day10Task1 : BaseTask
 
     private static char FindStartingValue(bool northPointsHere, bool southPointsHere, bool eastPointsHere, bool westPointsHere)
     {
-        System.Console.WriteLine($"{northPointsHere} {southPointsHere} {eastPointsHere} {westPointsHere}");
         if (northPointsHere)
         {
             if (southPointsHere) return '|';
@@ -227,7 +226,26 @@ public class Day10Task1 : BaseTask
 }
 
 public class Day10Task2 : Day10Task1
-{ }
+{
+    public override string Solve()
+    {
+        // PipeCircuit already exists in Part 1
+        // create multidimensional array of nullable ints as big as the map
+        // set everything to null
+        // iterate over the pipe circuit and insert the index of said pipe in the necessary coordinates
+        // create property to store quantity of internal locations
+        // 
+        // plan the rest later
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+    }
+}
 
 class Pipe
 {
