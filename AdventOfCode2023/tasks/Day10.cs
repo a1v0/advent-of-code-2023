@@ -153,13 +153,52 @@ public class Day10Task1 : BaseTask
 
     private Pipe GetNextPipe(Pipe currentPipe, Pipe previousPipe)
     {
-        // use current pipe's value to figure out where the next coordinates are
-        // - we'll need access to the previous pipe to make sure we don't go in the wrong direction
-        // - use current value to work out coordinates of both neighbours (a switch should do)
-        // - create new pipe from the coordinates that aren't the same as the previous ones
-        // add new coordinate to end of list
-        // ensure you handle the possibility of an out-of-bounds exception in X and Y
-        // add node to list and follow the path
+        (int x, int y) neighbour1,
+                  neighbour2;
+
+        switch (currentPipe.Value)
+        {
+            // no need to handle out-of-bounds exceptions here because we can assume the input is accurate
+            case '|':
+                neighbour1 = (currentPipe.X, currentPipe.Y - 1);
+                neighbour2 = (currentPipe.X, currentPipe.Y + 1);
+                break;
+            case '-':
+                neighbour1 = (currentPipe.X - 1, currentPipe.Y);
+                neighbour2 = (currentPipe.X + 1, currentPipe.Y);
+                break;
+            case 'L':
+                neighbour1 = (currentPipe.X, currentPipe.Y - 1);
+                neighbour2 = (currentPipe.X + 1, currentPipe.Y);
+                break;
+            case 'J':
+                neighbour1 = (currentPipe.X, currentPipe.Y - 1);
+                neighbour2 = (currentPipe.X - 1, currentPipe.Y);
+                break;
+            case '7':
+                neighbour1 = (currentPipe.X - 1, currentPipe.Y);
+                neighbour2 = (currentPipe.X, currentPipe.Y + 1);
+                break;
+            case 'F':
+                neighbour1 = (currentPipe.X + 1, currentPipe.Y);
+                neighbour2 = (currentPipe.X, currentPipe.Y + 1);
+                break;
+            default:
+                throw new Exception("Unable to identify neighbours.");
+        }
+
+        int nextX = neighbour1.x,
+            nextY = neighbour1.y;
+
+        bool neighbour1IsPrevious = neighbour1.x == previousPipe.X && neighbour1.y == previousPipe.Y;
+        if (neighbour1IsPrevious)
+        {
+            nextX = neighbour2.x;
+            nextY = neighbour2.y;
+        }
+
+        char nextValue = GetValue(nextX, nextY);
+        return new Pipe(nextValue, nextX, nextY);
     }
 
     private List<Pipe>? _pipeCircuit;
