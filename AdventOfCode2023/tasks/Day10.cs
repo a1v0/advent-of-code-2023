@@ -142,7 +142,7 @@ public class Day10Task1 : BaseTask
         while (true)
         {
             Pipe currentPipe = pipeCircuit.Last();
-            Pipe previousPipe = pipeCircuit[^2];
+            Pipe? previousPipe = pipeCircuit.Count > 1 ? pipeCircuit[^2] : null;
             Pipe nextPipe = GetNextPipe(currentPipe, previousPipe);
 
             bool isStart = nextPipe.X == StartingPoint.X && nextPipe.Y == StartingPoint.Y;
@@ -152,7 +152,7 @@ public class Day10Task1 : BaseTask
         }
     }
 
-    private Pipe GetNextPipe(Pipe currentPipe, Pipe previousPipe)
+    private Pipe GetNextPipe(Pipe currentPipe, Pipe? previousPipe)
     {
         (int x, int y) neighbour1,
                   neighbour2;
@@ -191,11 +191,14 @@ public class Day10Task1 : BaseTask
         int nextX = neighbour1.x,
             nextY = neighbour1.y;
 
-        bool neighbour1IsPrevious = neighbour1.x == previousPipe.X && neighbour1.y == previousPipe.Y;
-        if (neighbour1IsPrevious)
+        if (previousPipe is not null)
         {
-            nextX = neighbour2.x;
-            nextY = neighbour2.y;
+            bool neighbour1IsPrevious = neighbour1.x == previousPipe.X && neighbour1.y == previousPipe.Y;
+            if (neighbour1IsPrevious)
+            {
+                nextX = neighbour2.x;
+                nextY = neighbour2.y;
+            }
         }
 
         char nextValue = GetValue(nextX, nextY);
