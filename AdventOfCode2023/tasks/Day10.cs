@@ -38,6 +38,9 @@ public class Day10Task1 : BaseTask
 
     private Pipe GetStartingPoint()
     {
+        (int x, int y) = GetStartingCoordinates();
+        string value = GetStartingValue(x, y);
+        return new Pipe(value, x, y);
         // identify coordinates of S
         // identify the underlying value of S
         // - check N, S, E and W to work out which shape it must be
