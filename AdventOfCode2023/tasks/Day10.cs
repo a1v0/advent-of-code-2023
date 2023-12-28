@@ -239,32 +239,48 @@ public class Day10Task2 : Day10Task1
         {
             ReadRow(i);
         }
-        // loop row by row
-        // 
-        // at start of row:
-        // - create new Toggle
-        // - keep track of previous value, null by default
-        // 
-        // if null:
-        // - ignore if closed
-        // - ++ if open
-        // - set previous value to current value
-        // 
-        // if |:
-        // - toggle state
-        // - set previous value to current value
-        // 
-        // if -:
-        // - set previous value to current value
-        // 
-        // if corner piece (F7JL):
-        // - find way to keep the state of a horizontal section
-        //   - a separate toggle could do it: -1 by default, 1 when open
-        //   - a separate variable would be needed to keep track of suitable end values (i.e. a value that wouldn't warrant a change of open/closed state)
-        // - if previous value is not null, check whether it's adjacent to current (this bit might not even be necessary)
-        //   - toggle state if not adjacent
-        // - set previous value to current value
-        // 
+    }
+
+    private void ReadRow(int row)
+    {
+        var toggle = new Toggle();
+        int? previousValue = null;
+
+        for (int column = 0; column < CircuitMap.GetLength(1); ++column)
+        {
+            int? currentValue = CircuitMap[row, column];
+            bool isInternal = toggle.State > 0;
+
+            if (currentValue is null)
+            {
+                previousValue = null;
+                if (!isInternal) continue;
+                ++InternalCount;
+            }
+
+            else if (currentValue == '|')
+            {
+
+                // - toggle state
+                // - set previous value to current value
+            }
+
+            else if (currentValue == '-')
+            {
+                // - set previous value to current value
+            }
+
+            else
+            {
+                // if corner piece (F7JL):
+                // - find way to keep the state of a horizontal section
+                //   - a separate toggle could do it: -1 by default, 1 when open
+                //   - a separate variable would be needed to keep track of suitable end values (i.e. a value that wouldn't warrant a change of open/closed state)
+                // - if previous value is not null, check whether it's adjacent to current (this bit might not even be necessary)
+                //   - toggle state if not adjacent
+                // - set previous value to current value
+            }
+        }
     }
 
     private int _internalCount = 0;
@@ -403,7 +419,7 @@ public class Pipe
 /// </summary>
 public class Toggle
 {
-    Toggle()
+    public Toggle()
     {
         _state = -1;
     }
