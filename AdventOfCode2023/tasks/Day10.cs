@@ -32,9 +32,7 @@ public class Day10Task1 : BaseTask
 
     private List<Pipe> GetBaseCircuit()
     {
-        var pipeCircuit = new List<Pipe>();
-        Pipe startingPoint = GetStartingPoint();
-        pipeCircuit.Add(startingPoint);
+        var pipeCircuit = new List<Pipe>() { StartingPoint };
         return pipeCircuit;
     }
 
@@ -71,14 +69,19 @@ public class Day10Task1 : BaseTask
 
     private char GetValue(int x, int y)
     {
-        char value = '.';
-
         int maxX = InputRows[0].Length - 1,
             maxY = InputRows.Length - 1;
         bool isOutOfBoundsX = x < 0 || x > maxX,
              isOutOfBoundsY = y < 0 || y > maxY;
 
-        if (isOutOfBoundsX || isOutOfBoundsY) return value;
+        if (isOutOfBoundsX || isOutOfBoundsY) return '.';
+
+        char value = InputRows[y][x];
+
+        if (value == 'S')
+        {
+
+        }
 
         return InputRows[y][x];
     }
@@ -128,6 +131,16 @@ public class Day10Task1 : BaseTask
         {
             _pipeCircuit ??= GetPipeCircuit();
             return _pipeCircuit;
+        }
+    }
+
+    private Pipe? _startingPoint;
+    private Pipe StartingPoint
+    {
+        get
+        {
+            _startingPoint ??= GetStartingPoint();
+            return _startingPoint;
         }
     }
 }
