@@ -140,18 +140,26 @@ public class Day10Task1 : BaseTask
     {
         while (true)
         {
-            Pipe nextPipe = GetNextPipe();
-            // use current pipe's value to figure out where the next coordinate is
-            // - we'll need access to the previous pipe to make sure we don't go in the wrong direction
-            // add new coordinate to end of list
-            // ensure you handle the possibility of an out-of-bounds exception in X and Y
-            // add node to list and follow the path
+            Pipe currentPipe = pipeCircuit.Last();
+            Pipe previousPipe = pipeCircuit[^2];
+            Pipe nextPipe = GetNextPipe(currentPipe, previousPipe);
 
             bool isStart = nextPipe.X == StartingPoint.X && nextPipe.Y == StartingPoint.Y;
             if (isStart) break;
 
             pipeCircuit.Add(nextPipe);
         }
+    }
+
+    private Pipe GetNextPipe(Pipe currentPipe, Pipe previousPipe)
+    {
+        // use current pipe's value to figure out where the next coordinates are
+        // - we'll need access to the previous pipe to make sure we don't go in the wrong direction
+        // - use current value to work out coordinates of both neighbours (a switch should do)
+        // - create new pipe from the coordinates that aren't the same as the previous ones
+        // add new coordinate to end of list
+        // ensure you handle the possibility of an out-of-bounds exception in X and Y
+        // add node to list and follow the path
     }
 
     private List<Pipe>? _pipeCircuit;
