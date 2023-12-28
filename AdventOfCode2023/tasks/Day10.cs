@@ -346,3 +346,28 @@ public class Pipe
         }
     }
 }
+
+/// <summary>
+/// Default state is -1 (closed/off); the opposite state is 1 (open/on). Use the `Change` method to switch between the two states.
+/// </summary>
+public class Toggle
+{
+    Toggle()
+    {
+        _state = -1;
+    }
+
+    private int _state;
+    public int State
+    {
+        get
+        {
+            return _state;
+        }
+    }
+
+    public void Change()
+    {
+        _state *= -1;
+    }
+}
