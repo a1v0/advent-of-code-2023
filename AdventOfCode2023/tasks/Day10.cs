@@ -71,7 +71,16 @@ public class Day10Task1 : BaseTask
 
     private string GetValue(int x, int y)
     {
+        string value = ".";
 
+        int maxX = InputRows[0].Length - 1,
+            maxY = InputRows.Length - 1;
+        bool isOutOfBoundsX = x < 0 || x > maxX,
+             isOutOfBoundsY = y < 0 || y > maxY;
+
+        if (isOutOfBoundsX || isOutOfBoundsY) return value;
+
+        return InputRows[y][x];
     }
 
     private (int x, int y) GetStartingCoordinates()
