@@ -229,16 +229,31 @@ public class Day10Task2 : Day10Task1
 {
     public override string Solve()
     {
-        // create property to store quantity of internal locations
-        // create property with a Toggle method that store whether we're open or closed
+        // loop row by row
         // 
-        // plan the rest later
+        // at start of row:
+        // - create new Toggle
+        // - keep track of previous value, null by default
         // 
+        // if null:
+        // - ignore if closed
+        // - ++ if open
+        // - set previous value to current value
         // 
+        // if |:
+        // - toggle state
+        // - set previous value to current value
         // 
+        // if -:
+        // - set previous value to current value
         // 
-        // 
-        // 
+        // if corner piece (F7JL):
+        // - find way to keep the state of a horizontal section
+        //   - a separate toggle could do it: -1 by default, 1 when open
+        //   - a separate variable would be needed to keep track of suitable end values (i.e. a value that wouldn't warrant a change of open/closed state)
+        // - if previous value is not null, check whether it's adjacent to current (this bit might not even be necessary)
+        //   - toggle state if not adjacent
+        // - set previous value to current value
         // 
     }
 
