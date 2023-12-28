@@ -245,6 +245,15 @@ public class Day10Task2 : Day10Task1
         // 
         // 
     }
+
+    public int[][] _circuitMap = GetCircuitMap();
+    public int[][] CircuitMap
+    {
+        get
+        {
+            return _circuitMap;
+        }
+    }
 }
 
 class Pipe
