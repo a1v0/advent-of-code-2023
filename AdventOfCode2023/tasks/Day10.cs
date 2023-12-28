@@ -80,7 +80,7 @@ public class Day10Task1 : BaseTask
 
         if (value == 'S')
         {
-
+            return StartingPoint.Value;
         }
 
         return InputRows[y][x];
