@@ -23,12 +23,16 @@ public class Day10Task1 : BaseTask
 
     private List<Pipe> GetPipeCircuit()
     {
+        List<Pipe> pipeCircuit = GetBaseCircuit();
+        ExploreCircuit(pipeCircuit);
+        return pipeCircuit;
+    }
+
+    private List<Pipe> GetBaseCircuit()
+    {
         var pipeCircuit = new List<Pipe>();
         Pipe startingPoint = GetStartingPoint();
         pipeCircuit.Add(startingPoint);
-
-        ExploreCircuit(pipeCircuit);
-
         return pipeCircuit;
     }
 
