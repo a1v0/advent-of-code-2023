@@ -287,6 +287,17 @@ public class Day10Task2 : Day10Task1
 
         return circuitMap;
     }
+
+    private void PopulateCircuitMap(int?[,] circuitMap)
+    {
+        for (int i = 0; i < PipeCircuit.Count; ++i)
+        {
+            int x = PipeCircuit[i].X,
+                y = PipeCircuit[i].Y;
+
+            circuitMap[y, x] = i;
+        }
+    }
 }
 
 public class Pipe
