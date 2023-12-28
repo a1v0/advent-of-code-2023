@@ -1,3 +1,5 @@
+using System.Security.Cryptography.X509Certificates;
+
 namespace AdventOfCode2023;
 
 public class Day10 : BaseDay
@@ -41,10 +43,35 @@ public class Day10Task1 : BaseTask
         (int x, int y) = GetStartingCoordinates();
         string value = GetStartingValue(x, y);
         return new Pipe(value, x, y);
-        // identify coordinates of S
+    }
+
+    private string GetStartingValue(int x, int y)
+    {
         // identify the underlying value of S
         // - check N, S, E and W to work out which shape it must be
         // - we should expect two shapes to point towards S
+    }
+
+    private string GetNorthernValue(int x, int y)
+    {
+        return GetValue(x, y - 1);
+    }
+    private string GetSouthernValue(int x, int y)
+    {
+        return GetValue(x, y + 1);
+    }
+    private string GetEasternValue(int x, int y)
+    {
+        return GetValue(x - 1, y);
+    }
+    private string GetWesternValue(int x, int y)
+    {
+        return GetValue(x + 1, y);
+    }
+
+    private string GetValue(int x, int y)
+    {
+
     }
 
     private (int x, int y) GetStartingCoordinates()
