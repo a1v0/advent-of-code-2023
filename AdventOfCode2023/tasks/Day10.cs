@@ -138,7 +138,6 @@ public class Day10Task1 : BaseTask
 
     private void ExploreCircuit(List<Pipe> pipeCircuit)
     {
-        Pipe startingPoint = pipeCircuit.First();
         while (true)
         {
             Pipe nextPipe = GetNextPipe();
@@ -148,7 +147,7 @@ public class Day10Task1 : BaseTask
             // ensure you handle the possibility of an out-of-bounds exception in X and Y
             // add node to list and follow the path
 
-            bool isStart = nextPipe.X == startingPoint.X && nextPipe.Y == startingPoint.Y;
+            bool isStart = nextPipe.X == StartingPoint.X && nextPipe.Y == StartingPoint.Y;
             if (isStart) break;
 
             pipeCircuit.Add(nextPipe);
