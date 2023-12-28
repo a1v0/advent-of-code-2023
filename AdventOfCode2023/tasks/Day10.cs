@@ -231,6 +231,14 @@ public class Day10Task2 : Day10Task1
     {
         CountInternalPipes();
         return InternalCount.ToString();
+    }
+
+    private void CountInternalPipes()
+    {
+        for (int i = 0; i < CircuitMap.GetLength(0); ++i)
+        {
+            ReadRow(i);
+        }
         // loop row by row
         // 
         // at start of row:
