@@ -64,10 +64,27 @@ public class Day10Task1 : BaseTask
              westPointsHere = westernConnectors.Contains(westernValue);
 
         return FindStartingValue(northPointsHere, southPointsHere, eastPointsHere, westPointsHere);
+    }
 
-        // identify the underlying value of S
-        // - check N, S, E and W to work out which shape it must be
-        // - we should expect two shapes to point towards S
+    private static char FindStartingValue(bool northPointsHere, bool southPointsHere, bool eastPointsHere, bool westPointsHere)
+    {
+        if (northPointsHere)
+        {
+            if (southPointsHere) return '|';
+            if (eastPointsHere) return 'L';
+            if (westPointsHere) return 'J';
+        }
+        else if (southPointsHere)
+        {
+            if (eastPointsHere) return 'F';
+            if (westPointsHere) return '7';
+        }
+        else if (eastPointsHere)
+        {
+            if (westPointsHere) return '-';
+        }
+
+        throw new Exception("Unable to work out starting value.");
     }
 
     private char GetNorthernValue(int x, int y)
