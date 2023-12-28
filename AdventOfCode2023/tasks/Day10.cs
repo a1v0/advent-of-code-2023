@@ -41,37 +41,37 @@ public class Day10Task1 : BaseTask
     private Pipe GetStartingPoint()
     {
         (int x, int y) = GetStartingCoordinates();
-        string value = GetStartingValue(x, y);
+        char value = GetStartingValue(x, y);
         return new Pipe(value, x, y);
     }
 
-    private string GetStartingValue(int x, int y)
+    private char GetStartingValue(int x, int y)
     {
         // identify the underlying value of S
         // - check N, S, E and W to work out which shape it must be
         // - we should expect two shapes to point towards S
     }
 
-    private string GetNorthernValue(int x, int y)
+    private char GetNorthernValue(int x, int y)
     {
         return GetValue(x, y - 1);
     }
-    private string GetSouthernValue(int x, int y)
+    private char GetSouthernValue(int x, int y)
     {
         return GetValue(x, y + 1);
     }
-    private string GetEasternValue(int x, int y)
+    private char GetEasternValue(int x, int y)
     {
         return GetValue(x - 1, y);
     }
-    private string GetWesternValue(int x, int y)
+    private char GetWesternValue(int x, int y)
     {
         return GetValue(x + 1, y);
     }
 
-    private string GetValue(int x, int y)
+    private char GetValue(int x, int y)
     {
-        string value = ".";
+        char value = '.';
 
         int maxX = InputRows[0].Length - 1,
             maxY = InputRows.Length - 1;
@@ -137,7 +137,7 @@ public class Day10Task2 : Day10Task1
 
 class Pipe
 {
-    public Pipe(string value, int x, int y)
+    public Pipe(char value, int x, int y)
     {
         _value = value;
         _x = x;
@@ -162,8 +162,8 @@ class Pipe
         }
     }
 
-    private readonly string _value;
-    public string Value
+    private readonly char _value;
+    public char Value
     {
         get
         {
