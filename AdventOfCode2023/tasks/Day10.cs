@@ -229,11 +229,8 @@ public class Day10Task2 : Day10Task1
 {
     public override string Solve()
     {
-        // PipeCircuit already exists in Part 1
-        // create multidimensional array of nullable ints as big as the map
-        // set everything to null
-        // iterate over the pipe circuit and insert the index of said pipe in the necessary coordinates
         // create property to store quantity of internal locations
+        // create property with a Toggle method that store whether we're open or closed
         // 
         // plan the rest later
         // 
@@ -243,14 +240,16 @@ public class Day10Task2 : Day10Task1
         // 
         // 
         // 
-        // 
     }
 
-    private int?[,] _circuitMap = GetCircuitMap();
+
+
+    private int?[,]? _circuitMap;
     private int?[,] CircuitMap
     {
         get
         {
+            _circuitMap ??= GetCircuitMap();
             return _circuitMap;
         }
     }
