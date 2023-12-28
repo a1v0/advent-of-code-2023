@@ -45,6 +45,26 @@ public class Day10Task1 : BaseTask
 
     private char GetStartingValue(int x, int y)
     {
+        // this whole method feels ultra clunky
+        // needs a refactor, though I can't think,
+        // for now, how else to do it.
+        char northernValue = GetNorthernValue(x, y),
+             southernValue = GetSouthernValue(x, y),
+             easternValue = GetEasternValue(x, y),
+             westernValue = GetWesternValue(x, y);
+
+        string northernConnectors = "|7F",
+               southernConnectors = "|LJ",
+               easternConnectors = "-J7",
+               westernConnectors = "-LF";
+
+        bool northPointsHere = northernConnectors.Contains(northernValue),
+             southPointsHere = southernConnectors.Contains(southernValue),
+             eastPointsHere = easternConnectors.Contains(easternValue),
+             westPointsHere = westernConnectors.Contains(westernValue);
+
+        return FindStartingValue(northPointsHere, southPointsHere, eastPointsHere, westPointsHere);
+
         // identify the underlying value of S
         // - check N, S, E and W to work out which shape it must be
         // - we should expect two shapes to point towards S
