@@ -242,7 +242,18 @@ public class Day10Task2 : Day10Task1
         // 
     }
 
-
+    private int _internalCount = 0;
+    private int InternalCount
+    {
+        get
+        {
+            return _internalCount;
+        }
+        set
+        {
+            _internalCount = value;
+        }
+    }
 
     private int?[,]? _circuitMap;
     private int?[,] CircuitMap
