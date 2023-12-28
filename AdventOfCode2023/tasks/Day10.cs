@@ -47,6 +47,25 @@ public class Day10Task1 : BaseTask
         // - we should expect two shapes to point towards S
     }
 
+    private (int x, int y) GetStartingCoordinates()
+    {
+        int x = 0,
+            y = 0;
+
+        for (int i = 0; i < InputRows.Length; ++i)
+        {
+            string currentRow = InputRows[i];
+            bool rowHasS = currentRow.Contains('S');
+            if (!rowHasS) continue;
+
+            y = i;
+            x = currentRow.IndexOf('S');
+            break;
+        }
+
+        return (x, y);
+    }
+
     private void ExploreCircuit(List<Pipe> pipeCircuit)
     {
         Pipe startingPoint = pipeCircuit.First();
