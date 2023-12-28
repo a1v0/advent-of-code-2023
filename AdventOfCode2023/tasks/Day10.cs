@@ -17,33 +17,6 @@ public class Day10Task1 : BaseTask
 {
     public override string Solve()
     {
-        // 
-        // 
-        // 
-        // 
-        // we might come a cropper because of the List type
-        // I don't think Lists are ordered, meaning we might not always
-        // retrieve the correct pipe when accessing the latest pipe
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
         int farthestPoint = PipeCircuit.Count / 2;
         return farthestPoint.ToString();
     }
@@ -57,14 +30,6 @@ public class Day10Task1 : BaseTask
         ExploreCircuit(pipeCircuit);
 
         return pipeCircuit;
-        // parse input as a list of pipe sections
-        // find coordinates of S, then start parsing
-        // look in all four directions to find a direction to go in
-        // - switch to find next coordinate
-        // - e.g. if current value is L, look in the appropriate direction to find next one
-        // add new coordinate to end of list
-        // ensure you handle the possibility of an out-of-bounds exception in X and Y
-        // add node to list and follow the path
     }
 
     private void ExploreCircuit(List<Pipe> pipeCircuit)
@@ -73,6 +38,12 @@ public class Day10Task1 : BaseTask
         while (true)
         {
             Pipe nextPipe = GetNextPipe();
+            // look in all four directions to find a direction to go in
+            // - switch to find next coordinate
+            // - e.g. if current value is L, look in the appropriate direction to find next one
+            // add new coordinate to end of list
+            // ensure you handle the possibility of an out-of-bounds exception in X and Y
+            // add node to list and follow the path
 
             bool isStart = nextPipe.X == startingPoint.X && nextPipe.Y == startingPoint.Y;
             if (isStart) break;
