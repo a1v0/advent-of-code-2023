@@ -229,6 +229,8 @@ public class Day10Task2 : Day10Task1
 {
     public override string Solve()
     {
+        CountInternalPipes();
+        return InternalCount.ToString();
         // loop row by row
         // 
         // at start of row:
@@ -287,6 +289,32 @@ public class Day10Task2 : Day10Task1
 
         int?[,] circuitMap = new int?[columnHeight, rowLength];
 
+        //
+        //
+        //
+        //
+        //
+        //
+        //
+        //
+        //
+        //
+        //
+        //
+        //
+        //
+        //
+        //
+        //
+        //
+        //
+        //
+        //
+        //
+        //
+        //
+        //
+        //
         //
         //
         //
