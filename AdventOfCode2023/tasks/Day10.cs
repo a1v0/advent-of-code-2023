@@ -205,7 +205,7 @@ public class Day10Task1 : BaseTask
     }
 
     private List<Pipe>? _pipeCircuit;
-    private List<Pipe> PipeCircuit
+    protected List<Pipe> PipeCircuit
     {
         get
         {
@@ -246,17 +246,50 @@ public class Day10Task2 : Day10Task1
         // 
     }
 
-    public int[][] _circuitMap = GetCircuitMap();
-    public int[][] CircuitMap
+    private int?[,] _circuitMap = GetCircuitMap();
+    private int?[,] CircuitMap
     {
         get
         {
             return _circuitMap;
         }
     }
+
+    private int?[,] GetCircuitMap()
+    {
+        int rowLength = InputRows[0].Length,
+            columnHeight = InputRows.Length;
+
+        int?[,] circuitMap = new int?[columnHeight, rowLength];
+
+        //
+        //
+        //
+        //
+        //
+        //
+        //
+        //
+        //
+        //
+        // this bit might not be necessary:
+        // the values are probably all null by default
+        // see if you get away with deleting it once the task is complete
+        for (int i = 0; i < circuitMap.GetLength(0); ++i)
+        {
+            for (int j = 0; j < circuitMap.GetLength(1); ++j)
+            {
+                circuitMap[i, j] = null;
+            }
+        }
+
+        PopulateCircuitMap(circuitMap);
+
+        return circuitMap;
+    }
 }
 
-class Pipe
+public class Pipe
 {
     public Pipe(char value, int x, int y)
     {
