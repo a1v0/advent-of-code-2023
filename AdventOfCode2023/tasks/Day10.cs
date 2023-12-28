@@ -62,6 +62,7 @@ public class Day10Task1 : BaseTask
 
     private static char FindStartingValue(bool northPointsHere, bool southPointsHere, bool eastPointsHere, bool westPointsHere)
     {
+        System.Console.WriteLine($"{northPointsHere} {southPointsHere} {eastPointsHere} {westPointsHere}");
         if (northPointsHere)
         {
             if (southPointsHere) return '|';
@@ -78,7 +79,7 @@ public class Day10Task1 : BaseTask
             if (westPointsHere) return '-';
         }
 
-        throw new Exception("Unable to work out starting value.");
+        throw new Exception("Unable to determine starting value.");
     }
 
     private char GetNorthernValue(int x, int y)
@@ -91,11 +92,11 @@ public class Day10Task1 : BaseTask
     }
     private char GetEasternValue(int x, int y)
     {
-        return GetValue(x - 1, y);
+        return GetValue(x + 1, y);
     }
     private char GetWesternValue(int x, int y)
     {
-        return GetValue(x + 1, y);
+        return GetValue(x - 1, y);
     }
 
     private char GetValue(int x, int y)
