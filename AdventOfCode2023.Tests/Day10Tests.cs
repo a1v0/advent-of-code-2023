@@ -15,7 +15,8 @@ public class Day10Tests : BaseTest
     [Fact]
     public void Test2()
     {
-        const string expected = "RANDOM_VALUE_TO_ENSURE_TEST_FAILS_UNTIL_REAL_VALUE_IS_ENTERED";
+        UseSecondTestInput();
+        const string expected = "10";
         string actual = new Day10().Solve(2);
         Assert.Equal(expected, actual);
     }
