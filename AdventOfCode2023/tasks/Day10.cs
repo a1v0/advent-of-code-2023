@@ -36,15 +36,22 @@ public class Day10Task1 : BaseTask
         return pipeCircuit;
     }
 
+    private Pipe GetStartingPoint()
+    {
+        // identify coordinates of S
+        // identify the underlying value of S
+        // - check N, S, E and W to work out which shape it must be
+        // - we should expect two shapes to point towards S
+    }
+
     private void ExploreCircuit(List<Pipe> pipeCircuit)
     {
         Pipe startingPoint = pipeCircuit.First();
         while (true)
         {
             Pipe nextPipe = GetNextPipe();
-            // look in all four directions to find a direction to go in
-            // - switch to find next coordinate
-            // - e.g. if current value is L, look in the appropriate direction to find next one
+            // use current pipe's value to figure out where the next coordinate is
+            // - we'll need access to the previous pipe to make sure we don't go in the wrong direction
             // add new coordinate to end of list
             // ensure you handle the possibility of an out-of-bounds exception in X and Y
             // add node to list and follow the path
