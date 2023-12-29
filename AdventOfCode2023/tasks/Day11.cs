@@ -17,12 +17,8 @@ public class Day11Task1 : BaseTask
 {
     public override string Solve()
     {
-        // make dictionary with keys of tuples (galaxyA, galaxyB), where A is always the smaller galaxy number
-        // - value is int?
-        // go through all galaxies one by one and create keys for each pair, setting value to null <== AGAIN, THIS FEELS INEFFICIENT
-        // iterate over dictionary
-        // set value to calculated distance between galaxies
-        // - this is always a simple calculation of change in Y plus change in X
+        int distanceTotal = GetDistanceTotal();
+        return distanceTotal.ToString();
     }
 
     private Dictionary<(int, int), int?> GetDistances()
@@ -47,15 +43,15 @@ public class Day11Task1 : BaseTask
         foreach (KeyValuePair<(int a, int b), int?> distance in distances)
         {
             int a = distance.Key.a,
-            b = distance.Key.b;
+                b = distance.Key.b;
 
             int aX = Galaxies[a].X,
-            aY = Galaxies[a].Y,
-            bX = Galaxies[b].X,
-            bY = Galaxies[b].Y;
+                aY = Galaxies[a].Y,
+                bX = Galaxies[b].X,
+                bY = Galaxies[b].Y;
 
             int changeInX = bX - aX,
-            changeInY = bY - aY;
+                changeInY = bY - aY;
 
             distances[(a, b)] = changeInX + changeInY;
         }
