@@ -15,7 +15,13 @@ public class Day11Tests : BaseTest
     [Fact]
     public void Test2()
     {
-        const string expected = "RANDOM_VALUE_TO_ENSURE_TEST_FAILS_UNTIL_REAL_VALUE_IS_ENTERED";
+        Console.ForegroundColor = ConsoleColor.Blue;
+        Console.Write("\nNOTE: ");
+        Console.ForegroundColor = ConsoleColor.White;
+        Console.WriteLine("THIS TEST WILL ONLY PASS IF THE SUPPLEMENT QUANTITY IS 100, NOT 1000000.");
+        Console.WriteLine("      I DON'T HAVE ACCESS TO THE CORRECT ANSWER FOR 1000000.");
+
+        const string expected = "8410";
         string actual = new Day11().Solve(2);
         Assert.Equal(expected, actual);
     }
