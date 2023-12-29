@@ -235,7 +235,8 @@ public class Day11Task2 : Day11Task1
         List<List<int?>> unexpandedMap = GetUnexpandedMap();
         List<int> blankColumns = GetBlankColumns(unexpandedMap),
                   blankRows = GetBlankRows(unexpandedMap);
-        const int expansionValue = 1000000;
+        const int expansionValue = 100;
+        // const int expansionValue = 1000000;
 
         int ySupplement = 0;
         for (int row = 0; row < unexpandedMap.Count; ++row)
