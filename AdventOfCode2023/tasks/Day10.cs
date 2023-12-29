@@ -243,21 +243,6 @@ public class Day10Task2 : Day10Task1
 
     private void ReadRow(int row)
     {
-        //
-        //
-        //
-        //
-        //
-        //
-        //
-        //
-        //
-        //
-        //
-        //
-        // previousValue may not be necessary after all
-        char? previousValue = null;
-
         var stateToggle = new Toggle();
 
         var sectionToggle = new Toggle();
@@ -304,8 +289,6 @@ public class Day10Task2 : Day10Task1
                     sectionContinuationPipe = null;
                 }
             }
-
-            previousValue = currentValue;
         }
     }
 
