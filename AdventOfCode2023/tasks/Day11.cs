@@ -259,6 +259,27 @@ public class Day11Task2 : Day11Task1
 
         return galaxies.ToArray();
     }
+
+    private static List<int> GetBlankColumns(List<List<int?>> map)
+    {
+        var blankColumns = new List<int>();
+        for (int i = map[0].Count - 1; i >= 0; --i)
+        {
+            bool isBlankColumn = true;
+            for (int j = 0; j < map.Count; ++j)
+            {
+                int? currentValue = map[j][i];
+                if (currentValue is null) continue;
+                isBlankColumn = false;
+                break;
+            }
+
+            if (isBlankColumn) blankColumns.Add(i);
+        }
+
+        blankColumns.Sort();
+        return blankColumns;
+    }
 }
 
 public class Galaxy
