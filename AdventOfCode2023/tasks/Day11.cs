@@ -59,7 +59,13 @@ public class Day11Task1 : BaseTask
     private List<List<int?>> GetSpaceMap()
     {
         List<List<int?>> unexpandedMap = GetUnexpandedMap();
-        return ExpandMap(unexpandedMap);
+        return GetExpandedMap(unexpandedMap);
+    }
+
+    private static List<List<int?>> GetExpandedMap(List<List<int?>> unexpandedMap)
+    {
+        List<List<int?>> mapWithExpandedColumns = GetMapWithExpandedColumns(unexpandedMap);
+        return GetMapWithExpandedRows(mapWithExpandedColumns);
         // work right-to-left and bottom-to-top to expand universe:
         // - do columns first
         // - loop through each index of each row and check whether there's a galaxy
