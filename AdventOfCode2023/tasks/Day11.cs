@@ -68,6 +68,28 @@ public class Day11Task1 : BaseTask
         return GetMapWithExpandedRows(mapWithExpandedColumns);
     }
 
+    private static List<List<int?>> GetMapWithExpandedRows(List<List<int?>> unexpandedMap)
+    {
+        var blankRows = new List<int>();
+        for (int i = unexpandedMap.Count - 1; i >= 0; --i)
+        {
+            List<int?> currentRow = unexpandedMap[i];
+            bool isBlankRow = true;
+
+            foreach (int? coordinate in currentRow)
+            {
+                if (coordinate is null) continue;
+
+                isBlankRow = false;
+                break;
+            }
+
+            if (isBlankRow) blankRows.Add(i);
+        }
+
+        AddExpandedRows(unexpandedMap, blankRows);
+        return unexpandedMap;
+    }
     private static List<List<int?>> GetMapWithExpandedColumns(List<List<int?>> unexpandedMap)
     {
         var blankColumns = new List<int>();
