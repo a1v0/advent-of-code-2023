@@ -17,17 +17,6 @@ public class Day11Task1 : BaseTask
 {
     public override string Solve()
     {
-        // parse input into list of lists of int?s
-        // - '.' is null
-        // - galaxies get a unique number
-        // work right-to-left and bottom-to-top to expand universe:
-        // - do columns first
-        // - loop through each index of each row and check whether there's a galaxy
-        // - if no galaxy, insert a column at that location in each row <== THIS WHOLE THING IS VERY INEFFICIENT BUT I'M UNSURE IF THERE'S A BETTER WAY TO DO IT
-        // - then rows
-        // - if row contains only '.', insert a copy of that row below
-        // then turn list into simple array of nullable Galaxies
-        // - Galaxy has X,Y properties and a number
         // 
         // make dictionary with keys of tuples (galaxyA, galaxyB), where A is always the smaller galaxy number
         // - value is int?
@@ -45,6 +34,37 @@ public class Day11Task1 : BaseTask
             _galaxies ??= GetGalaxies();
             return _galaxies;
         }
+    }
+
+    private Galaxy[] GetGalaxies()
+    {
+        List<List<int?>> spaceMap = GetSpaceMap();
+        var galaxies = new List<Galaxy>();
+
+        for (int row = 0; row < spaceMap.Count; ++row)
+        {
+            for (int column = 0; column < spaceMap[row].Count; ++column)
+            {
+                int? current = spaceMap[row][column];
+                if (current is null) continue;
+
+                var galaxy = new Galaxy((int)current, column, row);
+                galaxies.Add(galaxy);
+            }
+        }
+
+        return galaxies.ToArray();
+        // parse input into list of lists of int?s
+        // - '.' is null
+        // - galaxies get a unique number
+        // work right-to-left and bottom-to-top to expand universe:
+        // - do columns first
+        // - loop through each index of each row and check whether there's a galaxy
+        // - if no galaxy, insert a column at that location in each row <== THIS WHOLE THING IS VERY INEFFICIENT BUT I'M UNSURE IF THERE'S A BETTER WAY TO DO IT
+        // - then rows
+        // - if row contains only '.', insert a copy of that row below
+        // then turn list into simple array of nullable Galaxies
+        // - Galaxy has X,Y properties and a number
     }
 }
 
