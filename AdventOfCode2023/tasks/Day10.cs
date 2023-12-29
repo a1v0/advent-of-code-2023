@@ -256,7 +256,7 @@ public class Day10Task2 : Day10Task1
         //
         //
         // previousValue may not be necessary after all
-        int? previousValue = null;
+        char? previousValue = null;
 
         var stateToggle = new Toggle();
 
@@ -265,7 +265,8 @@ public class Day10Task2 : Day10Task1
 
         for (int column = 0; column < CircuitMap.GetLength(1); ++column)
         {
-            int? currentValue = CircuitMap[row, column];
+            int? currentIndex = CircuitMap[row, column];
+            char? currentValue = currentIndex is null ? null : PipeCircuit[(int)currentIndex].Value;
             bool isInternal = stateToggle.State > 0;
 
             if (currentValue is null)
@@ -292,7 +293,7 @@ public class Day10Task2 : Day10Task1
                 {
                     stateToggle.Change();
                     sectionToggle.Change();
-                    sectionContinuationPipe = GetContinuationPipe(currentValue);
+                    sectionContinuationPipe = GetContinuationPipe((char)currentValue);
                 }
                 else
                 {
@@ -318,7 +319,7 @@ public class Day10Task2 : Day10Task1
             case 'F':
                 return 'J';
             default:
-                throw new Exception("Unable to identify continuation pipe.")
+                throw new Exception("Unable to identify continuation pipe.");
         }
     }
 
