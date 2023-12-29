@@ -42,6 +42,25 @@ public class Day11Task1 : BaseTask
         return distances;
     }
 
+    private void CalculateDistances(Dictionary<(int, int), int?> distances)
+    {
+        foreach (KeyValuePair<(int a, int b), int?> distance in distances)
+        {
+            int a = distance.Key.a,
+            b = distance.Key.b;
+
+            int aX = Galaxies[a].X,
+            aY = Galaxies[a].Y,
+            bX = Galaxies[b].X,
+            bY = Galaxies[b].Y;
+
+            int changeInX = bX - aX,
+            changeInY = bY - aY;
+
+            distances[(a, b)] = changeInX + changeInY;
+        }
+    }
+
     private Dictionary<(int, int), int?>? _distances;
     private Dictionary<(int, int), int?> Distances
     {
