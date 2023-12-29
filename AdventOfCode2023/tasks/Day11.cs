@@ -17,13 +17,22 @@ public class Day11Task1 : BaseTask
 {
     public override string Solve()
     {
-        // 
         // make dictionary with keys of tuples (galaxyA, galaxyB), where A is always the smaller galaxy number
         // - value is int?
         // go through all galaxies one by one and create keys for each pair, setting value to null <== AGAIN, THIS FEELS INEFFICIENT
         // iterate over dictionary
         // set value to calculated distance between galaxies
         // - this is always a simple calculation of change in Y plus change in X
+    }
+
+    private Dictionary<(int, int), int?> _distances;
+    private Dictionary<(int, int), int?> Distances
+    {
+        get
+        {
+            _distances ??= GetDistances();
+            return _distances;
+        }
     }
 
     private Galaxy[]? _galaxies;
