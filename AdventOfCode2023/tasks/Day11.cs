@@ -60,15 +60,32 @@ public class Day11Task1 : BaseTask
     {
         List<List<int?>> unexpandedMap = GetUnexpandedMap();
         return ExpandMap(unexpandedMap);
-        // parse input into list of lists of int?s
-        // - '.' is null
-        // - galaxies get a unique number
         // work right-to-left and bottom-to-top to expand universe:
         // - do columns first
         // - loop through each index of each row and check whether there's a galaxy
         // - if no galaxy, insert a column at that location in each row <== THIS WHOLE THING IS VERY INEFFICIENT BUT I'M UNSURE IF THERE'S A BETTER WAY TO DO IT
         // - then rows
         // - if row contains only '.', insert a copy of that row below
+    }
+
+    private List<List<int?>> GetUnexpandedMap()
+    {
+        var unexpandedMap = new List<List<int?>>();
+        int currentGalaxyID = 0;
+
+        foreach (string rawRow in InputRows)
+        {
+            var row = new List<int?>();
+            foreach (char coordinate in rawRow)
+            {
+                if (coordinate == '.') row.Add(null);
+                else row.Add(currentGalaxyID++);
+            }
+
+            unexpandedMap.Add(row);
+        }
+
+        return unexpandedMap;
     }
 }
 
