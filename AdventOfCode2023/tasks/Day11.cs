@@ -90,7 +90,7 @@ public class Day11Task1 : BaseTask
         }
     }
 
-    private Galaxy[] GetGalaxies()
+    protected virtual Galaxy[] GetGalaxies()
     {
         List<List<int?>> spaceMap = GetSpaceMap();
         var galaxies = new List<Galaxy>();
@@ -191,7 +191,7 @@ public class Day11Task1 : BaseTask
         }
     }
 
-    private List<List<int?>> GetUnexpandedMap()
+    protected List<List<int?>> GetUnexpandedMap()
     {
         var unexpandedMap = new List<List<int?>>();
         int currentGalaxyID = 0;
@@ -228,6 +228,37 @@ public class Day11Task2 : Day11Task1
     // - check if current column is empty and add 1mil accordingly
     // - when creating galaxies, set X = j + supplement
     // 
+    protected override Galaxy[] GetGalaxies()
+    {
+        var galaxies = new List<Galaxy>();
+
+        List<List<int?>> unexpandedMap = GetUnexpandedMap();
+        List<int> blankColumns = GetBlankColumns(unexpandedMap),
+                  blankRows = GetBlankRows(unexpandedMap);
+        const int expansionValue = 1000000;
+
+        int ySupplement = 0;
+        for (int row = 0; row < unexpandedMap.Count; ++row)
+        {
+            bool isBlankRow = blankRows.Contains(row);
+            if (isBlankRow) ySupplement += expansionValue;
+
+            int xSupplement = 0;
+            for (int column = 0; column < unexpandedMap[0].Count; ++column)
+            {
+                bool isBlankColumn = blankColumns.Contains(column);
+                if (isBlankColumn) xSupplement += expansionValue;
+
+                int? currentValue = unexpandedMap[row][column];
+                if (currentValue is null) continue;
+
+                var galaxy = new Galaxy((int)currentValue, column + xSupplement, row + ySupplement);
+                galaxies.Add(galaxy);
+            }
+        }
+
+        return galaxies.ToArray();
+    }
 }
 
 public class Galaxy
