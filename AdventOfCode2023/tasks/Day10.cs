@@ -253,19 +253,19 @@ public class Day10Task2 : Day10Task1
 
             if (currentValue is null)
             {
-                previousValue = null;
                 if (isInternal) ++InternalCount;
             }
 
             else if (currentValue == '|')
             {
                 toggle.Change();
-                previousValue = currentValue;
             }
 
             else if (currentValue == '-')
             {
-                // - set previous value to current value
+                // for now there's nothing we need to do if it's '-'.
+                // I'm keeping it for simplicity, so that all other
+                // pipes are captured in the 'else' block
             }
 
             else
@@ -278,6 +278,8 @@ public class Day10Task2 : Day10Task1
                 //   - toggle state if not adjacent
                 // - set previous value to current value
             }
+
+            previousValue = currentValue;
         }
     }
 
