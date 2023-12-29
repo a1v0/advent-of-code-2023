@@ -336,53 +336,6 @@ public class Day10Task2 : Day10Task1
 
         int?[,] circuitMap = new int?[columnHeight, rowLength];
 
-        //
-        //
-        //
-        //
-        //
-        //
-        //
-        //
-        //
-        //
-        //
-        //
-        //
-        //
-        //
-        //
-        //
-        //
-        //
-        //
-        //
-        //
-        //
-        //
-        //
-        //
-        //
-        //
-        //
-        //
-        //
-        //
-        //
-        //
-        //
-        //
-        // this bit might not be necessary:
-        // the values are probably all null by default
-        // see if you get away with deleting it once the task is complete
-        for (int i = 0; i < circuitMap.GetLength(0); ++i)
-        {
-            for (int j = 0; j < circuitMap.GetLength(1); ++j)
-            {
-                circuitMap[i, j] = null;
-            }
-        }
-
         PopulateCircuitMap(circuitMap);
 
         return circuitMap;
