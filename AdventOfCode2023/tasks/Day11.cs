@@ -95,6 +95,17 @@ public class Day11Task1 : BaseTask
         // - if row contains only '.', insert a copy of that row below
     }
 
+    private static void AddExpandedColumns(List<List<int?>> unexpandedMap, List<int> blankColumns)
+    {
+        foreach (List<int?> row in unexpandedMap)
+        {
+            foreach (int column in blankColumns)
+            {
+                row.Insert(column, null);
+            }
+        }
+    }
+
     private List<List<int?>> GetUnexpandedMap()
     {
         var unexpandedMap = new List<List<int?>>();
