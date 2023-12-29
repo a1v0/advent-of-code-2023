@@ -243,13 +243,30 @@ public class Day10Task2 : Day10Task1
 
     private void ReadRow(int row)
     {
-        var toggle = new Toggle();
+        //
+        //
+        //
+        //
+        //
+        //
+        //
+        //
+        //
+        //
+        //
+        //
+        // previousValue may not be necessary after all
         int? previousValue = null;
+
+        var stateToggle = new Toggle();
+
+        var sectionToggle = new Toggle();
+        char? sectionContinuationPipe = null; // a type of pipe that continues in the same direction as the one at the start of the section, e.g. L–7 (both go down)
 
         for (int column = 0; column < CircuitMap.GetLength(1); ++column)
         {
             int? currentValue = CircuitMap[row, column];
-            bool isInternal = toggle.State > 0;
+            bool isInternal = stateToggle.State > 0;
 
             if (currentValue is null)
             {
@@ -258,7 +275,7 @@ public class Day10Task2 : Day10Task1
 
             else if (currentValue == '|')
             {
-                toggle.Change();
+                stateToggle.Change();
             }
 
             else if (currentValue == '-')
@@ -270,13 +287,21 @@ public class Day10Task2 : Day10Task1
 
             else
             {
-                // if corner piece (F7JL):
-                // - find way to keep the state of a horizontal section
-                //   - a separate toggle could do it: -1 by default, 1 when open
-                //   - a separate variable would be needed to keep track of suitable end values (i.e. a value that wouldn't warrant a change of open/closed state)
-                // - if previous value is not null, check whether it's adjacent to current (this bit might not even be necessary)
-                //   - toggle state if not adjacent
-                // - set previous value to current value
+                bool isSectionStart = sectionToggle.State == -1;
+                if (isSectionStart)
+                {
+                    stateToggle.Change();
+                    sectionToggle.Change();
+                    sectionContinuationPipe = GetContinuationPipe();
+                }
+                else
+                {
+                    sectionToggle.Change();
+
+                    bool isContinuation = currentValue == sectionContinuationPipe;
+                    if (!isContinuation) stateToggle.Change();
+                    sectionContinuationPipe = null;
+                }
             }
 
             previousValue = currentValue;
