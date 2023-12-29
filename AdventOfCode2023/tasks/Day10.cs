@@ -254,13 +254,47 @@ public class Day10Task2 : Day10Task1
             if (currentValue is null)
             {
                 previousValue = null;
-                if (!isInternal) continue;
-                ++InternalCount;
+                if (isInternal) ++InternalCount;
             }
 
             else if (currentValue == '|')
             {
-
+                // 
+                // 
+                // 
+                // 
+                // 
+                // 
+                // 
+                // 
+                // 
+                // 
+                // 
+                // 
+                // 
+                // 
+                // 
+                // 
+                // 
+                // 
+                // 
+                // 
+                // 
+                // 
+                // 
+                // 
+                // 
+                // 
+                // 
+                // 
+                // 
+                // 
+                // 
+                // 
+                // 
+                // 
+                // 
+                // 
                 // - toggle state
                 // - set previous value to current value
             }
