@@ -20,7 +20,7 @@ This repo uses xUnit for testing, though my tests aren't particularly extensive.
 | 08  | ⭐    | ❌     | Shortcut required. My solution is too na&iuml;ve. The problem is reminiscent of one from 2022, so I may investigate what I did there. |
 | 09  | ⭐    | ⭐     |       |
 | 10  | ⭐    | ⭐     |       |
-<!-- | 11  |        |        |       | -->
+| 11  | ⭐    | ⭐     |       |
 <!-- | 12  |        |        |       | -->
 <!-- | 13  |        |        |       | -->
 <!-- | 14  |        |        |       | -->
