@@ -63,8 +63,8 @@ public class Day11Task1 : BaseTask
                 bX = Galaxies[b].X,
                 bY = Galaxies[b].Y;
 
-            int changeInX = bX - aX,
-                changeInY = bY - aY;
+            int changeInX = Math.Abs(bX - aX),
+                changeInY = Math.Abs(bY - aY);
 
             distances[(a, b)] = changeInX + changeInY;
         }
