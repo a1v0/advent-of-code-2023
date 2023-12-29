@@ -21,6 +21,18 @@ public class Day11Task1 : BaseTask
         return distanceTotal.ToString();
     }
 
+    private int GetDistanceTotal()
+    {
+        int total = 0;
+
+        foreach (KeyValuePair<(int, int), int?> distance in Distances)
+        {
+            total += (int)distance.Value; // this shouldn't be null because, at this point, we've de-nulled the dictionary
+        }
+
+        return total;
+    }
+
     private Dictionary<(int, int), int?> GetDistances()
     {
         var distances = new Dictionary<(int, int), int?>();
