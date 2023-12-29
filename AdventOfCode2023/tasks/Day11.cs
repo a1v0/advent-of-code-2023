@@ -71,7 +71,7 @@ public class Day11Task1 : BaseTask
     }
 
     private Dictionary<(int, int), int?>? _distances;
-    private Dictionary<(int, int), int?> Distances
+    protected Dictionary<(int, int), int?> Distances
     {
         get
         {
@@ -214,6 +214,25 @@ public class Day11Task1 : BaseTask
 
 public class Day11Task2 : Day11Task1
 {
+    public override string Solve()
+    {
+        long distanceTotal = GetDistanceTotalAsLong();
+        return distanceTotal.ToString();
+    }
+
+    private long GetDistanceTotalAsLong()
+    {
+        long total = 0;
+
+        foreach (KeyValuePair<(int, int), int?> distance in Distances)
+        {
+            if (distance.Value is null) throw new Exception(); // won't ever throw because, by this point, we've de-nulled the dictionary
+            total += (int)distance.Value;
+        }
+
+        return total;
+    }
+
     protected override Galaxy[] GetGalaxies()
     {
         var galaxies = new List<Galaxy>();
