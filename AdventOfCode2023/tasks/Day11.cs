@@ -25,7 +25,24 @@ public class Day11Task1 : BaseTask
         // - this is always a simple calculation of change in Y plus change in X
     }
 
-    private Dictionary<(int, int), int?> _distances;
+    private Dictionary<(int, int), int?> GetDistances()
+    {
+        var distances = new Dictionary<(int, int), int?>();
+
+        for (int i = 0; i < Galaxies.Length - 1; ++i)
+        {
+            for (int j = i + 1; j < Galaxies.Length; ++j)
+            {
+                distances.Add((i, j), null);
+            }
+        }
+
+        CalculateDistances(distances);
+
+        return distances;
+    }
+
+    private Dictionary<(int, int), int?>? _distances;
     private Dictionary<(int, int), int?> Distances
     {
         get
