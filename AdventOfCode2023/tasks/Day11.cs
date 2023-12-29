@@ -27,7 +27,8 @@ public class Day11Task1 : BaseTask
 
         foreach (KeyValuePair<(int, int), int?> distance in Distances)
         {
-            total += (int)distance.Value; // this shouldn't be null because, at this point, we've de-nulled the dictionary
+            if (distance.Value is null) throw new Exception(); // won't ever throw because, by this point, we've de-nulled the dictionary
+            total += (int)distance.Value;
         }
 
         return total;
