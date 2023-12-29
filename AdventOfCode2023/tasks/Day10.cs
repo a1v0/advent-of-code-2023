@@ -292,7 +292,7 @@ public class Day10Task2 : Day10Task1
                 {
                     stateToggle.Change();
                     sectionToggle.Change();
-                    sectionContinuationPipe = GetContinuationPipe();
+                    sectionContinuationPipe = GetContinuationPipe(currentValue);
                 }
                 else
                 {
@@ -305,6 +305,20 @@ public class Day10Task2 : Day10Task1
             }
 
             previousValue = currentValue;
+        }
+    }
+
+    private static char GetContinuationPipe(char currentPipe)
+    {
+        // in theory a section can only start on L and F, so I've not made cases for others
+        switch (currentPipe)
+        {
+            case 'L':
+                return '7';
+            case 'F':
+                return 'J';
+            default:
+                throw new Exception("Unable to identify continuation pipe.")
         }
     }
 
