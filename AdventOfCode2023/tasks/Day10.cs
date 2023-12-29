@@ -259,44 +259,8 @@ public class Day10Task2 : Day10Task1
 
             else if (currentValue == '|')
             {
-                // 
-                // 
-                // 
-                // 
-                // 
-                // 
-                // 
-                // 
-                // 
-                // 
-                // 
-                // 
-                // 
-                // 
-                // 
-                // 
-                // 
-                // 
-                // 
-                // 
-                // 
-                // 
-                // 
-                // 
-                // 
-                // 
-                // 
-                // 
-                // 
-                // 
-                // 
-                // 
-                // 
-                // 
-                // 
-                // 
-                // - toggle state
-                // - set previous value to current value
+                toggle.Change();
+                previousValue = currentValue;
             }
 
             else if (currentValue == '-')
