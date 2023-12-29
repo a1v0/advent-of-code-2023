@@ -54,6 +54,12 @@ public class Day11Task1 : BaseTask
         }
 
         return galaxies.ToArray();
+    }
+
+    private List<List<int?>> GetSpaceMap()
+    {
+        List<List<int?>> unexpandedMap = GetUnexpandedMap();
+        return ExpandMap(unexpandedMap);
         // parse input into list of lists of int?s
         // - '.' is null
         // - galaxies get a unique number
@@ -63,8 +69,6 @@ public class Day11Task1 : BaseTask
         // - if no galaxy, insert a column at that location in each row <== THIS WHOLE THING IS VERY INEFFICIENT BUT I'M UNSURE IF THERE'S A BETTER WAY TO DO IT
         // - then rows
         // - if row contains only '.', insert a copy of that row below
-        // then turn list into simple array of nullable Galaxies
-        // - Galaxy has X,Y properties and a number
     }
 }
 
