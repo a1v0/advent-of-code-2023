@@ -214,20 +214,6 @@ public class Day11Task1 : BaseTask
 
 public class Day11Task2 : Day11Task1
 {
-    // take unexpanded space map from Part 1
-    // retrieve arrays/lists of X and Y positions for expansion
-    // - create new methods using logic from GetExpanded methods
-    // - ensure these lists are sorted in ascending order
-    // 
-    // create list of galaxies, as in Part 1, but do it differently:
-    // - loop through rows and columns of map
-    // - keep track of X and Y supplements
-    // - at start of outer loop, check whether current row is an empty one
-    //   - if so, add 1mil to supplement
-    // - at start of each internal loop, reset the column tracker
-    // - check if current column is empty and add 1mil accordingly
-    // - when creating galaxies, set X = j + supplement
-    // 
     protected override Galaxy[] GetGalaxies()
     {
         var galaxies = new List<Galaxy>();
@@ -235,8 +221,8 @@ public class Day11Task2 : Day11Task1
         List<List<int?>> unexpandedMap = GetUnexpandedMap();
         List<int> blankColumns = GetBlankColumns(unexpandedMap),
                   blankRows = GetBlankRows(unexpandedMap);
-        const int expansionValue = 100;
-        // const int expansionValue = 1000000;
+        // const int expansionValue = 100;
+        const int expansionValue = 1000000;
 
         int ySupplement = 0;
         for (int row = 0; row < unexpandedMap.Count; ++row)
