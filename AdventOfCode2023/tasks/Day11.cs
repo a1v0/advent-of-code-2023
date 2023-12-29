@@ -66,6 +66,27 @@ public class Day11Task1 : BaseTask
     {
         List<List<int?>> mapWithExpandedColumns = GetMapWithExpandedColumns(unexpandedMap);
         return GetMapWithExpandedRows(mapWithExpandedColumns);
+    }
+
+    private static List<List<int?>> GetMapWithExpandedColumns(List<List<int?>> unexpandedMap)
+    {
+        var blankColumns = new List<int>();
+        for (int i = unexpandedMap[0].Count - 1; i >= 0; --i)
+        {
+            bool isBlankColumn = true;
+            for (int j = 0; j < unexpandedMap.Count; ++j)
+            {
+                int? currentValue = unexpandedMap[j][i];
+                if (currentValue is null) continue;
+                isBlankColumn = false;
+                break;
+            }
+
+            if (isBlankColumn) blankColumns.Add(i);
+        }
+
+        AddExpandedColumns(unexpandedMap, blankColumns);
+        return unexpandedMap;
         // work right-to-left and bottom-to-top to expand universe:
         // - do columns first
         // - loop through each index of each row and check whether there's a galaxy
