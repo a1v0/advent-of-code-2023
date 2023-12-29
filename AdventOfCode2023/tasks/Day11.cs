@@ -90,6 +90,21 @@ public class Day11Task1 : BaseTask
         AddExpandedRows(unexpandedMap, blankRows);
         return unexpandedMap;
     }
+
+    private static void AddExpandedRows(List<List<int?>> unexpandedMap, List<int> blankRows)
+    {
+        foreach (int rowIndex in blankRows)
+        {
+            var blankRow = new List<int?>();
+            for (int i = 0; i < unexpandedMap[0].Count; ++i)
+            {
+                blankRow.Add(null);
+            }
+
+            unexpandedMap.Insert(rowIndex, blankRow);
+        }
+    }
+
     private static List<List<int?>> GetMapWithExpandedColumns(List<List<int?>> unexpandedMap)
     {
         var blankColumns = new List<int>();
@@ -109,12 +124,6 @@ public class Day11Task1 : BaseTask
 
         AddExpandedColumns(unexpandedMap, blankColumns);
         return unexpandedMap;
-        // work right-to-left and bottom-to-top to expand universe:
-        // - do columns first
-        // - loop through each index of each row and check whether there's a galaxy
-        // - if no galaxy, insert a column at that location in each row <== THIS WHOLE THING IS VERY INEFFICIENT BUT I'M UNSURE IF THERE'S A BETTER WAY TO DO IT
-        // - then rows
-        // - if row contains only '.', insert a copy of that row below
     }
 
     private static void AddExpandedColumns(List<List<int?>> unexpandedMap, List<int> blankColumns)
