@@ -260,6 +260,29 @@ public class Day11Task2 : Day11Task1
         return galaxies.ToArray();
     }
 
+    private static List<int> GetBlankRows(List<List<int?>> map)
+    {
+        var blankRows = new List<int>();
+        for (int i = map.Count - 1; i >= 0; --i)
+        {
+            List<int?> currentRow = map[i];
+            bool isBlankRow = true;
+
+            foreach (int? coordinate in currentRow)
+            {
+                if (coordinate is null) continue;
+
+                isBlankRow = false;
+                break;
+            }
+
+            if (isBlankRow) blankRows.Add(i);
+        }
+
+        blankRows.Sort();
+        return blankRows;
+    }
+
     private static List<int> GetBlankColumns(List<List<int?>> map)
     {
         var blankColumns = new List<int>();
