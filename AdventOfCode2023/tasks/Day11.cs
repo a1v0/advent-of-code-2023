@@ -36,6 +36,16 @@ public class Day11Task1 : BaseTask
         // set value to calculated distance between galaxies
         // - this is always a simple calculation of change in Y plus change in X
     }
+
+    private Galaxy[]? _galaxies;
+    private Galaxy[] Galaxies
+    {
+        get
+        {
+            _galaxies ??= GetGalaxies();
+            return _galaxies;
+        }
+    }
 }
 
 public class Day11Task2 : Day11Task1
