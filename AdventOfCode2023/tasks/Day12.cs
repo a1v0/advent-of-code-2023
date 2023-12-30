@@ -68,6 +68,7 @@ public class ConditionRecord
     {
         string[] splitInput = input.Split(' ');
         Content = splitInput[0];
+        Quantities = GetQuantities(splitInput[1]);
     }
 
     private string Content { get; }
@@ -75,6 +76,19 @@ public class ConditionRecord
     private int UnknownDamagedSprings { get; }
     private int Combinations { get; set; } = 0;
     private Regex RecordPattern { get; }
+
+    private static int[] GetQuantities(string quantitiesCSV)
+    {
+        string[] quantitiesText = quantitiesCSV.Split(',');
+        int[] quantities = new int[quantitiesText.Length];
+
+        for (int i = 0; i < quantities.Length; ++i)
+        {
+            quantities[i] = int.Parse(quantitiesText[i]);
+        }
+
+        return quantities;
+    }
     // create class ConditionRecord
     // - string of content (or maybe bool? array where true=#, false=. and null=?)
     // - array of quantities
