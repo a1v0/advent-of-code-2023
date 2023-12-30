@@ -194,7 +194,7 @@ public class ConditionRecord
             if (validCombination)
             {
                 ++Combinations;
-                Console.WriteLine($"{Combinations} combinations found.");
+                if (Combinations % 1000 == 0) Console.WriteLine($"{Combinations} combinations found.");
             }
             return;
         }
