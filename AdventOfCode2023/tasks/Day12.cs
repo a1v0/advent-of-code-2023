@@ -159,4 +159,14 @@ public class ConditionRecord
         // - find next index of ? and replace with #, then .
         // - run method again recursively
     }
+
+    private static int CountQuestionMarks(string recordContent)
+    {
+        int counter = 0;
+        foreach (char value in recordContent)
+        {
+            if (value == '?') ++counter;
+        }
+        return counter;
+    }
 }
