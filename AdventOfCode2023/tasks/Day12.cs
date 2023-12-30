@@ -227,6 +227,24 @@ public class ConditionRecord
         return abbreviatedRegex.IsMatch(recordUpToFirstUnknown);
     }
 
+    private string GetAbbreviatedRegex(int numberOfDamagedSprings)
+    {
+        int counter = 0;
+        int stopIndex = 0;
+        for (int i = 0; i < RecordPattern.Length; ++i)
+        {
+            char value = RecordPattern[i];
+            if (value == '#') ++counter;
+            if (counter == numberOfDamagedSprings)
+            {
+                stopIndex = i + 1;
+                break;
+            }
+        }
+
+        return RecordPattern.Substring(0, stopIndex);
+    }
+
     private static int CountDamagedSprings(string record)
     {
         int counter = 0;
