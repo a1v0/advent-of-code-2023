@@ -83,17 +83,17 @@ public class ConditionRecord
 
     private Regex GetRecordPattern()
     {
-        var regexElementsList = new List<string>() { "^" };
+        var regexElementsList = new List<string>();
 
         foreach (int quantity in Quantities)
         {
-            string element = $"#{{{quantity}}}";
+            string element = $"\\#{{{quantity}}}";
             regexElementsList.Add(element);
         }
-        regexElementsList.Add("$");
 
         string[] regexElements = regexElementsList.ToArray();
-        string regexContent = string.Join(".+", regexElements);
+        string regexContentWithoutEnds = string.Join("\\.+", regexElements);
+        string regexContent = "^\\.*" + regexContentWithoutEnds + "\\.*$";
 
         return new Regex(regexContent);
     }
