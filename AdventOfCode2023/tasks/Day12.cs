@@ -17,10 +17,7 @@ public class Day12Task1 : BaseTask
 {
     public override string Solve()
     {
-        // 
-        // create array of ConditionRecords
-        // sum different combinations
-        // return
+        return SumOfCombinations.ToString();
     }
 
     private int SumOfCombinations
