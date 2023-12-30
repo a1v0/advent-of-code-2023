@@ -62,17 +62,6 @@ public class Day12Task1 : BaseTask
 
 public class Day12Task2 : Day12Task1
 {
-    // solution too naive: too many combinations
-    // need a way to identify non-starters before we waste too much time on them
-    // - use a partial regex
-    // - store the regex string as a property
-    //   - string[], where items are subdivided like so: ["^\.*", "\#", "\.", ..., ".*^"]
-    //   - splice the array depending on the index of the next ?
-    //   - join and create regex
-    //   - test substring up to current index with new regex
-    //   - if match, proceed, otherwise abandon
-    // 
-
     public override string Solve()
     {
         return SumOfCombinations.ToString();
@@ -131,30 +120,46 @@ public class ConditionRecord
         Quantities = GetQuantities(splitInput[1]);
         UnknownDamagedSprings = GetUnknownDamagedSprings();
         RecordPattern = GetRecordPattern();
+        RecordRegex = new Regex(RecordPattern);
         CountCombinations(Content, UnknownDamagedSprings);
+
+        // solution too naive: too many combinations
+        // need a way to identify non-starters before we waste too much time on them
+        // - use a partial regex
+        // - store the regex string as a property
+        //   - instead of \#{4}, spell it out, e.g. "\#\#\#\#"
+        //   - count amount of # up to the next ? in input row
+        //   - create a substring of the regex that goes up to the same #
+        //   - test current substring against regex substring
+        //   - if match, proceed, otherwise abandon
     }
 
     private string Content { get; }
     private int[] Quantities { get; }
     private int UnknownDamagedSprings { get; }
     public int Combinations { get; set; } = 0;
-    private Regex RecordPattern { get; }
+    private string RecordPattern { get; }
+    private Regex RecordRegex { get; }
 
-    private Regex GetRecordPattern()
+    private string GetRecordPattern()
     {
         var regexElementsList = new List<string>();
 
         foreach (int quantity in Quantities)
         {
-            string element = $"\\#{{{quantity}}}";
-            regexElementsList.Add(element);
+            string elements = "";
+            for (int i = 0; i < quantity; ++i)
+            {
+                elements += "\\#";
+            }
+            regexElementsList.Add(elements);
         }
 
         string[] regexElements = regexElementsList.ToArray();
         string regexContentWithoutEnds = string.Join("\\.+", regexElements);
         string regexContent = "^\\.*" + regexContentWithoutEnds + "\\.*$";
 
-        return new Regex(regexContent);
+        return regexContent;
     }
 
     private int GetUnknownDamagedSprings()
@@ -214,7 +219,7 @@ public class ConditionRecord
     private bool ValidateBaseCase(string recordContent)
     {
         string contentWithoutUnknowns = recordContent.Replace('?', '.');
-        bool matchesRegex = RecordPattern.IsMatch(contentWithoutUnknowns);
+        bool matchesRegex = RecordRegex.IsMatch(contentWithoutUnknowns);
 
         return matchesRegex;
     }
