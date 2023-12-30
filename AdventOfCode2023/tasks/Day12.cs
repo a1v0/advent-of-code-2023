@@ -37,7 +37,7 @@ public class Day12Task1 : BaseTask
     }
 
     private ConditionRecord[]? _conditionRecords;
-    private ConditionRecord[] ConditionRecords
+    protected ConditionRecord[] ConditionRecords
     {
         get
         {
@@ -72,7 +72,24 @@ public class Day12Task2 : Day12Task1
     //   - test substring up to current index with new regex
     //   - if match, proceed, otherwise abandon
     // 
-    // parse result as long
+
+    public override string Solve()
+    {
+        return SumOfCombinations.ToString();
+    }
+
+    private long SumOfCombinations
+    {
+        get
+        {
+            long sum = 0;
+            foreach (ConditionRecord record in ConditionRecords)
+            {
+                sum += record.Combinations;
+            }
+            return sum;
+        }
+    }
 
     protected override ConditionRecord[] GetConditionRecords()
     {
