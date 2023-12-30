@@ -181,16 +181,6 @@ public class ConditionRecord
 
     private void CountCombinations(string recordContent, int remainingDamagedSprings)
     {
-        // solution too naive: too many combinations
-        // need a way to identify non-starters before we waste too much time on them
-        // - use a partial regex
-        // - store the regex string as a property
-        //   - instead of \#{4}, spell it out, e.g. "\#\#\#\#"
-        //   - count amount of # up to the next ? in input row
-        //   - create a substring of the regex that goes up to the same #
-        //   - test current substring against regex substring
-        //   - if match, proceed, otherwise abandon
-
         bool isWorthContinuing = ValidateIfWorthContinuing(recordContent);
         if (!isWorthContinuing) return;
 
@@ -218,6 +208,23 @@ public class ConditionRecord
         values[firstUnknown] = '.';
         CountCombinations(new string(values), remainingDamagedSprings);
 
+    }
+
+    private bool ValidateIfWorthContinuing(string recordContent)
+    {
+        // - store the regex string as a property
+        //   - instead of \#{4}, spell it out, e.g. "\#\#\#\#"
+        //   - count amount of # up to the next ? in input row
+        //   - create a substring of the regex that goes up to the same #
+        //   - test current substring against regex substring
+        //   - if match, proceed, otherwise abandon
+
+        string recordUpToFirstUnknown = recordContent.Split('?')[0];
+        int numberOfDamagedSprings = CountDamagedSprings(recordUpToFirstUnknown);
+        string abbreviatedRegexPattern = GetAbbreviatedRegex(numberOfDamagedSprings);
+        var abbreviatedRegex = new Regex(abbreviatedRegexPattern);
+
+        return abbreviatedRegex.IsMatch(recordUpToFirstUnknown);
     }
 
     private bool ValidateBaseCase(string recordContent)
