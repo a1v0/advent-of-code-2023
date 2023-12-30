@@ -212,13 +212,6 @@ public class ConditionRecord
 
     private bool ValidateIfWorthContinuing(string recordContent)
     {
-        // - store the regex string as a property
-        //   - instead of \#{4}, spell it out, e.g. "\#\#\#\#"
-        //   - count amount of # up to the next ? in input row
-        //   - create a substring of the regex that goes up to the same #
-        //   - test current substring against regex substring
-        //   - if match, proceed, otherwise abandon
-
         string recordUpToFirstUnknown = recordContent.Split('?')[0];
         int numberOfDamagedSprings = CountDamagedSprings(recordUpToFirstUnknown);
         string abbreviatedRegexPattern = GetAbbreviatedRegex(numberOfDamagedSprings);
