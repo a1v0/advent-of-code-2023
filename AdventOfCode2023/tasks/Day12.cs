@@ -74,7 +74,7 @@ public class ConditionRecord
     private string Content { get; }
     private int[] Quantities { get; }
     private int UnknownDamagedSprings { get; }
-    private int Combinations { get; set; } = 0;
+    public int Combinations { get; set; } = 0;
     private Regex RecordPattern { get; }
 
     private static int[] GetQuantities(string quantitiesCSV)
