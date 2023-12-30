@@ -1,3 +1,5 @@
+using System.Text.RegularExpressions;
+
 namespace AdventOfCode2023;
 
 public class Day12 : BaseDay
@@ -62,6 +64,16 @@ public class Day12Task2 : Day12Task1
 
 public class ConditionRecord
 {
+    public ConditionRecord(string input)
+    {
+
+    }
+
+    private string Content { get; }
+    private int[] Quantities { get; }
+    private int UnknownDamagedSprings { get; }
+    private int Combinations { get; set; } = 0;
+    private Regex RecordPattern { get; }
     // create class ConditionRecord
     // - string of content (or maybe bool? array where true=#, false=. and null=?)
     // - array of quantities
