@@ -71,6 +71,7 @@ public class ConditionRecord
         Quantities = GetQuantities(splitInput[1]);
         UnknownDamagedSprings = GetUnknownDamagedSprings();
         RecordPattern = GetRecordPattern();
+        CountCombinations(Content, UnknownDamagedSprings);
     }
 
     private string Content { get; }
@@ -82,12 +83,14 @@ public class ConditionRecord
     private Regex GetRecordPattern()
     {
         var regexElementsList = new List<string>() { "^" };
+
         foreach (int quantity in Quantities)
         {
             string element = $"#{{{quantity}}}";
             regexElementsList.Add(element);
         }
         regexElementsList.Add("$");
+
         string[] regexElements = regexElementsList.ToArray();
         string regexContent = string.Join(".+", regexElements);
 
@@ -119,21 +122,41 @@ public class ConditionRecord
 
         return quantities;
     }
-    // 
-    // calculate total number of combinations
-    // - using quantity of unknown damaged springs, add them to the string
-    //   - if quantity is 0, then set combinations to 1 and break
-    // 
-    // backtracking solution (possibly very inefficient)
-    // - if no more ? in string OR if we've run out of #s to distribute
-    //   - set all ? to . and test with regex
-    //   - if a match, ++, otherwise no
-    //   - return
-    // - otherwise change next ? with # and run recursive method again
-    // - as above but with .
-    // 
-    // backtracking method details:
-    // - copy string
-    // - find next index of ? and replace with #, then .
-    // - run method again recursively
+
+    private void CountCombinations(string recordContent, int remainingDamagedSprings)
+    {
+        int unknownFieldsLeft = CountQuestionMarks(recordContent);
+        if (unknownFieldsLeft > remainingDamagedSprings) return;
+
+        bool baseCaseIsMet = unknownFieldsLeft == 0 || remainingDamagedSprings == 0;
+        if (baseCaseIsMet)
+        {
+            bool validCombination = ValidateBaseCase(recordContent);
+            if (validCombination) ++Combinations;
+            return;
+        }
+
+        int firstUnknown = recordContent.IndexOf('?');
+        char[] values = recordContent.ToCharArray();
+
+        values[firstUnknown] = '#';
+        CountCombinations(new string(values), remainingDamagedSprings - 1);
+
+        values[firstUnknown] = '.';
+        CountCombinations(new string(values), remainingDamagedSprings);
+
+        // backtracking solution (possibly very inefficient)
+        // - if quantity of unknowns > quantity of ?, return
+        // - if no more ? in string OR if we've run out of #s to distribute
+        //   - set all ? to . and test with regex
+        //   - if a match, ++, otherwise no
+        //   - return
+        // - otherwise change next ? with # and run recursive method again
+        // - as above but with .
+        // 
+        // backtracking method details:
+        // - copy string
+        // - find next index of ? and replace with #, then .
+        // - run method again recursively
+    }
 }
