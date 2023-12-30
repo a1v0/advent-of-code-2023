@@ -1,4 +1,3 @@
-using System.Runtime.CompilerServices;
 using System.Text.RegularExpressions;
 
 namespace AdventOfCode2023;
@@ -127,7 +126,7 @@ public class ConditionRecord
     private void CountCombinations(string recordContent, int remainingDamagedSprings)
     {
         int unknownFieldsLeft = CountQuestionMarks(recordContent);
-        if (unknownFieldsLeft > remainingDamagedSprings) return;
+        if (unknownFieldsLeft < remainingDamagedSprings) return;
 
         bool baseCaseIsMet = unknownFieldsLeft == 0 || remainingDamagedSprings == 0;
         if (baseCaseIsMet)
