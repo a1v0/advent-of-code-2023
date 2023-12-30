@@ -69,6 +69,7 @@ public class ConditionRecord
         string[] splitInput = input.Split(' ');
         Content = splitInput[0];
         Quantities = GetQuantities(splitInput[1]);
+        UnknownDamagedSprings = GetUnknownDamagedSprings();
     }
 
     private string Content { get; }
@@ -76,6 +77,19 @@ public class ConditionRecord
     private int UnknownDamagedSprings { get; }
     public int Combinations { get; set; } = 0;
     private Regex RecordPattern { get; }
+
+    private int GetUnknownDamagedSprings()
+    {
+        int totalDamagedSprings = Quantities.Sum();
+        int knownDamagedSprings = 0;
+
+        foreach (char spring in Content)
+        {
+            if (spring == '#') ++knownDamagedSprings;
+        }
+
+        return totalDamagedSprings - knownDamagedSprings;
+    }
 
     private static int[] GetQuantities(string quantitiesCSV)
     {
