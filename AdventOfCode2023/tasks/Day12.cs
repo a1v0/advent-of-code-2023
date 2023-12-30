@@ -1,3 +1,4 @@
+using System.Runtime.CompilerServices;
 using System.Text.RegularExpressions;
 
 namespace AdventOfCode2023;
@@ -145,19 +146,14 @@ public class ConditionRecord
         values[firstUnknown] = '.';
         CountCombinations(new string(values), remainingDamagedSprings);
 
-        // backtracking solution (possibly very inefficient)
-        // - if quantity of unknowns > quantity of ?, return
-        // - if no more ? in string OR if we've run out of #s to distribute
-        //   - set all ? to . and test with regex
-        //   - if a match, ++, otherwise no
-        //   - return
-        // - otherwise change next ? with # and run recursive method again
-        // - as above but with .
-        // 
-        // backtracking method details:
-        // - copy string
-        // - find next index of ? and replace with #, then .
-        // - run method again recursively
+    }
+
+    private bool ValidateBaseCase(string recordContent)
+    {
+        string contentWithoutUnknowns = recordContent.Replace('?', '.');
+        bool matchesRegex = RecordPattern.IsMatch(contentWithoutUnknowns);
+
+        return matchesRegex;
     }
 
     private static int CountQuestionMarks(string recordContent)
