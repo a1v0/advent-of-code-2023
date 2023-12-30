@@ -70,6 +70,7 @@ public class ConditionRecord
         Content = splitInput[0];
         Quantities = GetQuantities(splitInput[1]);
         UnknownDamagedSprings = GetUnknownDamagedSprings();
+        RecordPattern = GetRecordPattern();
     }
 
     private string Content { get; }
@@ -77,6 +78,21 @@ public class ConditionRecord
     private int UnknownDamagedSprings { get; }
     public int Combinations { get; set; } = 0;
     private Regex RecordPattern { get; }
+
+    private Regex GetRecordPattern()
+    {
+        var regexElementsList = new List<string>() { "^" };
+        foreach (int quantity in Quantities)
+        {
+            string element = $"#{{{quantity}}}";
+            regexElementsList.Add(element);
+        }
+        regexElementsList.Add("$");
+        string[] regexElements = regexElementsList.ToArray();
+        string regexContent = string.Join(".+", regexElements);
+
+        return new Regex(regexContent);
+    }
 
     private int GetUnknownDamagedSprings()
     {
@@ -103,15 +119,6 @@ public class ConditionRecord
 
         return quantities;
     }
-    // create class ConditionRecord
-    // - string of content (or maybe bool? array where true=#, false=. and null=?)
-    // - array of quantities
-    // - int of total unknown damaged springs (i.e. total damaged springs minus known damaged springs)
-    // - int of amount of different combinations
-    // - regex based on quantities
-    // use quantities to create regexes
-    // - something like "^.*" + ["####", "#" etc.].Join(".+") + ".*$"
-    // test everything against this regex
     // 
     // calculate total number of combinations
     // - using quantity of unknown damaged springs, add them to the string
