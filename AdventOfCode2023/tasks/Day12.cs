@@ -62,15 +62,17 @@ public class Day12Task1 : BaseTask
 
 public class Day12Task2 : Day12Task1
 {
-    // I will naively assume that this will be fine, so long as the total is parsed as a long
-    // create a method in Day12Task1 that modifies the input strings as necessary
 
     protected override ConditionRecord[] GetConditionRecords()
     {
         var records = new List<ConditionRecord>();
 
+        int counter = 0;
+
         foreach (string inputRow in InputRows)
         {
+            Console.WriteLine($"Processing Condition Record {++counter}");
+
             string extendedRow = ExtendRow(inputRow);
             var record = new ConditionRecord(extendedRow);
             records.Add(record);
@@ -162,7 +164,11 @@ public class ConditionRecord
         if (baseCaseIsMet)
         {
             bool validCombination = ValidateBaseCase(recordContent);
-            if (validCombination) ++Combinations;
+            if (validCombination)
+            {
+                ++Combinations;
+                Console.WriteLine($"{Combinations} combinations found.");
+            }
             return;
         }
 
