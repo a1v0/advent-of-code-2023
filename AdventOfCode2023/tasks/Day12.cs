@@ -62,6 +62,17 @@ public class Day12Task1 : BaseTask
 
 public class Day12Task2 : Day12Task1
 {
+    // solution too naive: too many combinations
+    // need a way to identify non-starters before we waste too much time on them
+    // - use a partial regex
+    // - store the regex string as a property
+    //   - string[], where items are subdivided like so: ["^\.*", "\#", "\.", ..., ".*^"]
+    //   - splice the array depending on the index of the next ?
+    //   - join and create regex
+    //   - test substring up to current index with new regex
+    //   - if match, proceed, otherwise abandon
+    // 
+    // parse result as long
 
     protected override ConditionRecord[] GetConditionRecords()
     {
