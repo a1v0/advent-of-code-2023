@@ -227,6 +227,16 @@ public class ConditionRecord
         return abbreviatedRegex.IsMatch(recordUpToFirstUnknown);
     }
 
+    private static int CountDamagedSprings(string record)
+    {
+        int counter = 0;
+        foreach (char spring in record)
+        {
+            if (spring == '#') ++counter;
+        }
+        return counter;
+    }
+
     private bool ValidateBaseCase(string recordContent)
     {
         string contentWithoutUnknowns = recordContent.Replace('?', '.');
