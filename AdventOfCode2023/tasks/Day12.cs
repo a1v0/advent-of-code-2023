@@ -23,6 +23,19 @@ public class Day12Task1 : BaseTask
         // return
     }
 
+    private int SumOfCombinations
+    {
+        get
+        {
+            int sum = 0;
+            foreach (ConditionRecord record in ConditionRecords)
+            {
+                sum += record.Combinations;
+            }
+            return sum;
+        }
+    }
+
     private ConditionRecord[]? _conditionRecords;
     private ConditionRecord[] ConditionRecords
     {
