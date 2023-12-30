@@ -66,7 +66,8 @@ public class ConditionRecord
 {
     public ConditionRecord(string input)
     {
-
+        string[] splitInput = input.Split(' ');
+        Content = splitInput[0];
     }
 
     private string Content { get; }
