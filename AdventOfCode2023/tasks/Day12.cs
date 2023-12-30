@@ -1,3 +1,4 @@
+using System.Net;
 using System.Text.RegularExpressions;
 
 namespace AdventOfCode2023;
@@ -76,6 +77,18 @@ public class Day12Task2 : Day12Task1
         }
 
         return records.ToArray();
+    }
+
+    private static string ExtendRow(string input)
+    {
+        string[] splitInput = input.Split(' ');
+        string shortContent = splitInput[0];
+        string shortQuantities = splitInput[1];
+
+        string extendedContent = $"{shortContent}?{shortContent}?{shortContent}?{shortContent}?{shortContent}";
+        string extendedQuantities = $"{shortQuantities},{shortQuantities},{shortQuantities},{shortQuantities},{shortQuantities}";
+
+        return $"{extendedContent} {extendedQuantities}";
     }
 }
 
