@@ -42,6 +42,19 @@ public class Day12Task1 : BaseTask
             return _conditionRecords;
         }
     }
+
+    private ConditionRecord[] GetConditionRecords()
+    {
+        var records = new List<ConditionRecord>();
+
+        foreach (string inputRow in InputRows)
+        {
+            var record = new ConditionRecord(inputRow);
+            records.Add(record);
+        }
+
+        return records.ToArray();
+    }
 }
 
 public class Day12Task2 : Day12Task1
