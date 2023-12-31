@@ -21,7 +21,7 @@ This repo uses xUnit for testing, though my tests aren't particularly extensive.
 | 09  | ⭐    | ⭐     |       |
 | 10  | ⭐    | ⭐     |       |
 | 11  | ⭐    | ⭐     |       |
-<!-- | 12  |        |        |       | -->
+| 12  | ⭐    | ❌     | Shortcut required. My solution is nowhere near optimised enough. |
 <!-- | 13  |        |        |       | -->
 <!-- | 14  |        |        |       | -->
 <!-- | 15  |        |        |       | -->
