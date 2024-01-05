@@ -94,4 +94,23 @@ public class AshPattern
             return _summary;
         }
     }
+
+    private string[]? _rows;
+    private string[] Rows
+    {
+        get
+        {
+            _rows ??= GetRows();
+            return _rows;
+        }
+    }
+    private string[]? _columns;
+    private string[] Columns
+    {
+        get
+        {
+            _columns ??= GetColumns();
+            return _columns;
+        }
+    }
 }
