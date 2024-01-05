@@ -39,9 +39,18 @@ public class Day13Task1 : BaseTask
         // - if rows[i] != rows[j], check rows[j - 1]
         //   - ++i and keep going
         // throw error if nothing found
-        // sum array and return
     }
 }
 
 public class Day13Task2 : Day13Task1
 { }
+
+public class AshPattern
+{
+    public AshPattern(string input)
+    {
+        Input = input;
+    }
+
+    private string Input { get; }
+}
