@@ -179,4 +179,12 @@ public class AshPattern
 
         throw new Exception("No mirror found in input.");
     }
+
+    private static int CalculateQuantityBeforeMirror(int i, int j)
+    {
+        int difference = j - i;
+        float halfDifference = difference / 2;
+        double ceilingOfHalfDifference = Math.Ceiling(halfDifference);
+        return i + (int)ceilingOfHalfDifference;
+    }
 }
