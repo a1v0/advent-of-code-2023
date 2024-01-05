@@ -192,8 +192,8 @@ public class AshPattern
 
     private static int CalculateQuantityBeforeMirror(int i, int j)
     {
-        int difference = j - i;
-        float halfDifference = difference / 2;
+        double difference = j - i;
+        double halfDifference = difference / 2;
         double ceilingOfHalfDifference = Math.Ceiling(halfDifference);
         return i + (int)ceilingOfHalfDifference;
     }
