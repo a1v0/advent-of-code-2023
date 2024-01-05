@@ -89,6 +89,13 @@ public class AshPattern
         }
     }
 
+    private int GetSummary()
+    {
+        int rowsCoefficient = 100;
+        int multipliedRows = RowsAboveMirror * rowsCoefficient;
+        return ColumnsLeftOfMirror + multipliedRows;
+    }
+
     private string[]? _rows;
     private string[] Rows
     {
