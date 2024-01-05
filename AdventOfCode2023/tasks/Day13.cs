@@ -17,6 +17,20 @@ public class Day13Task1 : BaseTask
 {
     public override string Solve()
     {
+        // 
+        // currently my answer is too high
+        // something to check:
+        // - do any of the patterns end up with two mirrors after running the code?
+        // - there should just be on mirror per pattern
+        // - some sort of parsing error might be to blame
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
         int summarisedPatterns = SummariseAshPatterns();
         return summarisedPatterns.ToString();
     }
