@@ -115,6 +115,14 @@ public class AshPattern
     }
 
     private int? _rowsAboveMirror;
+    private int RowsAboveMirror
+    {
+        get
+        {
+            _rowsAboveMirror ??= GetRowsAboveMirror();
+            return _rowsAboveMirror;
+        }
+    }
 
     private int? _columnsLeftOfMirror;
 }
