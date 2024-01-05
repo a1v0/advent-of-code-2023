@@ -152,18 +152,59 @@ public class AshPattern
     {
         for (int i = 0; i < rows.Length; ++i)
         {
-            string current = rows[i];
+            string leftmost = rows[0],
+                   rightmost = rows[^1];
 
-            for (int j = rows.Length - 1; j > i; --j)
+            string rightComparison = rows[rows.Length - 1 - i],
+                   leftComparison = rows[i];
+
+            bool reflectionStartsFromLeft = leftmost == rightComparison,
+                 reflectionStartsFromRight = rightmost == leftComparison;
+
+            if (reflectionStartsFromLeft)
             {
-                string comparison = rows[j];
-                if (current != comparison) continue;
-
-                bool isMirror = CheckIfMirror(i, j, rows);
-                if (!isMirror) continue;
-
-                return CalculateQuantityBeforeMirror(i, j);
+                bool isMirror = CheckIfMirror(0, rows.Length - 1 - i, rows);
+                if (isMirror) return CalculateQuantityBeforeMirror(0, rows.Length - 1 - i);
             }
+
+            if (reflectionStartsFromRight)
+            {
+                bool isMirror = CheckIfMirror(i, rows.Length - 1, rows);
+                if (isMirror) return CalculateQuantityBeforeMirror(i, rows.Length - 1);
+            }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            // string current = rows[i];
+
+            // for (int j = rows.Length - 1; j > i; --j)
+            // {
+            //     string comparison = rows[j];
+            //     if (current != comparison) continue;
+
+            //     bool isMirror = CheckIfMirror(i, j, rows);
+            //     if (!isMirror) continue;
+
+            //     return CalculateQuantityBeforeMirror(i, j);
+            // }
         }
 
         return 0;
