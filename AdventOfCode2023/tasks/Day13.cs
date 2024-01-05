@@ -50,6 +50,19 @@ public class Day13Task1 : BaseTask
             return _ashPatterns;
         }
     }
+
+    private AshPattern[] GetAshPatterns()
+    {
+        string[] splitInput = Input.Split("\n\n");
+        var ashPatterns = new AshPattern[splitInput.Length];
+
+        for (int i = 0; i < ashPatterns.Length; ++i)
+        {
+            ashPatterns[i] = new AshPattern(splitInput[i]);
+        }
+
+        return ashPatterns;
+    }
 }
 
 public class Day13Task2 : Day13Task1
