@@ -25,7 +25,6 @@ public class Day13Task1 : BaseTask
         // - Columns
         // - ColumnsLeftOfMirror
         // - Summary
-        // parse input to array of AshPatterns
         // parse input into rows (string[])
         // parse columns into an array of strings, too, so we don't need to use nested loops
         // checker method:
@@ -76,4 +75,14 @@ public class AshPattern
     }
 
     private string Input { get; }
+
+    private int? _summary;
+    private int Summary
+    {
+        get
+        {
+            _summary ??= GetSummary();
+            return _summary;
+        }
+    }
 }
