@@ -85,7 +85,7 @@ public class AshPattern
         get
         {
             _summary ??= GetSummary();
-            return _summary;
+            return (int)_summary;
         }
     }
 
