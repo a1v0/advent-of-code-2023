@@ -113,4 +113,8 @@ public class AshPattern
             return _columns;
         }
     }
+
+    private int? _rowsAboveMirror;
+
+    private int? _columnsLeftOfMirror;
 }
