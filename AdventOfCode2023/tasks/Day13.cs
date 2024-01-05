@@ -40,6 +40,15 @@ public class Day13Task1 : BaseTask
         // throw error if nothing found
     }
 
+    private int SummariseAshPatterns()
+    {
+        int summary = AshPatterns.Aggregate(0, (acc, x) =>
+        {
+            return acc + x.Summary;
+        });
+        return summary;
+    }
+
     private AshPattern[]? _ashPatterns;
     private AshPattern[] AshPatterns
     {
@@ -77,7 +86,7 @@ public class AshPattern
     private string Input { get; }
 
     private int? _summary;
-    private int Summary
+    public int Summary
     {
         get
         {
