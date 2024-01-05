@@ -150,17 +150,6 @@ public class AshPattern
 
     private static int GetQuantityBeforeMirror(string[] rows)
     {
-        // loop through rows or columns (i = 0, j = Length - 1)
-        // if rows[i] == rows[j]
-        // - call method to check that i + 1 == j - 1, etc.
-        // - if it's a valid mirror
-        //   - find midpoint between i and j
-        //   - round up to nearest whole number to give amount of columns to left
-        //   - return
-        // if rows[i] != rows[j], check rows[j - 1]
-        // - --j and keep going
-        // if nothing found, ++i and try again
-
         for (int i = 0; i < rows.Length; ++i)
         {
             string current = rows[i];
