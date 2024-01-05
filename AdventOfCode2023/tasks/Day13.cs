@@ -19,19 +19,6 @@ public class Day13Task1 : BaseTask
     {
         int summarisedPatterns = SummariseAshPatterns();
         return summarisedPatterns.ToString();
-        // parse input into rows (string[])
-        // parse columns into an array of strings, too, so we don't need to use nested loops
-        // checker method:
-        // - loop through rows or columns (i = 0, j = Length - 1)
-        // - if rows[i] == rows[j]
-        //   - call method to check that i + 1 == j - 1, etc.
-        //   - if it's a valid mirror
-        //     - find midpoint between i and j
-        //     - round up to nearest whole number to give amount of columns to left
-        //     - return
-        // - if rows[i] != rows[j], check rows[j - 1]
-        //   - ++i and keep going
-        // throw error if nothing found
     }
 
     private int SummariseAshPatterns()
@@ -146,7 +133,7 @@ public class AshPattern
     {
         get
         {
-            _rowsAboveMirror ??= GetRowsOrColumnsBeforeMirror(Rows);
+            _rowsAboveMirror ??= GetQuantityBeforeMirror(Rows);
             return _rowsAboveMirror;
         }
     }
@@ -156,8 +143,25 @@ public class AshPattern
     {
         get
         {
-            _columnsLeftOfMirror ??= GetRowsOrColumnsBeforeMirror(Columns);
+            _columnsLeftOfMirror ??= GetQuantityBeforeMirror(Columns);
             return _columnsLeftOfMirror;
         }
+    }
+
+    private int GetQuantityBeforeMirror(string[] rows)
+    {
+        // parse input into rows (string[])
+        // parse columns into an array of strings, too, so we don't need to use nested loops
+        // checker method:
+        // - loop through rows or columns (i = 0, j = Length - 1)
+        // - if rows[i] == rows[j]
+        //   - call method to check that i + 1 == j - 1, etc.
+        //   - if it's a valid mirror
+        //     - find midpoint between i and j
+        //     - round up to nearest whole number to give amount of columns to left
+        //     - return
+        // - if rows[i] != rows[j], check rows[j - 1]
+        //   - ++i and keep going
+        // throw error if nothing found
     }
 }
