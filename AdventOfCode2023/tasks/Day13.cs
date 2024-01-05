@@ -166,7 +166,7 @@ public class AshPattern
             }
         }
 
-        throw new Exception("No mirror found in input.");
+        return 0;
     }
 
     private static bool CheckIfMirror(int start, int end, string[] rows)
