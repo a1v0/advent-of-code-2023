@@ -114,6 +114,26 @@ public class AshPattern
         }
     }
 
+    private string[] GetColumns()
+    {
+        int columnLength = Rows.Length;
+        string[] columns = new string[columnLength];
+
+        for (int i = 0; i < columnLength; ++i)
+        {
+            string column = "";
+
+            foreach (string row in Rows)
+            {
+                column += row[i];
+            }
+
+            columns[i] = column;
+        }
+
+        return columns;
+    }
+
     private int? _rowsAboveMirror;
     private int RowsAboveMirror
     {
