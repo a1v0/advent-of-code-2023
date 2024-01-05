@@ -134,7 +134,7 @@ public class AshPattern
         get
         {
             _rowsAboveMirror ??= GetQuantityBeforeMirror(Rows);
-            return _rowsAboveMirror;
+            return (int)_rowsAboveMirror;
         }
     }
 
@@ -144,7 +144,7 @@ public class AshPattern
         get
         {
             _columnsLeftOfMirror ??= GetQuantityBeforeMirror(Columns);
-            return _columnsLeftOfMirror;
+            return (int)_columnsLeftOfMirror;
         }
     }
 
