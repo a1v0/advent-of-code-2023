@@ -180,6 +180,19 @@ public class AshPattern
         throw new Exception("No mirror found in input.");
     }
 
+    private static bool CheckIfMirror(int start, int end, string[] rows)
+    {
+        for (int i = start, j = end; i < j; ++i, --j)
+        {
+            string iValue = rows[i],
+                   jValue = rows[j];
+
+            if (iValue != jValue) return false;
+        }
+
+        return true;
+    }
+
     private static int CalculateQuantityBeforeMirror(int i, int j)
     {
         int difference = j - i;
