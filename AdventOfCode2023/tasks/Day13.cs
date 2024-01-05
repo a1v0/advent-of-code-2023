@@ -17,6 +17,8 @@ public class Day13Task1 : BaseTask
 {
     public override string Solve()
     {
+        int summarisedPatterns = SummariseAshPatterns();
+        return summarisedPatterns.ToString();
         // create class of AshPattern
         // - Rows
         // - RowsAboveMirror
