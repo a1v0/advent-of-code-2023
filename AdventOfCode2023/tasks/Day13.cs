@@ -125,4 +125,12 @@ public class AshPattern
     }
 
     private int? _columnsLeftOfMirror;
+    private int ColumnsLeftOfMirror
+    {
+        get
+        {
+            _columnsLeftOfMirror ??= GetColumnsLeftOfMirror();
+            return _columnsLeftOfMirror;
+        }
+    }
 }
