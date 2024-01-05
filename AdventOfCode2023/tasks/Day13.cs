@@ -19,16 +19,35 @@ public class Day13Task1 : BaseTask
     {
         // 
         // currently my answer is too high
-        // something to check:
-        // - do any of the patterns end up with two mirrors after running the code?
-        // - there should just be on mirror per pattern
-        // - some sort of parsing error might be to blame
+        // 
+        // THESE TWO PATTERNS HAVE MORE THAN ONE MIRROR, i.e. one on each axis
         // 
         // 
+        // not exactly sure why this one has two
+        // there are several identical columns, but without enough identical columns in between to count as a reflection
+        // .#.##.#..##...#
+        // ###..###.##.#..
+        // #.####.##..#.##
+        // #.#..#......#.. v
+        // #.#..#......#.. ^
+        // #.####.##..#.##
+        // ###..###.##.#..
         // 
         // 
-        // 
-        // 
+        // ##.####.##.####.#
+        // ..#.##.####.##.#.
+        // .#.####.##.####.#
+        // #..#..#....#..#..
+        // #..#..#....#..#..
+        // ##.#..#.##.#..#.#
+        // #.##..##..##..##.
+        // ####..######..###
+        // ###.##.####.##.##
+        // ....##......##...
+        // #.##..##..##..##.  v
+        // #...##......##...  is this the problem? does it think this is a valid mirror, when it's not actually a gap between rows?
+        // #.##..##..##..##.  ^
+        //         ><
         // 
         // 
         int summarisedPatterns = SummariseAshPatterns();
