@@ -19,12 +19,6 @@ public class Day13Task1 : BaseTask
     {
         int summarisedPatterns = SummariseAshPatterns();
         return summarisedPatterns.ToString();
-        // create class of AshPattern
-        // - Rows
-        // - RowsAboveMirror
-        // - Columns
-        // - ColumnsLeftOfMirror
-        // - Summary
         // parse input into rows (string[])
         // parse columns into an array of strings, too, so we don't need to use nested loops
         // checker method:
@@ -104,6 +98,12 @@ public class AshPattern
             return _rows;
         }
     }
+
+    private string[] GetRows()
+    {
+        return Input.Split('\n');
+    }
+
     private string[]? _columns;
     private string[] Columns
     {
