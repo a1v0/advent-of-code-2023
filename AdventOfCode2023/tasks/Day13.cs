@@ -111,7 +111,7 @@ public class AshPattern
     private string[] GetColumns()
     {
         int columnLength = Rows.Length;
-        string[] columns = new string[columnLength];
+        string[] columns = new string[Rows[0].Length];
 
         for (int i = 0; i < columnLength; ++i)
         {
@@ -172,39 +172,6 @@ public class AshPattern
                 bool isMirror = CheckIfMirror(i, rows.Length - 1, rows);
                 if (isMirror) return CalculateQuantityBeforeMirror(i, rows.Length - 1);
             }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            // string current = rows[i];
-
-            // for (int j = rows.Length - 1; j > i; --j)
-            // {
-            //     string comparison = rows[j];
-            //     if (current != comparison) continue;
-
-            //     bool isMirror = CheckIfMirror(i, j, rows);
-            //     if (!isMirror) continue;
-
-            //     return CalculateQuantityBeforeMirror(i, j);
-            // }
         }
 
         return 0;
