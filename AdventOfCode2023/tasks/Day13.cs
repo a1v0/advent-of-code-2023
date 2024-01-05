@@ -40,6 +40,16 @@ public class Day13Task1 : BaseTask
         //   - ++i and keep going
         // throw error if nothing found
     }
+
+    private AshPattern[]? _ashPatterns;
+    private AshPattern[] AshPatterns
+    {
+        get
+        {
+            _ashPatterns ??= GetAshPatterns();
+            return _ashPatterns;
+        }
+    }
 }
 
 public class Day13Task2 : Day13Task1
