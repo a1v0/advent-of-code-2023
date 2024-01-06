@@ -80,6 +80,29 @@ public class Day13Task2 : Day13Task1
 
         return ashPatterns;
     }
+
+    private static AshPattern GetAshPattern(string input)
+    {
+        for (int i = 0; i < input.Length; ++i)
+        {
+            char current = input[i];
+            bool isPartOfPattern = current == '.' || current == '#';
+            if (!isPartOfPattern) continue;
+
+            char[] newInput = input.ToCharArray();
+            char updatedCurrent = current == '.' ? '#' : '.';
+            newInput[i] = updatedCurrent;
+
+            var ashPattern = new AshPattern(new String(newInput));
+
+            bool isInvalidPattern = (ashPattern.ColumnsLeftOfMirror > 0 && ashPattern.RowsAboveMirror > 0) || (ashPattern.ColumnsLeftOfMirror == 0 && ashPattern.RowsAboveMirror == 0);
+            if (isInvalidPattern) continue;
+
+            return ashPattern;
+        }
+
+        throw new Exception("No mirror identified.");
+    }
 }
 
 public class AshPattern
@@ -155,7 +178,7 @@ public class AshPattern
     }
 
     private int? _rowsAboveMirror;
-    private int RowsAboveMirror
+    public int RowsAboveMirror
     {
         get
         {
@@ -165,7 +188,7 @@ public class AshPattern
     }
 
     private int? _columnsLeftOfMirror;
-    private int ColumnsLeftOfMirror
+    public int ColumnsLeftOfMirror
     {
         get
         {
