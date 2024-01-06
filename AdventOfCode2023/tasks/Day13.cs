@@ -23,8 +23,6 @@ public class Day13Task1 : BaseTask
         // THESE TWO PATTERNS HAVE MORE THAN ONE MIRROR, i.e. one on each axis
         // 
         // 
-        // not exactly sure why this one has two
-        // there are several identical columns, but without enough identical columns in between to count as a reflection
         // .#.##.#..##...#
         // ###..###.##.#..
         // #.####.##..#.##
@@ -32,7 +30,7 @@ public class Day13Task1 : BaseTask
         // #.#..#......#.. ^
         // #.####.##..#.##
         // ###..###.##.#..
-        // 
+        // > < this is identified as one. tbh, I get why.
         // 
         // ##.####.##.####.#
         // ..#.##.####.##.#.
@@ -228,6 +226,10 @@ public class AshPattern
     {
         double difference = j - i;
         double halfDifference = difference / 2;
+
+        bool isInt = halfDifference == (int)halfDifference;
+        if (isInt) return 0; // the mirror must be between two rows, so this number must end in .5, else it's a false positive 
+
         double ceilingOfHalfDifference = Math.Ceiling(halfDifference);
         return i + (int)ceilingOfHalfDifference;
     }
