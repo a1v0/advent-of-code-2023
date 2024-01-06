@@ -89,11 +89,13 @@ public class Day13Task2 : Day13Task1
             bool isPartOfPattern = current == '.' || current == '#';
             if (!isPartOfPattern) continue;
 
-            char[] newInput = input.ToCharArray();
+            char[] inputBuilder = input.ToCharArray();
             char updatedCurrent = current == '.' ? '#' : '.';
-            newInput[i] = updatedCurrent;
+            inputBuilder[i] = updatedCurrent;
 
-            var ashPattern = new AshPattern(new String(newInput));
+            string updatedInput = new string(inputBuilder);
+
+            var ashPattern = new AshPattern(updatedInput);
 
             bool isInvalidPattern = (ashPattern.ColumnsLeftOfMirror > 0 && ashPattern.RowsAboveMirror > 0) || (ashPattern.ColumnsLeftOfMirror == 0 && ashPattern.RowsAboveMirror == 0);
             if (isInvalidPattern) continue;
