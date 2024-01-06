@@ -158,7 +158,6 @@ public class AshPattern
 
     private string[] GetColumns()
     {
-        int columnLength = Rows.Length;
         int totalColumns = Rows[0].Length;
         string[] columns = new string[totalColumns];
 
