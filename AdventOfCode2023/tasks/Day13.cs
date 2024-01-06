@@ -40,7 +40,7 @@ public class Day13Task1 : BaseTask
         }
     }
 
-    private AshPattern[] GetAshPatterns()
+    protected virtual AshPattern[] GetAshPatterns()
     {
         string[] splitInput = Input.Split("\n\n");
         var ashPatterns = new AshPattern[splitInput.Length];
@@ -68,6 +68,18 @@ public class Day13Task2 : Day13Task1
     // 
     // 
     // 
+    protected override AshPattern[] GetAshPatterns()
+    {
+        string[] splitInput = Input.Split("\n\n");
+        var ashPatterns = new AshPattern[splitInput.Length];
+
+        for (int i = 0; i < ashPatterns.Length; ++i)
+        {
+            ashPatterns[i] = GetAshPattern(splitInput[i]);
+        }
+
+        return ashPatterns;
+    }
 }
 
 public class AshPattern
