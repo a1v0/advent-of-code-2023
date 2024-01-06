@@ -55,7 +55,20 @@ public class Day13Task1 : BaseTask
 }
 
 public class Day13Task2 : Day13Task1
-{ }
+{
+    // Task 1 completes in about 0.5s
+    // Therefore brute-forcing the answer might take no more than about 90s
+    // I can't really think of any method other than brute force
+    // - when creating array of patterns, loop through all letters of input and modify
+    // - if resultant pattern has exactly one mirror, add to array and break
+    // 
+    // 
+    // 
+    // 
+    // 
+    // 
+    // 
+}
 
 public class AshPattern
 {
