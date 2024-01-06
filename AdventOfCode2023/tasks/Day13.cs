@@ -17,37 +17,6 @@ public class Day13Task1 : BaseTask
 {
     public override string Solve()
     {
-        // 
-        // currently my answer is too high
-        // 
-        // THESE TWO PATTERNS HAVE MORE THAN ONE MIRROR, i.e. one on each axis
-        // 
-        // 
-        // .#.##.#..##...#
-        // ###..###.##.#..
-        // #.####.##..#.##
-        // #.#..#......#.. v
-        // #.#..#......#.. ^
-        // #.####.##..#.##
-        // ###..###.##.#..
-        // > < this is identified as one. tbh, I get why.
-        // 
-        // ##.####.##.####.#
-        // ..#.##.####.##.#.
-        // .#.####.##.####.#
-        // #..#..#....#..#..
-        // #..#..#....#..#..
-        // ##.#..#.##.#..#.#
-        // #.##..##..##..##.
-        // ####..######..###
-        // ###.##.####.##.##
-        // ....##......##...
-        // #.##..##..##..##.  v
-        // #...##......##...  is this the problem? does it think this is a valid mirror, when it's not actually a gap between rows?
-        // #.##..##..##..##.  ^
-        //         ><
-        // 
-        // 
         int summarisedPatterns = SummariseAshPatterns();
         return summarisedPatterns.ToString();
     }
