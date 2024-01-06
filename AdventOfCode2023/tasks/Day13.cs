@@ -83,6 +83,8 @@ public class Day13Task2 : Day13Task1
 
     private static AshPattern GetAshPattern(string input)
     {
+        var ashPatternWithSmudge = new AshPattern(input);
+
         for (int i = 0; i < input.Length; ++i)
         {
             char current = input[i];
@@ -94,11 +96,15 @@ public class Day13Task2 : Day13Task1
             inputBuilder[i] = updatedCurrent;
 
             string updatedInput = new string(inputBuilder);
-
             var ashPattern = new AshPattern(updatedInput);
 
-            bool isInvalidPattern = (ashPattern.ColumnsLeftOfMirror > 0 && ashPattern.RowsAboveMirror > 0) || (ashPattern.ColumnsLeftOfMirror == 0 && ashPattern.RowsAboveMirror == 0);
-            if (isInvalidPattern) continue;
+            bool doesNotHaveExactlyOneMirror = (ashPattern.ColumnsLeftOfMirror > 0 && ashPattern.RowsAboveMirror > 0)
+                                    || (ashPattern.ColumnsLeftOfMirror == 0 && ashPattern.RowsAboveMirror == 0);
+            bool mirrorHasDifferentLocation = (ashPattern.ColumnsLeftOfMirror == 0 || ashPattern.ColumnsLeftOfMirror != ashPatternWithSmudge.ColumnsLeftOfMirror)
+                                           && (ashPattern.RowsAboveMirror == 0 || ashPattern.RowsAboveMirror != ashPatternWithSmudge.RowsAboveMirror);
+
+            bool isValidPattern = !doesNotHaveExactlyOneMirror && mirrorHasDifferentLocation;
+            if (!isValidPattern) continue;
 
             return ashPattern;
         }
