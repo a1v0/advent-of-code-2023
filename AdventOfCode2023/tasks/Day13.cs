@@ -97,7 +97,7 @@ public class Day13Task2 : Day13Task1
             var ashPattern = new AshPattern(updatedInput, ashPatternWithSmudge.ColumnsLeftOfMirror, ashPatternWithSmudge.RowsAboveMirror);
 
             bool doesNotHaveExactlyOneMirror = (ashPattern.ColumnsLeftOfMirror > 0 && ashPattern.RowsAboveMirror > 0)
-                                    || (ashPattern.ColumnsLeftOfMirror == 0 && ashPattern.RowsAboveMirror == 0);
+                                            || (ashPattern.ColumnsLeftOfMirror == 0 && ashPattern.RowsAboveMirror == 0);
             bool mirrorHasDifferentLocation = (ashPattern.ColumnsLeftOfMirror == 0 || ashPattern.ColumnsLeftOfMirror != ashPatternWithSmudge.ColumnsLeftOfMirror)
                                            && (ashPattern.RowsAboveMirror == 0 || ashPattern.RowsAboveMirror != ashPatternWithSmudge.RowsAboveMirror);
 
@@ -210,7 +210,7 @@ public class AshPattern
         }
     }
 
-    private static int GetQuantityBeforeMirror(string[] rows)
+    private static int GetQuantityBeforeMirror(string[] rows, int unitType = 0) // if unitType < 0, it's a column; > 0 means row
     {
         for (int i = 0; i < rows.Length; ++i)
         {
@@ -226,13 +226,25 @@ public class AshPattern
             if (reflectionStartsFromLeft)
             {
                 bool isMirror = CheckIfMirror(0, rows.Length - 1 - i, rows);
-                if (isMirror) return CalculateQuantityBeforeMirror(0, rows.Length - 1 - i);
+                if (isMirror)
+                {
+                    int quantity = CalculateQuantityBeforeMirror(0, rows.Length - 1 - i);
+                    bool isForbiddenQuantity = IsQuantityForbidden(quantity, unitType);
+                    if (isForbiddenQuantity) continue;
+                    return quantity;
+                }
             }
 
             if (reflectionStartsFromRight)
             {
                 bool isMirror = CheckIfMirror(i, rows.Length - 1, rows);
-                if (isMirror) return CalculateQuantityBeforeMirror(i, rows.Length - 1);
+                if (isMirror)
+                {
+                    int quantity = CalculateQuantityBeforeMirror(i, rows.Length - 1);
+                    bool isForbiddenQuantity = IsQuantityForbidden(quantity, unitType);
+                    if (isForbiddenQuantity) continue;
+                    return quantity;
+                }
             }
         }
 
