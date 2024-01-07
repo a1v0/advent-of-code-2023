@@ -56,16 +56,6 @@ public class Day13Task1 : BaseTask
 
 public class Day13Task2 : Day13Task1
 {
-    // Task 1 completes in about 0.5s
-    // Therefore brute-forcing the answer might take no more than about 90s
-    // I can't really think of any method other than brute force
-    // 
-    // Current solution works for second pattern, but not first.
-    // I believe this is because there is more than one valid mirror line.
-    // To get around this problem, I might need to alter the AshPattern class (or created an extended class).
-    // Perhaps add a second constructor that takes the row/cols of the original AshPattern
-    // If it identifies a mirror that's equal to the original mirror, it keeps looking
-    // 
     protected override AshPattern[] GetAshPatterns()
     {
         string[] splitInput = Input.Split("\n\n");
