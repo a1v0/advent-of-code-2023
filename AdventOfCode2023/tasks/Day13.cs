@@ -210,7 +210,7 @@ public class AshPattern
         }
     }
 
-    private static int GetQuantityBeforeMirror(string[] rows, int unitType = 0) // if unitType < 0, it's a column; > 0 means row
+    private int GetQuantityBeforeMirror(string[] rows, int unitType = 0) // if unitType < 0, it's a column; > 0 means row
     {
         for (int i = 0; i < rows.Length; ++i)
         {
@@ -249,6 +249,20 @@ public class AshPattern
         }
 
         return 0;
+    }
+
+    private bool IsQuantityForbidden(int quantity, int unitType)
+    {
+        // this method feels clunky
+        if (quantity == 0) return false;
+        if (ForbiddenValues is null) return false;
+
+        (int forbiddenColumns, int forbiddenRows) = ForbiddenValues ?? default;
+
+        if (unitType < 0) return quantity == forbiddenColumns;
+        if (unitType > 0) return quantity == forbiddenRows;
+
+        return false;
     }
 
     private static bool CheckIfMirror(int start, int end, string[] rows)
