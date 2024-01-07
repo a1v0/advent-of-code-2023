@@ -94,7 +94,7 @@ public class Day13Task2 : Day13Task1
             inputBuilder[i] = updatedCurrent;
 
             string updatedInput = new string(inputBuilder);
-            var ashPattern = new AshPattern(updatedInput);
+            var ashPattern = new AshPattern(updatedInput, ashPatternWithSmudge.ColumnsLeftOfMirror, ashPatternWithSmudge.RowsAboveMirror);
 
             bool doesNotHaveExactlyOneMirror = (ashPattern.ColumnsLeftOfMirror > 0 && ashPattern.RowsAboveMirror > 0)
                                     || (ashPattern.ColumnsLeftOfMirror == 0 && ashPattern.RowsAboveMirror == 0);
