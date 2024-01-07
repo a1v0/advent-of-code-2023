@@ -125,8 +125,8 @@ public class AshPattern
         ForbiddenRows = forbiddenRows;
     }
 
-    private int ForbiddenRows { get; }
-    private int ForbiddenColumns { get; }
+    private int? ForbiddenRows { get; }
+    private int? ForbiddenColumns { get; }
 
     private string Input { get; }
 
