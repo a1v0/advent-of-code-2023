@@ -118,15 +118,13 @@ public class AshPattern
         Input = input;
     }
 
-    public AshPattern(string input, int forbiddenRows, int forbiddenColumns)
+    public AshPattern(string input, int forbiddenColumns, int forbiddenRows)
     {
         Input = input;
-        ForbiddenColumns = forbiddenColumns;
-        ForbiddenRows = forbiddenRows;
+        ForbiddenValues = (forbiddenColumns, forbiddenRows);
     }
 
-    private int? ForbiddenRows { get; }
-    private int? ForbiddenColumns { get; }
+    private (int, int)? ForbiddenValues { get; }
 
     private string Input { get; }
 
