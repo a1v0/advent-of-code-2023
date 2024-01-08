@@ -64,6 +64,14 @@ public class Day14Task1 : BaseTask
         return string.Join('#', resultantArray);
     }
 
+    private static string SortColumnSection(string columnSection)
+    {
+        char[] columnChars = columnSection.ToCharArray();
+        Array.Sort(columnChars);
+        Array.Reverse(columnChars);
+        return new string(columnChars);
+    }
+
     private string[]? _columns;
     private string[] Columns
     {
