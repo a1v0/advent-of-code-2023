@@ -56,6 +56,23 @@ public class Day13Task1 : BaseTask
 
 public class Day13Task2 : Day13Task1
 {
+    // It's not finding a mirror here
+    // 
+    // ..#..###.##
+    // ##.##.###..
+    // ..##....##.
+    // ..##..##.##
+    // ##..##.####
+    // #####.#....
+    // ##.#....###
+    //          >< this should be the new mirror, but it's not finding it
+    // >< original mirror
+    // 
+    // 
+    // 
+    // 
+    // 
+    // 
     protected override AshPattern[] GetAshPatterns()
     {
         string[] splitInput = Input.Split("\n\n");
@@ -202,7 +219,7 @@ public class AshPattern
 
     private int GetQuantityBeforeMirror(string[] rows, int unitType = 0) // if unitType < 0, it's a column; > 0 means row
     {
-        for (int i = 0; i < rows.Length; ++i)
+        for (int i = 0; i < rows.Length - 1; ++i)
         {
             string leftmost = rows[0],
                    rightmost = rows[^1];
@@ -220,8 +237,7 @@ public class AshPattern
                 {
                     int quantity = CalculateQuantityBeforeMirror(0, rows.Length - 1 - i);
                     bool isForbiddenQuantity = IsQuantityForbidden(quantity, unitType);
-                    if (isForbiddenQuantity) continue;
-                    return quantity;
+                    if (!isForbiddenQuantity) return quantity;
                 }
             }
 
@@ -232,8 +248,7 @@ public class AshPattern
                 {
                     int quantity = CalculateQuantityBeforeMirror(i, rows.Length - 1);
                     bool isForbiddenQuantity = IsQuantityForbidden(quantity, unitType);
-                    if (isForbiddenQuantity) continue;
-                    return quantity;
+                    if (!isForbiddenQuantity) return quantity;
                 }
             }
         }
