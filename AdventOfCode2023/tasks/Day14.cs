@@ -17,6 +17,8 @@ public class Day14Task1 : BaseTask
 {
     public override string Solve()
     {
+        int totalLoad = GetTotalLoad();
+        return totalLoad.ToString();
         // parse input into columns
         // split columns by "#"
         // turn each block char array and sort such that O and . are separate
