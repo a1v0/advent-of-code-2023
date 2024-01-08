@@ -47,6 +47,16 @@ public class Day14Task1 : BaseTask
 
         string sortedColumn = GetSortedColumn(column);
 
+        int total = 0;
+        int coefficient = sortedColumn.Length;
+
+        foreach (char rock in sortedColumn)
+        {
+            if (rock == 'O') total += coefficient;
+            --coefficient;
+        }
+
+        return total;
     }
 
     private static string GetSortedColumn(string column)
