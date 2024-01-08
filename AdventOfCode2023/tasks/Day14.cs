@@ -104,4 +104,21 @@ public class Day14Task1 : BaseTask
 }
 
 public class Day14Task2 : Day14Task1
-{ }
+{
+    // 1 billion cycles doesn't even sound THAT bad but it probably IS that bad
+    // 1bn cycles = 4bn rotations
+    // 
+    // 
+    // 
+    // 
+    // create a loop that runs 1bn times (or 4bn, depending on how you code it)
+    // each time, parse the input anew to achieve the anticlockwise flipping
+    // 
+    // 
+    // 
+    // 
+    // if it does take too long (it could easily take too long), then the chances are that a pattern will emerge
+    // 
+    // 
+    // 
+}
