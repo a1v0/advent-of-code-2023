@@ -35,16 +35,6 @@ public class Day14Task1 : BaseTask
 
     private static int SummariseColumn(string column)
     {
-        // split columns by "#"
-        // turn each block char array and sort such that O and . are separate
-        // join by "#"
-        // 
-        // summarise each column
-        // - loop through column's contents and add
-        // sum all columns
-        // return
-        // 
-
         string sortedColumn = GetSortedColumn(column);
 
         int total = 0;
