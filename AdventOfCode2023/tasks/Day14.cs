@@ -31,6 +31,10 @@ public class Day14Task1 : BaseTask
         }
 
         return total;
+    }
+
+    private static int SummariseColumn(string column)
+    {
         // split columns by "#"
         // turn each block char array and sort such that O and . are separate
         // join by "#"
@@ -40,6 +44,24 @@ public class Day14Task1 : BaseTask
         // sum all columns
         // return
         // 
+
+        string sortedColumn = GetSortedColumn(column);
+
+    }
+
+    private static string GetSortedColumn(string column)
+    {
+        string[] columnSections = column.Split('#');
+        var sortedColumnSections = new List<string>();
+
+        foreach (string columnSection in columnSections)
+        {
+            string sortedColumnSection = SortColumnSection(columnSection);
+            sortedColumnSections.Add(sortedColumnSection);
+        }
+
+        string[] resultantArray = sortedColumnSections.ToArray();
+        return string.Join('#', resultantArray);
     }
 
     private string[]? _columns;
