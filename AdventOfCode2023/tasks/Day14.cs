@@ -19,7 +19,18 @@ public class Day14Task1 : BaseTask
     {
         int totalLoad = GetTotalLoad();
         return totalLoad.ToString();
-        // parse input into columns
+    }
+
+    private int GetTotalLoad()
+    {
+        int total = 0;
+
+        foreach (string column in Columns)
+        {
+            total += SummariseColumn(column);
+        }
+
+        return total;
         // split columns by "#"
         // turn each block char array and sort such that O and . are separate
         // join by "#"
