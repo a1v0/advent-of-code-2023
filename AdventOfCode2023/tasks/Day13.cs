@@ -56,22 +56,6 @@ public class Day13Task1 : BaseTask
 
 public class Day13Task2 : Day13Task1
 {
-    // It's not finding a mirror here
-    // 
-    // .#.##.#..##...#
-    // ###..###.##.#..
-    // #.####.##..#.##
-    // #.#..#......#.. v original mirror
-    // #.#..#......#.. ^
-    // #.####.##..#.##
-    // ###..###.##.#..
-    //              >< new mirror
-    // 
-    // 
-    // 
-    // 
-    // 
-    // 
     protected override AshPattern[] GetAshPatterns()
     {
         string[] splitInput = Input.Split("\n\n");
