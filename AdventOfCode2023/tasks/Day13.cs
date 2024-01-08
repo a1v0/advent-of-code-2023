@@ -58,15 +58,14 @@ public class Day13Task2 : Day13Task1
 {
     // It's not finding a mirror here
     // 
-    // ..#..###.##
-    // ##.##.###..
-    // ..##....##.
-    // ..##..##.##
-    // ##..##.####
-    // #####.#....
-    // ##.#....###
-    //          >< this should be the new mirror, but it's not finding it
-    // >< original mirror
+    // .#.##.#..##...#
+    // ###..###.##.#..
+    // #.####.##..#.##
+    // #.#..#......#.. v original mirror
+    // #.#..#......#.. ^
+    // #.####.##..#.##
+    // ###..###.##.#..
+    //              >< new mirror
     // 
     // 
     // 
@@ -259,7 +258,7 @@ public class AshPattern
     private bool IsQuantityForbidden(int quantity, int unitType)
     {
         // this method feels clunky
-        if (quantity == 0) return false;
+        if (quantity == 0) return true;
         if (ForbiddenValues is null) return false;
 
         (int forbiddenColumns, int forbiddenRows) = ForbiddenValues ?? default;
