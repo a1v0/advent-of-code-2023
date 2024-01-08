@@ -22,7 +22,7 @@ This repo uses xUnit for testing, though my tests aren't particularly extensive.
 | 10  | ⭐    | ⭐     |       |
 | 11  | ⭐    | ⭐     |       |
 | 12  | ⭐    | ❌     | Shortcut required. My solution is nowhere near optimised enough. |
-| 13  | ⭐    |        |       |
+| 13  | ⭐    | ⭐     |       |
 <!-- | 14  |        |        |       | -->
 <!-- | 15  |        |        |       | -->
 <!-- | 16  |        |        |       | -->
