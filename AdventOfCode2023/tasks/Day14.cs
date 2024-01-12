@@ -49,7 +49,7 @@ public class Day14Task1 : BaseTask
         return total;
     }
 
-    private static string GetSortedColumn(string column)
+    protected static string GetSortedColumn(string column)
     {
         string[] columnSections = column.Split('#');
         var sortedColumnSections = new List<string>();
@@ -122,25 +122,26 @@ public class Day14Task2 : Day14Task1
 
     private void RotateOnce()
     {
-        string[] northernTilt = Tilt();
-        Columns = GetColumns(northernTilt);
-        string[] westernTilt = Tilt();
-        Columns = GetColumns(westernTilt);
-        string[] southernTilt = Tilt();
-        Columns = GetColumns(southernTilt);
-        string[] easternTilt = Tilt();
-        Columns = GetColumns(easternTilt);
-        // 1 billion cycles doesn't even sound THAT bad but it probably IS that bad
-        // 1bn cycles = 4bn rotations
-        // 
-        // 
-        // create a loop that runs 1bn times (or 4bn, depending on how you code it)
-        // each time, parse the input anew to achieve the anticlockwise flipping
-        // 
-        // 
-        // if it does take too long (it could easily take too long), then the chances are that a pattern will emerge
-        // 
-        // 
+        Tilt(); // North
+        Columns = GetColumns(Columns);
+        Array.Reverse(Columns);
+        Tilt(); // West
+        Columns = GetColumns(Columns);
+        Array.Reverse(Columns);
+        Tilt(); // South
+        Columns = GetColumns(Columns);
+        Array.Reverse(Columns);
+        Tilt(); // East
+        Columns = GetColumns(Columns);
+        Array.Reverse(Columns);
+    }
+
+    private void Tilt()
+    {
+        for (int i = 0; i < Columns[0].Length; ++i)
+        {
+            Columns[i] = GetSortedColumn(Columns[i]);
+        }
         // - tilt north
         //   - turn InputRows into columns
         //   - sort, as in Part 1
@@ -158,10 +159,5 @@ public class Day14Task2 : Day14Task1
         //   - sort, as in Part 1
         // 
         // summarise and return
-        // 
-        // 
-        // 
-        // 
-
     }
 }
