@@ -149,4 +149,13 @@ public class Day14Task2 : Day14Task1
     // 
     // 
     // 
+    private void RotateOneBillionTimes()
+    {
+        const int totalRotations = 1000000000;
+
+        for (int i = 0; i < totalRotations; ++i)
+        {
+            RotateOnce();
+        }
+    }
 }
