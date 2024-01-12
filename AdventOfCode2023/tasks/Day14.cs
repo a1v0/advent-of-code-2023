@@ -73,7 +73,7 @@ public class Day14Task1 : BaseTask
     }
 
     private string[]? _columns;
-    private string[] Columns
+    protected string[] Columns
     {
         get
         {
@@ -87,7 +87,7 @@ public class Day14Task1 : BaseTask
         }
     }
 
-    private static string[] GetColumns(string[] input)
+    protected static string[] GetColumns(string[] input)
     {
         int totalColumns = input[0].Length;
         string[] columns = new string[totalColumns];
