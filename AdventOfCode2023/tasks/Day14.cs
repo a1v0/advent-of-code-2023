@@ -21,7 +21,7 @@ public class Day14Task1 : BaseTask
         return totalLoad.ToString();
     }
 
-    private int GetTotalLoad()
+    protected int GetTotalLoad()
     {
         int total = 0;
 
@@ -110,12 +110,19 @@ public class Day14Task1 : BaseTask
 
 public class Day14Task2 : Day14Task1
 {
+    public override string Solve()
+    {
+        RotateOneBillionTimes();
+        int totalLoad = GetTotalLoad();
+        return totalLoad.ToString();
+    }
     private void RotateOneBillionTimes()
     {
         const int totalRotations = 1000000000;
 
         for (int i = 0; i < totalRotations; ++i)
         {
+            System.Console.WriteLine(i);
             RotateOnce();
         }
     }
