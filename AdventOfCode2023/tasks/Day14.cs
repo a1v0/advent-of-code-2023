@@ -126,4 +126,27 @@ public class Day14Task2 : Day14Task1
     // 
     // 
     // 
+    // loop: 1bn full rotations
+    // rotation method
+    // - tilt north
+    //   - turn InputRows into columns
+    //   - sort, as in Part 1
+    // - tilt west
+    //   - turn Columns back into rows
+    //   - (possibly reverse contents of each column)
+    //   - sort, as in Part 1
+    // - tilt south
+    //   - turn Rows back into Columns
+    //   - (possibly reverse contents of each column)
+    //   - sort, as in Part 1
+    // - tilt east
+    //   - turn Columns back into rows
+    //   - (possibly reverse contents of each column)
+    //   - sort, as in Part 1
+    // 
+    // summarise and return
+    // 
+    // 
+    // 
+    // 
 }
