@@ -80,6 +80,11 @@ public class Day14Task1 : BaseTask
             _columns ??= GetColumns(InputRows);
             return _columns;
         }
+
+        set
+        {
+            _columns = value;
+        }
     }
 
     private static string[] GetColumns(string[] input)
