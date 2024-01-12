@@ -77,21 +77,21 @@ public class Day14Task1 : BaseTask
     {
         get
         {
-            _columns ??= GetColumns();
+            _columns ??= GetColumns(InputRows);
             return _columns;
         }
     }
 
-    private string[] GetColumns()
+    private static string[] GetColumns(string[] input)
     {
-        int totalColumns = InputRows[0].Length;
+        int totalColumns = input[0].Length;
         string[] columns = new string[totalColumns];
 
         for (int i = 0; i < totalColumns; ++i)
         {
             string column = "";
 
-            foreach (string row in InputRows)
+            foreach (string row in input)
             {
                 column += row[i];
             }
