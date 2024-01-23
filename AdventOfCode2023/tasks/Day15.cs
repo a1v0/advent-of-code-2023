@@ -1,4 +1,5 @@
 using System.Linq.Expressions;
+using System.Security.Cryptography.X509Certificates;
 using System.Xml.Schema;
 
 namespace AdventOfCode2023;
@@ -126,18 +127,28 @@ public class Day15Task2 : Day15Task1
             else if (hasEquals)
             {
                 DistributeLensesEquals(sequence);
-                // if =:
-                // - extract lens size from string
-                // - extract label from string
-                // - go to relevant box
-                //   - run hash on label
-                // - if lens already exists in list, overwrite lens value in dictionary
-                // - if not, stick new lens on the end of the list
             }
             else
             {
                 throw new Exception("No operator identified in sequence. Check input.");
             }
+        }
+    }
+
+    private void DistributeLensesEquals(string sequence)
+    {
+        string[] labelAndLens = sequence.Split('=');
+        string label = labelAndLens[0];
+        int boxNumber = GetHash(label);
+        byte lensSize = byte.Parse(labelAndLens[1]);
+
+        Box currentBox = Boxes[boxNumber];
+        bool lensExists = currentBox.Lenses.ContainsKey(label);
+        if (lensExists) currentBox.Lenses[label] = lensSize;
+        else
+        {
+            currentBox.Lenses.Add(label, lensSize);
+            currentBox.Labels.Add(label);
         }
     }
 
