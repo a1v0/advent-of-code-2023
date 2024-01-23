@@ -23,13 +23,6 @@ public class Day15Task1 : BaseTask
 
     private int[] GetHashes()
     {
-        // loop through each string and run HASH on it
-        // - initialise current at 0
-        // - loop through each char
-        //   - (int)char casts it as its ASCII value
-        // - add ascii to current
-        // - multiply by 17
-        // - divide by 256 and return remainder
         var hashes = new List<int>();
 
         foreach (string sequence in Sequences)
@@ -39,6 +32,23 @@ public class Day15Task1 : BaseTask
         }
 
         return hashes.ToArray();
+    }
+
+    private static int GetHash(string sequence)
+    {
+        int current = 0;
+        int multiplicationValue = 17,
+            moduloValue = 256;
+
+        foreach (char @char in sequence)
+        {
+            int asciiValue = (int)@char;
+            current += asciiValue;
+            current *= multiplicationValue;
+            current %= moduloValue;
+        }
+
+        return current;
     }
 
     private int[]? _hashes;
