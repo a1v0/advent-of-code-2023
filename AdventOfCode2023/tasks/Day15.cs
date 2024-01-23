@@ -17,7 +17,12 @@ public class Day15Task1 : BaseTask
 {
     public override string Solve()
     {
-        // parse input as array of strings
+        int sumOfHashes = Hashes.Sum();
+        return sumOfHashes.ToString();
+    }
+
+    private int[] GetHashes()
+    {
         // loop through each string and run HASH on it
         // - initialise current at 0
         // - loop through each char
@@ -25,10 +30,15 @@ public class Day15Task1 : BaseTask
         // - add ascii to current
         // - multiply by 17
         // - divide by 256 and return remainder
-        // 
-        // summarise and return as string
-        int sumOfHashes = Hashes.Sum();
-        return sumOfHashes.ToString();
+        var hashes = new List<int>();
+
+        foreach (string sequence in Sequences)
+        {
+            int hash = GetHash(sequence);
+            hashes.Add(hash);
+        }
+
+        return hashes.ToArray();
     }
 
     private int[]? _hashes;
