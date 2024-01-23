@@ -27,6 +27,8 @@ public class Day15Task1 : BaseTask
         // - divide by 256 and return remainder
         // 
         // summarise and return as string
+        int sumOfHashes = Hashes.Sum();
+        return sumOfHashes.ToString();
     }
 }
 
