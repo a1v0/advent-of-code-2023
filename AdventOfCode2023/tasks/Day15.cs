@@ -30,6 +30,16 @@ public class Day15Task1 : BaseTask
         int sumOfHashes = Hashes.Sum();
         return sumOfHashes.ToString();
     }
+
+    private int[]? _hashes;
+    private int[] Hashes
+    {
+        get
+        {
+            _hashes ??= GetHashes();
+            return _hashes;
+        }
+    }
 }
 
 public class Day15Task2 : Day15Task1
