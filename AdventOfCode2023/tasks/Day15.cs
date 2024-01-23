@@ -73,4 +73,33 @@ public class Day15Task1 : BaseTask
 }
 
 public class Day15Task2 : Day15Task1
-{ }
+{
+    // create array of boxes
+    // - box = tuple (list containing order of lens labels, dictionary containing current lens size of each lens label)
+    // 
+    // check sequence for special char
+    // if -:
+    // - extract label from string
+    // - go to relevant box
+    //   - run hash on label to do this
+    // - check if list contains label
+    //   - if not, return
+    //   - if so, remove item
+    // 
+    // if =:
+    // - extract lens size from string
+    // - extract label from string
+    // - go to relevant box
+    //   - run hash on label
+    // - if lens already exists in list, overwrite lens value in dictionary
+    // - if not, stick new lens on the end of the list
+    // 
+    // calculate focusing power:
+    // - for each lens in each box (i.e. nested loop), multiply together
+    //   - box number + 1
+    //   - slot number, 1-indexed, i.e. index of lens within list
+    //   - lens focal length
+    // 
+    // summarise focusing power
+    // return as a string
+}
