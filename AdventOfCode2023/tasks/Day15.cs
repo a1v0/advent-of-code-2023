@@ -152,7 +152,7 @@ public class Day15Task2 : Day15Task1
 
         for (byte i = 0; i < totalBoxes; ++i)
         {
-            boxes[i] = new Box();
+            boxes[i] = new Box(i + 1);
         }
 
         return boxes;
