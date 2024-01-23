@@ -37,7 +37,7 @@ public class Day15Task1 : BaseTask
         return hashes.ToArray();
     }
 
-    private static int GetHash(string sequence)
+    protected static int GetHash(string sequence)
     {
         int current = 0;
         int multiplicationValue = 17,
@@ -122,15 +122,6 @@ public class Day15Task2 : Day15Task1
             if (hasDash)
             {
                 DistributeLensesDash(sequence);
-                // check sequence for special char
-                // if -:
-                // - extract label from string
-                // - go to relevant box
-                //   - run hash on label to do this
-                // - check if list contains label
-                //   - if not, return
-                //   - if so, remove item
-                // 
             }
             else if (hasEquals)
             {
@@ -148,6 +139,15 @@ public class Day15Task2 : Day15Task1
                 throw new Exception("No operator identified in sequence. Check input.");
             }
         }
+    }
+
+    private void DistributeLensesDash(string sequence)
+    {
+        string label = sequence[0..^1];
+        int boxNumber = GetHash(label);
+
+        Box currentBox = Boxes[boxNumber];
+        currentBox.Labels.Remove(label);
     }
 
     private Box[]? _boxes;
