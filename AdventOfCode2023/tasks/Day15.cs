@@ -76,9 +76,11 @@ public class Day15Task1 : BaseTask
 
 public class Day15Task2 : Day15Task1
 {
-    // create array of boxes
-    // - box = tuple (list containing order of lens labels, dictionary containing current lens size of each lens label)
-    // 
+    public override string Solve()
+    {
+        int totalFocusingPower = SumFocusingPower();
+        return totalFocusingPower.ToString();
+    }
     // check sequence for special char
     // if -:
     // - extract label from string
@@ -101,9 +103,6 @@ public class Day15Task2 : Day15Task1
     //   - box number + 1
     //   - slot number, 1-indexed, i.e. index of lens within list
     //   - lens focal length
-    // 
-    // summarise focusing power
-    // return as a string
 
     private Box[]? _boxes;
     private Box[] Boxes
