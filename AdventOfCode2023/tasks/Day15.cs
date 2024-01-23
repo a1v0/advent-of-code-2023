@@ -1,3 +1,5 @@
+using System.Linq.Expressions;
+
 namespace AdventOfCode2023;
 
 public class Day15 : BaseDay
@@ -103,13 +105,27 @@ public class Day15Task2 : Day15Task1
     // summarise focusing power
     // return as a string
 
-    private (List<string>, Dictionary<string, byte>)? _boxes;
-    private (List<string>, Dictionary<string, byte>) Boxes
+    private (List<string>, Dictionary<string, byte>)[]? _boxes;
+    private (List<string>, Dictionary<string, byte>)[] Boxes
     {
         get
         {
             _boxes ??= GetBoxes();
             return _boxes;
         }
+    }
+
+    private static (List<string>, Dictionary<string, byte>)[] GetBoxes()
+    {
+        int totalBoxes = 256;
+        var boxes = new (List<string>, Dictionary<string, byte>)[totalBoxes];
+
+        for (byte i = 0; i < totalBoxes; ++i)
+        {
+            var box = (new List<string>(), new Dictionary<string, byte>());
+            boxes[i] = box;
+        }
+
+        return boxes;
     }
 }
