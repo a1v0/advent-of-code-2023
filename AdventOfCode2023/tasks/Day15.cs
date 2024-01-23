@@ -102,4 +102,14 @@ public class Day15Task2 : Day15Task1
     // 
     // summarise focusing power
     // return as a string
+
+    private (List<string>, Dictionary<string, byte>)? _boxes;
+    private (List<string>, Dictionary<string, byte>) Boxes
+    {
+        get
+        {
+            _boxes ??= GetBoxes();
+            return _boxes;
+        }
+    }
 }
