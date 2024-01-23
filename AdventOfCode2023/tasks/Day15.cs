@@ -176,7 +176,7 @@ public class Day15Task2 : Day15Task1
         int totalBoxes = 256;
         var boxes = new Box[totalBoxes];
 
-        for (byte i = 0; i < totalBoxes; ++i)
+        for (int i = 0; i < totalBoxes; ++i)
         {
             boxes[i] = new Box(i + 1);
         }
