@@ -1,4 +1,5 @@
 using System.Linq.Expressions;
+using System.Xml.Schema;
 
 namespace AdventOfCode2023;
 
@@ -85,16 +86,33 @@ public class Day15Task2 : Day15Task1
 
     private int SummariseFocusingPower()
     {
-        // calculate focusing power:
-        // - for each lens in each box (i.e. nested loop), multiply together
-        //   - box number + 1
-        //   - slot number, 1-indexed, i.e. index of lens within list
-        //   - lens focal length
         int total = 0;
 
         foreach (Box box in Boxes)
         {
             total += SummariseBox(box);
+        }
+
+        return total;
+    }
+
+    private static int SummariseBox(Box box)
+    {
+        // calculate focusing power:
+        // - for each lens in each box (i.e. nested loop), multiply together
+        //   - box number + 1
+        //   - slot number, 1-indexed, i.e. index of lens within list
+        //   - lens focal length
+
+        int total = 0;
+        int currentIndex = 0;
+
+        foreach (string label in box.Labels)
+        {
+            ++currentIndex;
+            byte focalStrength = box.Lenses[label];
+            int lensTotal = box.Number * currentIndex * focalStrength;
+            total += lensTotal;
         }
 
         return total;
