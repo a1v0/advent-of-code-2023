@@ -65,7 +65,7 @@ public class Day15Task1 : BaseTask
     }
 
     private string[]? _sequences;
-    private string[] Sequences
+    protected string[] Sequences
     {
         get
         {
@@ -98,12 +98,6 @@ public class Day15Task2 : Day15Task1
 
     private static int SummariseBox(Box box)
     {
-        // calculate focusing power:
-        // - for each lens in each box (i.e. nested loop), multiply together
-        //   - box number + 1
-        //   - slot number, 1-indexed, i.e. index of lens within list
-        //   - lens focal length
-
         int total = 0;
         int currentIndex = 0;
 
@@ -117,23 +111,44 @@ public class Day15Task2 : Day15Task1
 
         return total;
     }
-    // check sequence for special char
-    // if -:
-    // - extract label from string
-    // - go to relevant box
-    //   - run hash on label to do this
-    // - check if list contains label
-    //   - if not, return
-    //   - if so, remove item
-    // 
-    // if =:
-    // - extract lens size from string
-    // - extract label from string
-    // - go to relevant box
-    //   - run hash on label
-    // - if lens already exists in list, overwrite lens value in dictionary
-    // - if not, stick new lens on the end of the list
-    // 
+
+    private void DistributeLenses()
+    {
+        foreach (string sequence in Sequences)
+        {
+            bool hasDash = sequence.Contains('-'),
+                 hasEquals = sequence.Contains('=');
+
+            if (hasDash)
+            {
+                DistributeLensesDash(sequence);
+                // check sequence for special char
+                // if -:
+                // - extract label from string
+                // - go to relevant box
+                //   - run hash on label to do this
+                // - check if list contains label
+                //   - if not, return
+                //   - if so, remove item
+                // 
+            }
+            else if (hasEquals)
+            {
+                DistributeLensesEquals(sequence);
+                // if =:
+                // - extract lens size from string
+                // - extract label from string
+                // - go to relevant box
+                //   - run hash on label
+                // - if lens already exists in list, overwrite lens value in dictionary
+                // - if not, stick new lens on the end of the list
+            }
+            else
+            {
+                throw new Exception("No operator identified in sequence. Check input.");
+            }
+        }
+    }
 
     private Box[]? _boxes;
     private Box[] Boxes
