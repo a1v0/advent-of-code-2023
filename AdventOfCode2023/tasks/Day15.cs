@@ -105,8 +105,8 @@ public class Day15Task2 : Day15Task1
     // summarise focusing power
     // return as a string
 
-    private (List<string>, Dictionary<string, byte>)[]? _boxes;
-    private (List<string>, Dictionary<string, byte>)[] Boxes
+    private Box[]? _boxes;
+    private Box[] Boxes
     {
         get
         {
@@ -115,17 +115,21 @@ public class Day15Task2 : Day15Task1
         }
     }
 
-    private static (List<string>, Dictionary<string, byte>)[] GetBoxes()
+    private static Box[] GetBoxes()
     {
         int totalBoxes = 256;
-        var boxes = new (List<string>, Dictionary<string, byte>)[totalBoxes];
+        var boxes = new Box[totalBoxes];
 
         for (byte i = 0; i < totalBoxes; ++i)
         {
-            var box = (new List<string>(), new Dictionary<string, byte>());
-            boxes[i] = box;
+            boxes[i] = new Box();
         }
 
         return boxes;
     }
+}
+
+public class Box
+{
+
 }
