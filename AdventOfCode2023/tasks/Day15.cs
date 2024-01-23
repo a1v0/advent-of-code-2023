@@ -159,6 +159,7 @@ public class Day15Task2 : Day15Task1
 
         Box currentBox = Boxes[boxNumber];
         currentBox.Labels.Remove(label);
+        currentBox.Lenses.Remove(label);
     }
 
     private Box[]? _boxes;
