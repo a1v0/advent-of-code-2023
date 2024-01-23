@@ -131,5 +131,5 @@ public class Day15Task2 : Day15Task1
 
 public class Box
 {
-
+    public List<string> Labels { get; } = new List<string>();
 }
