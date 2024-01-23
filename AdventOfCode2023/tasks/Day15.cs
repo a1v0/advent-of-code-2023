@@ -40,6 +40,16 @@ public class Day15Task1 : BaseTask
             return _hashes;
         }
     }
+
+    private string[]? _sequences;
+    private string[] Sequences
+    {
+        get
+        {
+            _sequences ??= Input.Split(',');
+            return _sequences;
+        }
+    }
 }
 
 public class Day15Task2 : Day15Task1
