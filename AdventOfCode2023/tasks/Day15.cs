@@ -78,8 +78,26 @@ public class Day15Task2 : Day15Task1
 {
     public override string Solve()
     {
-        int totalFocusingPower = SumFocusingPower();
+        DistributeLenses();
+        int totalFocusingPower = SummariseFocusingPower();
         return totalFocusingPower.ToString();
+    }
+
+    private int SummariseFocusingPower()
+    {
+        // calculate focusing power:
+        // - for each lens in each box (i.e. nested loop), multiply together
+        //   - box number + 1
+        //   - slot number, 1-indexed, i.e. index of lens within list
+        //   - lens focal length
+        int total = 0;
+
+        foreach (Box box in Boxes)
+        {
+            total += SummariseBox(box);
+        }
+
+        return total;
     }
     // check sequence for special char
     // if -:
@@ -98,11 +116,6 @@ public class Day15Task2 : Day15Task1
     // - if lens already exists in list, overwrite lens value in dictionary
     // - if not, stick new lens on the end of the list
     // 
-    // calculate focusing power:
-    // - for each lens in each box (i.e. nested loop), multiply together
-    //   - box number + 1
-    //   - slot number, 1-indexed, i.e. index of lens within list
-    //   - lens focal length
 
     private Box[]? _boxes;
     private Box[] Boxes
