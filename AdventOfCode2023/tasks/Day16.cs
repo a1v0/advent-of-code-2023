@@ -35,6 +35,19 @@ public class Day16Task1 : BaseTask
         return totalEnergisedTiles.ToString();
     }
 
+    private int SumEnergisedTiles()
+    {
+        int total = 0;
+
+        foreach (KeyValuePair<(int, int), Tile> tile in Tiles)
+        {
+            bool isEnergised = tile.Value.IsEnergised;
+            if (isEnergised) ++total;
+        }
+
+        return total;
+    }
+
     private List<LightBeam> LightBeams { get; } = new List<LightBeam>() { new LightBeam(0, 0, 2) };
 
     private Dictionary<(int, int), Tile>? _tiles;
