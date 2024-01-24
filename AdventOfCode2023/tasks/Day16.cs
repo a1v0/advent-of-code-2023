@@ -17,13 +17,6 @@ public class Day16Task1 : BaseTask
 {
     public override string Solve()
     {
-        // create LightBeam class:
-        // - direction
-        // 
-        // 
-        // 
-        // - current position (int x, int y)
-        // 
         // parse input as dictionary:
         // - key: tuple of coordinates (x, y)
         // - value: Tile
