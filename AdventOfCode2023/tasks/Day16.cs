@@ -33,6 +33,8 @@ public class Day16Task1 : BaseTask
         // stringify and return
     }
 
+    private List<LightBeam> LightBeams { get; } = new List<LightBeam>() { new LightBeam(0, 0, 2) };
+
     private Dictionary<(int, int), Tile>? _tiles;
     private Dictionary<(int, int), Tile> Tiles
     {
