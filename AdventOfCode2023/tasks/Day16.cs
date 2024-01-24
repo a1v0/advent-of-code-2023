@@ -50,14 +50,20 @@ public class Day16Task2 : Day16Task1
 
 public class LightBeam
 {
-    public LightBeam(int x, int y)
+    public LightBeam(int x, int y, byte direction)
     {
         X = x;
         Y = y;
+        Direction = direction;
     }
 
     public int X { get; set; }
     public int Y { get; set; }
+
+    /// <summary>
+    /// Direction is 0-3; 0 = North, 1 = South, 2 = East, 3 = West
+    /// </summary>
+    public byte Direction { get; set; }
 }
 
 public class Tile
