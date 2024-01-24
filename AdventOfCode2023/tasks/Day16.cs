@@ -17,10 +17,6 @@ public class Day16Task1 : BaseTask
 {
     public override string Solve()
     {
-        // parse input as dictionary:
-        // - key: tuple of coordinates (x, y)
-        // - value: Tile
-        // 
         // create List of LightBeams
         // create one blank LightBeam starting at 0,0, heading east
         // loop over all LightBeams (loop length will continue to grow over time)
