@@ -35,7 +35,6 @@ public class Day16Task1 : BaseTask
         // create one blank path starting at 0,0, heading east
         // loop over all paths (loop length will continue to grow over time)
         // 
-        // 
         // while loop to keep going until path is exhausted:
         // if current tile's approachFromNorth property is true, break loop 
         // set tile's relevant "approachedFrom" property
@@ -51,3 +50,8 @@ public class Day16Task1 : BaseTask
 
 public class Day16Task2 : Day16Task1
 { }
+
+public class Tile
+{
+
+}
