@@ -17,8 +17,6 @@ public class Day16Task1 : BaseTask
 {
     public override string Solve()
     {
-        // create List of LightBeams
-        // create one blank LightBeam starting at 0,0, heading east
         // loop over all LightBeams (loop length will continue to grow over time)
         // 
         // while loop to keep going until path is exhausted:
@@ -31,6 +29,10 @@ public class Day16Task1 : BaseTask
         // 
         // loop through dictionary of tiles and count the amount of energised ones
         // stringify and return
+
+        EmitLightBeams();
+        int totalEnergisedTiles = SumEnergisedTiles();
+        return totalEnergisedTiles.ToString();
     }
 
     private List<LightBeam> LightBeams { get; } = new List<LightBeam>() { new LightBeam(0, 0, 2) };
