@@ -89,12 +89,12 @@ public class LightBeam
 
 public class Tile
 {
-    public Tile(string type)
+    public Tile(char type)
     {
         Type = type;
     }
 
-    public string Type { get; }
+    public char Type { get; }
     public bool IsEnergised { get; set; } = false;
 
     /// <summary>
