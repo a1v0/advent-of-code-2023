@@ -36,6 +36,16 @@ public class Day16Task1 : BaseTask
         // loop through dictionary of tiles and count the amount of energised ones
         // stringify and return
     }
+
+    private Dictionary<(int, int), Tile>? _tiles;
+    private Dictionary<(int, int), Tile> Tiles
+    {
+        get
+        {
+            _tiles ??= GetTiles();
+            return _tiles;
+        }
+    }
 }
 
 public class Day16Task2 : Day16Task1
