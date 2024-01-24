@@ -47,7 +47,13 @@ public class Day16Task2 : Day16Task1
 
 public class Path
 {
-
+    public Path(int x, int y)
+    {
+        X = x;
+        Y = y;
+    }
+    public int X { get; set; }
+    public int Y { get; set; }
 }
 
 public class Tile
