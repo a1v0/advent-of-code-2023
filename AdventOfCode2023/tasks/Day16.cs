@@ -60,4 +60,9 @@ public class Tile
 
     public string Type { get; }
     public bool IsEnergised { get; set; } = false;
+
+    /// <summary>
+    /// The order of the values in this array is North, South, East, West.
+    /// </summary>
+    public bool[] AlreadyApproachedBy { get; } = { false, false, false, false };
 }
