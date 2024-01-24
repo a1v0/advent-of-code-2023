@@ -53,5 +53,10 @@ public class Day16Task2 : Day16Task1
 
 public class Tile
 {
+    public Tile(string type)
+    {
+        Type = type;
+    }
 
+    public string Type { get; }
 }
