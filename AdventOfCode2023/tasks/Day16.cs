@@ -46,6 +46,24 @@ public class Day16Task1 : BaseTask
             return _tiles;
         }
     }
+
+    private Dictionary<(int, int), Tile> GetTiles()
+    {
+        var tiles = new Dictionary<(int, int), Tile>();
+
+        for (int i = 0; i < InputRows.Length; ++i)
+        {
+            for (int j = 0; j < InputRows[0].Length; ++j)
+            {
+                char tileType = InputRows[i][j];
+                var coordinates = (j, i);
+                var tile = new Tile(tileType);
+                tiles.Add(coordinates, tile);
+            }
+        }
+
+        return tiles;
+    }
 }
 
 public class Day16Task2 : Day16Task1
