@@ -17,12 +17,6 @@ public class Day16Task1 : BaseTask
 {
     public override string Solve()
     {
-        // create Tile class:
-        // - bool energised
-        // - char type
-        // - (int x, int y) (do we need this?)
-        // - bool approachedFromNorth/East/South/West (could have better name) to store whether another path has already come by this way.
-        // 
         // create Path class:
         // - direction
         // - current position (int x, int y)
@@ -50,6 +44,11 @@ public class Day16Task1 : BaseTask
 
 public class Day16Task2 : Day16Task1
 { }
+
+public class Path
+{
+
+}
 
 public class Tile
 {
