@@ -26,10 +26,6 @@ public class Day16Task1 : BaseTask
         // if direction is east, add 1 to current x
         // if new tile is /, change direction accordingly
         // if tile is a splitter and perpendicular to current direction, go in one direction and create a new LightBeam that goes in the other
-        // 
-        // loop through dictionary of tiles and count the amount of energised ones
-        // stringify and return
-
         EmitLightBeams();
         int totalEnergisedTiles = SumEnergisedTiles();
         return totalEnergisedTiles.ToString();
