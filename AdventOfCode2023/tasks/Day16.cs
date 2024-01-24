@@ -59,4 +59,5 @@ public class Tile
     }
 
     public string Type { get; }
+    public bool IsEnergised { get; set; } = false;
 }
