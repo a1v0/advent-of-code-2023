@@ -47,6 +47,13 @@ public class Day16Task1 : BaseTask
         }
     }
 
+    private bool IsPathExhausted(LightBeam lightBeam)
+    {
+        Tile tile = Tiles[(lightBeam.X, lightBeam.Y)];
+        bool pathExhausted = tile.AlreadyApproachedBy[lightBeam.Direction];
+        return pathExhausted;
+    }
+
     private int SumEnergisedTiles()
     {
         int total = 0;
