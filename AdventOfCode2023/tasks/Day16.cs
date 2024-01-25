@@ -17,6 +17,39 @@ public class Day16Task1 : BaseTask
 {
     public override string Solve()
     {
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+        // problem:
+        // new lightbeams keep getting added, but the program is never exhausted
+        // the loop is infinite
+        // presumably there's an issue with the guard clauses
+        // see note inside IsPathExhausted
+        // 
+        // 
+        // 
+        // 
+        // 
         EmitLightBeams();
         int totalEnergisedTiles = SumEnergisedTiles();
         return totalEnergisedTiles.ToString();
