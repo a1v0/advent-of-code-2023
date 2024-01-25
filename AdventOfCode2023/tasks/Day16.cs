@@ -74,7 +74,7 @@ public class Day16Task1 : BaseTask
         bool noNeedToSplit = IsNoNeedTosplit(lightBeam, tileType);
         if (noNeedToSplit) return;
 
-        LightBeam secondLightBeam = GetSplitBeam(lightBeam);
+        LightBeam secondLightBeam = lightBeam.GetSplitBeam();
 
         if (tileType == '-')
         {
@@ -248,6 +248,11 @@ public class LightBeam
         X = x;
         Y = y;
         Direction = direction;
+    }
+
+    public LightBeam GetSplitBeam()
+    {
+        return new LightBeam(X, Y, Direction);
     }
 
     public int X { get; set; }
