@@ -47,6 +47,22 @@ public class Day16Task1 : BaseTask
         }
     }
 
+    private void ChangeDirection(LightBeam lightBeam)
+    {
+        // if splitter 
+        // - if we're going in the same direction, no change
+        // - if we have to split:
+        //   - change direction (always North or East)
+        //   - create a new LightBeam facing the other way (always South or West)
+        //   - move that beam one tile in the correct direction
+        //   - append to list of LightBeams
+        // 
+        // else if diagonal
+        // - change direction based on current trajectory
+        // 
+        // 
+    }
+
     private bool IsPathExhausted(LightBeam lightBeam)
     {
         (int, int) coordinates = (lightBeam.X, lightBeam.Y);
@@ -55,6 +71,38 @@ public class Day16Task1 : BaseTask
         if (coordinatesNotFound) return true;
 
         Tile tile = Tiles[coordinates];
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+        // this is wrong
+        // - if current direction is north, then we've approached from the south
+        // in theory it doesn't matter and shouldn't cause a bug, I think, but it might be worth thinking about, so that the code isn't confusing
+        // 
+        // 
+        // 
+        // 
         bool pathExhausted = tile.AlreadyApproachedBy[lightBeam.Direction];
         return pathExhausted;
     }
