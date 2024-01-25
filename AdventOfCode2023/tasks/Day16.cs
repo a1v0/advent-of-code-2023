@@ -127,7 +127,20 @@ public class Tile
     }
 
     public char Type { get; }
-    public bool IsEnergised { get; set; } = false;
+
+    private bool _isEnergised = false;
+    public bool IsEnergised
+    {
+        get
+        {
+            return _isEnergised;
+        }
+    }
+
+    public void Energise()
+    {
+        _isEnergised = true;
+    }
 
     /// <summary>
     /// The order of the values in this array is North, South, East, West.
