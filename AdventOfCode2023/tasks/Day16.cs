@@ -172,6 +172,11 @@ public class LightBeam
                 throw new Exception("Unknown direction given.");
         }
     }
+
+    private void MoveNorth()
+    {
+        --Y;
+    }
 }
 
 public class Tile
