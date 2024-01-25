@@ -17,6 +17,17 @@ public class Day16Task1 : BaseTask
 {
     public override string Solve()
     {
+        EmitLightBeams();
+        int totalEnergisedTiles = SumEnergisedTiles();
+        return totalEnergisedTiles.ToString();
+    }
+
+    private void EmitLightBeams()
+    {
+        foreach (LightBeam lightBeam in LightBeams)
+        {
+            EmitLightBeam(lightBeam);
+        }
         // loop over all LightBeams (loop length will continue to grow over time)
         // 
         // while loop to keep going until path is exhausted:
@@ -26,9 +37,6 @@ public class Day16Task1 : BaseTask
         // if direction is east, add 1 to current x
         // if new tile is /, change direction accordingly
         // if tile is a splitter and perpendicular to current direction, go in one direction and create a new LightBeam that goes in the other
-        EmitLightBeams();
-        int totalEnergisedTiles = SumEnergisedTiles();
-        return totalEnergisedTiles.ToString();
     }
 
     private int SumEnergisedTiles()
