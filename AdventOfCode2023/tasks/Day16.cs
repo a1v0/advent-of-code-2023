@@ -69,15 +69,26 @@ public class Day16Task1 : BaseTask
         }
     }
 
-    private static void ChangeDirectionSplitter(LightBeam lightBeam, char tileType)
+    private void ChangeDirectionSplitter(LightBeam lightBeam, char tileType)
     {
         bool noNeedToSplit = IsNoNeedTosplit(lightBeam, tileType);
         if (noNeedToSplit) return;
-        // if we have to split:
-        // - change direction (always North or East)
-        // - create a new LightBeam facing the other way (always South or West)
-        // - move that beam one tile in the correct direction
-        // - append to list of LightBeams
+
+        LightBeam secondLightBeam = GetSplitBeam(lightBeam);
+
+        if (tileType == '-')
+        {
+            lightBeam.Direction = 2;
+            secondLightBeam.Direction = 3;
+        }
+        else if (tileType == '|')
+        {
+            lightBeam.Direction = 0;
+            secondLightBeam.Direction = 1;
+        }
+
+        secondLightBeam.Move();
+        LightBeams.Add(secondLightBeam);
     }
 
     private static void ChangeDirectionDiagonal(LightBeam lightBeam, char tileType)
