@@ -24,8 +24,9 @@ public class Day16Task1 : BaseTask
 
     private void EmitLightBeams()
     {
-        foreach (LightBeam lightBeam in LightBeams)
+        for (int i = 0; i < LightBeams.Count; ++i)
         {
+            LightBeam lightBeam = LightBeams[i];
             EmitLightBeam(lightBeam);
         }
     }
