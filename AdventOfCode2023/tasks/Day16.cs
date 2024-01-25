@@ -36,14 +36,14 @@ public class Day16Task1 : BaseTask
         {
             bool pathExhausted = IsPathExhausted(lightBeam);
             if (pathExhausted) break;
-            // guard clause: check whether current tile has been visited from this direction
-            // set approachedFrom property
-            // energise tile
-            // 
-            // if tile isn't '.', then change direction
-            // 
-            // find next tile:
-            // - alter coordinates based on direction
+
+            Tile currentTile = Tiles[(lightBeam.X, lightBeam.Y)];
+            currentTile.AlreadyApproachedBy[lightBeam.Direction] = true; // consider turning this into an Energise method on Tile
+
+            bool directionShouldChange = currentTile.Type != '.';
+            if (directionShouldChange) ChangeDirection(lightBeam);
+
+            currentTile.Move();
         }
     }
 
