@@ -34,6 +34,8 @@ public class Day16Task1 : BaseTask
     {
         while (true) // keeps going until beam's path is exhausted
         {
+            bool pathExhausted = IsPathExhausted(lightBeam);
+            if (pathExhausted) break;
             // guard clause: check whether current tile has been visited from this direction
             // set approachedFrom property
             // energise tile
