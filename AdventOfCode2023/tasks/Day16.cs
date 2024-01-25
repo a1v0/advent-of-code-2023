@@ -71,7 +71,7 @@ public class Day16Task1 : BaseTask
 
     private void ChangeDirectionSplitter(LightBeam lightBeam, char tileType)
     {
-        bool noNeedToSplit = IsNoNeedTosplit(lightBeam, tileType);
+        bool noNeedToSplit = lightBeam.IsNoNeedToSplit(tileType);
         if (noNeedToSplit) return;
 
         LightBeam secondLightBeam = lightBeam.GetSplitBeam();
@@ -248,6 +248,13 @@ public class LightBeam
         X = x;
         Y = y;
         Direction = direction;
+    }
+
+    public bool IsNoNeedToSplit(char tileType)
+    {
+        if (tileType == '-') return Direction >= 2;
+        return Direction <= 1;
+
     }
 
     public LightBeam GetSplitBeam()
