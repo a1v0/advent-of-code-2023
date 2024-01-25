@@ -117,6 +117,27 @@ public class LightBeam
     /// Direction is 0-3; 0 = North, 1 = South, 2 = East, 3 = West
     /// </summary>
     public byte Direction { get; set; }
+
+    public void Move()
+    {
+        switch (Direction)
+        {
+            case 0:
+                MoveNorth();
+                break;
+            case 1:
+                MoveSouth();
+                break;
+            case 2:
+                MoveEast();
+                break;
+            case 3:
+                MoveWest();
+                break;
+            default:
+                throw new Exception("Unknown direction given.");
+        }
+    }
 }
 
 public class Tile
