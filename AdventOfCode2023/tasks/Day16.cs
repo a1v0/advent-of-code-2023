@@ -187,6 +187,11 @@ public class LightBeam
     {
         ++X;
     }
+
+    private void MoveWest()
+    {
+        --X;
+    }
 }
 
 public class Tile
