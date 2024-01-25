@@ -28,15 +28,21 @@ public class Day16Task1 : BaseTask
         {
             EmitLightBeam(lightBeam);
         }
-        // loop over all LightBeams (loop length will continue to grow over time)
-        // 
-        // while loop to keep going until path is exhausted:
-        // if current tile's approachFromNorth property is true, break loop 
-        // set tile's relevant "approachedFrom" property
-        // set current tile's energised property to true
-        // if direction is east, add 1 to current x
-        // if new tile is /, change direction accordingly
-        // if tile is a splitter and perpendicular to current direction, go in one direction and create a new LightBeam that goes in the other
+    }
+
+    private void EmitLightBeam(LightBeam lightBeam)
+    {
+        while (true) // keeps going until beam's path is exhausted
+        {
+            // guard clause: check whether current tile has been visited from this direction
+            // set approachedFrom property
+            // energise tile
+            // 
+            // if tile isn't '.', then change direction
+            // 
+            // find next tile:
+            // - alter coordinates based on direction
+        }
     }
 
     private int SumEnergisedTiles()
