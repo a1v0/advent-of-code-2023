@@ -41,13 +41,13 @@ public class Day16Task1 : BaseTask
             currentTile.Energise();
 
             bool directionShouldChange = currentTile.Type != '.';
-            if (directionShouldChange) ChangeDirection(lightBeam);
+            if (directionShouldChange) ChangeDirection(lightBeam, currentTile.Type);
 
             lightBeam.Move();
         }
     }
 
-    private void ChangeDirection(LightBeam lightBeam)
+    private void ChangeDirection(LightBeam lightBeam, char tileType)
     {
         // if splitter 
         // - if we're going in the same direction, no change
@@ -61,6 +61,24 @@ public class Day16Task1 : BaseTask
         // - change direction based on current trajectory
         // 
         // 
+        string splitters = "-|";
+        string diagonals = "/\\";
+
+        bool isSplitter = splitters.Contains(tileType);
+        bool isDiagonal = diagonals.Contains(tileType);
+
+        if (isSplitter)
+        {
+            ChangeDirectionSplitter(lightBeam, tileType);
+        }
+        else if (isDiagonal)
+        {
+            ChangeDirectionDiagonal(lightBeam, tileType);
+        }
+        else
+        {
+            throw new Exception($"Tile type {tileType} not recognised.");
+        }
     }
 
     private bool IsPathExhausted(LightBeam lightBeam)
