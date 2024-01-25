@@ -81,6 +81,42 @@ public class Day16Task1 : BaseTask
         }
     }
 
+    private static void ChangeDirectionDiagonal(LightBeam lightBeam, char tileType)
+    {
+        // making a massive `switch` is probably awful, but all other methods seem equally inelegant...
+        (char, byte) typeDirectionCombo = (tileType, lightBeam.Direction);
+
+        switch (typeDirectionCombo)
+        {
+            case ('\\', 0):
+                lightBeam.Direction = 3;
+                break;
+            case ('\\', 1):
+                lightBeam.Direction = 2;
+                break;
+            case ('\\', 2):
+                lightBeam.Direction = 1;
+                break;
+            case ('\\', 3):
+                lightBeam.Direction = 0;
+                break;
+            case ('/', 0):
+                lightBeam.Direction = 2;
+                break;
+            case ('/', 1):
+                lightBeam.Direction = 3;
+                break;
+            case ('/', 2):
+                lightBeam.Direction = 0;
+                break;
+            case ('/', 3):
+                lightBeam.Direction = 1;
+                break;
+            default:
+                throw new Exception($"Invalid combination of tile and direction: ({tileType}, {lightBeam.Direction}).");
+        }
+    }
+
     private bool IsPathExhausted(LightBeam lightBeam)
     {
         (int, int) coordinates = (lightBeam.X, lightBeam.Y);
@@ -89,6 +125,29 @@ public class Day16Task1 : BaseTask
         if (coordinatesNotFound) return true;
 
         Tile tile = Tiles[coordinates];
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
         // 
         // 
         // 
