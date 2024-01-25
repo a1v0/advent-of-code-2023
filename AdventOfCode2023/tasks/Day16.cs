@@ -49,18 +49,6 @@ public class Day16Task1 : BaseTask
 
     private void ChangeDirection(LightBeam lightBeam, char tileType)
     {
-        // if splitter 
-        // - if we're going in the same direction, no change
-        // - if we have to split:
-        //   - change direction (always North or East)
-        //   - create a new LightBeam facing the other way (always South or West)
-        //   - move that beam one tile in the correct direction
-        //   - append to list of LightBeams
-        // 
-        // else if diagonal
-        // - change direction based on current trajectory
-        // 
-        // 
         string splitters = "-|";
         string diagonals = "/\\";
 
@@ -79,6 +67,17 @@ public class Day16Task1 : BaseTask
         {
             throw new Exception($"Tile type {tileType} not recognised.");
         }
+    }
+
+    private static void ChangeDirectionSplitter(LightBeam lightBeam, char tileType)
+    {
+        bool noNeedToSplit = IsNoNeedTosplit(lightBeam, tileType);
+        if (noNeedToSplit) return;
+        // if we have to split:
+        // - change direction (always North or East)
+        // - create a new LightBeam facing the other way (always South or West)
+        // - move that beam one tile in the correct direction
+        // - append to list of LightBeams
     }
 
     private static void ChangeDirectionDiagonal(LightBeam lightBeam, char tileType)
