@@ -240,6 +240,21 @@ public class Day16Task2 : Day16Task1
 
         return entryPoints;
     }
+
+    private List<LightBeam> GetEntryPointsSouth()
+    {
+        var entryPoints = new List<LightBeam>();
+        const byte direction = 0;
+
+        for (int i = 0; i < InputRows[0].Length; ++i)
+        {
+            int y = InputRows.Length - 1;
+            var entryPoint = new LightBeam(i, y, direction);
+            entryPoints.Add(entryPoint);
+        }
+
+        return entryPoints;
+    }
 }
 
 public class LightBeam
