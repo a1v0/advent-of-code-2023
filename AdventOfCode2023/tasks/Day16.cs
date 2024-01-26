@@ -192,6 +192,8 @@ public class Day16Task2 : Day16Task1
     // loop through all lightbeams, adding final value to list
     // find highest in list
     // stringify and return
+
+    private List<int> EnergisedTotals { get; }
 }
 
 public class LightBeam
