@@ -187,13 +187,26 @@ public class Day16Task1 : BaseTask
 
 public class Day16Task2 : Day16Task1
 {
-    // create list to store energised values
-    // create list of all possible opening lightbeams
-    // loop through all lightbeams, adding final value to list
-    // find highest in list
-    // stringify and return
+    public override string Solve()
+    {
+        // create list of all possible opening lightbeams
+        // loop through all lightbeams, adding final value to list
+        EmitLightBeamsFromAllStartingPoints();
+        int highestEnergisedTotal = EnergisedTotals.Max();
+        return highestEnergisedTotal.ToString();
+    }
 
-    private List<int> EnergisedTotals { get; }
+    private List<int> EnergisedTotals { get; } = new List<int>();
+
+    private List<LightBeam>? _entryPoints;
+    private List<LightBeam> EntryPoints
+    {
+        get
+        {
+            _entryPoints ??= GetAllEntryPoints();
+            return _entryPoints
+        }
+    }
 }
 
 public class LightBeam
