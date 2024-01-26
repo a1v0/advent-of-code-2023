@@ -232,9 +232,10 @@ public class Day16Task2 : Day16Task1
         var entryPoints = new List<LightBeam>();
         const byte direction = 1;
 
-        for (int i = 0; i < InputRows[0].Length; ++i)
+        for (int x = 0; x < InputRows[0].Length; ++x)
         {
-            var entryPoint = new LightBeam(i, 0, direction);
+            const int y = 0;
+            var entryPoint = new LightBeam(x, y, direction);
             entryPoints.Add(entryPoint);
         }
 
@@ -246,10 +247,10 @@ public class Day16Task2 : Day16Task1
         var entryPoints = new List<LightBeam>();
         const byte direction = 0;
 
-        for (int i = 0; i < InputRows[0].Length; ++i)
+        for (int x = 0; x < InputRows[0].Length; ++x)
         {
             int y = InputRows.Length - 1;
-            var entryPoint = new LightBeam(i, y, direction);
+            var entryPoint = new LightBeam(x, y, direction);
             entryPoints.Add(entryPoint);
         }
 
@@ -261,11 +262,11 @@ public class Day16Task2 : Day16Task1
         var entryPoints = new List<LightBeam>();
         const byte direction = 3;
 
-        for (int i = 0; i < InputRows.Length; ++i)
+        for (int y = 0; y < InputRows.Length; ++y)
         {
             int x = InputRows[0].Length - 1;
 
-            var entryPoint = new LightBeam(x, i, direction);
+            var entryPoint = new LightBeam(x, y, direction);
             entryPoints.Add(entryPoint);
         }
 
@@ -277,11 +278,11 @@ public class Day16Task2 : Day16Task1
         var entryPoints = new List<LightBeam>();
         const byte direction = 2;
 
-        for (int i = 0; i < InputRows.Length; ++i)
+        for (int y = 0; y < InputRows.Length; ++y)
         {
-            int x = 0;
+            const int x = 0;
 
-            var entryPoint = new LightBeam(x, i, direction);
+            var entryPoint = new LightBeam(x, y, direction);
             entryPoints.Add(entryPoint);
         }
 
