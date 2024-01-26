@@ -191,7 +191,7 @@ public class Day16Task2 : Day16Task1
     {
         // create list of all possible opening lightbeams
         // loop through all lightbeams, adding final value to list
-        EmitLightBeamsFromAllStartingPoints();
+        EmitLightBeamsFromAllEntryPoints();
         int highestEnergisedTotal = EnergisedTotals.Max();
         return highestEnergisedTotal.ToString();
     }
@@ -204,8 +204,27 @@ public class Day16Task2 : Day16Task1
         get
         {
             _entryPoints ??= GetAllEntryPoints();
-            return _entryPoints
+            return _entryPoints;
         }
+    }
+
+    private List<LightBeam> GetAllEntryPoints()
+    {
+        var entryPoints = new List<LightBeam>();
+
+        List<LightBeam> entryPointsFromNorth = GetEntryPointsNorth();
+        entryPoints.AddRange(entryPointsFromNorth);
+
+        List<LightBeam> entryPointsFromSouth = GetEntryPointsSouth();
+        entryPoints.AddRange(entryPointsFromSouth);
+
+        List<LightBeam> entryPointsFromEast = GetEntryPointsEast();
+        entryPoints.AddRange(entryPointsFromEast);
+
+        List<LightBeam> entryPointsFromWest = GetEntryPointsWest();
+        entryPoints.AddRange(entryPointsFromWest);
+
+        return entryPoints;
     }
 }
 
