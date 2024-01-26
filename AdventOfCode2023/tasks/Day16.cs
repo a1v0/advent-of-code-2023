@@ -271,6 +271,22 @@ public class Day16Task2 : Day16Task1
 
         return entryPoints;
     }
+
+    private List<LightBeam> GetEntryPointsWest()
+    {
+        var entryPoints = new List<LightBeam>();
+        const byte direction = 2;
+
+        for (int i = 0; i < InputRows.Length; ++i)
+        {
+            int x = 0;
+
+            var entryPoint = new LightBeam(x, i, direction);
+            entryPoints.Add(entryPoint);
+        }
+
+        return entryPoints;
+    }
 }
 
 public class LightBeam
