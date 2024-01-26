@@ -22,7 +22,7 @@ public class Day16Task1 : BaseTask
         return totalEnergisedTiles.ToString();
     }
 
-    private void EmitLightBeams()
+    protected void EmitLightBeams()
     {
         for (int i = 0; i < LightBeams.Count; ++i)
         {
@@ -141,7 +141,7 @@ public class Day16Task1 : BaseTask
         return pathExhausted;
     }
 
-    private int SumEnergisedTiles()
+    protected int SumEnergisedTiles()
     {
         int total = 0;
 
@@ -154,9 +154,9 @@ public class Day16Task1 : BaseTask
         return total;
     }
 
-    private List<LightBeam> LightBeams { get; } = new List<LightBeam>() { new LightBeam(0, 0, 2) };
+    protected List<LightBeam> LightBeams { get; set; } = new List<LightBeam>() { new LightBeam(0, 0, 2) };
 
-    private Dictionary<(int, int), Tile>? _tiles;
+    protected Dictionary<(int, int), Tile>? _tiles;
     private Dictionary<(int, int), Tile> Tiles
     {
         get
@@ -196,9 +196,17 @@ public class Day16Task2 : Day16Task1
 
     private void EmitLightBeamsFromAllEntryPoints()
     {
-        // loop over all entry points
-        // reset board every time
-        // add total to list of totals
+        foreach (LightBeam entryPoint in EntryPoints)
+        {
+            _tiles = null; // setting it to null forces the getter to run GetTiles(). Not sure whether this is best practice
+
+            LightBeams = new List<LightBeam>() { entryPoint };
+
+            EmitLightBeams();
+
+            int totalEnergisedTiles = SumEnergisedTiles();
+            EnergisedTotals.Add(totalEnergisedTiles);
+        }
     }
 
     private List<int> EnergisedTotals { get; } = new List<int>();
