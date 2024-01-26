@@ -186,7 +186,13 @@ public class Day16Task1 : BaseTask
 }
 
 public class Day16Task2 : Day16Task1
-{ }
+{
+    // create list to store energised values
+    // create list of all possible opening lightbeams
+    // loop through all lightbeams, adding final value to list
+    // find highest in list
+    // stringify and return
+}
 
 public class LightBeam
 {
