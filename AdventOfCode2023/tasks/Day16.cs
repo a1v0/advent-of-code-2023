@@ -72,6 +72,7 @@ public class Day16Task1 : BaseTask
             if (pathExhausted) break;
 
             Tile currentTile = Tiles[(lightBeam.X, lightBeam.Y)];
+            currentTile.AlreadyApproachedBy[lightBeam.Direction] = true;
             currentTile.Energise();
 
             bool directionShouldChange = currentTile.Type != '.';
