@@ -189,11 +189,16 @@ public class Day16Task2 : Day16Task1
 {
     public override string Solve()
     {
-        // create list of all possible opening lightbeams
-        // loop through all lightbeams, adding final value to list
         EmitLightBeamsFromAllEntryPoints();
         int highestEnergisedTotal = EnergisedTotals.Max();
         return highestEnergisedTotal.ToString();
+    }
+
+    private void EmitLightBeamsFromAllEntryPoints()
+    {
+        // loop over all entry points
+        // reset board every time
+        // add total to list of totals
     }
 
     private List<int> EnergisedTotals { get; } = new List<int>();
