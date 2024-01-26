@@ -17,39 +17,6 @@ public class Day16Task1 : BaseTask
 {
     public override string Solve()
     {
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // problem:
-        // new lightbeams keep getting added, but the program is never exhausted
-        // the loop is infinite
-        // presumably there's an issue with the guard clauses
-        // see note inside IsPathExhausted
-        // 
-        // 
-        // 
-        // 
-        // 
         EmitLightBeams();
         int totalEnergisedTiles = SumEnergisedTiles();
         return totalEnergisedTiles.ToString();
@@ -72,7 +39,7 @@ public class Day16Task1 : BaseTask
             if (pathExhausted) break;
 
             Tile currentTile = Tiles[(lightBeam.X, lightBeam.Y)];
-            currentTile.AlreadyApproachedBy[lightBeam.Direction] = true;
+            currentTile.DirectionsUsed[lightBeam.Direction] = true;
             currentTile.Energise();
 
             bool directionShouldChange = currentTile.Type != '.';
@@ -170,62 +137,7 @@ public class Day16Task1 : BaseTask
         if (coordinatesNotFound) return true;
 
         Tile tile = Tiles[coordinates];
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // this is wrong
-        // - if current direction is north, then we've approached from the south
-        // in theory it doesn't matter and shouldn't cause a bug, I think, but it might be worth thinking about, so that the code isn't confusing
-        // 
-        // 
-        // 
-        // 
-        bool pathExhausted = tile.AlreadyApproachedBy[lightBeam.Direction];
+        bool pathExhausted = tile.DirectionsUsed[lightBeam.Direction];
         return pathExhausted;
     }
 
@@ -373,5 +285,5 @@ public class Tile
     /// <summary>
     /// The order of the values in this array is North, South, East, West.
     /// </summary>
-    public bool[] AlreadyApproachedBy { get; } = { false, false, false, false };
+    public bool[] DirectionsUsed { get; } = { false, false, false, false };
 }
