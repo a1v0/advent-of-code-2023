@@ -59,6 +59,9 @@ public class CityBlock
         X = x;
         Y = y;
     }
+
+    public int X { get; }
+    public int Y { get; }
     // - int X
     // - int Y
     // - byte HeatLoss
