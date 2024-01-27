@@ -24,20 +24,25 @@ public class Day17Task1 : BaseTask
 
     private CruciblePath GetPathWithLowestHeatLoss()
     {
-        // heuristic: Pythagorean distance from goal * current TotalHeatLoss value?
-        // 
-        // while loop that runs until the coordinates of the first item in the list are those of the end point
-        // create new, empty list of paths to house updated paths
-        // loop through all current paths
-        // - create new paths based on directions you're currently allowed to go in
-        //   - blocks where Visited == True to be ignored       <= keep an eye on this. This bit only works if the heuristic is any good
-        // - update heat loss totals accordingly
-        // - calculate heuristic value
-        // - set CityBlock to visited
-        // - add new path to list of updated paths
-        // 
-        // sort updated paths list according to heuristic
-        // overwrite main paths list with updated list and loop again
+        while (true)
+        {
+            bool exitCondition = CruciblePaths[0].X == ExitCoordinates.X && CruciblePaths[0].Y == ExitCoordinates.Y;
+            if (exitCondition) break;
+            // heuristic: Pythagorean distance from goal * current TotalHeatLoss value?
+            // 
+            // while loop that runs until the coordinates of the first item in the list are those of the end point
+            // create new, empty list of paths to house updated paths
+            // loop through all current paths
+            // - create new paths based on directions you're currently allowed to go in
+            //   - blocks where Visited == True to be ignored       <= keep an eye on this. This bit only works if the heuristic is any good
+            // - update heat loss totals accordingly
+            // - calculate heuristic value
+            // - set CityBlock to visited
+            // - add new path to list of updated paths
+            // 
+            // sort updated paths list according to heuristic
+            // overwrite main paths list with updated list and loop again
+        }
     }
 
     private List<CruciblePath> CruciblePaths { get; set; } = new List<CruciblePath>() { new(0, 0, 2), new(0, 0, 1) };
