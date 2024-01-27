@@ -65,8 +65,13 @@ public class CityBlock
     public int Y { get; }
 
     public byte HeatLoss { get; }
-    // - int X
-    // - int Y
-    // - byte HeatLoss
-    // - bool Visited
+
+    private bool _visited = false;
+    public bool Visited
+    {
+        get
+        {
+            return _visited;
+        }
+    }
 }
