@@ -48,8 +48,16 @@ public class Day17Task1 : BaseTask
         get
         {
             _exitCoordinates ??= GetExitCoordinates();
-            return _exitCoordinates;
+            return ((int, int))_exitCoordinates;
         }
+    }
+
+    private (int, int) GetExitCoordinates()
+    {
+        int x = InputRows[0].Length - 1,
+            y = InputRows.Length - 1;
+
+        return (x, y);
     }
 
     private Dictionary<(int, int), CityBlock>? _cityBlocks;
