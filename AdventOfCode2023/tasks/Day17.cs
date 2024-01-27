@@ -75,16 +75,24 @@ public class CityBlock
 
 public class CruciblePath
 {
-    public CruciblePath(int x, int y)
+    public CruciblePath(int x, int y, byte direction)
     {
         X = x;
         Y = y;
+        _direction = direction;
     }
 
     public int X { get; }
     public int Y { get; }
-    // - int X: current coordinate
-    // - int Y: current coordinate
+
+    private byte _direction;
+    public byte Direction
+    {
+        get
+        {
+            return _direction;
+        }
+    }
     // - byte Direction
     // - byte DistanceTravelledInDirection
     // - int TotalHeatLoss
