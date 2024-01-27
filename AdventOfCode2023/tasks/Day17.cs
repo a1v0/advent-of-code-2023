@@ -17,12 +17,6 @@ public class Day17Task1 : BaseTask
 {
     public override string Solve()
     {
-        // create class of CityBlock
-        // - int X
-        // - int Y
-        // - byte HeatLoss
-        // - bool Visited
-        // 
         // create class of CruciblePath
         // - int X: current coordinate
         // - int Y: current coordinate
@@ -36,8 +30,6 @@ public class Day17Task1 : BaseTask
         // - create two starter paths, one going right, one going down
         // 
         // heuristic: Pythagorean distance from goal * current TotalHeatLoss value?
-        // 
-        // 
         // 
         // while loop that runs until the coordinates of the first item in the list are those of the end point
         // create new, empty list of paths to house updated paths
@@ -54,9 +46,21 @@ public class Day17Task1 : BaseTask
         // 
         // retrieve TotalHeatLoss of winner
         // stringify and return
-        // 
     }
 }
 
 public class Day17Task2 : Day17Task1
 { }
+
+public class CityBlock
+{
+    public CityBlock(int x, int y)
+    {
+        X = x;
+        Y = y;
+    }
+    // - int X
+    // - int Y
+    // - byte HeatLoss
+    // - bool Visited
+}
