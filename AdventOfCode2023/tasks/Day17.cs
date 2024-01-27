@@ -74,4 +74,9 @@ public class CityBlock
             return _visited;
         }
     }
+
+    public void Visit()
+    {
+        _visited = true;
+    }
 }
