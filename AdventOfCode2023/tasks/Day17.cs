@@ -17,6 +17,9 @@ public class Day17Task1 : BaseTask
 {
     public override string Solve()
     {
+        CruciblePath PathWithLowestHeatLoss = GetPathWithLowestHeatLoss();
+        int lowestHeatLoss = PathWithLowestHeatLoss.TotalHeatLoss;
+        return lowestHeatLoss.ToString();
         // parse input as dictionary of CityBlocks, where key is tuple of coordinates
         // create list of paths
         // - create two starter paths, one going right, one going down
@@ -35,9 +38,6 @@ public class Day17Task1 : BaseTask
         // 
         // sort updated paths list according to heuristic
         // overwrite main paths list with updated list and loop again
-        // 
-        // retrieve TotalHeatLoss of winner
-        // stringify and return
     }
 }
 
