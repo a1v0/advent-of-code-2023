@@ -61,8 +61,8 @@ public class CityBlock
         HeatLoss = heatLoss;
     }
 
-    public int X { get; }
-    public int Y { get; }
+    private int X { get; }
+    private int Y { get; }
 
     public byte HeatLoss { get; }
 
