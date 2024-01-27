@@ -20,7 +20,6 @@ public class Day17Task1 : BaseTask
         CruciblePath PathWithLowestHeatLoss = GetPathWithLowestHeatLoss();
         int lowestHeatLoss = PathWithLowestHeatLoss.TotalHeatLoss;
         return lowestHeatLoss.ToString();
-        // parse input as dictionary of CityBlocks, where key is tuple of coordinates
         // create list of paths
         // - create two starter paths, one going right, one going down
         // 
@@ -48,6 +47,23 @@ public class Day17Task1 : BaseTask
             _cityBlocks ??= GetCityBlocks();
             return _cityBlocks;
         }
+    }
+
+    private Dictionary<(int, int), CityBlock> GetCityBlocks()
+    {
+        var cityBlocks = new Dictionary<(int, int), CityBlock>();
+
+        for (int y = 0; y < InputRows.Length; ++y)
+        {
+            for (int x = 0; x < InputRows[0].Length; ++x)
+            {
+                byte heatLoss = (byte)InputRows[y][x];
+                var cityBlock = new CityBlock(x, y, heatLoss);
+                cityBlocks.Add((x, y), cityBlock);
+            }
+        }
+
+        return cityBlocks;
     }
 }
 
