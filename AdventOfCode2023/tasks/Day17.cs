@@ -20,6 +20,10 @@ public class Day17Task1 : BaseTask
         CruciblePath PathWithLowestHeatLoss = GetPathWithLowestHeatLoss();
         int lowestHeatLoss = PathWithLowestHeatLoss.TotalHeatLoss;
         return lowestHeatLoss.ToString();
+    }
+
+    private CruciblePath GetPathWithLowestHeatLoss()
+    {
         // heuristic: Pythagorean distance from goal * current TotalHeatLoss value?
         // 
         // while loop that runs until the coordinates of the first item in the list are those of the end point
@@ -37,6 +41,16 @@ public class Day17Task1 : BaseTask
     }
 
     private List<CruciblePath> CruciblePaths { get; set; } = new List<CruciblePath>() { new(0, 0, 2), new(0, 0, 1) };
+
+    private (int, int)? _exitCoordinates;
+    private (int, int) ExitCoordinates
+    {
+        get
+        {
+            _exitCoordinates ??= GetExitCoordinates();
+            return _exitCoordinates;
+        }
+    }
 
     private Dictionary<(int, int), CityBlock>? _cityBlocks;
     private Dictionary<(int, int), CityBlock> CityBlocks
