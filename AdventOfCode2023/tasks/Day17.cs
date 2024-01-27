@@ -98,6 +98,6 @@ public class CruciblePath
     public byte DistanceTravelledInDirection { get; set; }
 
     public int TotalHeatLoss { get; set; } = 0;
-    // - int TotalHeatLoss
-    // - int HeuristicValue
+
+    public int HeuristicValue { get; set; } = 0;
 }
