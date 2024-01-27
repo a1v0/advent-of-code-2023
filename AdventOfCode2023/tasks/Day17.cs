@@ -43,7 +43,7 @@ public class Day17Task1 : BaseTask
     private List<CruciblePath> CruciblePaths { get; set; } = new List<CruciblePath>() { new(0, 0, 2), new(0, 0, 1) };
 
     private (int, int)? _exitCoordinates;
-    private (int, int) ExitCoordinates
+    private (int X, int Y) ExitCoordinates
     {
         get
         {
