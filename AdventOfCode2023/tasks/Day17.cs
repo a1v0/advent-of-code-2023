@@ -28,9 +28,11 @@ public class Day17Task1 : BaseTask
         {
             bool exitCondition = CruciblePaths[0].X == ExitCoordinates.X && CruciblePaths[0].Y == ExitCoordinates.Y;
             if (exitCondition) break;
+
+            List<CruciblePath> nextRoundOfPaths = GetNextRoundOfPaths();
+            CruciblePaths = nextRoundOfPaths;
             // heuristic: Pythagorean distance from goal * current TotalHeatLoss value?
             // 
-            // while loop that runs until the coordinates of the first item in the list are those of the end point
             // create new, empty list of paths to house updated paths
             // loop through all current paths
             // - create new paths based on directions you're currently allowed to go in
@@ -43,6 +45,8 @@ public class Day17Task1 : BaseTask
             // sort updated paths list according to heuristic
             // overwrite main paths list with updated list and loop again
         }
+
+        return CruciblePaths[0];
     }
 
     private List<CruciblePath> CruciblePaths { get; set; } = new List<CruciblePath>() { new(0, 0, 2), new(0, 0, 1) };
