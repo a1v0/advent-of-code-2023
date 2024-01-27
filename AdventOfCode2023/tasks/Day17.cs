@@ -75,6 +75,14 @@ public class CityBlock
 
 public class CruciblePath
 {
+    public CruciblePath(int x, int y)
+    {
+        X = x;
+        Y = y;
+    }
+
+    public int X { get; }
+    public int Y { get; }
     // - int X: current coordinate
     // - int Y: current coordinate
     // - byte Direction
