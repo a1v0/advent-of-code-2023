@@ -54,14 +54,17 @@ public class Day17Task2 : Day17Task1
 
 public class CityBlock
 {
-    public CityBlock(int x, int y)
+    public CityBlock(int x, int y, byte heatLoss)
     {
         X = x;
         Y = y;
+        HeatLoss = heatLoss;
     }
 
     public int X { get; }
     public int Y { get; }
+
+    public byte HeatLoss { get; }
     // - int X
     // - int Y
     // - byte HeatLoss
