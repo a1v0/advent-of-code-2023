@@ -39,6 +39,16 @@ public class Day17Task1 : BaseTask
         // sort updated paths list according to heuristic
         // overwrite main paths list with updated list and loop again
     }
+
+    private Dictionary<(int, int), CityBlock>? _cityBlocks;
+    private Dictionary<(int, int), CityBlock> CityBlocks
+    {
+        get
+        {
+            _cityBlocks ??= GetCityBlocks();
+            return _cityBlocks;
+        }
+    }
 }
 
 public class Day17Task2 : Day17Task1
