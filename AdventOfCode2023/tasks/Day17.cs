@@ -17,14 +17,6 @@ public class Day17Task1 : BaseTask
 {
     public override string Solve()
     {
-        // create class of CruciblePath
-        // - int X: current coordinate
-        // - int Y: current coordinate
-        // - byte Direction
-        // - byte DistanceTravelledInDirection
-        // - int TotalHeatLoss
-        // - int HeuristicValue
-        // 
         // parse input as dictionary of CityBlocks, where key is tuple of coordinates
         // create list of paths
         // - create two starter paths, one going right, one going down
@@ -79,4 +71,14 @@ public class CityBlock
     {
         _visited = true;
     }
+}
+
+public class CruciblePath
+{
+    // - int X: current coordinate
+    // - int Y: current coordinate
+    // - byte Direction
+    // - byte DistanceTravelledInDirection
+    // - int TotalHeatLoss
+    // - int HeuristicValue
 }
