@@ -220,4 +220,45 @@ public class CruciblePath
     public int TotalHeatLoss { get; }
 
     public int HeuristicValue { get; set; } = 0;
+
+    /// <summary>
+    /// If directionOfRotation < 0, returns the value of the next direction anticlockwise. If > 0, it will return the clockwise value.
+    /// </summary>
+    public static byte ConvertDirection(byte currentDirection, byte directionOfRotation)
+    {
+        if (directionOfRotation == 0) throw new Exception("Direction of rotation must be greater than or less than 0.");
+
+        bool goingClockwise = directionOfRotation > 0;
+
+        if (goingClockwise)
+        {
+            switch (currentDirection)
+            {
+                case 0:
+                    return 2;
+                case 1:
+                    return 3;
+                case 2:
+                    return 1;
+                case 3:
+                    return 0;
+                default:
+                    throw new Exception("Invalid direction given.");
+            }
+        }
+
+        switch (currentDirection)
+        {
+            case 0:
+                return 3;
+            case 1:
+                return 2;
+            case 2:
+                return 0;
+            case 3:
+                return 1;
+            default:
+                throw new Exception("Invalid direction given.");
+        }
+    }
 }
