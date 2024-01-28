@@ -31,22 +31,29 @@ public class Day17Task1 : BaseTask
 
             List<CruciblePath> nextRoundOfPaths = GetNextRoundOfPaths();
             CruciblePaths = nextRoundOfPaths;
-            // heuristic: Pythagorean distance from goal * current TotalHeatLoss value?
-            // 
-            // create new, empty list of paths to house updated paths
-            // loop through all current paths
-            // - create new paths based on directions you're currently allowed to go in
-            //   - blocks where Visited == True to be ignored       <= keep an eye on this. This bit only works if the heuristic is any good
-            // - update heat loss totals accordingly
-            // - calculate heuristic value
-            // - set CityBlock to visited
-            // - add new path to list of updated paths
-            // 
-            // sort updated paths list according to heuristic
-            // overwrite main paths list with updated list and loop again
         }
 
         return CruciblePaths[0];
+    }
+
+    private List<CruciblePath> GetNextRoundOfPaths()
+    {
+        // heuristic: Pythagorean distance from goal * current TotalHeatLoss value?
+        // 
+        // loop through all current paths
+        // - create new paths based on directions you're currently allowed to go in
+        //   - blocks where Visited == True to be ignored       <= keep an eye on this. This bit only works if the heuristic is any good
+        //     - this is too simple an approach
+        //     - I won't be able to explore all four directions from a specific tile, meaning not all avenues will have been explored
+        //     - I'll need to implement a visitation system like on Day 16:
+        //       - if I've already visited via my current direction AND have the same amount of steps in the same direction as before, then don't continue
+        // - update heat loss totals accordingly
+        // - calculate heuristic value
+        // - set CityBlock to visited
+        // - add new path to list of updated paths
+        // 
+        // sort updated paths list according to heuristic
+        // overwrite main paths list with updated list and loop again
     }
 
     private List<CruciblePath> CruciblePaths { get; set; } = new List<CruciblePath>() { new(0, 0, 2), new(0, 0, 1) };
@@ -114,14 +121,7 @@ public class CityBlock
 
     public byte HeatLoss { get; }
 
-    private bool _visited = false;
-    public bool Visited
-    {
-        get
-        {
-            return _visited;
-        }
-    }
+    public Dictionary<byte, byte> Visited { get; } = new();
 
     public void Visit()
     {
