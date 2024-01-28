@@ -38,8 +38,21 @@ public class Day17Task1 : BaseTask
 
     private List<CruciblePath> GetNextRoundOfPaths()
     {
-        // heuristic: Pythagorean distance from goal * current TotalHeatLoss value?
-        // 
+        var nextRoundOfPaths = new List<CruciblePath>();
+
+        foreach (CruciblePath path in CruciblePaths)
+        {
+            bool canGoStraight = path.DistanceTravelledInDirection < 3,
+                 canGoAntiClockwise = CanGoAntiClockwise(path),
+                 canGoClockwise = CanGoClockwise(path);
+
+            if (canGoStraight)
+            {
+                (int newX, int newY) = GetNextCoordinates(path.X, path.Y, path.Direction);
+                var straightPath = new CruciblePath(newX, newY, path.Direction, (byte)(path.DistanceTravelledInDirection + 1));
+                nextRoundOfPaths.Add(straightPath);
+            }
+        }
         // loop through all current paths
         // - create new paths based on directions you're currently allowed to go in
         //   - blocks where Visited == True to be ignored       <= keep an eye on this. This bit only works if the heuristic is any good
@@ -54,6 +67,8 @@ public class Day17Task1 : BaseTask
         // 
         // sort updated paths list according to heuristic
         // overwrite main paths list with updated list and loop again
+        // 
+        // heuristic: Pythagorean distance from goal * current TotalHeatLoss value?
     }
 
     private List<CruciblePath> CruciblePaths { get; set; } = new List<CruciblePath>() { new(0, 0, 2), new(0, 0, 1) };
