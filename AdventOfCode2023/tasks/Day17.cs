@@ -52,7 +52,7 @@ public class Day17Task1 : BaseTask
                 int newHeatLoss = path.TotalHeatLoss + CityBlocks[(newX, newY)].HeatLoss;
                 var straightPath = new CruciblePath(newX, newY, newHeatLoss, path.Direction, (byte)(path.DistanceTravelledInDirection + 1));
 
-                straightPath.HeuristicValue = CalculateHeuristicValue();
+                straightPath.HeuristicValue = CalculateHeuristicValue(straightPath);
                 CityBlocks[(newX, newY)].Visited.Add((path.Direction, (byte)(path.DistanceTravelledInDirection + 1)), true);
 
                 nextRoundOfPaths.Add(straightPath);
@@ -65,7 +65,7 @@ public class Day17Task1 : BaseTask
                 int newHeatLoss = path.TotalHeatLoss + CityBlocks[(newX, newY)].HeatLoss;
                 var antiClockwisePath = new CruciblePath(newX, newY, newHeatLoss, newDirection);
 
-                antiClockwisePath.HeuristicValue = CalculateHeuristicValue();
+                antiClockwisePath.HeuristicValue = CalculateHeuristicValue(antiClockwisePath);
                 CityBlocks[(newX, newY)].Visited.Add((newDirection, 1), true);
 
                 nextRoundOfPaths.Add(antiClockwisePath);
@@ -78,7 +78,7 @@ public class Day17Task1 : BaseTask
                 int newHeatLoss = path.TotalHeatLoss + CityBlocks[(newX, newY)].HeatLoss;
                 var clockwisePath = new CruciblePath(newX, newY, newHeatLoss, newDirection);
 
-                clockwisePath.HeuristicValue = CalculateHeuristicValue();
+                clockwisePath.HeuristicValue = CalculateHeuristicValue(clockwisePath);
                 CityBlocks[(newX, newY)].Visited.Add((newDirection, 1), true);
 
                 nextRoundOfPaths.Add(clockwisePath);
@@ -87,6 +87,13 @@ public class Day17Task1 : BaseTask
 
         nextRoundOfPaths.Sort();
         return nextRoundOfPaths;
+    }
+
+    private int CalculateHeuristicValue(CruciblePath path)
+    {
+        int distanceFromGoal = GetDistanceFromGoal(path.X, path.Y);
+        int heuristicValue = distanceFromGoal * path.TotalHeatLoss;
+        return heuristicValue;
     }
 
     private bool CanGoStraight(CruciblePath path)
