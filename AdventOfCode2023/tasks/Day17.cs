@@ -87,7 +87,20 @@ public class Day17Task1 : BaseTask
         // heuristic: Pythagorean distance from goal * current TotalHeatLoss value?
     }
 
-    private List<CruciblePath> CruciblePaths { get; set; } = new List<CruciblePath>() { new(0, 0, 2), new(0, 0, 1) };
+    private List<CruciblePath>? _cruciblePaths;
+    private List<CruciblePath> CruciblePaths
+    {
+        get
+        {
+            _cruciblePaths ??= GetDefaultCruciblePaths();
+            return _cruciblePaths;
+        }
+
+        set
+        {
+            _cruciblePaths = value;
+        }
+    }
 
     private (int, int)? _exitCoordinates;
     private (int X, int Y) ExitCoordinates
