@@ -252,7 +252,7 @@ public class CityBlock
     public Dictionary<(byte, byte), bool> Visited { get; } = new();
 }
 
-public class CruciblePath
+public class CruciblePath : IComparable
 {
     public CruciblePath(int x, int y, int totalHeatLoss, byte direction, byte distanceTravelledInDirection = 1)
     {
@@ -324,5 +324,13 @@ public class CruciblePath
             default:
                 throw new Exception("Invalid direction given.");
         }
+    }
+
+    public int CompareTo(object? comparison)
+    {
+        if (comparison is null) return 1;
+
+        CruciblePath comparisonPath = (CruciblePath)comparison;
+        return comparisonPath.HeuristicValue - HeuristicValue;
     }
 }
