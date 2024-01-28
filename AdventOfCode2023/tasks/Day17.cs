@@ -60,6 +60,14 @@ public class Day17Task1 : BaseTask
                 var antiClockwisePath = new CruciblePath(newX, newY, newDirection);
                 nextRoundOfPaths.Add(antiClockwisePath);
             }
+
+            if (canGoClockwise)
+            {
+                byte newDirection = CruciblePath.ConvertDirection(path.Direction, 1);
+                (int newX, int newY) = GetNextCoordinates(path.X, path.Y, newDirection);
+                var clockwisePath = new CruciblePath(newX, newY, newDirection);
+                nextRoundOfPaths.Add(clockwisePath);
+            }
         }
         // loop through all current paths
         // - create new paths based on directions you're currently allowed to go in
