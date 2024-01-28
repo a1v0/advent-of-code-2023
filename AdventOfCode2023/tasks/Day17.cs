@@ -102,6 +102,20 @@ public class Day17Task1 : BaseTask
         }
     }
 
+    private List<CruciblePath> GetDefaultCruciblePaths()
+    {
+        var defaultPaths = new List<CruciblePath>();
+        byte initialHeatLoss = (byte)InputRows[0][0];
+
+        var pathToEast = new CruciblePath(0, 0, initialHeatLoss, 2);
+        defaultPaths.Add(pathToEast);
+
+        var pathToSouth = new CruciblePath(0, 0, initialHeatLoss, 1);
+        defaultPaths.Add(pathToSouth);
+
+        return defaultPaths;
+    }
+
     private (int, int)? _exitCoordinates;
     private (int X, int Y) ExitCoordinates
     {
