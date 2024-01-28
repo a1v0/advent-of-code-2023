@@ -107,6 +107,21 @@ public class Day17Task1 : BaseTask
         return true;
     }
 
+    private bool CanGoAntiClockwise(CruciblePath path)
+    {
+        byte newDirection = CruciblePath.ConvertDirection(path.Direction, -1);
+        (int, int) nextCoordinates = GetNextCoordinates(path.X, path.Y, newDirection);
+
+        bool coordinatesOutOfBounds = !CityBlocks.ContainsKey(nextCoordinates);
+        if (coordinatesOutOfBounds) return false;
+
+        var visitationKey = (path.Direction, (byte)1);
+        bool tileHasBeenVisited = CityBlocks[nextCoordinates].Visited.ContainsKey(visitationKey);
+        if (tileHasBeenVisited) return false;
+
+        return true;
+    }
+
     private static (int, int) GetNextCoordinates(int x, int y, byte direction)
     {
         switch (direction)
