@@ -91,7 +91,7 @@ public class Day17Task1 : BaseTask
         return nextRoundOfPaths;
     }
 
-    private int CalculateHeuristicValue(CruciblePath path)
+    private double CalculateHeuristicValue(CruciblePath path)
     {
         double distanceFromGoal = GetDistanceFromGoal(path.X, path.Y);
         double heuristicValue = distanceFromGoal * path.TotalHeatLoss;
@@ -301,7 +301,7 @@ public class CruciblePath : IComparable
 
     public int TotalHeatLoss { get; }
 
-    public int HeuristicValue { get; set; } = 0;
+    public double HeuristicValue { get; set; } = 0;
 
     /// <summary>
     /// If directionOfRotation < 0, returns the value of the next direction anticlockwise. If > 0, it will return the clockwise value.
@@ -349,6 +349,9 @@ public class CruciblePath : IComparable
         if (comparison is null) return 1;
 
         CruciblePath comparisonPath = (CruciblePath)comparison;
-        return HeuristicValue - comparisonPath.HeuristicValue;
+        double comparisonResult = HeuristicValue - comparisonPath.HeuristicValue;
+
+        if (comparisonResult < 0) return -1;
+        return 1;
     }
 }
