@@ -171,7 +171,7 @@ public class CruciblePath
     public int X { get; }
     public int Y { get; }
 
-    private byte _direction;
+    private readonly byte _direction;
 
     /// <summary>
     /// Directions can be 0, 1, 2 or 3. These numbers represent North, South, East and West, respectively.
