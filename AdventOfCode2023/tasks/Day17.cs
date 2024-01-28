@@ -51,6 +51,10 @@ public class Day17Task1 : BaseTask
                 (int newX, int newY) = GetNextCoordinates(path.X, path.Y, path.Direction);
                 int newHeatLoss = path.TotalHeatLoss + CityBlocks[(newX, newY)].HeatLoss;
                 var straightPath = new CruciblePath(newX, newY, newHeatLoss, path.Direction, (byte)(path.DistanceTravelledInDirection + 1));
+
+                straightPath.HeuristicValue = CalculateHeuristicValue();
+                CityBlocks[(newX, newY)].Visited.Add((path.Direction, (byte)(path.DistanceTravelledInDirection + 1)), true);
+
                 nextRoundOfPaths.Add(straightPath);
             }
 
@@ -60,6 +64,10 @@ public class Day17Task1 : BaseTask
                 (int newX, int newY) = GetNextCoordinates(path.X, path.Y, newDirection);
                 int newHeatLoss = path.TotalHeatLoss + CityBlocks[(newX, newY)].HeatLoss;
                 var antiClockwisePath = new CruciblePath(newX, newY, newHeatLoss, newDirection);
+
+                antiClockwisePath.HeuristicValue = CalculateHeuristicValue();
+                CityBlocks[(newX, newY)].Visited.Add((newDirection, 1), true);
+
                 nextRoundOfPaths.Add(antiClockwisePath);
             }
 
@@ -69,25 +77,17 @@ public class Day17Task1 : BaseTask
                 (int newX, int newY) = GetNextCoordinates(path.X, path.Y, newDirection);
                 int newHeatLoss = path.TotalHeatLoss + CityBlocks[(newX, newY)].HeatLoss;
                 var clockwisePath = new CruciblePath(newX, newY, newHeatLoss, newDirection);
+
+                clockwisePath.HeuristicValue = CalculateHeuristicValue();
+                CityBlocks[(newX, newY)].Visited.Add((newDirection, 1), true);
+
                 nextRoundOfPaths.Add(clockwisePath);
             }
         }
-        // loop through all current paths
-        // - create new paths based on directions you're currently allowed to go in
-        //   - blocks where Visited == True to be ignored       <= keep an eye on this. This bit only works if the heuristic is any good
-        //     - this is too simple an approach
-        //     - I won't be able to explore all four directions from a specific tile, meaning not all avenues will have been explored
-        //     - I'll need to implement a visitation system like on Day 16:
-        //       - if I've already visited via my current direction AND have the same amount of steps in the same direction as before, then don't continue
-        // - update heat loss totals accordingly
-        // - calculate heuristic value
-        // - set CityBlock to visited
-        // - add new path to list of updated paths
-        // 
-        // sort updated paths list according to heuristic
-        // overwrite main paths list with updated list and loop again
-        // 
         // heuristic: Pythagorean distance from goal * current TotalHeatLoss value?
+        // sort updated paths list according to heuristic
+        // 
+        // overwrite main paths list with updated list and loop again
     }
 
     private bool CanGoStraight(CruciblePath path)
