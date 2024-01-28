@@ -49,7 +49,8 @@ public class Day17Task1 : BaseTask
             if (canGoStraight)
             {
                 (int newX, int newY) = GetNextCoordinates(path.X, path.Y, path.Direction);
-                var straightPath = new CruciblePath(newX, newY, path.Direction, (byte)(path.DistanceTravelledInDirection + 1));
+                int newHeatLoss = path.TotalHeatLoss + CityBlocks[(newX, newY)].HeatLoss;
+                var straightPath = new CruciblePath(newX, newY, newHeatLoss, path.Direction, (byte)(path.DistanceTravelledInDirection + 1));
                 nextRoundOfPaths.Add(straightPath);
             }
 
@@ -57,7 +58,8 @@ public class Day17Task1 : BaseTask
             {
                 byte newDirection = CruciblePath.ConvertDirection(path.Direction, -1);
                 (int newX, int newY) = GetNextCoordinates(path.X, path.Y, newDirection);
-                var antiClockwisePath = new CruciblePath(newX, newY, newDirection);
+                int newHeatLoss = path.TotalHeatLoss + CityBlocks[(newX, newY)].HeatLoss;
+                var antiClockwisePath = new CruciblePath(newX, newY, newHeatLoss, newDirection);
                 nextRoundOfPaths.Add(antiClockwisePath);
             }
 
@@ -65,7 +67,8 @@ public class Day17Task1 : BaseTask
             {
                 byte newDirection = CruciblePath.ConvertDirection(path.Direction, 1);
                 (int newX, int newY) = GetNextCoordinates(path.X, path.Y, newDirection);
-                var clockwisePath = new CruciblePath(newX, newY, newDirection);
+                int newHeatLoss = path.TotalHeatLoss + CityBlocks[(newX, newY)].HeatLoss;
+                var clockwisePath = new CruciblePath(newX, newY, newHeatLoss, newDirection);
                 nextRoundOfPaths.Add(clockwisePath);
             }
         }
