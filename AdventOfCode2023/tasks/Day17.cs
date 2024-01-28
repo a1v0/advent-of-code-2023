@@ -19,6 +19,20 @@ public class Day17Task1 : BaseTask
 {
     public override string Solve()
     {
+        // the problem seems to be with my visitation checker
+        // solution:
+        // - set the key of the visitation dictionary to `int`
+        // - this will store the total heat loss of the path that accessed it
+        // - if the current visitor has a lower heat loss than the predecessor, allow it to visit
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
         CruciblePath PathWithLowestHeatLoss = GetPathWithLowestHeatLoss();
         int lowestHeatLoss = PathWithLowestHeatLoss.TotalHeatLoss;
         return lowestHeatLoss.ToString();
