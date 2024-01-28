@@ -241,7 +241,7 @@ public class CruciblePath
     /// <summary>
     /// If directionOfRotation < 0, returns the value of the next direction anticlockwise. If > 0, it will return the clockwise value.
     /// </summary>
-    public static byte ConvertDirection(byte currentDirection, byte directionOfRotation)
+    public static byte ConvertDirection(byte currentDirection, sbyte directionOfRotation)
     {
         if (directionOfRotation == 0) throw new Exception("Direction of rotation must be greater than or less than 0.");
 
