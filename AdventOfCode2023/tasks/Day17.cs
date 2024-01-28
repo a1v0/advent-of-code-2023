@@ -121,6 +121,9 @@ public class CityBlock
 
     public byte HeatLoss { get; }
 
+    /// <summary>
+    /// Stores the direction of the visitation as well as the DistanceTravelledInDirection at the time of the visitation
+    /// </summary>
     public Dictionary<byte, byte> Visited { get; } = new();
 }
 
