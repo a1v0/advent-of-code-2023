@@ -133,7 +133,7 @@ public class Day17Task1 : BaseTask
         bool coordinatesOutOfBounds = !CityBlocks.ContainsKey(nextCoordinates);
         if (coordinatesOutOfBounds) return false;
 
-        var visitationKey = (path.Direction, (byte)1);
+        var visitationKey = (newDirection, (byte)1);
         bool tileHasBeenVisited = CityBlocks[nextCoordinates].Visited.ContainsKey(visitationKey);
         if (tileHasBeenVisited) return false;
 
@@ -148,7 +148,7 @@ public class Day17Task1 : BaseTask
         bool coordinatesOutOfBounds = !CityBlocks.ContainsKey(nextCoordinates);
         if (coordinatesOutOfBounds) return false;
 
-        var visitationKey = (path.Direction, (byte)1);
+        var visitationKey = (newDirection, (byte)1);
         bool tileHasBeenVisited = CityBlocks[nextCoordinates].Visited.ContainsKey(visitationKey);
         if (tileHasBeenVisited) return false;
 
