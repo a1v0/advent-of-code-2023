@@ -337,6 +337,6 @@ public class CruciblePath : IComparable
         if (comparison is null) return 1;
 
         CruciblePath comparisonPath = (CruciblePath)comparison;
-        return comparisonPath.HeuristicValue - HeuristicValue;
+        return HeuristicValue - comparisonPath.HeuristicValue;
     }
 }
