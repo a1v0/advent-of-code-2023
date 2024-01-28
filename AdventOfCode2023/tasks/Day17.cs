@@ -42,7 +42,7 @@ public class Day17Task1 : BaseTask
 
         foreach (CruciblePath path in CruciblePaths)
         {
-            bool canGoStraight = path.DistanceTravelledInDirection < 3,
+            bool canGoStraight = canGoStraight(path),
                  canGoAntiClockwise = CanGoAntiClockwise(path),
                  canGoClockwise = CanGoClockwise(path);
 
@@ -51,6 +51,14 @@ public class Day17Task1 : BaseTask
                 (int newX, int newY) = GetNextCoordinates(path.X, path.Y, path.Direction);
                 var straightPath = new CruciblePath(newX, newY, path.Direction, (byte)(path.DistanceTravelledInDirection + 1));
                 nextRoundOfPaths.Add(straightPath);
+            }
+
+            if (canGoAntiClockwise)
+            {
+                byte newDirection = CruciblePath.ConvertDirection(path.Direction, -1);
+                (int newX, int newY) = GetNextCoordinates(path.X, path.Y, newDirection);
+                var antiClockwisePath = new CruciblePath(newX, newY, newDirection);
+                nextRoundOfPaths.Add(antiClockwisePath);
             }
         }
         // loop through all current paths
