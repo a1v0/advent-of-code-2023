@@ -1,3 +1,5 @@
+using System.Net;
+
 namespace AdventOfCode2023;
 
 public class Day17 : BaseDay
@@ -91,9 +93,19 @@ public class Day17Task1 : BaseTask
 
     private int CalculateHeuristicValue(CruciblePath path)
     {
-        int distanceFromGoal = GetDistanceFromGoal(path.X, path.Y);
-        int heuristicValue = distanceFromGoal * path.TotalHeatLoss;
+        double distanceFromGoal = GetDistanceFromGoal(path.X, path.Y);
+        double heuristicValue = distanceFromGoal * path.TotalHeatLoss;
         return heuristicValue;
+    }
+
+    private double GetDistanceFromGoal(int x, int y)
+    {
+        int a = ExitCoordinates.X - x,
+            b = ExitCoordinates.Y - y;
+
+        double pythagoras = Math.Pow(a, 2) + Math.Pow(b, 2);
+        double c = Math.Sqrt(pythagoras);
+        return c;
     }
 
     private bool CanGoStraight(CruciblePath path)
