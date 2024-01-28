@@ -84,10 +84,9 @@ public class Day17Task1 : BaseTask
                 nextRoundOfPaths.Add(clockwisePath);
             }
         }
-        // heuristic: Pythagorean distance from goal * current TotalHeatLoss value?
-        // sort updated paths list according to heuristic
-        // 
-        // overwrite main paths list with updated list and loop again
+
+        nextRoundOfPaths.Sort();
+        return nextRoundOfPaths;
     }
 
     private bool CanGoStraight(CruciblePath path)
