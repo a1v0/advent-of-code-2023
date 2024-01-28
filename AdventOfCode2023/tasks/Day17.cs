@@ -42,7 +42,7 @@ public class Day17Task1 : BaseTask
 
         foreach (CruciblePath path in CruciblePaths)
         {
-            bool canGoStraight = canGoStraight(path),
+            bool canGoStraight = CanGoStraight(path),
                  canGoAntiClockwise = CanGoAntiClockwise(path),
                  canGoClockwise = CanGoClockwise(path);
 
@@ -88,6 +88,23 @@ public class Day17Task1 : BaseTask
         // overwrite main paths list with updated list and loop again
         // 
         // heuristic: Pythagorean distance from goal * current TotalHeatLoss value?
+    }
+
+    private bool CanGoStraight(CruciblePath path)
+    {
+        bool mustChangeDirection = path.DistanceTravelledInDirection >= 3;
+        if (mustChangeDirection) return false;
+
+        (int, int) nextCoordinates = GetNextCoordinates(path.X, path.Y, path.Direction);
+
+        bool coordinatesOutOfBounds = !CityBlocks.ContainsKey(nextCoordinates);
+        if (coordinatesOutOfBounds) return false;
+
+        var visitationKey = (path.Direction, (byte)(path.DistanceTravelledInDirection + 1));
+        bool tileHasBeenVisited = CityBlocks[nextCoordinates].Visited.ContainsKey(visitationKey);
+        if (tileHasBeenVisited) return false;
+
+        return true;
     }
 
     private static (int, int) GetNextCoordinates(int x, int y, byte direction)
@@ -202,7 +219,7 @@ public class CityBlock
     /// <summary>
     /// Stores the direction of the visitation as well as the DistanceTravelledInDirection at the time of the visitation
     /// </summary>
-    public Dictionary<byte, byte> Visited { get; } = new();
+    public Dictionary<(byte, byte), bool> Visited { get; } = new();
 }
 
 public class CruciblePath
