@@ -90,6 +90,23 @@ public class Day17Task1 : BaseTask
         // heuristic: Pythagorean distance from goal * current TotalHeatLoss value?
     }
 
+    private static (int, int) GetNextCoordinates(int x, int y, byte direction)
+    {
+        switch (direction)
+        {
+            case 0:
+                return (x, y - 1);
+            case 1:
+                return (x, y + 1);
+            case 2:
+                return (x + 1, y);
+            case 3:
+                return (x - 1, y);
+            default:
+                throw new Exception("Invalid direction given.");
+        }
+    }
+
     private List<CruciblePath>? _cruciblePaths;
     private List<CruciblePath> CruciblePaths
     {
