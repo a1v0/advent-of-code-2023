@@ -122,11 +122,6 @@ public class CityBlock
     public byte HeatLoss { get; }
 
     public Dictionary<byte, byte> Visited { get; } = new();
-
-    public void Visit()
-    {
-        _visited = true;
-    }
 }
 
 public class CruciblePath
