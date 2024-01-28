@@ -93,7 +93,7 @@ public class Day17Task1 : BaseTask
 
     private double CalculateHeuristicValue(CruciblePath path)
     {
-        double distanceFromGoal = GetDistanceFromGoal(path.X, path.Y);
+        double distanceFromGoal = GetDistanceFromGoal(path.X, path.Y) + 1; // the +1 prevents this method from return 0 when the distance is 0
         double heuristicValue = distanceFromGoal * path.TotalHeatLoss;
         return heuristicValue;
     }
