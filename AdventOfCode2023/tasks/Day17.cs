@@ -252,7 +252,7 @@ public class Day17Task1 : BaseTask
         {
             for (int x = 0; x < InputRows[0].Length; ++x)
             {
-                byte heatLoss = (byte)InputRows[y][x];
+                byte heatLoss = (byte)char.GetNumericValue(InputRows[y][x]);
                 var cityBlock = new CityBlock(x, y, heatLoss);
                 cityBlocks.Add((x, y), cityBlock);
             }
