@@ -26,7 +26,7 @@ This repo uses xUnit for testing, though my tests aren't particularly extensive.
 | 14  | ⭐    | ❌     | Shortcut required. Not a chance otherwise. |
 | 15  | ⭐    | ⭐     |       |
 | 16  | ⭐    | ⭐     |       |
-<!-- | 17  |        |        |       | -->
+| 17  | ❌    |        | Something's not quite right. Plus, once I fix that, my code will be too slow. |
 <!-- | 18  |        |        |       | -->
 <!-- | 19  |        |        |       | -->
 <!-- | 20  |        |        |       | -->
