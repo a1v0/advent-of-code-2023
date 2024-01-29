@@ -55,7 +55,7 @@ public class Day17Task1 : BaseTask
                 var straightPath = new CruciblePath(newX, newY, newHeatLoss, path.Direction, (byte)(path.DistanceTravelledInDirection + 1));
 
                 straightPath.HeuristicValue = CalculateHeuristicValue(straightPath);
-                CityBlocks[(newX, newY)].Visited.Add((path.Direction, (byte)(path.DistanceTravelledInDirection + 1)), path.TotalHeatLoss);
+                CityBlocks[(newX, newY)].Visited[(path.Direction, (byte)(path.DistanceTravelledInDirection + 1))] = path.TotalHeatLoss;
 
                 nextRoundOfPaths.Add(straightPath);
             }
@@ -68,7 +68,7 @@ public class Day17Task1 : BaseTask
                 var antiClockwisePath = new CruciblePath(newX, newY, newHeatLoss, newDirection);
 
                 antiClockwisePath.HeuristicValue = CalculateHeuristicValue(antiClockwisePath);
-                CityBlocks[(newX, newY)].Visited.Add((newDirection, 1), path.TotalHeatLoss);
+                CityBlocks[(newX, newY)].Visited[(newDirection, 1)] = path.TotalHeatLoss;
 
                 nextRoundOfPaths.Add(antiClockwisePath);
             }
@@ -81,7 +81,7 @@ public class Day17Task1 : BaseTask
                 var clockwisePath = new CruciblePath(newX, newY, newHeatLoss, newDirection);
 
                 clockwisePath.HeuristicValue = CalculateHeuristicValue(clockwisePath);
-                CityBlocks[(newX, newY)].Visited.Add((newDirection, 1), path.TotalHeatLoss);
+                CityBlocks[(newX, newY)].Visited[(newDirection, 1)] = path.TotalHeatLoss;
 
                 nextRoundOfPaths.Add(clockwisePath);
             }
