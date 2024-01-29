@@ -205,7 +205,7 @@ public class Day17Task1 : BaseTask
     private List<CruciblePath> GetDefaultCruciblePaths()
     {
         var defaultPaths = new List<CruciblePath>();
-        byte initialHeatLoss = (byte)InputRows[0][0];
+        byte initialHeatLoss = (byte)char.GetNumericValue(InputRows[0][0]);
 
         var pathToEast = new CruciblePath(0, 0, initialHeatLoss, 2);
         defaultPaths.Add(pathToEast);
