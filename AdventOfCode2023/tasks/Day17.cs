@@ -19,20 +19,6 @@ public class Day17Task1 : BaseTask
 {
     public override string Solve()
     {
-        // the problem seems to be with my visitation checker
-        // solution:
-        // - set the key of the visitation dictionary to `double`
-        // - this will store the total heat loss of the path that accessed it
-        // - if the current visitor has a lower heat loss than the predecessor, allow it to visit
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
         CruciblePath PathWithLowestHeatLoss = GetPathWithLowestHeatLoss();
         int lowestHeatLoss = PathWithLowestHeatLoss.TotalHeatLoss;
         return lowestHeatLoss.ToString();
@@ -69,7 +55,7 @@ public class Day17Task1 : BaseTask
                 var straightPath = new CruciblePath(newX, newY, newHeatLoss, path.Direction, (byte)(path.DistanceTravelledInDirection + 1));
 
                 straightPath.HeuristicValue = CalculateHeuristicValue(straightPath);
-                CityBlocks[(newX, newY)].Visited.Add((path.Direction, (byte)(path.DistanceTravelledInDirection + 1)), straightPath.HeuristicValue);
+                CityBlocks[(newX, newY)].Visited.Add((path.Direction, (byte)(path.DistanceTravelledInDirection + 1)), path.TotalHeatLoss);
 
                 nextRoundOfPaths.Add(straightPath);
             }
@@ -82,7 +68,7 @@ public class Day17Task1 : BaseTask
                 var antiClockwisePath = new CruciblePath(newX, newY, newHeatLoss, newDirection);
 
                 antiClockwisePath.HeuristicValue = CalculateHeuristicValue(antiClockwisePath);
-                CityBlocks[(newX, newY)].Visited.Add((newDirection, 1), antiClockwisePath.HeuristicValue);
+                CityBlocks[(newX, newY)].Visited.Add((newDirection, 1), path.TotalHeatLoss);
 
                 nextRoundOfPaths.Add(antiClockwisePath);
             }
@@ -95,7 +81,7 @@ public class Day17Task1 : BaseTask
                 var clockwisePath = new CruciblePath(newX, newY, newHeatLoss, newDirection);
 
                 clockwisePath.HeuristicValue = CalculateHeuristicValue(clockwisePath);
-                CityBlocks[(newX, newY)].Visited.Add((newDirection, 1), clockwisePath.HeuristicValue);
+                CityBlocks[(newX, newY)].Visited.Add((newDirection, 1), path.TotalHeatLoss);
 
                 nextRoundOfPaths.Add(clockwisePath);
             }
@@ -134,7 +120,12 @@ public class Day17Task1 : BaseTask
 
         var visitationKey = (path.Direction, (byte)(path.DistanceTravelledInDirection + 1));
         bool tileHasBeenVisited = CityBlocks[nextCoordinates].Visited.ContainsKey(visitationKey);
-        if (tileHasBeenVisited) return false;
+        if (tileHasBeenVisited)
+        {
+            int lowestHeatLossSoFar = CityBlocks[nextCoordinates].Visited[visitationKey];
+            bool currentHeatLossIsLower = path.TotalHeatLoss <= lowestHeatLossSoFar;
+            return currentHeatLossIsLower;
+        }
 
         return true;
     }
@@ -149,7 +140,12 @@ public class Day17Task1 : BaseTask
 
         var visitationKey = (newDirection, (byte)1);
         bool tileHasBeenVisited = CityBlocks[nextCoordinates].Visited.ContainsKey(visitationKey);
-        if (tileHasBeenVisited) return false;
+        if (tileHasBeenVisited)
+        {
+            int lowestHeatLossSoFar = CityBlocks[nextCoordinates].Visited[visitationKey];
+            bool currentHeatLossIsLower = path.TotalHeatLoss <= lowestHeatLossSoFar;
+            return currentHeatLossIsLower;
+        }
 
         return true;
     }
@@ -164,7 +160,12 @@ public class Day17Task1 : BaseTask
 
         var visitationKey = (newDirection, (byte)1);
         bool tileHasBeenVisited = CityBlocks[nextCoordinates].Visited.ContainsKey(visitationKey);
-        if (tileHasBeenVisited) return false;
+        if (tileHasBeenVisited)
+        {
+            int lowestHeatLossSoFar = CityBlocks[nextCoordinates].Visited[visitationKey];
+            bool currentHeatLossIsLower = path.TotalHeatLoss <= lowestHeatLossSoFar;
+            return currentHeatLossIsLower;
+        }
 
         return true;
     }
@@ -281,7 +282,7 @@ public class CityBlock
     /// <summary>
     /// Stores the direction of the visitation as well as the DistanceTravelledInDirection at the time of the visitation
     /// </summary>
-    public Dictionary<(byte, byte), double> Visited { get; } = new();
+    public Dictionary<(byte, byte), int> Visited { get; } = new();
 }
 
 public class CruciblePath : IComparable
