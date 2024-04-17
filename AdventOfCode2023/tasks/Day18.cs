@@ -16,7 +16,32 @@ public class Day18 : BaseDay
 public class Day18Task1 : BaseTask
 {
     public override string Solve()
-    { }
+    {
+        // dictionary to house all coordinates
+        // {
+        //    rowNo: {
+        //        columnNo: hex colour string or null
+        //    }
+        // }
+        //
+        // start at { 0: { 0: "" } }
+        // if you go right, create a new dictionary entry, e.g. { 0: { 1: "#234545"} }
+        //
+        //
+        // create base data structure
+        // parse inputs using regex
+        // loop through inputs to fill in data structure
+        //
+        // calculate area:
+        // - loop through rows
+        // - start at leftmost position in the row
+        // - count to the right
+        //   - empty trench empty trench empty = out in in in out
+        //   - empty trench trench trench empty = out in in in out
+        //   - empty trench empty trench trench trench empty = out in in in in in out
+        //   (hopefully this'll work out!)
+        // - quantity of "ins" is the area
+    }
 }
 
 public class Day18Task2 : Day18Task1
