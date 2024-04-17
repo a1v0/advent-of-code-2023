@@ -17,21 +17,6 @@ public class Day18Task1 : BaseTask
 {
     public override string Solve()
     {
-        // dictionary to house all coordinates
-        // {
-        //    rowNo: {
-        //        columnNo: hex colour string or null
-        //    }
-        // }
-        //
-        // start at { 0: { 0: "" } }
-        // if you go right, create a new dictionary entry, e.g. { 0: { 1: "#234545"} }
-        //
-        //
-        // create base data structure
-        // parse inputs using regex
-        // loop through inputs to fill in data structure
-
         int area = CalculateArea();
         return area.ToString();
     }
@@ -63,6 +48,7 @@ public class Day18Task1 : BaseTask
     private Dictionary<int, Dictionary<int, string>> ParseDugTerrain()
     {
         Dictionary<int, Dictionary<int, string>> dugTerrain = CreateBlankTerrainMap();
+        ParseInputToTerrain(dugTerrain);
         return dugTerrain;
     }
 
@@ -72,6 +58,27 @@ public class Day18Task1 : BaseTask
         dugTerrain[0] = new Dictionary<int, string>();
         dugTerrain[0][0] = "";
         return dugTerrain;
+    }
+
+    private void ParseInputToTerrain(Dictionary<int, Dictionary<int, string>> dugTerrain)
+    {
+        foreach (string inputRow in InputRows)
+        {
+            // dictionary to house all coordinates
+            // {
+            //    rowNo: {
+            //        columnNo: hex colour string or null
+            //    }
+            // }
+            //
+            // start at { 0: { 0: "" } }
+            // if you go right, create a new dictionary entry, e.g. { 0: { 1: "#234545"} }
+            //
+            //
+            // create base data structure
+            // parse inputs using regex
+            // loop through inputs to fill in data structure
+        }
     }
 }
 
