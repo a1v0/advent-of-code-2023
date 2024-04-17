@@ -66,10 +66,10 @@ public class Day18Task1 : BaseTask
         return dugTerrain;
     }
 
-    private Dictionary<int, Dictionary<int, string>> CreateBlankTerrainMap()
+    private static Dictionary<int, Dictionary<int, string>> CreateBlankTerrainMap()
     {
         var dugTerrain = new Dictionary<int, Dictionary<int, string>>();
-        dugTerrain[0] = Dictionary<int, string>();
+        dugTerrain[0] = new Dictionary<int, string>();
         dugTerrain[0][0] = "";
         return dugTerrain;
     }
