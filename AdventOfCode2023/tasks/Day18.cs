@@ -31,8 +31,8 @@ public class Day18Task1 : BaseTask
         // create base data structure
         // parse inputs using regex
         // loop through inputs to fill in data structure
-        
-      int area = CalculateArea();
+
+        int area = CalculateArea();
         return area.ToString();
     }
 
@@ -49,29 +49,30 @@ public class Day18Task1 : BaseTask
         // - quantity of "ins" is the area
     }
 
-    private Dictionary<int, Dictionary<int,string>>? _dugTerrain;
+    private Dictionary<int, Dictionary<int, string>>? _dugTerrain;
 
-private Dictionary<int, Dictionary<int,string>> DugTerrain 
-{
-  get {
-    _dugTerrain ??= ParseDugTerrain();
-    return _dugTerrain;
-  }
-}
+    private Dictionary<int, Dictionary<int, string>> DugTerrain
+    {
+        get
+        {
+            _dugTerrain ??= ParseDugTerrain();
+            return _dugTerrain;
+        }
+    }
 
-private Dictionary<int, Dictionary<int,string>> ParseDugTerrain()
-{
-  Dictionary<int, Dictionary<int,string>> dugTerrain = CreateBlankTerrainMap();
-return dugTerrain;
-}
+    private Dictionary<int, Dictionary<int, string>> ParseDugTerrain()
+    {
+        Dictionary<int, Dictionary<int, string>> dugTerrain = CreateBlankTerrainMap();
+        return dugTerrain;
+    }
 
-private Dictionary<int, Dictionary<int,string>> CreateBlankTerrainMap()
-{
-var dugTerrain = new Dictionary<int, Dictionary<int,string>>();
-dugTerrain[0] = Dictionary<int,string>();
-dugTerrain[0][0] = "";
-return dugTerrain;
-}
+    private Dictionary<int, Dictionary<int, string>> CreateBlankTerrainMap()
+    {
+        var dugTerrain = new Dictionary<int, Dictionary<int, string>>();
+        dugTerrain[0] = Dictionary<int, string>();
+        dugTerrain[0][0] = "";
+        return dugTerrain;
+    }
 }
 
 public class Day18Task2 : Day18Task1
