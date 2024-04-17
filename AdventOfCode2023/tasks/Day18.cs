@@ -36,15 +36,6 @@ public class Day18Task1 : BaseTask
         return area.ToString();
     }
 
-private Dictionary<int, Dictionary<int,string>>? _dugTerrain;
-
-private Dictionary<int, Dictionary<int,string>> DugTerrain {
-  get {
-    _dugTerrain ??= ParseDugTerrain();
-    return _dugTerrain;
-  }
-}
-
     private int CalculateArea()
     {
         // calculate area:
@@ -57,6 +48,25 @@ private Dictionary<int, Dictionary<int,string>> DugTerrain {
         //   (hopefully this'll work out!)
         // - quantity of "ins" is the area
     }
+
+    private Dictionary<int, Dictionary<int,string>>? _dugTerrain;
+
+private Dictionary<int, Dictionary<int,string>> DugTerrain 
+{
+  get {
+    _dugTerrain ??= ParseDugTerrain();
+    return _dugTerrain;
+  }
+}
+
+private Dictionary<int, Dictionary<int,string>> ParseDugTerrain()
+{
+var dugTerrain = new Dictionary<int, Dictionary<int,string>>();
+dugTerrain[0] = Dictionary<int,string>();
+dugTerrain[0][0] = "";
+return dugTerrain;
+}
+
 }
 
 public class Day18Task2 : Day18Task1
