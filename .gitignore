@@ -399,3 +399,6 @@ FodyWeavers.xsd
 
 # AOC Inputs
 AdventOfCode2023/inputs/*
+
+# misc by a1v0
+.mono
