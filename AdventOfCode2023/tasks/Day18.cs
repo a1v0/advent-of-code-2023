@@ -41,6 +41,9 @@ public class Day18Task1 : BaseTask
         //   - empty trench empty trench trench trench empty = out in in in in in out
         //   (hopefully this'll work out!)
         // - quantity of "ins" is the area
+        
+        int area = CalculateArea();
+        return area.ToString();
     }
 }
 
