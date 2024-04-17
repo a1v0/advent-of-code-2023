@@ -61,12 +61,17 @@ private Dictionary<int, Dictionary<int,string>> DugTerrain
 
 private Dictionary<int, Dictionary<int,string>> ParseDugTerrain()
 {
+  Dictionary<int, Dictionary<int,string>> dugTerrain = CreateBlankTerrainMap();
+return dugTerrain;
+}
+
+private Dictionary<int, Dictionary<int,string>> CreateBlankTerrainMap()
+{
 var dugTerrain = new Dictionary<int, Dictionary<int,string>>();
 dugTerrain[0] = Dictionary<int,string>();
 dugTerrain[0][0] = "";
 return dugTerrain;
 }
-
 }
 
 public class Day18Task2 : Day18Task1
