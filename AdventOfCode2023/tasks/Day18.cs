@@ -62,6 +62,8 @@ public class Day18Task1 : BaseTask
 
     private void ParseInputToTerrain(Dictionary<int, Dictionary<int, string>> dugTerrain)
     {
+        (int x, int y) currentCoordinates = (0, 0);
+
         foreach (string inputRow in InputRows)
         {
             // dictionary to house all coordinates
@@ -84,3 +86,11 @@ public class Day18Task1 : BaseTask
 
 public class Day18Task2 : Day18Task1
 { }
+
+public class DigInstruction
+{
+    public DigInstruction(string input)
+    {
+        
+    }
+}
