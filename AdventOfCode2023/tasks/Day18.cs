@@ -90,6 +90,19 @@ public class Day18Task1 : BaseTask
         _digInstructions ??= GetDigInstructions();
         return _digInstructions;
     }
+
+    private DigInstruction[] GetDigInstructions()
+    {
+        List<DigInstruction> digInstructions = new();
+
+        foreach (string inputRow in InputRows)
+        {
+            DigInstruction currentDigInstruction = new(inputRow);
+            digInstructions.Add(currentDigInstruction);
+        }
+
+        return digInstructions.ToArray();
+    }
 }
 
 public class Day18Task2 : Day18Task1
