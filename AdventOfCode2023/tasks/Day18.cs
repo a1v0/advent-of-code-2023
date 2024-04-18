@@ -40,16 +40,9 @@ public class Day18Task1 : BaseTask
     {
         get
         {
-            _dugTerrain ??= ParseDugTerrain();
+            _dugTerrain ??= CreateBlankTerrainMap();
             return _dugTerrain;
         }
-    }
-
-    private Dictionary<int, Dictionary<int, string>> ParseDugTerrain()
-    {
-        Dictionary<int, Dictionary<int, string>> dugTerrain = CreateBlankTerrainMap();
-        ParseInputToTerrain(dugTerrain);
-        return dugTerrain;
     }
 
     private static Dictionary<int, Dictionary<int, string>> CreateBlankTerrainMap()
@@ -60,11 +53,11 @@ public class Day18Task1 : BaseTask
         return dugTerrain;
     }
 
-    private void ParseInputToTerrain(Dictionary<int, Dictionary<int, string>> dugTerrain)
+    private void DigTerrain(Dictionary<int, Dictionary<int, string>> dugTerrain)
     {
         (int x, int y) currentCoordinates = (0, 0);
 
-        foreach (string inputRow in InputRows)
+        foreach (DigInstruction digInstruction in DigInstructions)
         {
             // dictionary to house all coordinates
             // {
