@@ -95,7 +95,7 @@ public class Day18Task1 : BaseTask
         }
     }
 
-    private static (int, int) GetNewCoordinates(DigInstruction digInstruction, (int x, int y) currentCoordinates, int? amountOfSteps)
+    private static (int, int) GetNewCoordinates(DigInstruction digInstruction, (int x, int y) currentCoordinates, int? amountOfSteps = null)
     {
         amountOfSteps ??= digInstruction.AmountOfSteps;
         int amountOfStepsWithDirection = (int)amountOfSteps * digInstruction.DirectionCoefficient;
