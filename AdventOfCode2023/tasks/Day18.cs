@@ -172,7 +172,13 @@ public class DigInstruction
         HexColour = GetColour(input);
     }
 
-    public string Direction { get; }
+    private char Direction { get; }
     public int AmountOfSteps { get; }
     public string HexColour { get; }
+
+    private static char GetDirection(string input)
+    {
+        // U 2 (#7a21e3)
+        return input[0];
+    }
 }
