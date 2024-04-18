@@ -91,7 +91,9 @@ public class DigInstruction
 {
     public DigInstruction(string input)
     {
-        
+        Direction = GetDirection(input);
+        AmountOfSteps = GetSteps(input);
+        HexColour = GetColour(input);
     }
 
     public string Direction {get;}
