@@ -93,4 +93,6 @@ public class DigInstruction
     {
         
     }
+
+    public Direction {get;}
 }
