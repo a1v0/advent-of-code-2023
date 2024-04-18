@@ -176,6 +176,7 @@ public class DigInstruction
     private char Direction { get; }
     public int AmountOfSteps { get; }
     public string HexColour { get; }
+
     public bool IsHorizontal
     {
         get
@@ -183,11 +184,28 @@ public class DigInstruction
             return "LR".Contains(Direction);
         }
     }
+
     public bool IsVertical
     {
         get
         {
             return "UD".Contains(Direction);
+        }
+    }
+
+    /// <summary>
+    /// If the direction goes in a positive axial direction,
+    /// i.e. up or right, then the coefficient is 1. Else -1.
+    /// </summary>
+    public int DirectionCoefficient
+    {
+        get
+        {
+            int coefficient = 1;
+
+            if ("DL".Contains(Direction)) coefficient *= -1;
+
+            return coefficient;
         }
     }
 
