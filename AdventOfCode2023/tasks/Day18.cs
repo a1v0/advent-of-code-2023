@@ -183,6 +183,13 @@ public class DigInstruction
             return "LR".Contains(Direction);
         }
     }
+    public bool IsVertical
+    {
+        get
+        {
+            return "UD".Contains(Direction);
+        }
+    }
 
     private static char GetDirection(string input)
     {
