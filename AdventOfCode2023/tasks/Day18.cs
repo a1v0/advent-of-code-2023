@@ -116,6 +116,25 @@ public class Day18Task1 : BaseTask
         return (currentCoordinates.x + changeX, currentCoordinates.y + changeY);
     }
 
+    private void UpsertTerrain((int x, int y) coordinates, string hexColour)
+    {
+        bool hasRow = DugTerrain.ContainsKey(coordinates.y);
+        if (!hasRow)
+        {
+            DugTerrain.Add(coordinates.y, new Dictionary<int, string>());
+        }
+
+        Dictionary<int, string> row = DugTerrain[coordinates.y];
+        bool hasColumn = row.ContainsKey(coordinates.x);
+        if (!hasColumn)
+        {
+            row.Add(coordinates.x, hexColour);
+            return;
+        }
+
+        row[coordinates.x] = hexColour;
+    }
+
     private DigInstruction[]? _digInstructions;
 
     private DigInstruction[] DigInstructions
