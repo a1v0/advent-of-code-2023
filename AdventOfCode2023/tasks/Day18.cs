@@ -96,4 +96,5 @@ public class DigInstruction
 
     public string Direction {get;}
     public int AmountOfSteps {get;}
+    public string HexColour {get;}
 }
