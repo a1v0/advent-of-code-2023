@@ -63,20 +63,6 @@ public class Day18Task1 : BaseTask
 
         foreach (DigInstruction digInstruction in DigInstructions)
         {
-            // dictionary to house all coordinates
-            // {
-            //    rowNo: {
-            //        columnNo: hex colour string or null
-            //    }
-            // }
-            //
-            // start at { 0: { 0: "" } }
-            // if you go right, create a new dictionary entry, e.g. { 0: { 1: "#234545"} }
-            //
-            //
-            // create base data structure
-            // parse inputs using regex
-            // loop through inputs to fill in data structure
             DigTerrainSection(digInstruction, currentCoordinates);
 
             (int x, int y) newCoordinates = GetNewCoordinates(digInstruction, currentCoordinates);
