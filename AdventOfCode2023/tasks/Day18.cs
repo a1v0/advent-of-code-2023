@@ -1,3 +1,5 @@
+using System.Security.Cryptography.X509Certificates;
+
 namespace AdventOfCode2023;
 
 public class Day18 : BaseDay
@@ -76,7 +78,19 @@ public class Day18Task1 : BaseTask
             // loop through inputs to fill in data structure
             DigTerrainSection(digInstruction, currentCoordinates);
 
-            (int x, int y) newCoordinates = GetNewCoordinates(digInstruction);
+            (int x, int y) newCoordinates = GetNewCoordinates(digInstruction.Direction, currentCoordinates);
+            currentCoordinates = newCoordinates;
+        }
+    }
+
+    private static void DigTerrainSection(DigInstruction digInstruction, (int x, int y) currentCoordinates)
+    {
+        for (int i = 0; i < digInstruction.AmountOfSteps; ++i)
+        {
+            (int newX, int newY) newCoordinates = GetNewCoordinates(digInstruction.Direction, currentCoordinates, 1);
+
+            UpsertTerrain(newCoordinates, digInstruction.HexColour);
+
             currentCoordinates = newCoordinates;
         }
     }
