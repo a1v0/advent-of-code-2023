@@ -184,7 +184,6 @@ public class DigInstruction
 
     private static int GetSteps(string input)
     {
-        // U 2 (#7a21e3)
         string stepsRegexPattern = @"[0-9]+";
         var stepsRegex = new Regex(stepsRegexPattern);
 
@@ -192,5 +191,14 @@ public class DigInstruction
         string steps = foundSteps.Value;
 
         return int.Parse(steps);
+    }
+
+    private static string GetColour(string input)
+    {
+        string colourRegexPattern = @"#[a-z0-9]{6}";
+        var colourRegex = new Regex(colourRegexPattern);
+
+        Match foundColour = colourRegex.Match(input);
+        return foundColour.Value;
     }
 }
