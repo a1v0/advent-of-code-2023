@@ -17,6 +17,7 @@ public class Day18Task1 : BaseTask
 {
     public override string Solve()
     {
+        DigTerrain();
         int area = CalculateArea();
         return area.ToString();
     }
@@ -53,7 +54,7 @@ public class Day18Task1 : BaseTask
         return dugTerrain;
     }
 
-    private void DigTerrain(Dictionary<int, Dictionary<int, string>> dugTerrain)
+    private void DigTerrain()
     {
         (int x, int y) currentCoordinates = (0, 0);
 
@@ -73,6 +74,10 @@ public class Day18Task1 : BaseTask
             // create base data structure
             // parse inputs using regex
             // loop through inputs to fill in data structure
+            DigTerrainSection(digInstruction, currentCoordinates);
+
+            (int x, int y) newCoordinates = GetNewCoordinates(digInstruction);
+            currentCoordinates = newCoordinates;
         }
     }
 
