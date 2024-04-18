@@ -1,4 +1,5 @@
 using System.Security.Cryptography.X509Certificates;
+using System.Text.RegularExpressions;
 
 namespace AdventOfCode2023;
 
@@ -178,7 +179,18 @@ public class DigInstruction
 
     private static char GetDirection(string input)
     {
-        // U 2 (#7a21e3)
         return input[0];
+    }
+
+    private static int GetSteps(string input)
+    {
+        // U 2 (#7a21e3)
+        string stepsRegexPattern = @"[0-9]+";
+        var stepsRegex = new Regex(stepsRegexPattern);
+
+        Match foundSteps = stepsRegex.Match(input);
+        string steps = foundSteps.Value;
+
+        return int.Parse(steps);
     }
 }
