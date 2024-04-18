@@ -176,6 +176,13 @@ public class DigInstruction
     private char Direction { get; }
     public int AmountOfSteps { get; }
     public string HexColour { get; }
+    public bool IsHorizontal
+    {
+        get
+        {
+            return "LR".Contains(Direction);
+        }
+    }
 
     private static char GetDirection(string input)
     {
