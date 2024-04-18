@@ -78,21 +78,42 @@ public class Day18Task1 : BaseTask
             // loop through inputs to fill in data structure
             DigTerrainSection(digInstruction, currentCoordinates);
 
-            (int x, int y) newCoordinates = GetNewCoordinates(digInstruction.Direction, currentCoordinates);
+            (int x, int y) newCoordinates = GetNewCoordinates(digInstruction, currentCoordinates);
             currentCoordinates = newCoordinates;
         }
     }
 
-    private static void DigTerrainSection(DigInstruction digInstruction, (int x, int y) currentCoordinates)
+    private void DigTerrainSection(DigInstruction digInstruction, (int x, int y) currentCoordinates)
     {
         for (int i = 0; i < digInstruction.AmountOfSteps; ++i)
         {
-            (int newX, int newY) newCoordinates = GetNewCoordinates(digInstruction.Direction, currentCoordinates, 1);
+            (int x, int y) newCoordinates = GetNewCoordinates(digInstruction, currentCoordinates, 1);
 
             UpsertTerrain(newCoordinates, digInstruction.HexColour);
 
             currentCoordinates = newCoordinates;
         }
+    }
+
+    private static (int, int) GetNewCoordinates(DigInstruction digInstruction, (int x, int y) currentCoordinates, int? amountOfSteps)
+    {
+        amountOfSteps ??= digInstruction.AmountOfSteps;
+        int amountOfStepsWithDirection = (int)amountOfSteps * digInstruction.DirectionCoefficient;
+
+        int changeX = 0;
+        int changeY = 0;
+
+        if (digInstruction.IsHorizontal)
+        {
+            changeX = amountOfStepsWithDirection;
+        }
+
+        if (digInstruction.IsVertical)
+        {
+            changeY = amountOfStepsWithDirection;
+        }
+
+        return (currentCoordinates.x + changeX, currentCoordinates.y + changeY);
     }
 
     private DigInstruction[]? _digInstructions;
