@@ -82,6 +82,14 @@ public class Day18Task1 : BaseTask
             // loop through inputs to fill in data structure
         }
     }
+
+    private DigInstruction[]? _digInstructions;
+
+    private DigInstruction[] DigInstructions 
+    {
+        _digInstructions ??= GetDigInstructions();
+        return _digInstructions;
+    }
 }
 
 public class Day18Task2 : Day18Task1
