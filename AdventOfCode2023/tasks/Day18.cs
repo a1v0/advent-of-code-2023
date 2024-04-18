@@ -85,10 +85,13 @@ public class Day18Task1 : BaseTask
 
     private DigInstruction[]? _digInstructions;
 
-    private DigInstruction[] DigInstructions 
+    private DigInstruction[] DigInstructions
     {
-        _digInstructions ??= GetDigInstructions();
-        return _digInstructions;
+        get
+        {
+            _digInstructions ??= GetDigInstructions();
+            return _digInstructions;
+        }
     }
 
     private DigInstruction[] GetDigInstructions()
@@ -117,7 +120,7 @@ public class DigInstruction
         HexColour = GetColour(input);
     }
 
-    public string Direction {get;}
-    public int AmountOfSteps {get;}
-    public string HexColour {get;}
+    public string Direction { get; }
+    public int AmountOfSteps { get; }
+    public string HexColour { get; }
 }
