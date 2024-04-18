@@ -94,5 +94,6 @@ public class DigInstruction
         
     }
 
-    public Direction {get;}
+    public string Direction {get;}
+    public int AmountOfSteps {get;}
 }
