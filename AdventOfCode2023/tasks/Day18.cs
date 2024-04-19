@@ -35,12 +35,41 @@ public class Day18Task1 : BaseTask
         }
 
         return totalArea;
+    }
 
-        // calculate area:
-        // - move top to bottom, left to right, through the rows
-        // - note the direction at point of entry (up or down)
-        //   - if the direction changes, i.e. if you enter on a corner, note the "direction" of the corner: going diagonally up or down
-        // - move across, counting every square as you go, until you reach another dug square going in an opposite direction
+    private int CalculateAreaInRow(int rowNumber)
+    {
+        int totalArea = 0;
+
+        Dictionary<int, TerrainNode> row = DugTerrain[rowNumber];
+
+        int[] rowIndexes = row.Keys.ToArray();
+        (int first, int last) rowExtremities = (rowIndexes.Min(), rowIndexes.Max());
+
+        char direction = row[rowExtremities.first].Direction;
+        bool currentSquareIsInside = true; // the leftmost square always opens the row
+
+        for (int i = rowExtremities.first; i <= rowExtremities.last; ++i)
+        {
+            bool keyExists = row.ContainsKey(i);
+
+            if (!keyExists)
+            {
+                if (currentSquareIsInside) ++totalArea;
+                continue;
+            }
+
+            ++totalArea;
+
+            TerrainNode square = row[i];
+            if ("LR".Contains(square.Direction)) continue;
+            if (square.Direction == direction) continue;
+
+            direction = square.Direction;
+            currentSquareIsInside = !currentSquareIsInside;
+        }
+
+        return totalArea;
     }
 
     private Dictionary<int, Dictionary<int, TerrainNode>>? _dugTerrain;
