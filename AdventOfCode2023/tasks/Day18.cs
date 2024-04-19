@@ -223,4 +223,7 @@ public class TerrainNode
         Direction = direction;
         HexColour = hexColour;
     }
+
+    public char Direction { get; }
+    public string HexColour { get; }
 }
