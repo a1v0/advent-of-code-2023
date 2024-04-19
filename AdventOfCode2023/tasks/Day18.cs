@@ -29,8 +29,6 @@ public class Day18Task1 : BaseTask
     {
         // calculate area:
         // - refactor data structure so that, instead of a string of hex colour, we have a new class containing direction as well as hex
-        //   - direction needs to be more sophisticated, if poss, than the four directions given byt he input
-        //   - places where the direction changes need to be marked somehow (unless there's a way around this)
         //   - the starting point, (0,0), doesn't have any direction, so needs to be added at the end
         // - move top to bottom, left to right, through the rows
         // - note the direction at point of entry (up or down)
