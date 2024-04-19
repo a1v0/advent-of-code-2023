@@ -27,16 +27,15 @@ public class Day18Task1 : BaseTask
     private int CalculateArea()
     {
         // calculate area:
-        // - refactor data structure so that, instead of a string of hex colour, we have a new class containing direction as well as hex
         // - move top to bottom, left to right, through the rows
         // - note the direction at point of entry (up or down)
         //   - if the direction changes, i.e. if you enter on a corner, note the "direction" of the corner: going diagonally up or down
         // - move across, counting every square as you go, until you reach another dug square going in an opposite direction
     }
 
-    private Dictionary<int, Dictionary<int, string>>? _dugTerrain;
+    private Dictionary<int, Dictionary<int, TerrainNode>>? _dugTerrain;
 
-    private Dictionary<int, Dictionary<int, string>> DugTerrain
+    private Dictionary<int, Dictionary<int, TerrainNode>> DugTerrain
     {
         get
         {
@@ -45,9 +44,9 @@ public class Day18Task1 : BaseTask
         }
     }
 
-    private static Dictionary<int, Dictionary<int, string>> CreateBlankTerrainMap()
+    private static Dictionary<int, Dictionary<int, TerrainNode>> CreateBlankTerrainMap()
     {
-        var dugTerrain = new Dictionary<int, Dictionary<int, string>>();
+        var dugTerrain = new Dictionary<int, Dictionary<int, TerrainNode>>();
         return dugTerrain;
     }
 
@@ -70,7 +69,9 @@ public class Day18Task1 : BaseTask
         {
             (int x, int y) newCoordinates = GetNewCoordinates(digInstruction, currentCoordinates, 1);
 
-            UpsertTerrain(newCoordinates, digInstruction.HexColour);
+            TerrainNode newNode = new(digInstruction.Direction, digInstruction.HexColour);
+
+            UpsertTerrain(newCoordinates, newNode);
 
             currentCoordinates = newCoordinates;
         }
@@ -97,23 +98,23 @@ public class Day18Task1 : BaseTask
         return (currentCoordinates.x + changeX, currentCoordinates.y + changeY);
     }
 
-    private void UpsertTerrain((int x, int y) coordinates, string hexColour)
+    private void UpsertTerrain((int x, int y) coordinates, TerrainNode terrainNode)
     {
         bool hasRow = DugTerrain.ContainsKey(coordinates.y);
         if (!hasRow)
         {
-            DugTerrain.Add(coordinates.y, new Dictionary<int, string>());
+            DugTerrain.Add(coordinates.y, new Dictionary<int, TerrainNode>());
         }
 
-        Dictionary<int, string> row = DugTerrain[coordinates.y];
+        Dictionary<int, TerrainNode> row = DugTerrain[coordinates.y];
         bool hasColumn = row.ContainsKey(coordinates.x);
         if (!hasColumn)
         {
-            row.Add(coordinates.x, hexColour);
+            row.Add(coordinates.x, terrainNode);
             return;
         }
 
-        row[coordinates.x] = hexColour;
+        row[coordinates.x] = terrainNode;
     }
 
     private DigInstruction[]? _digInstructions;
@@ -153,7 +154,7 @@ public class DigInstruction
         HexColour = GetColour(input);
     }
 
-    private char Direction { get; }
+    public char Direction { get; }
     public int AmountOfSteps { get; }
     public string HexColour { get; }
 
