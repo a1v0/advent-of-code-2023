@@ -61,11 +61,11 @@ public class Day18Task1 : BaseTask
 
             ++totalArea;
 
-            TerrainNode square = row[i];
-            if ("LR".Contains(square.Direction)) continue;
-            if (square.Direction == direction) continue;
+            TerrainNode dugSquare = row[i];
+            if ("LR".Contains(dugSquare.Direction)) continue;
+            if (dugSquare.Direction == direction) continue;
 
-            direction = square.Direction;
+            direction = dugSquare.Direction;
             currentSquareIsInside = !currentSquareIsInside;
         }
 
