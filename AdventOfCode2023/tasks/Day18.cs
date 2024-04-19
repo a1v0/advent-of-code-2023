@@ -29,7 +29,6 @@ public class Day18Task1 : BaseTask
     {
         // calculate area:
         // - refactor data structure so that, instead of a string of hex colour, we have a new class containing direction as well as hex
-        //   - the starting point, (0,0), doesn't have any direction, so needs to be added at the end
         // - move top to bottom, left to right, through the rows
         // - note the direction at point of entry (up or down)
         //   - if the direction changes, i.e. if you enter on a corner, note the "direction" of the corner: going diagonally up or down
@@ -214,5 +213,14 @@ public class DigInstruction
 
         Match foundColour = colourRegex.Match(input);
         return foundColour.Value;
+    }
+}
+
+public class TerrainNode
+{
+    public TerrainNode(char direction, string hexColour)
+    {
+        Direction = direction;
+        HexColour = hexColour;
     }
 }
