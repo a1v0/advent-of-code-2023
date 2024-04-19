@@ -24,6 +24,18 @@ public class Day18Task1 : BaseTask
 
     private int CalculateArea()
     {
+        int totalArea = 0;
+
+        int[] rowNumbers = DugTerrain.Keys.ToArray();
+        Array.Sort(rowNumbers);
+
+        foreach (int rowNumber in rowNumbers)
+        {
+            totalArea += CalculateAreaInRow(rowNumber);
+        }
+
+        return totalArea;
+
         // calculate area:
         // - move top to bottom, left to right, through the rows
         // - note the direction at point of entry (up or down)
