@@ -63,15 +63,15 @@ public class Day18Task1 : BaseTask
         }
     }
 
-    private void DigTerrainSection(DigInstruction digInstruction, (int x, int y) currentCoordinates)
+    private void DigTerrainSection(DigInstruction digInstruction, (int, int) currentCoordinates)
     {
         for (int i = 0; i < digInstruction.AmountOfSteps; ++i)
         {
-            (int x, int y) newCoordinates = GetNewCoordinates(digInstruction, currentCoordinates, 1);
+            (int, int) newCoordinates = GetNewCoordinates(digInstruction, currentCoordinates, 1);
 
-            TerrainNode newNode = new(digInstruction.Direction, digInstruction.HexColour);
+            var newNode = new TerrainNode(digInstruction.Direction, digInstruction.HexColour);
 
-            UpsertTerrain(newCoordinates, newNode);
+            UpsertDugTerrain(newCoordinates, newNode);
 
             currentCoordinates = newCoordinates;
         }
@@ -98,7 +98,7 @@ public class Day18Task1 : BaseTask
         return (currentCoordinates.x + changeX, currentCoordinates.y + changeY);
     }
 
-    private void UpsertTerrain((int x, int y) coordinates, TerrainNode terrainNode)
+    private void UpsertDugTerrain((int x, int y) coordinates, TerrainNode terrainNode)
     {
         bool hasRow = DugTerrain.ContainsKey(coordinates.y);
         if (!hasRow)
