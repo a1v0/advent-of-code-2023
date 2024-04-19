@@ -28,14 +28,14 @@ public class Day18Task1 : BaseTask
     private int CalculateArea()
     {
         // calculate area:
-        // - loop through rows
-        // - start at leftmost position in the row
-        // - count to the right
-        //   - empty trench empty trench empty = out in in in out
-        //   - empty trench trench trench empty = out in in in out
-        //   - empty trench empty trench trench trench empty = out in in in in in out
-        //   (hopefully this'll work out!)
-        // - quantity of "ins" is the area
+        // - refactor data structure so that, instead of a string of hex colour, we have a new class containing direction as well as hex
+        //   - direction needs to be more sophisticated, if poss, than the four directions given byt he input
+        //   - places where the direction changes need to be marked somehow (unless there's a way around this)
+        //   - the starting point, (0,0), doesn't have any direction, so needs to be added at the end
+        // - move top to bottom, left to right, through the rows
+        // - note the direction at point of entry (up or down)
+        //   - if the direction changes, i.e. if you enter on a corner, note the "direction" of the corner: going diagonally up or down
+        // - move across, counting every square as you go, until you reach another dug square going in an opposite direction
     }
 
     private Dictionary<int, Dictionary<int, string>>? _dugTerrain;
