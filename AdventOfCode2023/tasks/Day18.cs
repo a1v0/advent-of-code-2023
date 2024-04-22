@@ -18,13 +18,13 @@ public class Day18Task1 : BaseTask
     public override string Solve()
     {
         DigTerrain();
-        int area = CalculateArea();
+        long area = CalculateArea();
         return area.ToString();
     }
 
-    private int CalculateArea()
+    private long CalculateArea()
     {
-        int totalArea = 0;
+        long totalArea = 0;
 
         int[] rowNumbers = DugTerrain.Keys.ToArray();
         Array.Sort(rowNumbers);
@@ -37,7 +37,7 @@ public class Day18Task1 : BaseTask
         return totalArea;
     }
 
-    private int CalculateAreaInRow(int rowNumber)
+    private long CalculateAreaInRow(int rowNumber)
     {
         // 
         // 
@@ -71,6 +71,7 @@ public class Day18Task1 : BaseTask
         // 
         // 
         // 
+        return;
         int totalArea = 0;
 
         Dictionary<int, TerrainNode> row = DugTerrain[rowNumber];
