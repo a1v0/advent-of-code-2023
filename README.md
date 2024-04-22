@@ -27,7 +27,7 @@ This repo uses xUnit for testing, though my tests aren't particularly extensive.
 | 15  | ⭐    | ⭐     |       |
 | 16  | ⭐    | ⭐     |       |
 | 17  | ❌    |        | Something's not quite right. Plus, once I fix that, my code will be too slow. |
-<!-- | 18  |        |        |       | -->
+| 18  | ⭐    | ❌     | The numbers are pretty huge for Part 2. My computer is calculating the area at ca. 100 rows per second, which, when you assume about 2.3mi rows, means a six-hour runtime... And that's just for the test! |
 <!-- | 19  |        |        |       | -->
 <!-- | 20  |        |        |       | -->
 <!-- | 21  |        |        |       | -->
