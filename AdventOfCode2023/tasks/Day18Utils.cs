@@ -81,6 +81,6 @@ public class TerrainNode
         HexColour = hexColour;
     }
 
-    public char Direction { get; }
+    public char Direction { get; set; }
     public string HexColour { get; }
 }
