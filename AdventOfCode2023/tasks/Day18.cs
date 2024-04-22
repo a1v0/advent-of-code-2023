@@ -160,52 +160,6 @@ public class Day18Task1 : BaseTask
 
     private void RenameCorners()
     {
-        //                  U R R 
-        //                  U   D R
-        //                  U     D
-        // starting point > U   L D
-        //                  U   D 
-        //                  L L D 
-        // 
-        // the quick patch over the crack might be to use a FindCorners method that goes through the data structure
-        // to find any R or L nodes with only one neighbour.
-        // 
-        // Check above and below the corner. Corners can have only one node above or below. Copy the direction of
-        // that node and set it as the corner.
-
-        // 
-        // loop through nodes
-        // check for horizontal neighbour
-        // if horizontal neighbour, check for vertical neighbour
-        // overwrite direction with vertical neighbour's direction
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-
         foreach (KeyValuePair<int, Dictionary<int, TerrainNode>> row in DugTerrain)
         {
             int rowNo = row.Key;
