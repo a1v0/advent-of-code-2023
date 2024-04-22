@@ -318,4 +318,18 @@ public class Day18Task2 : Day18Task1
                 throw new Exception($"Invalid final digit in hex string {hex}.");
         }
     }
+
+    private static long GetDistanceFromHex(string hex)
+    {
+        string distanceHex = "";
+
+        for (int i = 1; i < 6; ++i)
+        {
+            // this is a bit of a clunky way of extracting the middle five characters of 'hex'
+            distanceHex += hex[i];
+        }
+
+        long decimalDistance = Convert.ToInt64(distanceHex, 16);
+        return decimalDistance;
+    }
 }
