@@ -262,4 +262,17 @@ public class Day18Task2 : Day18Task1
             return _enlargedInputRows;
         }
     }
+
+    private string[] GetEnlargedInputRows()
+    {
+        var enlargedInputRows = new List<string>();
+
+        foreach (string inputRow in InputRows)
+        {
+            string enlargedInputRow = GetEnlargedInputRow(inputRow);
+            enlargedInputRows.Add(enlargedInputRow);
+        }
+
+        return enlargedInputRows.ToArray();
+    }
 }
