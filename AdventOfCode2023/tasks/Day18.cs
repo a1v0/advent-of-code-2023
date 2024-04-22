@@ -227,30 +227,6 @@ public class Day18Task2 : Day18Task1
         }
 
         return digInstructions.ToArray();
-
-        // create methods to parse input into updated input
-        // override GetDigInstructions to make use of new value
-        // might need to change return types from int to something larger in Task 1
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
     }
 
     private string[]? _enlargedInputRows;
