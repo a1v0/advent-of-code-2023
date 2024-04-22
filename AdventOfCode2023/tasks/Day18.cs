@@ -39,6 +39,38 @@ public class Day18Task1 : BaseTask
 
     private int CalculateAreaInRow(int rowNumber)
     {
+        // 
+        // 
+        // instead of looping through every conceivable column number,
+        // turn each row's keys into a sorted array. To get the distance
+        // between two nodes, just do basic subtraction.
+        // 
+        // should be a simple enough refactor, and it should reduce running
+        // time by a decent bit. Still, it won't be anywhere near quick
+        // enough to solve this task in a reasonable time.
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
         int totalArea = 0;
 
         Dictionary<int, TerrainNode> row = DugTerrain[rowNumber];
@@ -258,6 +290,31 @@ public class Day18Task2 : Day18Task1
         // extract distance and convert to decimal
         // extract last digit and convert to direction
         // create string in correct format and return
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
         // 
         // 
         // 
