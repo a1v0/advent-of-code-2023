@@ -188,6 +188,51 @@ public class Day18Task1 : BaseTask
         // 
         // 
         // 
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+
+        foreach (KeyValuePair<int, Dictionary<int, TerrainNode>> row in DugTerrain)
+        {
+            int rowNo = row.Key;
+
+            foreach (KeyValuePair<int, TerrainNode> column in row.Value)
+            {
+                int colNo = column.Key;
+
+                bool hasLeftNeighbour = row.Value.ContainsKey(colNo - 1);
+                bool hasRightNeighbour = row.Value.ContainsKey(colNo + 1);
+                if (!hasLeftNeighbour && !hasRightNeighbour) continue;
+
+                bool hasUpperNeighbour = DugTerrain.ContainsKey(rowNo - 1) && DugTerrain[rowNo - 1].ContainsKey(colNo);
+                bool hasLowerNeighbour = DugTerrain.ContainsKey(rowNo + 1) && DugTerrain[rowNo + 1].ContainsKey(colNo);
+
+                if (!hasUpperNeighbour && !hasLowerNeighbour) continue;
+
+                if (hasUpperNeighbour)
+                {
+                    column.Value.Direction = DugTerrain[rowNo - 1][colNo].Direction;
+                }
+                else if (hasLowerNeighbour)
+                {
+                    column.Value.Direction = DugTerrain[rowNo + 1][colNo].Direction;
+                }
+            }
+        }
     }
 
     private DigInstruction[]? _digInstructions;
