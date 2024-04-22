@@ -71,35 +71,51 @@ public class Day18Task1 : BaseTask
         // 
         // 
         // 
-        return;
-        int totalArea = 0;
-
+        long totalArea = 1;// start at 1 because of leftmost tile
         Dictionary<int, TerrainNode> row = DugTerrain[rowNumber];
+        int[] rowKeys = row.Keys.ToArray();
+        Array.Sort(rowKeys);
 
-        int[] rowIndexes = row.Keys.ToArray();
-        (int first, int last) rowExtremities = (rowIndexes.Min(), rowIndexes.Max());
-
-        char direction = row[rowExtremities.first].Direction;
+        char direction = row[rowKeys[0]].Direction;
         bool currentSquareIsInside = true; // the leftmost square always opens the row
 
-        for (int i = rowExtremities.first; i <= rowExtremities.last; ++i)
+        for (int rowKey = 1; rowKey < rowKeys.Length; ++rowKey)
         {
-            bool keyExists = row.ContainsKey(i);
-
-            if (!keyExists)
-            {
-                if (currentSquareIsInside) ++totalArea;
-                continue;
-            }
-
-            ++totalArea;
-
-            TerrainNode dugSquare = row[i];
-            if ("LR".Contains(dugSquare.Direction)) continue;
-            if (dugSquare.Direction == direction) continue;
-
-            direction = dugSquare.Direction;
-            currentSquareIsInside = !currentSquareIsInside;
+            // if we're inside: calculate distance between two nodes, including the current node, but not the starting point
+            // if we're outside, just add 1 for current node
+            // 
+            // check if node is horizontal. If so, continue
+            // if it's vertical but direction is same, continue
+            // if vertical and direction changes, reverse in/out status
+            // 
+            // 
+            // 
+            // 
+            // 
+            // 
+            // 
+            // 
+            // 
+            // 
+            // 
+            // 
+            // 
+            // 
+            // 
+            // 
+            // 
+            // 
+            // 
+            // 
+            // 
+            // 
+            // 
+            // 
+            // 
+            // 
+            // 
+            // 
+            // 
         }
 
         return totalArea;
