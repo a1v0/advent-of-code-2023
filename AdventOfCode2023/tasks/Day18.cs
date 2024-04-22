@@ -200,7 +200,7 @@ public class Day18Task1 : BaseTask
         }
     }
 
-    private DigInstruction[] GetDigInstructions()
+    protected virtual DigInstruction[] GetDigInstructions()
     {
         List<DigInstruction> digInstructions = new();
 
@@ -215,4 +215,41 @@ public class Day18Task1 : BaseTask
 }
 
 public class Day18Task2 : Day18Task1
-{ }
+{
+    protected override DigInstruction[] GetDigInstructions()
+    {
+        List<DigInstruction> digInstructions = new();
+
+        foreach (string inputRow in EnlargedInputRows)
+        {
+            DigInstruction currentDigInstruction = new(inputRow);
+            digInstructions.Add(currentDigInstruction);
+        }
+
+        return digInstructions.ToArray();
+
+        // create methods to parse input into updated input
+        // override GetDigInstructions to make use of new value
+        // might need to change return types from int to something larger in Task 1
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+    }
+}
