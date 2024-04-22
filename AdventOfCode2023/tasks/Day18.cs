@@ -295,25 +295,25 @@ public class Day18Task2 : Day18Task1
         var inputInstruction = new DigInstruction(input);
         string hex = inputInstruction.HexColour;
 
-        string direction = GetDirectionFromHex(hex);
+        char direction = GetDirectionFromHex(hex);
         long distance = GetDistanceFromHex(hex);
 
         return $"{direction} {distance} ({hex})";
     }
 
-    private static string GetDirectionFromHex(string hex)
+    private static char GetDirectionFromHex(string hex)
     {
         char lastDigit = hex.Last();
         switch (lastDigit)
         {
             case '0':
-                return "R";
+                return 'R';
             case '1':
-                return "D";
+                return 'D';
             case '2':
-                return "L";
+                return 'L';
             case '3':
-                return "U";
+                return 'U';
             default:
                 throw new Exception($"Invalid final digit in hex string {hex}.");
         }
