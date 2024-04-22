@@ -252,4 +252,14 @@ public class Day18Task2 : Day18Task1
         // 
         // 
     }
+
+    private string[]? _enlargedInputRows;
+    private string[] EnlargedInputRows
+    {
+        get
+        {
+            _enlargedInputRows ??= GetEnlargedInputRows();
+            return _enlargedInputRows;
+        }
+    }
 }
