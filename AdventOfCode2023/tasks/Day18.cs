@@ -276,7 +276,7 @@ public class Day18Task2 : Day18Task1
         return enlargedInputRows.ToArray();
     }
 
-    private string GetEnlargedInputRow(string input)
+    private static string GetEnlargedInputRow(string input)
     {
         // convert to DigInstruction to extract hex colour
         // extract distance and convert to decimal
@@ -292,5 +292,12 @@ public class Day18Task2 : Day18Task1
         // 
         // 
         // 
+        var inputInstruction = new DigInstruction(input);
+        string hex = inputInstruction.HexColour;
+
+        long distance = GetDistanceFromHex(hex);
+        string direction = GetDirectionFromHex(hex);
+
+        return $"{direction} {distance} ({hex})";
     }
 }
