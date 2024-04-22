@@ -248,6 +248,44 @@ public class Day18Task1 : BaseTask
 
 public class Day18Task2 : Day18Task1
 {
+    // 
+    // 
+    // 
+    // 
+    // idea for speeding things up:
+    // what if we got rid of every single horizontal node?
+    // Use RenameCorners method to find all corners, but create
+    // and store corners inside new object. Since the changes
+    // in vertical direction are all we're truly interested in,
+    // this approach should do the trick.
+    // 
+    // 
+    // 
+    // 
+    // 
+    // 
+    // 
+    // 
+    // 
+    // 
+    // 
+    // 
+    // 
+    // 
+    // 
+    // 
+    // 
+    // 
+    // 
+    // 
+    // 
+    // 
+    // 
+    // 
+    // 
+    // 
+    // 
+    // 
     protected override DigInstruction[] GetDigInstructions()
     {
         List<DigInstruction> digInstructions = new();
