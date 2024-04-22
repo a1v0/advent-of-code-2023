@@ -324,45 +324,6 @@ public class Day18Task2 : Day18Task1
 
     private static string GetEnlargedInputRow(string input)
     {
-        // convert to DigInstruction to extract hex colour
-        // extract distance and convert to decimal
-        // extract last digit and convert to direction
-        // create string in correct format and return
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
         var inputInstruction = new DigInstruction(input);
         string hex = inputInstruction.HexColour;
 
