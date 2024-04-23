@@ -30,6 +30,23 @@ public class Day18Task1 : BaseTask
         }
     }
 
+    private Dictionary<int, Dictionary<int, TerrainNode>> GetTerrainMap()
+    {
+        DigInstruction[] digInstructions = GetDigInstructions();
+    }
+
+    private DigInstruction[] GetDigInstructions()
+    {
+        var digInstructions = new List<DigInstruction>();
+
+        foreach (string inputRow in InputRows)
+        {
+            var digInstruction = new DigInstruction(inputRow);
+            digInstructions.Add(digInstruction);
+        }
+
+        return digInstructions.ToArray();
+    }
 }
 
 public class Day18Task2 : Day18Task1 { }
