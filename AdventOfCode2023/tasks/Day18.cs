@@ -21,6 +21,32 @@ public class Day18Task1 : BaseTask
         return area.ToString();
     }
 
+    private long CalculateArea()
+    {
+        long area = 0;
+        int? lastRowNumber;
+        var openCorners = new Dictionary<int, TerrainNode>();
+
+        foreach (KeyValuePair<int, Dictionary<int, TerrainNode>> row in TerrainMap)
+        {
+            int areaOfCornerRow = GetAreaOfCornerRow(row.Value);
+
+            UpdateOpenCorners(row.Value);
+
+            int areaOfNormalRow = GetAreaOfNormalRow(openCorners);
+            int rowsToAdd = GetRowsBetweenCorners(lastRowNumber, row.Key);
+            int areaOfNormalRows = areaOfNormalRow * rowsToAdd;
+
+            int areaToAdd = areaOfNormalRows + areaOfCornerRow;
+
+            area += areaToAdd;
+
+            lastRowNumber = row.Key;
+        }
+
+        return area;
+    }
+
     private Dictionary<int, Dictionary<int, TerrainNode>>? _terrainMap;
     private Dictionary<int, Dictionary<int, TerrainNode>> TerrainMap
     {
