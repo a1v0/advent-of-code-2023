@@ -69,7 +69,7 @@ public class Day18Task1 : BaseTask
             DigInstruction? nextDigInstruction = i < digInstructions.Length - 1 ? digInstructions[i + 1] : null;
 
             (int x, int y) newCoordinates = GetNewCoordinates(digInstruction, currentCoordinates);
-            char cornerDirection = GetCornerDirection(digInstruction, nextDigInstruction);
+            char cornerDirection = GetCornerDirection(digInstruction.Direction, nextDigInstruction.Direction);
 
             AddCornerToTerrain(terrainMap, newCoordinates, cornerDirection);
 
