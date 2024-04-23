@@ -15,13 +15,13 @@ public class DigInstruction
     public int AmountOfSteps { get; }
     // public string HexColour { get; }
 
-    // public bool IsHorizontal
-    // {
-    //     get
-    //     {
-    //         return "LR".Contains(Direction);
-    //     }
-    // }
+    public bool IsHorizontal
+    {
+        get
+        {
+            return "LR".Contains(Direction);
+        }
+    }
 
     // public bool IsVertical
     // {
