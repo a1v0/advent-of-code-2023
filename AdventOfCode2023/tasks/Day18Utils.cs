@@ -7,12 +7,12 @@ public class DigInstruction
     public DigInstruction(string input)
     {
         Direction = GetDirection(input);
-        // AmountOfSteps = GetSteps(input);
+        AmountOfSteps = GetSteps(input);
         // HexColour = GetColour(input);
     }
 
     public char Direction { get; }
-    // public int AmountOfSteps { get; }
+    public int AmountOfSteps { get; }
     // public string HexColour { get; }
 
     // public bool IsHorizontal
@@ -52,16 +52,16 @@ public class DigInstruction
         return input[0];
     }
 
-    // private static int GetSteps(string input)
-    // {
-    //     string stepsRegexPattern = @"[0-9]+";
-    //     var stepsRegex = new Regex(stepsRegexPattern);
+    private static int GetSteps(string input)
+    {
+        string stepsRegexPattern = @"[0-9]+";
+        var stepsRegex = new Regex(stepsRegexPattern);
 
-    //     Match foundSteps = stepsRegex.Match(input);
-    //     string steps = foundSteps.Value;
+        Match foundSteps = stepsRegex.Match(input);
+        string steps = foundSteps.Value;
 
-    //     return int.Parse(steps);
-    // }
+        return int.Parse(steps);
+    }
 
     // private static string GetColour(string input)
     // {
