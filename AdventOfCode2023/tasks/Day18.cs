@@ -23,12 +23,20 @@ public class Day18Task1 : BaseTask
 
     private long CalculateArea()
     {
-        long area = 0;
+        long area = 0; // REFACTOR THIS AS A PROPERTY ON THE CLASS
         int? lastRowNumber;
-        var openCorners = new Dictionary<int, TerrainNode>();
+        var openCorners = new Dictionary<int, TerrainNode>(); // REFACTOR THIS AS A PROPERTY ON THE CLASS
 
         foreach (KeyValuePair<int, Dictionary<int, TerrainNode>> row in TerrainMap)
         {
+            // 
+            // 
+            // there's a chance that this loop won't occur in numerical order
+            // perhaps loop over the keys?
+            // 
+            // 
+            // 
+            // 
             int areaOfCornerRow = GetAreaOfCornerRow(row.Value);
 
             UpdateOpenCorners(row.Value);
