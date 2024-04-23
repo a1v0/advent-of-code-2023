@@ -23,13 +23,13 @@ public class DigInstruction
         }
     }
 
-    // public bool IsVertical
-    // {
-    //     get
-    //     {
-    //         return "UD".Contains(Direction);
-    //     }
-    // }
+    public bool IsVertical
+    {
+        get
+        {
+            return "UD".Contains(Direction);
+        }
+    }
 
     // /// <summary>
     // /// If the direction goes in a positive axial direction,
