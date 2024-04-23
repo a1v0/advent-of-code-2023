@@ -76,6 +76,26 @@ public class Day18Task1 : BaseTask
             currentCoordinates = newCoordinates;
         }
     }
+
+    private static (int, int) GetNewCoordinates(DigInstruction digInstruction, (int x, int y) coordinates)
+    {
+        int amountOfStepsWithDirection = digInstruction.AmountOfSteps * digInstruction.DirectionCoefficient;
+
+        int changeX = 0;
+        int changeY = 0;
+
+        if (digInstruction.IsHorizontal)
+        {
+            changeX = amountOfStepsWithDirection;
+        }
+
+        if (digInstruction.IsVertical)
+        {
+            changeY = amountOfStepsWithDirection;
+        }
+
+        return (coordinates.x + changeX, coordinates.y + changeY);
+    }
 }
 
 public class Day18Task2 : Day18Task1 { }
