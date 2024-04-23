@@ -106,6 +106,21 @@ public class Day18Task1 : BaseTask
 
         return (char)nextDirection;
     }
+
+    private static void AddCornerToTerrain(Dictionary<int, Dictionary<int, TerrainNode>> terrainMap, (int x, int y) coordinates, char direction)
+    {
+        bool hasRow = terrainMap.ContainsKey(coordinates.y);
+        if (!hasRow)
+        {
+            terrainMap.Add(coordinates.y, new Dictionary<int, TerrainNode>());
+        }
+
+        Dictionary<int, TerrainNode> row = terrainMap[coordinates.y];
+
+        var corner = new TerrainNode(direction);
+
+        row.Add(coordinates.x, corner);
+    }
 }
 
 public class Day18Task2 : Day18Task1 { }
