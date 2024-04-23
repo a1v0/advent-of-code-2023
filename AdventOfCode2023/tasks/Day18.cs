@@ -58,6 +58,24 @@ public class Day18Task1 : BaseTask
 
         return digInstructions.ToArray();
     }
+
+    private static void PopulateTerrainMap(Dictionary<int, Dictionary<int, TerrainNode>> terrainMap, DigInstruction[] digInstructions)
+    {
+        (int x, int y) currentCoordinates = (0, 0);
+
+        for (int i = 0; i < digInstructions.Length; ++i)
+        {
+            DigInstruction digInstruction = digInstructions[i];
+            DigInstruction? nextDigInstruction = i < digInstructions.Length - 1 ? digInstructions[i + 1] : null;
+
+            (int x, int y) newCoordinates = GetNewCoordinates(digInstruction, currentCoordinates);
+            char cornerDirection = GetCornerDirection(digInstruction, nextDigInstruction);
+
+            AddCornerToTerrain(terrainMap, newCoordinates, cornerDirection);
+
+            currentCoordinates = newCoordinates;
+        }
+    }
 }
 
 public class Day18Task2 : Day18Task1 { }
