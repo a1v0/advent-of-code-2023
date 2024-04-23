@@ -279,11 +279,11 @@ public class Day18Task2 : Day18Task1
     // 
     // 
     // 
-    // 
-    // 
-    // 
-    // 
-    // 
+    // better idea to speed things up (but it'll require a rewrite of much of the solution so far):
+    // get rid of everything except the corners. Not even any non-corner vertical segments
+    // start on the top row. use the corners to work out the amount of area per row
+    // go to the next row with corners. count the y-axis difference and multiply first row's area by that
+    // rinse and repeat
     // 
     // 
     // 
