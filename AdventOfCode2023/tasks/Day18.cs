@@ -303,6 +303,31 @@ public class Day18Task2 : Day18Task1
     // 
     // 
     // 
+    // 
+    // 
+    // to achieve all this, we'll need to change how we parse the input
+    // - instead of mapping out every single piece of input, we just need to put the corners somewhere
+    // - the end of every up or down section is always a corner whose direction is already correct
+    // - the end of every right or left section is a corner but the direction is wrong
+    //   - when parsing, horizontal tiles should take the direction of the following vertical section
+    // 
+    // 
+    // 
+    // 
+    // 
+    // 
+    // 
+    // 
+    // 
+    // 
+    // 
+    // 
+    // 
+    // 
+    // 
+    // 
+    // 
+    // 
     protected override DigInstruction[] GetDigInstructions()
     {
         List<DigInstruction> digInstructions = new();
