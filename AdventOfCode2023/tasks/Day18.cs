@@ -285,19 +285,19 @@ public class Day18Task2 : Day18Task1
     // go to the next row with corners. count the y-axis difference and multiply first row's area by that
     // rinse and repeat
     // 
-    // 
-    // 
-    // 
-    // 
-    // 
-    // 
-    // 
-    // 
-    // 
-    // 
-    // 
-    // 
-    // 
+    // things to pay heed to:
+    // - a vertical column is always 'opened' by a corner, but it can equally be 'closed' by one. you need to keep track of when corners are opened
+    // - this shape is a case that needs handling:
+    //   ####
+    //   #  #
+    //   ## # < here a new corner is introduced. however, the area of this row is not continued below
+    //    # #
+    //    ###
+    // - here it is in steps:
+    //   1. loop through each row of corners
+    //   2. calculate area of row in the conventional way (counting open but not closed squares)
+    //   3. then 'close' any open corners and calculate the area of the cornerless section below
+    //   4. once you reach next corner, find the y-axis distance between corners and multiply the row area by that number (making sure not to count rows with corners twice)
     // 
     // 
     // 
