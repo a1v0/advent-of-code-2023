@@ -6,12 +6,12 @@ public class DigInstruction
 {
     public DigInstruction(string input)
     {
-        // Direction = GetDirection(input);
+        Direction = GetDirection(input);
         // AmountOfSteps = GetSteps(input);
         // HexColour = GetColour(input);
     }
 
-    // public char Direction { get; }
+    public char Direction { get; }
     // public int AmountOfSteps { get; }
     // public string HexColour { get; }
 
@@ -47,10 +47,10 @@ public class DigInstruction
     //     }
     // }
 
-    // private static char GetDirection(string input)
-    // {
-    //     return input[0];
-    // }
+    private static char GetDirection(string input)
+    {
+        return input[0];
+    }
 
     // private static int GetSteps(string input)
     // {
