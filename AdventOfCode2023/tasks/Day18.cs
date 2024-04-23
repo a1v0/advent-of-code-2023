@@ -32,8 +32,12 @@ public class Day18Task1 : BaseTask
 
     private Dictionary<int, Dictionary<int, TerrainNode>> GetTerrainMap()
     {
-        Dictionary<int, Dictionary<int, TerrainNode>> baseTerrainMap = GetBlankTerrainMap();
+        Dictionary<int, Dictionary<int, TerrainNode>> terrainMap = GetBlankTerrainMap();
         DigInstruction[] digInstructions = GetDigInstructions();
+
+        PopulateTerrainMap(terrainMap, digInstructions);
+
+        return terrainMap;
     }
 
     private static Dictionary<int, Dictionary<int, TerrainNode>> GetBlankTerrainMap()
