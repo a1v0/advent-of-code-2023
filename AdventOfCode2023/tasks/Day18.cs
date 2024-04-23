@@ -17,7 +17,8 @@ public class Day18Task1 : BaseTask
 {
     public override string Solve()
     {
-
+        long area = CalculateArea();
+        return area.ToString();
     }
 
     private Dictionary<int, Dictionary<int, TerrainNode>>? _terrainMap;
