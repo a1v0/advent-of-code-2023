@@ -69,7 +69,7 @@ public class Day18Task1 : BaseTask
             DigInstruction? nextDigInstruction = i < digInstructions.Length - 1 ? digInstructions[i + 1] : null;
 
             (int x, int y) newCoordinates = GetNewCoordinates(digInstruction, currentCoordinates);
-            char cornerDirection = GetCornerDirection(digInstruction.Direction, nextDigInstruction.Direction);
+            char cornerDirection = GetCornerDirection(digInstruction.Direction, nextDigInstruction?.Direction);
 
             AddCornerToTerrain(terrainMap, newCoordinates, cornerDirection);
 
@@ -95,6 +95,16 @@ public class Day18Task1 : BaseTask
         }
 
         return (coordinates.x + changeX, coordinates.y + changeY);
+    }
+
+    private static char GetCornerDirection(char currentDirection, char? nextDirection)
+    {
+        bool isVertical = "UD".Contains(currentDirection);
+        if (isVertical) return currentDirection;
+
+        if (nextDirection is null) throw new Exception("Next direction should not be null at this point.");
+
+        return (char)nextDirection;
     }
 }
 
