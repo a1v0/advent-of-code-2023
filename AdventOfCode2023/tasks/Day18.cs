@@ -17,24 +17,24 @@ public class Day18Task1 : BaseTask
 {
     public override string Solve()
     {
-        // DigTerrain();
-        // long area = CalculateArea();
-        // return area.ToString();
+        DigTerrain();
+        long area = CalculateArea();
+        return area.ToString();
     }
 
     private long CalculateArea()
     {
-        // long totalArea = 0;
+        long totalArea = 0;
 
-        // int[] rowNumbers = DugTerrain.Keys.ToArray();
-        // Array.Sort(rowNumbers);
+        int[] rowNumbers = DugTerrain.Keys.ToArray();
+        Array.Sort(rowNumbers);
 
-        // foreach (int rowNumber in rowNumbers)
-        // {
-        //     totalArea += CalculateAreaInRow(rowNumber);
-        // }
+        foreach (int rowNumber in rowNumbers)
+        {
+            totalArea += CalculateAreaInRow(rowNumber);
+        }
 
-        // return totalArea;
+        return totalArea;
     }
 
     private long CalculateAreaInRow(int rowNumber)
@@ -71,54 +71,54 @@ public class Day18Task1 : BaseTask
         // 
         // 
         // 
-        // long totalArea = 1;// start at 1 because of leftmost tile
-        // Dictionary<int, TerrainNode> row = DugTerrain[rowNumber];
-        // int[] rowKeys = row.Keys.ToArray();
-        // Array.Sort(rowKeys);
+        long totalArea = 1;// start at 1 because of leftmost tile
+        Dictionary<int, TerrainNode> row = DugTerrain[rowNumber];
+        int[] rowKeys = row.Keys.ToArray();
+        Array.Sort(rowKeys);
 
-        // char direction = row[rowKeys[0]].Direction;
-        // bool currentSquareIsInside = true; // the leftmost square always opens the row
+        char direction = row[rowKeys[0]].Direction;
+        bool currentSquareIsInside = true; // the leftmost square always opens the row
 
-        // for (int rowKey = 1; rowKey < rowKeys.Length; ++rowKey)
-        // {
-        //     // if we're inside: calculate distance between two nodes, including the current node, but not the starting point
-        //     // if we're outside, just add 1 for current node
-        //     // 
-        //     // check if node is horizontal. If so, continue
-        //     // if it's vertical but direction is same, continue
-        //     // if vertical and direction changes, reverse in/out status
-        //     // 
-        //     // 
-        //     // 
-        //     // 
-        //     // 
-        //     // 
-        //     // 
-        //     // 
-        //     // 
-        //     // 
-        //     // 
-        //     // 
-        //     // 
-        //     // 
-        //     // 
-        //     // 
-        //     // 
-        //     // 
-        //     // 
-        //     // 
-        //     // 
-        //     // 
-        //     // 
-        //     // 
-        //     // 
-        //     // 
-        //     // 
-        //     // 
-        //     // 
-        // }
+        for (int rowKey = 1; rowKey < rowKeys.Length; ++rowKey)
+        {
+            // if we're inside: calculate distance between two nodes, including the current node, but not the starting point
+            // if we're outside, just add 1 for current node
+            // 
+            // check if node is horizontal. If so, continue
+            // if it's vertical but direction is same, continue
+            // if vertical and direction changes, reverse in/out status
+            // 
+            // 
+            // 
+            // 
+            // 
+            // 
+            // 
+            // 
+            // 
+            // 
+            // 
+            // 
+            // 
+            // 
+            // 
+            // 
+            // 
+            // 
+            // 
+            // 
+            // 
+            // 
+            // 
+            // 
+            // 
+            // 
+            // 
+            // 
+            // 
+        }
 
-        // return totalArea;
+        return totalArea;
     }
 
     private Dictionary<int, Dictionary<int, TerrainNode>>? _dugTerrain;
@@ -127,115 +127,115 @@ public class Day18Task1 : BaseTask
     {
         get
         {
-            // _dugTerrain ??= CreateBlankTerrainMap();
-            // return _dugTerrain;
+            _dugTerrain ??= CreateBlankTerrainMap();
+            return _dugTerrain;
         }
     }
 
     private static Dictionary<int, Dictionary<int, TerrainNode>> CreateBlankTerrainMap()
     {
-        // var dugTerrain = new Dictionary<int, Dictionary<int, TerrainNode>>();
-        // return dugTerrain;
+        var dugTerrain = new Dictionary<int, Dictionary<int, TerrainNode>>();
+        return dugTerrain;
     }
 
     private void DigTerrain()
     {
-        // (int x, int y) currentCoordinates = (0, 0);
+        (int x, int y) currentCoordinates = (0, 0);
 
-        // foreach (DigInstruction digInstruction in DigInstructions)
-        // {
-        //     DigTerrainSection(digInstruction, currentCoordinates);
+        foreach (DigInstruction digInstruction in DigInstructions)
+        {
+            DigTerrainSection(digInstruction, currentCoordinates);
 
-        //     (int x, int y) newCoordinates = GetNewCoordinates(digInstruction, currentCoordinates);
-        //     currentCoordinates = newCoordinates;
-        // }
+            (int x, int y) newCoordinates = GetNewCoordinates(digInstruction, currentCoordinates);
+            currentCoordinates = newCoordinates;
+        }
 
-        // RenameCorners();
+        RenameCorners();
     }
 
     private void DigTerrainSection(DigInstruction digInstruction, (int, int) currentCoordinates)
     {
-        // for (int i = 0; i < digInstruction.AmountOfSteps; ++i)
-        // {
-        //     (int, int) newCoordinates = GetNewCoordinates(digInstruction, currentCoordinates, 1);
+        for (int i = 0; i < digInstruction.AmountOfSteps; ++i)
+        {
+            (int, int) newCoordinates = GetNewCoordinates(digInstruction, currentCoordinates, 1);
 
-        //     var newNode = new TerrainNode(digInstruction.Direction, digInstruction.HexColour);
+            var newNode = new TerrainNode(digInstruction.Direction, digInstruction.HexColour);
 
-        //     UpsertDugTerrain(newCoordinates, newNode);
+            UpsertDugTerrain(newCoordinates, newNode);
 
-        //     currentCoordinates = newCoordinates;
-        // }
+            currentCoordinates = newCoordinates;
+        }
     }
 
     private static (int, int) GetNewCoordinates(DigInstruction digInstruction, (int x, int y) currentCoordinates, int? amountOfSteps = null)
     {
-        // amountOfSteps ??= digInstruction.AmountOfSteps;
-        // int amountOfStepsWithDirection = (int)amountOfSteps * digInstruction.DirectionCoefficient;
+        amountOfSteps ??= digInstruction.AmountOfSteps;
+        int amountOfStepsWithDirection = (int)amountOfSteps * digInstruction.DirectionCoefficient;
 
-        // int changeX = 0;
-        // int changeY = 0;
+        int changeX = 0;
+        int changeY = 0;
 
-        // if (digInstruction.IsHorizontal)
-        // {
-        //     changeX = amountOfStepsWithDirection;
-        // }
+        if (digInstruction.IsHorizontal)
+        {
+            changeX = amountOfStepsWithDirection;
+        }
 
-        // if (digInstruction.IsVertical)
-        // {
-        //     changeY = amountOfStepsWithDirection;
-        // }
+        if (digInstruction.IsVertical)
+        {
+            changeY = amountOfStepsWithDirection;
+        }
 
-        // return (currentCoordinates.x + changeX, currentCoordinates.y + changeY);
+        return (currentCoordinates.x + changeX, currentCoordinates.y + changeY);
     }
 
     private void UpsertDugTerrain((int x, int y) coordinates, TerrainNode terrainNode)
     {
-        // bool hasRow = DugTerrain.ContainsKey(coordinates.y);
-        // if (!hasRow)
-        // {
-        //     DugTerrain.Add(coordinates.y, new Dictionary<int, TerrainNode>());
-        // }
+        bool hasRow = DugTerrain.ContainsKey(coordinates.y);
+        if (!hasRow)
+        {
+            DugTerrain.Add(coordinates.y, new Dictionary<int, TerrainNode>());
+        }
 
-        // Dictionary<int, TerrainNode> row = DugTerrain[coordinates.y];
-        // bool hasColumn = row.ContainsKey(coordinates.x);
-        // if (!hasColumn)
-        // {
-        //     row.Add(coordinates.x, terrainNode);
-        //     return;
-        // }
+        Dictionary<int, TerrainNode> row = DugTerrain[coordinates.y];
+        bool hasColumn = row.ContainsKey(coordinates.x);
+        if (!hasColumn)
+        {
+            row.Add(coordinates.x, terrainNode);
+            return;
+        }
 
-        // row[coordinates.x] = terrainNode;
+        row[coordinates.x] = terrainNode;
     }
 
     private void RenameCorners()
     {
-        // foreach (KeyValuePair<int, Dictionary<int, TerrainNode>> row in DugTerrain)
-        // {
-        //     int rowNo = row.Key;
+        foreach (KeyValuePair<int, Dictionary<int, TerrainNode>> row in DugTerrain)
+        {
+            int rowNo = row.Key;
 
-        //     foreach (KeyValuePair<int, TerrainNode> column in row.Value)
-        //     {
-        //         int colNo = column.Key;
+            foreach (KeyValuePair<int, TerrainNode> column in row.Value)
+            {
+                int colNo = column.Key;
 
-        //         bool hasLeftNeighbour = row.Value.ContainsKey(colNo - 1);
-        //         bool hasRightNeighbour = row.Value.ContainsKey(colNo + 1);
-        //         if (!hasLeftNeighbour && !hasRightNeighbour) continue;
+                bool hasLeftNeighbour = row.Value.ContainsKey(colNo - 1);
+                bool hasRightNeighbour = row.Value.ContainsKey(colNo + 1);
+                if (!hasLeftNeighbour && !hasRightNeighbour) continue;
 
-        //         bool hasUpperNeighbour = DugTerrain.ContainsKey(rowNo - 1) && DugTerrain[rowNo - 1].ContainsKey(colNo);
-        //         bool hasLowerNeighbour = DugTerrain.ContainsKey(rowNo + 1) && DugTerrain[rowNo + 1].ContainsKey(colNo);
+                bool hasUpperNeighbour = DugTerrain.ContainsKey(rowNo - 1) && DugTerrain[rowNo - 1].ContainsKey(colNo);
+                bool hasLowerNeighbour = DugTerrain.ContainsKey(rowNo + 1) && DugTerrain[rowNo + 1].ContainsKey(colNo);
 
-        //         if (!hasUpperNeighbour && !hasLowerNeighbour) continue;
+                if (!hasUpperNeighbour && !hasLowerNeighbour) continue;
 
-        //         if (hasUpperNeighbour)
-        //         {
-        //             column.Value.Direction = DugTerrain[rowNo - 1][colNo].Direction;
-        //         }
-        //         else if (hasLowerNeighbour)
-        //         {
-        //             column.Value.Direction = DugTerrain[rowNo + 1][colNo].Direction;
-        //         }
-        //     }
-        // }
+                if (hasUpperNeighbour)
+                {
+                    column.Value.Direction = DugTerrain[rowNo - 1][colNo].Direction;
+                }
+                else if (hasLowerNeighbour)
+                {
+                    column.Value.Direction = DugTerrain[rowNo + 1][colNo].Direction;
+                }
+            }
+        }
     }
 
     private DigInstruction[]? _digInstructions;
@@ -244,22 +244,22 @@ public class Day18Task1 : BaseTask
     {
         get
         {
-            // _digInstructions ??= GetDigInstructions();
-            // return _digInstructions;
+            _digInstructions ??= GetDigInstructions();
+            return _digInstructions;
         }
     }
 
     protected virtual DigInstruction[] GetDigInstructions()
     {
-        // List<DigInstruction> digInstructions = new();
+        List<DigInstruction> digInstructions = new();
 
-        // foreach (string inputRow in InputRows)
-        // {
-        //     DigInstruction currentDigInstruction = new(inputRow);
-        //     digInstructions.Add(currentDigInstruction);
-        // }
+        foreach (string inputRow in InputRows)
+        {
+            DigInstruction currentDigInstruction = new(inputRow);
+            digInstructions.Add(currentDigInstruction);
+        }
 
-        // return digInstructions.ToArray();
+        return digInstructions.ToArray();
     }
 }
 
@@ -330,15 +330,15 @@ public class Day18Task2 : Day18Task1
     // 
     protected override DigInstruction[] GetDigInstructions()
     {
-        // List<DigInstruction> digInstructions = new();
+        List<DigInstruction> digInstructions = new();
 
-        // foreach (string inputRow in EnlargedInputRows)
-        // {
-        //     DigInstruction currentDigInstruction = new(inputRow);
-        //     digInstructions.Add(currentDigInstruction);
-        // }
+        foreach (string inputRow in EnlargedInputRows)
+        {
+            DigInstruction currentDigInstruction = new(inputRow);
+            digInstructions.Add(currentDigInstruction);
+        }
 
-        // return digInstructions.ToArray();
+        return digInstructions.ToArray();
     }
 
     private string[]? _enlargedInputRows;
@@ -346,64 +346,64 @@ public class Day18Task2 : Day18Task1
     {
         get
         {
-            // _enlargedInputRows ??= GetEnlargedInputRows();
-            // return _enlargedInputRows;
+            _enlargedInputRows ??= GetEnlargedInputRows();
+            return _enlargedInputRows;
         }
     }
 
     private string[] GetEnlargedInputRows()
     {
-        // var enlargedInputRows = new List<string>();
+        var enlargedInputRows = new List<string>();
 
-        // foreach (string inputRow in InputRows)
-        // {
-        //     string enlargedInputRow = GetEnlargedInputRow(inputRow);
-        //     enlargedInputRows.Add(enlargedInputRow);
-        // }
+        foreach (string inputRow in InputRows)
+        {
+            string enlargedInputRow = GetEnlargedInputRow(inputRow);
+            enlargedInputRows.Add(enlargedInputRow);
+        }
 
-        // return enlargedInputRows.ToArray();
+        return enlargedInputRows.ToArray();
     }
 
     private static string GetEnlargedInputRow(string input)
     {
-        // var inputInstruction = new DigInstruction(input);
-        // string hex = inputInstruction.HexColour;
+        var inputInstruction = new DigInstruction(input);
+        string hex = inputInstruction.HexColour;
 
-        // char direction = GetDirectionFromHex(hex);
-        // long distance = GetDistanceFromHex(hex);
+        char direction = GetDirectionFromHex(hex);
+        long distance = GetDistanceFromHex(hex);
 
-        // return $"{direction} {distance} ({hex})";
+        return $"{direction} {distance} ({hex})";
     }
 
     private static char GetDirectionFromHex(string hex)
     {
-        // char lastDigit = hex.Last();
-        // switch (lastDigit)
-        // {
-        //     case '0':
-        //         return 'R';
-        //     case '1':
-        //         return 'D';
-        //     case '2':
-        //         return 'L';
-        //     case '3':
-        //         return 'U';
-        //     default:
-        //         throw new Exception($"Invalid final digit in hex string {hex}.");
-        // }
+        char lastDigit = hex.Last();
+        switch (lastDigit)
+        {
+            case '0':
+                return 'R';
+            case '1':
+                return 'D';
+            case '2':
+                return 'L';
+            case '3':
+                return 'U';
+            default:
+                throw new Exception($"Invalid final digit in hex string {hex}.");
+        }
     }
 
     private static long GetDistanceFromHex(string hex)
     {
-        // string distanceHex = "";
+        string distanceHex = "";
 
-        // for (int i = 1; i < 6; ++i)
-        // {
-        //     // this is a bit of a clunky way of extracting the middle five characters of 'hex'
-        //     distanceHex += hex[i];
-        // }
+        for (int i = 1; i < 6; ++i)
+        {
+            // this is a bit of a clunky way of extracting the middle five characters of 'hex'
+            distanceHex += hex[i];
+        }
 
-        // long decimalDistance = Convert.ToInt64(distanceHex, 16);
-        // return decimalDistance;
+        long decimalDistance = Convert.ToInt64(distanceHex, 16);
+        return decimalDistance;
     }
 }
