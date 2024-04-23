@@ -20,8 +20,8 @@ public class Day18Task1 : BaseTask
 
     }
 
-    Dictionary<int, Dictionary<int, TerrainNode>>? _terrainMap;
-    Dictionary<int, Dictionary<int, TerrainNode>> TerrainMap
+    private Dictionary<int, Dictionary<int, TerrainNode>>? _terrainMap;
+    private Dictionary<int, Dictionary<int, TerrainNode>> TerrainMap
     {
         get
         {
