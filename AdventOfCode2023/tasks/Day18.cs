@@ -19,6 +19,17 @@ public class Day18Task1 : BaseTask
     {
 
     }
+
+    Dictionary<int, Dictionary<int, TerrainNode>>? _terrainMap;
+    Dictionary<int, Dictionary<int, TerrainNode>> TerrainMap
+    {
+        get
+        {
+            _terrainMap ??= GetTerrainMap();
+            return _terrainMap;
+        }
+    }
+
 }
 
 public class Day18Task2 : Day18Task1 { }
