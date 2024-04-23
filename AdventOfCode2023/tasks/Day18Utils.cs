@@ -75,7 +75,7 @@ public class DigInstruction
 
 public class TerrainNode
 {
-    public TerrainNode(char direction, string hexColour)
+    public TerrainNode(char direction)
     {
         Direction = direction;
     }
