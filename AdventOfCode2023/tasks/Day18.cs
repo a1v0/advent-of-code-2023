@@ -95,6 +95,7 @@ public class Day18Task1 : BaseTask
                 currentlyInsideShape = !currentlyInsideShape;
             }
 
+            direction = corner.Direction;
             lastColumn = column;
         }
 
