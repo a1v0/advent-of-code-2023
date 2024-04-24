@@ -51,6 +51,18 @@ public class Day18Task1 : BaseTask
         return area;
     }
 
+    private void UpdateOpenCorners(Dictionary<int, TerrainNode> row)
+    {
+        foreach (KeyValuePair<int, TerrainNode> corner in row)
+        {
+            int column = corner.Key;
+            bool cornerClosed = OpenCorners.Remove(column); // true if there was an open corner to remove
+            if (cornerClosed) continue;
+
+            OpenCorners.Add(column, corner.Value);
+        }
+    }
+
     private static int GetAreaOfRow(Dictionary<int, TerrainNode> row)
     {
         int area = 0;
