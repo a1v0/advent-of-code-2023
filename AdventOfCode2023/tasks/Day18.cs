@@ -23,9 +23,8 @@ public class Day18Task1 : BaseTask
 
     private long CalculateArea()
     {
-        long area = 0; // REFACTOR THIS AS A PROPERTY ON THE CLASS
+        long area = 0;
         int? lastRowNumber;
-        var openCorners = new Dictionary<int, TerrainNode>(); // REFACTOR THIS AS A PROPERTY ON THE CLASS
 
         int[] rowNumbers = GetRowNumbers();
 
@@ -50,6 +49,15 @@ public class Day18Task1 : BaseTask
         }
 
         return area;
+    }
+
+    private readonly Dictionary<int, TerrainNode> _openCorners = new();
+    private Dictionary<int, TerrainNode> OpenCorners
+    {
+        get
+        {
+            return _openCorners;
+        }
     }
 
     private Dictionary<int, Dictionary<int, TerrainNode>>? _terrainMap;
