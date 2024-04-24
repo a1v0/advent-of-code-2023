@@ -71,14 +71,11 @@ public class Day18Task1 : BaseTask
         // 
     }
 
-    private static int GetRowsBetweenCorners(int? lastRowNumber, int rowNumber)
+    private static int GetRowsBetweenCorners(int? lastCornerRow, int currentCornerRow)
     {
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
+      int difference = currentCornerRow - lastCornerRow;
+      --difference; // This is to exclude any corner rows. We're just counting between the rows
+        return difference; 
     }
 
     private int[] GetRowNumbers()
