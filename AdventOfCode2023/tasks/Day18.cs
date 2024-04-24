@@ -53,10 +53,10 @@ public class Day18Task1 : BaseTask
 
     private static int GetAreaOfRow(Dictionary<int, TerrainNode> row)
     {
-        // 
-        // 
-        // 
-        // 
+        // loop through columns in row
+        // identify at which point we're inside and outside, using the directions
+        // count open spaces between corners
+        // return
         // 
         // 
     }
