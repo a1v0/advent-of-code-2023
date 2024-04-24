@@ -57,7 +57,7 @@ public class Day18Task1 : BaseTask
 
         int[] cornerColumns = row.Keys.ToArray();
         Array.Sort(cornerColumns); // TODO: move this into its own method
-        char direction;
+        char? direction = null;
         bool currentlyInsideShape = true; // the leftmost square always opens the row
         int lastColumn = cornerColumns[0];
 
