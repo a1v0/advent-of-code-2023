@@ -86,6 +86,37 @@ public class Day18Task1 : BaseTask
         return area;
     }
 
+    private static int GetColumnsBetweenCorners(int lastColumn, currentColumn)
+    {
+      // 
+      // TODO:
+      // this and GetRowsBetweenCorners are basically the same method
+      // Combine them in some way to adhere to DNR
+      // 
+      // 
+      // 
+      // 
+      // 
+      // 
+      // 
+      // 
+      // 
+      // 
+      // 
+      // 
+      // 
+      // 
+      // 
+      // 
+      // 
+      // 
+      // 
+      // 
+      int difference = currentColumn - lastColumn;
+      --difference; // This is to exclude any corner rows. We're just counting between the rows
+        return difference; 
+    }
+
     private static int GetRowsBetweenCorners(int? lastCornerRow, int currentCornerRow)
     {
       int difference = currentCornerRow - lastCornerRow;
