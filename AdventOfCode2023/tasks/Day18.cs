@@ -67,17 +67,17 @@ public class Day18Task1 : BaseTask
     {
         int area = 0;
 
-        int[] cornerColumns = row.Keys.ToArray();
-        Array.Sort(cornerColumns); // TODO: move this into its own method
+        int[] columns = row.Keys.ToArray();
+        Array.Sort(columns); // TODO: move this into its own method
         char? direction = null;
         bool currentlyInsideShape = true; // the leftmost square always opens the row
-        int lastColumn = cornerColumns[0];
+        int lastColumn = columns[0];
 
-        for (int i = 0; i < cornerColumns.Length; ++i)
+        for (int i = 0; i < columns.Length; ++i)
         {
             ++area; // count the current corner
 
-            int column = cornerColumns[i];
+            int column = columns[i];
 
             if (currentlyInsideShape)
             {
