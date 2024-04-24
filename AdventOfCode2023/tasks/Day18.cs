@@ -37,9 +37,14 @@ public class Day18Task1 : BaseTask
 
             UpdateOpenCorners(row);
 
-            int areaOfNormalRow = GetAreaOfRow(OpenCorners);
-            int rowsToAdd = GetRowsBetweenCorners(lastRowNumber, rowNumber);
-            int areaOfNormalRows = areaOfNormalRow * rowsToAdd;
+            int areaOfNormalRows = 0;
+
+            if (OpenCorners.Count > 0)
+            {
+                int areaOfNormalRow = GetAreaOfRow(OpenCorners);
+                int rowsToAdd = GetRowsBetweenCorners(lastRowNumber, rowNumber);
+                areaOfNormalRows = areaOfNormalRow * rowsToAdd;
+            }
 
             int areaToAdd = areaOfNormalRows + areaOfCornerRow;
 
