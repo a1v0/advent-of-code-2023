@@ -87,7 +87,7 @@ public class Day18Task1 : BaseTask
         return area;
     }
 
-    private static int GetColumnsBetweenCorners(int lastColumn, currentColumn)
+    private static int GetColumnsBetweenCorners(int lastColumn, int currentColumn)
     {
         // 
         // TODO:
