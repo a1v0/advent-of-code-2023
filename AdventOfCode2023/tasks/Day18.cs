@@ -24,7 +24,7 @@ public class Day18Task1 : BaseTask
     private long CalculateArea()
     {
         long area = 0;
-        int? lastRowNumber;
+        int? lastRowNumber = null;
 
         int[] rowNumbers = GetRowNumbers();
 
@@ -37,7 +37,7 @@ public class Day18Task1 : BaseTask
 
             UpdateOpenCorners(row);
 
-            int areaOfNormalRow = GetAreaOfNormalRow(openCorners);
+            int areaOfNormalRow = GetAreaOfNormalRow();
             int rowsToAdd = GetRowsBetweenCorners(lastRowNumber, rowNumber);
             int areaOfNormalRows = areaOfNormalRow * rowsToAdd;
 
@@ -49,6 +49,36 @@ public class Day18Task1 : BaseTask
         }
 
         return area;
+    }
+
+    private static int GetAreaOfCornerRow(Dictionary<int, TerrainNode> row)
+    {
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+    }
+
+    private static int GetAreaOfNormalRow()
+    {
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+    }
+
+    private static int GetRowsBetweenCorners(int? lastRowNumber, int rowNumber)
+    {
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
     }
 
     private int[] GetRowNumbers()
