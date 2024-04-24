@@ -61,26 +61,27 @@ public class Day18Task1 : BaseTask
         bool currentlyInsideShape = true; // the leftmost square always opens the row
         int lastColumn = cornerColumns[0];
 
-        for (int i = 0; i < cornerColumns.Length; ++i) {
-          ++area; // count the current corner
-          
-          int column=cornerColumns[i];
+        for (int i = 0; i < cornerColumns.Length; ++i)
+        {
+            ++area; // count the current corner
 
-          if (currentlyInsideShape)
-          {
-            int columnsBetweenCorners = GetColumnsBetweenCorners(lastColumn, column);
-            area += columnsBetweenCorners;
-          }
+            int column = cornerColumns[i];
 
-          TerrainNode corner = row[column];
-          direction ??= corner.Direction;
+            if (currentlyInsideShape)
+            {
+                int columnsBetweenCorners = GetColumnsBetweenCorners(lastColumn, column);
+                area += columnsBetweenCorners;
+            }
 
-          if(direction!=corner.Direction)
-          {
-            currentlyInsideShape = !currentlyInsideShape;
-          }
+            TerrainNode corner = row[column];
+            direction ??= corner.Direction;
 
-          lastColumn = column;
+            if (direction != corner.Direction)
+            {
+                currentlyInsideShape = !currentlyInsideShape;
+            }
+
+            lastColumn = column;
         }
 
         return area;
@@ -88,41 +89,41 @@ public class Day18Task1 : BaseTask
 
     private static int GetColumnsBetweenCorners(int lastColumn, currentColumn)
     {
-      // 
-      // TODO:
-      // this and GetRowsBetweenCorners are basically the same method
-      // Combine them in some way to adhere to DNR
-      // 
-      // 
-      // 
-      // 
-      // 
-      // 
-      // 
-      // 
-      // 
-      // 
-      // 
-      // 
-      // 
-      // 
-      // 
-      // 
-      // 
-      // 
-      // 
-      // 
-      int difference = currentColumn - lastColumn;
-      --difference; // This is to exclude any corner rows. We're just counting between the rows
-        return difference; 
+        // 
+        // TODO:
+        // this and GetRowsBetweenCorners are basically the same method
+        // Combine them in some way to adhere to DNR
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+        int difference = currentColumn - lastColumn;
+        --difference; // This is to exclude any corner rows. We're just counting between the rows
+        return difference;
     }
 
     private static int GetRowsBetweenCorners(int? lastCornerRow, int currentCornerRow)
     {
-      lastCornerRow ??= currentCornerRow;
-      int difference = currentCornerRow - lastCornerRow;
-      --difference; // This is to exclude any corner rows. We're just counting between the rows
-        return difference; 
+        lastCornerRow ??= currentCornerRow;
+        int difference = currentCornerRow - lastCornerRow;
+        --difference; // This is to exclude any corner rows. We're just counting between the rows
+        return difference;
     }
 
     private int[] GetRowNumbers()
