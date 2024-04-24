@@ -39,7 +39,7 @@ public class Day18Task1 : BaseTask
 
             int areaOfNormalRows;
 
-            int areaOfNormalRow = OpenCorners.Count == 0 ? areaOfCornerRow : GetAreaOfRow(OpenCorners);
+            int areaOfNormalRow = OpenCorners.Count > 0 ? GetAreaOfRow(OpenCorners) : areaOfCornerRow;
             int rowsToAdd = GetRowsBetweenCorners(lastRowNumber, rowNumber);
             areaOfNormalRows = areaOfNormalRow * rowsToAdd;
 
