@@ -53,12 +53,37 @@ public class Day18Task1 : BaseTask
 
     private static int GetAreaOfRow(Dictionary<int, TerrainNode> row)
     {
-        // loop through columns in row
-        // identify at which point we're inside and outside, using the directions
-        // count open spaces between corners
-        // return
-        // 
-        // 
+        int area = 0;
+
+        int[] cornerColumns = row.Keys.ToArray();
+        Array.Sort(cornerColumns); // TODO: move this into its own method
+        char direction;
+        bool currentlyInsideShape = true; // the leftmost square always opens the row
+        int lastColumn = cornerColumns[0];
+
+        for (int i = 0; i < cornerColumns.Length; ++i) {
+          ++area; // count the current corner
+          
+          int column=cornerColumns[i];
+
+          if (currentlyInsideShape)
+          {
+            int columnsBetweenCorners = GetColumnsBetweenCorners(lastColumn, column);
+            area += columnsBetweenCorners;
+          }
+
+          TerrainNode corner = row[column];
+          direction ??= corner.Direction;
+
+          if(direction!=corner.Direction)
+          {
+            currentlyInsideShape = !currentlyInsideShape;
+          }
+
+          lastColumn = column;
+        }
+
+        return area;
     }
 
     private static int GetRowsBetweenCorners(int? lastCornerRow, int currentCornerRow)
