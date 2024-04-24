@@ -117,6 +117,7 @@ public class Day18Task1 : BaseTask
 
     private static int GetDifferenceMinusOne(int last, int current)
     {
+        if (last == current) return 0;
         int difference = current - last;
         --difference; // This is to exclude any corners or corner rows. We're just counting between the rows or corners
         return difference;
