@@ -27,29 +27,26 @@ public class Day18Task1 : BaseTask
         int? lastRowNumber;
         var openCorners = new Dictionary<int, TerrainNode>(); // REFACTOR THIS AS A PROPERTY ON THE CLASS
 
-        foreach (KeyValuePair<int, Dictionary<int, TerrainNode>> row in TerrainMap)
-        {
-            // 
-            // 
-            // there's a chance that this loop won't occur in numerical order
-            // perhaps loop over the keys?
-            // 
-            // 
-            // 
-            // 
-            int areaOfCornerRow = GetAreaOfCornerRow(row.Value);
+        int[] rowNumbers = GetRowNumbers();
 
-            UpdateOpenCorners(row.Value);
+        for (int i = 0; i < rowNumbers.Length; ++i)
+        {
+            int rowNumber = rowNumbers[i];
+            Dictionary<int, TerrainNode> row = TerrainMap[rowNumber];
+
+            int areaOfCornerRow = GetAreaOfCornerRow(row);
+
+            UpdateOpenCorners(row);
 
             int areaOfNormalRow = GetAreaOfNormalRow(openCorners);
-            int rowsToAdd = GetRowsBetweenCorners(lastRowNumber, row.Key);
+            int rowsToAdd = GetRowsBetweenCorners(lastRowNumber, rowNumber);
             int areaOfNormalRows = areaOfNormalRow * rowsToAdd;
 
             int areaToAdd = areaOfNormalRows + areaOfCornerRow;
 
             area += areaToAdd;
 
-            lastRowNumber = row.Key;
+            lastRowNumber = rowNumber;
         }
 
         return area;
