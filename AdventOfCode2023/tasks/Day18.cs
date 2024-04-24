@@ -51,6 +51,13 @@ public class Day18Task1 : BaseTask
         return area;
     }
 
+    private int[] GetRowNumbers()
+    {
+        int[] rowNumbers = TerrainMap.Keys.ToArray();
+        Array.Sort(rowNumbers);
+        return rowNumbers;
+    }
+
     private readonly Dictionary<int, TerrainNode> _openCorners = new();
     private Dictionary<int, TerrainNode> OpenCorners
     {
