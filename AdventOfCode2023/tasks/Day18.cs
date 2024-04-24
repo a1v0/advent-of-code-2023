@@ -28,6 +28,8 @@ public class Day18Task1 : BaseTask
 
         int[] rowNumbers = GetRowNumbers();
 
+        int areaOfPreviousNormalRow = 0;
+
         for (int i = 0; i < rowNumbers.Length; ++i)
         {
             int rowNumber = rowNumbers[i];
@@ -37,16 +39,14 @@ public class Day18Task1 : BaseTask
 
             UpdateOpenCorners(row);
 
-            int areaOfNormalRows;
-
-            int areaOfNormalRow = OpenCorners.Count > 0 ? GetAreaOfRow(OpenCorners) : areaOfCornerRow;
             int rowsToAdd = GetRowsBetweenCorners(lastRowNumber, rowNumber);
-            areaOfNormalRows = areaOfNormalRow * rowsToAdd;
+            int areaOfNormalRows = areaOfPreviousNormalRow * rowsToAdd;
 
             int areaToAdd = areaOfNormalRows + areaOfCornerRow;
 
             area += areaToAdd;
 
+            areaOfPreviousNormalRow = OpenCorners.Count > 0 ? GetAreaOfRow(OpenCorners) : areaOfCornerRow;
             lastRowNumber = rowNumber;
         }
 
