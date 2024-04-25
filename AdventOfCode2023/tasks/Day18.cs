@@ -48,7 +48,7 @@ public class Day18Task1 : BaseTask
         // solution:
         // I'm guessing the solution is to add all corners to OpenCorners, then counting the row, then removing closed corners
         // 
-        // 
+        // - instead of parsing current row, create a copy of OpenCorners, adding in the rows 
         // 
         // 
         // 
@@ -79,7 +79,7 @@ public class Day18Task1 : BaseTask
             int rowNumber = rowNumbers[i];
             Dictionary<int, TerrainNode> row = TerrainMap[rowNumber];
 
-            int areaOfCornerRow = GetAreaOfRow(row);
+            int areaOfCornerRow = GetAreaOfCornerRow(row);
 
             UpdateOpenCorners(row);
 
@@ -107,6 +107,31 @@ public class Day18Task1 : BaseTask
 
             OpenCorners.Add(column, corner.Value);
         }
+    }
+
+    private int GetAreaOfCornerRow(Dictionary<int, TerrainNode> row)
+    {
+        var allCurrentCorners = new Dictionary<int, TerrainNode>();
+
+        foreach (KeyValuePair<int, TerrainNode> column in row)
+        {
+            allCurrentCorners.Add(column.Key, column.Value);
+        }
+
+        foreach (KeyValuePair<int, TerrainNode> column in OpenCorners)
+        {
+            try
+            {
+                allCurrentCorners.Add(column.Key, column.Value);
+            }
+            catch
+            {
+                // no need to do anything in particular to handle this exception
+                continue;
+            }
+        }
+
+        return GetAreaOfRow(allCurrentCorners);
     }
 
     private static int GetAreaOfRow(Dictionary<int, TerrainNode> row)
