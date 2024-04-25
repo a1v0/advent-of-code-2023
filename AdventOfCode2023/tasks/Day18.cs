@@ -17,50 +17,6 @@ public class Day18Task1 : BaseTask
 {
     public override string Solve()
     {
-        // foreach (KeyValuePair<int, Dictionary<int, TerrainNode>> row in TerrainMap)
-        // {
-        //     System.Console.WriteLine(row.Key);
-        //     System.Console.WriteLine("=============");
-        //     foreach (KeyValuePair<int, TerrainNode> corner in row.Value)
-        //     {
-        //         System.Console.WriteLine((corner.Key, corner.Value.Direction));
-        //     }
-        //     System.Console.WriteLine("");
-        // }
-
-        // 
-        // 
-        // EDGE CASE!
-        // 
-        // 
-        // 
-        // #######
-        // #.....#
-        // ###...# < since the right-most tile here is NOT a corner, it doesn't appear in the TerrainMap and so this row doesn't get counted correctly
-        // ..#...#
-        // ..#...#
-        // ###.###
-        // #...#..
-        // ##..###
-        // .#....#
-        // .######
-        // 
-        // solution:
-        // I'm guessing the solution is to add all corners to OpenCorners, then counting the row, then removing closed corners
-        // 
-        // - instead of parsing current row, create a copy of OpenCorners, adding in the rows 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-
         long area = CalculateArea();
         return area.ToString();
     }
