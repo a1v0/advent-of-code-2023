@@ -150,14 +150,16 @@ public class Day18Task1 : BaseTask
 
             int column = columns[i];
 
-            if (currentlyInsideShape)
+            TerrainNode corner = row[column];
+            direction ??= corner.Direction;
+
+            bool outsideTheShapeButHaveNotLeftYet = !currentlyInsideShape && direction == corner.Direction;
+            if (currentlyInsideShape || outsideTheShapeButHaveNotLeftYet)
             {
                 int columnsBetweenCorners = GetColumnsBetweenCorners(lastColumn, column);
                 area += columnsBetweenCorners;
             }
 
-            TerrainNode corner = row[column];
-            direction ??= corner.Direction;
 
             if (direction != corner.Direction)
             {
