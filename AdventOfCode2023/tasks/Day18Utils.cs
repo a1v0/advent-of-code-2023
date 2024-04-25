@@ -8,12 +8,12 @@ public class DigInstruction
     {
         Direction = GetDirection(input);
         AmountOfSteps = GetSteps(input);
-        // HexColour = GetColour(input);
+        HexColour = GetColour(input);
     }
 
     public char Direction { get; }
     public int AmountOfSteps { get; }
-    // public string HexColour { get; }
+    public string HexColour { get; }
 
     public bool IsHorizontal
     {
@@ -63,14 +63,14 @@ public class DigInstruction
         return int.Parse(steps);
     }
 
-    // private static string GetColour(string input)
-    // {
-    //     string colourRegexPattern = @"#[a-z0-9]{6}";
-    //     var colourRegex = new Regex(colourRegexPattern);
+    private static string GetColour(string input)
+    {
+        string colourRegexPattern = @"#[a-z0-9]{6}";
+        var colourRegex = new Regex(colourRegexPattern);
 
-    //     Match foundColour = colourRegex.Match(input);
-    //     return foundColour.Value;
-    // }
+        Match foundColour = colourRegex.Match(input);
+        return foundColour.Value;
+    }
 }
 
 public class TerrainNode
