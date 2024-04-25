@@ -261,17 +261,3 @@ public class Day03Task2 : Day03Task1
         get;
     } = new Dictionary<string, List<int>>();
 }
-
-public class SchematicNumber
-{
-    public SchematicNumber(string value, int x, int y)
-    {
-        Value = value;
-        X = x;
-        Y = y;
-    }
-
-    public int X { get; }
-    public int Y { get; }
-    public string Value { get; }
-}
