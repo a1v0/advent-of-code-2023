@@ -153,8 +153,9 @@ public class Day18Task1 : BaseTask
             TerrainNode corner = row[column];
             direction ??= corner.Direction;
 
-            bool outsideTheShapeButHaveNotLeftYet = !currentlyInsideShape && direction == corner.Direction;
-            if (currentlyInsideShape || outsideTheShapeButHaveNotLeftYet)
+            bool currentlyLeavingShapeButStillInside = !currentlyInsideShape && direction == corner.Direction; // I'm not super pleased with this but I'm not sure how best to name it. This represents any nodes within a horizontal border, i.e. still technically inside the shape but we're "leaving" the shape
+
+            if (currentlyInsideShape || currentlyLeavingShapeButStillInside)
             {
                 int columnsBetweenCorners = GetColumnsBetweenCorners(lastColumn, column);
                 area += columnsBetweenCorners;
