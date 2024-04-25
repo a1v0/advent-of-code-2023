@@ -235,7 +235,7 @@ public class Day18Task1 : BaseTask
         return blankTerrainMap;
     }
 
-    private DigInstruction[] GetDigInstructions()
+    protected virtual DigInstruction[] GetDigInstructions()
     {
         var digInstructions = new List<DigInstruction>();
 
@@ -312,4 +312,84 @@ public class Day18Task1 : BaseTask
     }
 }
 
-public class Day18Task2 : Day18Task1 { }
+public class Day18Task2 : Day18Task1
+{
+    protected override DigInstruction[] GetDigInstructions()
+    {
+        List<DigInstruction> digInstructions = new();
+
+        foreach (string inputRow in EnlargedInputRows)
+        {
+            DigInstruction currentDigInstruction = new(inputRow);
+            digInstructions.Add(currentDigInstruction);
+        }
+
+        return digInstructions.ToArray();
+    }
+
+    private string[]? _enlargedInputRows;
+    private string[] EnlargedInputRows
+    {
+        get
+        {
+            _enlargedInputRows ??= GetEnlargedInputRows();
+            return _enlargedInputRows;
+        }
+    }
+
+    private string[] GetEnlargedInputRows()
+    {
+        var enlargedInputRows = new List<string>();
+
+        foreach (string inputRow in InputRows)
+        {
+            string enlargedInputRow = GetEnlargedInputRow(inputRow);
+            enlargedInputRows.Add(enlargedInputRow);
+        }
+
+        return enlargedInputRows.ToArray();
+    }
+
+    private static string GetEnlargedInputRow(string input)
+    {
+        var inputInstruction = new DigInstruction(input);
+        string hex = inputInstruction.HexColour;
+
+        char direction = GetDirectionFromHex(hex);
+        long distance = GetDistanceFromHex(hex);
+
+        return $"{direction} {distance} ({hex})";
+    }
+
+    private static char GetDirectionFromHex(string hex)
+    {
+        char lastDigit = hex.Last();
+        switch (lastDigit)
+        {
+            case '0':
+                return 'R';
+            case '1':
+                return 'D';
+            case '2':
+                return 'L';
+            case '3':
+                return 'U';
+            default:
+                throw new Exception($"Invalid final digit in hex string {hex}.");
+        }
+    }
+
+    private static long GetDistanceFromHex(string hex)
+    {
+        string distanceHex = "";
+
+        for (int i = 1; i < 6; ++i)
+        {
+            // this is a bit of a clunky way of extracting the middle five characters of 'hex'
+            distanceHex += hex[i];
+        }
+
+        long decimalDistance = Convert.ToInt64(distanceHex, 16);
+        return decimalDistance;
+    }
+}
