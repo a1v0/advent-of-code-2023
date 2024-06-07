@@ -106,13 +106,13 @@ public class Workflow
         // remove brackets, split and set instructions
     }
 
-    private string _name;
+    private readonly string _name;
     public string Name
     {
         get;
     }
 
-    private string[] _instructions;
+    private readonly string[] _instructions;
     private string[] Instructions
     {
         get;
