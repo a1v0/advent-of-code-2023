@@ -99,4 +99,8 @@ public class Workflow
         SetWorkflowProperties(rawWorkflow);
     }
 
+    private string _name;
+    public string Name{
+      get;
+    }
 }
