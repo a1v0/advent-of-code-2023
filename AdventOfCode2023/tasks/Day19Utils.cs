@@ -10,6 +10,30 @@ public class MachinePart
     _a = a;
     _s = s;
   }
+
+  private readonly int _x;
+  public int X
+  {
+    get;
+  }
+
+  private readonly int _m;
+  public int M
+  {
+    get;
+  }
+
+    private readonly int _a;
+  public int A
+  {
+    get;
+  }
+
+    private readonly int _s;
+  public int S
+  {
+    get;
+  }
 }
 
 public class Workflow
