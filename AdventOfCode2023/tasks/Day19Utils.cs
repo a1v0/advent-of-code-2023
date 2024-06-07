@@ -34,6 +34,18 @@ public class MachinePart
   {
     get;
   }
+
+  public bool? Accepted
+  {
+    get;
+    set;
+  } = null;
+
+  public bool? Rejected
+  {
+    get;
+    set;
+  } = null;
 }
 
 public class Workflow
