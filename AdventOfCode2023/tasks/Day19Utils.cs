@@ -17,7 +17,7 @@ public class MachinePart
           .Replace("{", "")
           .Replace("}", "");
 
-        string[] dataPoints = machineData.Split(",");
+        string[] dataPoints = machineData.Split(',');
 
         return Tuple.Create(
             GetXmasValue(dataPoints[0]),
@@ -25,6 +25,12 @@ public class MachinePart
             GetXmasValue(dataPoints[2]),
             GetXmasValue(dataPoints[3]) // This is clunky, but so was anything else I could think of
         );
+    }
+
+    private static int GetXmasValue(string dataPoint)
+    {
+      string[] keyValue=dataPoint.Split('=');
+      return int.Parse(keyValue[1]);
     }
 
     private readonly int _x;
