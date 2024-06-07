@@ -109,4 +109,9 @@ public class Workflow
     {
         get;
     }
+
+    public string GetNextInstruction(MachinePart machinePart)
+    {
+        // loop through instructions and return when a match is found
+    }
 }
