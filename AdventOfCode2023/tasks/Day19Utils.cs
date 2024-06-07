@@ -94,5 +94,9 @@ public class MachinePart
 
 public class Workflow
 {
+    public Workflow(string rawWorkflow)
+    {
+        SetWorkflowProperties(rawWorkflow);
+    }
 
 }
