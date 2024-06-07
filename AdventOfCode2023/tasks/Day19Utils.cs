@@ -57,6 +57,17 @@ public class MachinePart
         _accepted = true;
         _rejected = false;
     }
+
+    public void Reject()
+    {
+        if (Reject is not null)
+        {
+            throw new Exception("Cannot accept or reject MachinePart object if it has already been accepted or rejected.");
+        }
+
+        _rejected = true;
+        _accepted = false;
+    }
 }
 
 public class Workflow
