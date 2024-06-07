@@ -101,6 +101,12 @@ public class Workflow
 
     private string _name;
     public string Name{
-      get;
+        get;
+    }
+
+    private string[] _instructions;
+    private string[] Instructions
+    {
+        get;
     }
 }
