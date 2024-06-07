@@ -29,8 +29,8 @@ public class MachinePart
 
     private static int GetXmasValue(string dataPoint)
     {
-      string[] keyValue=dataPoint.Split('=');
-      return int.Parse(keyValue[1]);
+        string[] keyValue = dataPoint.Split('=');
+        return int.Parse(keyValue[1]);
     }
 
     private readonly int _x;
@@ -101,13 +101,14 @@ public class Workflow
 
     private void SetWorkflowProperties(string rawWorkflow)
     {
-      // sample input: px{a<2006:qkq,m>2090:A,rfg}
-      // extract and set name
-      // remove brackets, split and set instructions
+        // sample input: px{a<2006:qkq,m>2090:A,rfg}
+        // extract and set name
+        // remove brackets, split and set instructions
     }
 
     private string _name;
-    public string Name{
+    public string Name
+    {
         get;
     }
 
