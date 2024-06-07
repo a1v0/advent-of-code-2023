@@ -99,6 +99,13 @@ public class Workflow
         SetWorkflowProperties(rawWorkflow);
     }
 
+    private void SetWorkflowProperties(string rawWorkflow)
+    {
+      // sample input: px{a<2006:qkq,m>2090:A,rfg}
+      // extract and set name
+      // remove brackets, split and set instructions
+    }
+
     private string _name;
     public string Name{
         get;
