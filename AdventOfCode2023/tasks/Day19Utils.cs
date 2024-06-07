@@ -11,15 +11,20 @@ public class MachinePart
         _s = s;
     }
 
-    private (int,int,int,int) ParseMachineData(string machineData)
+    private (int, int, int, int) ParseMachineData(string machineData)
     {
-// sample data: {x=787,m=2655,a=1222,s=2876}
-// create substring without braces
-// split at comma
-// split at =
-// parse as integer
-// set value
-// return
+        string machineData = machineData
+          .Replace("{", "")
+          .Replace("}", "");
+
+        string[] dataPoints = machineData.Split(",");
+
+        return Tuple.Create(
+            GetXmasValue(dataPoints[0]),
+            GetXmasValue(dataPoints[1]),
+            GetXmasValue(dataPoints[2]),
+            GetXmasValue(dataPoints[3]) // This is clunky, but so was anything else I could think of
+        );
     }
 
     private readonly int _x;
