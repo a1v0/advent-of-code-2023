@@ -11,6 +11,17 @@ public class MachinePart
         _s = s;
     }
 
+    private (int,int,int,int) ParseMachineData(string machineData)
+    {
+// sample data: {x=787,m=2655,a=1222,s=2876}
+// create substring without braces
+// split at comma
+// split at =
+// parse as integer
+// set value
+// return
+    }
+
     private readonly int _x;
     public int X
     {
