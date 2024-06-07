@@ -23,7 +23,7 @@ public class MachinePart
             GetXmasValue(dataPoints[0]),
             GetXmasValue(dataPoints[1]),
             GetXmasValue(dataPoints[2]),
-            GetXmasValue(dataPoints[3]) // This is clunky, but so was anything else I could think of
+            GetXmasValue(dataPoints[3])
         );
     }
 
