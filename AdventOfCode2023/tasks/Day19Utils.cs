@@ -112,7 +112,7 @@ public class Workflow
         return name;
     }
 
-    private string[] GetInstructions(string rawWorkflow)
+    private WorkflowInstruction[] GetInstructions(string rawWorkflow)
     {
         int firstBracketIndex = rawWorkflow.IndexOf('{'),
             lastBracketIndex = rawWorkflow.IndexOf('}');
@@ -138,8 +138,20 @@ public class Workflow
         // 
         // 
         string[] instructions = allInstructions.Split(',');
+        return GetInstructions(instructions);
+    }
+
+    private WorkflowInstruction[] GetInstructions(string[] instructions)
+    {
+        List<WorkflowInstruction> workflowInstructions = new();
+
+        foreach (string instruction of instructions)
+        {
+            WorkflowInstruction workflowInstruction=new(instruction);
+            workflowInstructions.Add(workflowInstruction);
+        }
         
-        return instructions;
+        return workflowInstructions.ToArray();
     }
 
     private readonly string _name;
@@ -148,8 +160,8 @@ public class Workflow
         get;
     }
 
-    private readonly string[] _instructions;
-    private string[] Instructions
+    private readonly WorkflowInstruction[] _instructions;
+    private WorkflowInstruction[] Instructions
     {
         get;
     }
