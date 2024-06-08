@@ -19,7 +19,7 @@ public class MachinePart
 
         string[] dataPoints = machineData.Split(',');
 
-        return Tuple.Create(
+        return (
             GetXmasValue(dataPoints[0]),
             GetXmasValue(dataPoints[1]),
             GetXmasValue(dataPoints[2]),
