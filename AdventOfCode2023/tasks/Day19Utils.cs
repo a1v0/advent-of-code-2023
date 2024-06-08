@@ -189,31 +189,31 @@ public class WorkflowInstruction
     }
 
     private readonly bool _isDefault;
-    public readonly bool IsDefault
+    public bool IsDefault
     {
         get;
     }
 
     private readonly char? _xmasKey;
-    public readonly char? XmasKey
+    public char? XmasKey
     {
         get;
     }
 
     private readonly char? _operation;
-    public readonly char? Operation
+    public char? Operation
     {
         get;
     }
 
     private readonly int? _comparison;
-    public readonly int? Comparison
+    public int? Comparison
     {
         get;
     }
 
     private readonly string _nextCommand;
-    public readonly string NextCommand
+    public string NextCommand
     {
         get;
     }
