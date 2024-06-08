@@ -117,7 +117,7 @@ public class Workflow
         int firstBracketIndex = rawWorkflow.IndexOf('{'),
             lastBracketIndex = rawWorkflow.IndexOf('}');
         int lengthOfInstructions = lastBracketIndex - firstBracketIndex - 1;
-        
+
         string allInstructions = rawWorkflow.Substring(firstBracketIndex + 1, lengthOfInstructions);
         // 
         // 
@@ -147,10 +147,10 @@ public class Workflow
 
         foreach (string instruction of instructions)
         {
-            WorkflowInstruction workflowInstruction=new(instruction);
+            WorkflowInstruction workflowInstruction = new(instruction);
             workflowInstructions.Add(workflowInstruction);
         }
-        
+
         return workflowInstructions.ToArray();
     }
 
@@ -194,23 +194,23 @@ public class WorkflowInstruction
         get;
     }
 
-    private readonly char _xmasKey;
-    public readonly char XmasKey
+    private readonly char? _xmasKey;
+    public readonly char? XmasKey
     {
         get;
     }
 
-    private readonly char _operation;
-    public readonly char Operation
+    private readonly char? _operation;
+    public readonly char? Operation
     {
         get;
     }
 
-    private readonly int _comparison;
-    public readonly int Comparison
+    private readonly int? _comparison;
+    public readonly int? Comparison
     {
         get;
-}
+    }
 
     private readonly string _nextCommand;
     public readonly string NextCommand
