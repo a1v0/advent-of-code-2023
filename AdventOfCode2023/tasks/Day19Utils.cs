@@ -11,11 +11,11 @@ public class MachinePart
         _s = s;
     }
 
-    private (int, int, int, int) ParseMachineData(string machineData)
+    private (int, int, int, int) ParseMachineData(string rawMachineData)
     {
-        string machineData = machineData
-          .Replace("{", "")
-          .Replace("}", "");
+        string machineData = rawMachineData
+        .Replace("{", "")
+        .Replace("}", "");
 
         string[] dataPoints = machineData.Split(',');
 
