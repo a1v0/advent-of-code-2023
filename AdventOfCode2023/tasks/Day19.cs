@@ -35,7 +35,8 @@ public class Day19Task1 : BaseTask
     private MachinePart[]? _machineParts;
     private MachinePart[] MachineParts
     {
-        get{
+        get
+        {
             _machineParts ?= GetMachineParts();
             return _machineParts;
         }
@@ -44,10 +45,28 @@ public class Day19Task1 : BaseTask
     private Workflow[]? _workflows;
     private Workflow[] Workflows
     {
-        get{
+        get
+        {
             _workflows ?= GetWorkflows();
             return _workflows;
         }
+    }
+
+    private MachinePart[] GetMachineParts()
+    {
+        string partsInput=Input.Split("\n\n")[1];
+        string partsInputRows=partsInput.Split('\n');
+
+        MachinePart[] machineParts=new MachinePart[partsInputRows.Length];
+
+        for (int i = 0; i < partsInputRows.Length; ++i)
+        {
+            string currentInput = partsInputRows[i];
+            MachinePart machinePart = new(currentInput);
+            machineParts[i] = machinePart;
+        }
+
+        return machineParts;
     }
 }
 
