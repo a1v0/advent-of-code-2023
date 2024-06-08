@@ -17,11 +17,6 @@ public class Day19Task1 : BaseTask
 {
     public override string Solve()
     {
-        // parse parts as MachineParts and make array
-        // parse Workflows into dictionary
-        //
-        //
-        // 
         // loop through MachineParts until every one is accepted or rejected
         // sum totals and return
         // 
@@ -42,8 +37,8 @@ public class Day19Task1 : BaseTask
         }
     }
 
-    private Workflow[]? _workflows;
-    private Workflow[] Workflows
+    private Dictionary<string, Workflow>? _workflows;
+    private Dictionary<string, Workflow> Workflows
     {
         get
         {
@@ -69,18 +64,18 @@ public class Day19Task1 : BaseTask
         return machineParts;
     }
 
-    private Workflow[] GetWorkflows()
+    private Dictionary<string, Workflow> GetWorkflows()
     {
         string workflowsInput = Input.Split("\n\n")[0];
         string workflowsInputRows = workflowsInput.Split('\n');
 
-        Workflow[] workflows=new Workflow[workflowsInputRows.Length];
+        Dictionary<string, Workflow> workflows=new();
 
         for (int i = 0; i < workflowsInputRows.Length; ++i)
         {
             string currentInput = workflowsInputRows[i];
             Workflow workflow = new(currentInput);
-            workflows[i] = workflow;
+            workflows.Add(workflow.Name, workflow);
         }
 
         return workflows;
