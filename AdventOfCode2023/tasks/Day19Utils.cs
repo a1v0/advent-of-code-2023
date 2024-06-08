@@ -90,6 +90,11 @@ public class MachinePart
         _rejected = true;
         _accepted = false;
     }
+
+    public int SumXmasValues()
+    {
+        return X + M + A + S;
+    }
 }
 
 public class Workflow
