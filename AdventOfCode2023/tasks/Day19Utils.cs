@@ -111,6 +111,7 @@ public class MachinePart
 
     public int SumXmasValues()
     {
+        Console.WriteLine("X"+X.ToString()+" M"+M.ToString()+" A"+A.ToString()+" S"+S.ToString())
         return X + M + A + S;
     }
 }
