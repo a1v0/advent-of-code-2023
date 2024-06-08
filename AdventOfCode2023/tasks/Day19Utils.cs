@@ -119,11 +119,6 @@ public class Workflow
 {
     public Workflow(string rawWorkflow)
     {
-        SetWorkflowProperties(rawWorkflow);
-    }
-
-    private void SetWorkflowProperties(string rawWorkflow)
-    {
         _name = GetWorkflowName(rawWorkflow);
         _instructions = GetInstructions(rawWorkflow);
     }
