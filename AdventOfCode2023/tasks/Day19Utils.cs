@@ -193,4 +193,10 @@ public class WorkflowInstruction
     {
         get;
     }
+
+    private readonly char _xmasKey;
+    public readonly char XmasKey
+    {
+        get;
+    }
 }
