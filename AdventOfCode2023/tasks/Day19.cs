@@ -27,13 +27,17 @@ public class Day19Task1 : BaseTask
         // loop through all parts
         // start at 'in' and cycle through NextCommand values (e.g. while Rejected == null)
         //
+        foreach (MachinePart machinePart in MachineParts)
+        {
+            CycleThroughWorkflows(machinePart);
+        }
     }
 
     private int SumAcceptedParts()
     {
         int sum=0;
 
-        foreach (MachinePart machinePart of MachineParts)
+        foreach (MachinePart machinePart in MachineParts)
         {
             bool? rejected= machinePart.Rejected,
                   accepted = machinePart.Accepted;
