@@ -121,4 +121,18 @@ public class Day19Task1 : BaseTask
 }
 
 public class Day19Task2 : Day19Task1
-{ }
+{
+    // Not 100% sure about this, but here's a starting point:
+    // identify every possible route to an A or an R
+    // - cycle through all workflows, starting at 'in' and going down every path until you reach an end
+    // - discard if path ends in R
+    // find number of combinations per path:
+    // - create some sort of object to map the maximum and minimum values of each letter
+    // - the minimum value of a letter always starts at 1 and the max always starts at 4000
+    // - if your path contains, e.g., x<2500, you then reduce the max value of X to 2499
+    // - find the size of each range (max - min), then construct the number of possibilities. I THINK this is done by multiplying the size of each range
+    //
+    // The big question is: how do I ensure I only return DISTINCT possibilities, avoiding duplicates?
+    //
+    // 
+}
