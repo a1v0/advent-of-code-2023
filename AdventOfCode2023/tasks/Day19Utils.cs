@@ -101,9 +101,6 @@ public class Workflow
 
     private void SetWorkflowProperties(string rawWorkflow)
     {
-        // sample input: px{a<2006:qkq,m>2090:A,rfg}
-        // extract and set name
-        // remove brackets, split and set instructions
         _name = GetWorkflowName(rawWorkflow);
         _instructions = GetInstructions(rawWorkflow);
     }
@@ -159,6 +156,7 @@ public class Workflow
 
     public string GetNextInstruction(MachinePart machinePart)
     {
+        // sample input: px{a<2006:qkq,m>2090:A,rfg}
         // loop through instructions and return when a match is found
     }
 }
