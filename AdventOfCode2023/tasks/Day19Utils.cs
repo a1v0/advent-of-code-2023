@@ -205,4 +205,10 @@ public class WorkflowInstruction
     {
         get;
     }
+
+    private readonly int _comparison;
+    public readonly int Comparison
+    {
+        get;
+    }
 }
