@@ -267,30 +267,45 @@ public class WorkflowInstruction
     private readonly bool _isDefault;
     public bool IsDefault
     {
-        get;
+        get
+        {
+            return _isDefault;
+        }
     }
 
     private readonly char? _xmasKey;
     public char? XmasKey
     {
-        get;
+        get
+{
+    return _xmasKey;
+}
     }
 
     private readonly char? _operation;
     public char? Operation
     {
-        get;
+        get
+        {
+            return _operation;
+        }
     }
 
     private readonly int? _comparison;
     public int? Comparison
     {
-        get;
+        get
+        {
+            return _comparison;
+        }
     }
 
     private readonly string _nextCommand;
     public string NextCommand
     {
-        get;
+        get
+        {
+            return _nextCommand;
+        }
     }
 }
