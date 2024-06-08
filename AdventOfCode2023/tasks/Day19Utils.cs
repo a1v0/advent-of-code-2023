@@ -160,3 +160,11 @@ public class Workflow
         // loop through instructions and return when a match is found
     }
 }
+
+public class WorkflowInstruction
+{
+    public WorkflowInstruction(string instruction)
+    {
+      
+    }
+}
