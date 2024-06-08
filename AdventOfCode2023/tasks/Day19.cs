@@ -22,6 +22,13 @@ public class Day19Task1 : BaseTask
         return sumOfAcceptedParts.ToString();
     }
 
+    private void OrganiseParts()
+    {
+        // loop through all parts
+        // start at 'in' and cycle through NextCommand values (e.g. while Rejected == null)
+        //
+    }
+
     private int SumAcceptedParts()
     {
         int sum=0;
