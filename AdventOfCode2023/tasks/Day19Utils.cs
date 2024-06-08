@@ -210,5 +210,11 @@ public class WorkflowInstruction
     public readonly int Comparison
     {
         get;
+}
+
+    private readonly string _nextCommand;
+    public readonly string NextCommand
+    {
+        get;
     }
 }
