@@ -22,6 +22,26 @@ public class Day19Task1 : BaseTask
         return sumOfAcceptedParts.ToString();
     }
 
+    private int SumAcceptedParts()
+    {
+        int sum=0;
+
+        foreach (MachinePart machinePart of MachineParts)
+        {
+            bool? rejected= machinePart.Rejected,
+                  accepted = machinePart.Accepted;
+            if (rejected == false) continue;
+            if (rejected == null || accepted == null)
+            {
+                throw new Exception("Accepted/Rejected state of MachinePart is null.");
+            }
+
+            sum += machinePart.SumXmasValues();
+        }
+
+        return sum;
+    }
+
     private MachinePart[]? _machineParts;
     private MachinePart[] MachineParts
     {
