@@ -35,7 +35,7 @@ public class Day19Task1 : BaseTask
         string currentWorkflowName="in";
         while(machinePart.Accepted==null||machinePart.Rejected==null)
         {
-            Workflow currentWorkflow = Workflows.GetValue(currentWorkflowName);
+            Workflow currentWorkflow = Workflows[currentWorkflowName];
             string nextCommand = currentWorkflow.GetNextCommand(machinePart);
 
             if (nextCommand=="A") machinePart.Accept();
