@@ -168,12 +168,15 @@ public class Workflow
 
     public string GetNextCommand(MachinePart machinePart)
     {
-        // loop through instructions and return command when a match is found
-        // if default, return NextCommand
-        // otherwise retrieve xmas value dynamically (switch?)
-        // build comparison statement (also switch?)
-        // if comparison returns true, return NextCommand
-        // else continue
+        foreach (WorkflowInstruction instruction of Instructions)
+        {
+            if (instruction.IsDefault) return instruction.NextCommand;
+
+            int xmasValue = GetXmasValue(instruction.XmasKey, machinePart);
+            bool comparisonIsTrue = IsComparisonTrue(instruction, xmasValue);
+
+            if(comparisonIsTrue) return instruction.NextCommand;
+        }
     }
 }
 
