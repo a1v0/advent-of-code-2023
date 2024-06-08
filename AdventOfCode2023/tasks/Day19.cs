@@ -40,6 +40,15 @@ public class Day19Task1 : BaseTask
             return _machineParts;
         }
     }
+
+    private Workflow[]? _workflows;
+    private Workflow[] Workflows
+    {
+        get{
+            _workflows ?= GetWorkflows();
+            return _workflows;
+        }
+    }
 }
 
 public class Day19Task2 : Day19Task1
