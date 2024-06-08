@@ -82,7 +82,7 @@ public class MachinePart
 
     public void Reject()
     {
-        if (Reject is not null)
+        if (Reject != null)
         {
             throw new Exception("Cannot accept or reject MachinePart object if it has already been accepted or rejected.");
         }
