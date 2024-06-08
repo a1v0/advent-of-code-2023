@@ -24,12 +24,23 @@ public class Day19Task1 : BaseTask
 
     private void OrganiseParts()
     {
-        // loop through all parts
-        // start at 'in' and cycle through NextCommand values (e.g. while Rejected == null)
-        //
         foreach (MachinePart machinePart in MachineParts)
         {
             CycleThroughWorkflows(machinePart);
+        }
+    }
+
+    private void CycleThroughWorkflows(MachinePart machinePart)
+    {
+        string currentWorkflowName="in";
+        while(machinePart.Accepted==null||machinePart.Rejected==null)
+        {
+            Workflow currentWorkflow = Workflows.GetValue(currentWorkflowName);
+            string nextCommand = currentWorkflow.GetNextCommand(machinePart);
+
+            if (nextCommand=="A") machinePart.Accept();
+            else if (nextCommand == "R") machinePart.Reject();
+            else currentWorkflowName = nextCommand;
         }
     }
 
