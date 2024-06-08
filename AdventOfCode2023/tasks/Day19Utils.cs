@@ -221,6 +221,16 @@ public class WorkflowInstruction
         return instruction[1];
     }
 
+    private int GetComparison(string instruction)
+    {
+        int colonIndex = instruction.IndexOf(':');
+        int lengthOfComparison = colonIndex - 2; // subtracting the XmasKey and operator
+
+        string comparison = instruction.Substring(2, lengthOfComparison);
+
+        return int.Parse(comparison);
+    }
+
     private readonly bool _isDefault;
     public bool IsDefault
     {
