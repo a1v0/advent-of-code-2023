@@ -201,6 +201,8 @@ public class Workflow
 
             if (comparisonIsTrue) return instruction.NextCommand;
         }
+
+        throw new Exception("Invalid Workflow Instruction.");
     }
 
     private int GetXmasValue(char xmasKey, MachinePart machinePart)
