@@ -17,14 +17,9 @@ public class Day19Task1 : BaseTask
 {
     public override string Solve()
     {
-        // loop through MachineParts until every one is accepted or rejected
-        // sum totals and return
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
+        OrganiseParts();
+        int sumOfAcceptedParts = SumAcceptedParts();
+        return sumOfAcceptedParts.ToString();
     }
 
     private MachinePart[]? _machineParts;
