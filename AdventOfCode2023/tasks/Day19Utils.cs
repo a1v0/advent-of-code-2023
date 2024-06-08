@@ -186,6 +186,15 @@ public class WorkflowInstruction
         //
         // check for colon
         // - if no colon, IsDefault = true and return
+        _isDefault = CheckIsDefault(instruction);
+        _nextCommand = GetNextCommand(instruction);
+
+        if(!_isDefault)
+        {
+            _xmasKey = GetXmasKey(instruction);
+            _operation = GetOperation(instruction);
+            _comparison = GetComparison(instruction);
+        }
     }
 
     private readonly bool _isDefault;
