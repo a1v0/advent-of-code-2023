@@ -169,6 +169,11 @@ public class Workflow
     public string GetNextCommand(MachinePart machinePart)
     {
         // loop through instructions and return command when a match is found
+        // if default, return NextCommand
+        // otherwise retrieve xmas value dynamically (switch?)
+        // build comparison statement (also switch?)
+        // if comparison returns true, return NextCommand
+        // else continue
     }
 }
 
