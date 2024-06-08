@@ -115,6 +115,18 @@ public class Workflow
         return name;
     }
 
+    private string[] GetInstructions(string rawWorkflow)
+    {
+        int firstBracketIndex = rawWorkflow.IndexOf('{'),
+            lastBracketIndex = rawWorkflow.IndexOf('}');
+        int lengthOfInstructions = lastBracketIndex - firstBracketIndex - 1;
+        
+        string allInstructions = rawWorkflow.Substring(firstBracketIndex + 1, lengthOfInstructions);
+        string[] instructions = allInstructions.Split(',');
+        
+        return instructions;
+    }
+
     private readonly string _name;
     public string Name
     {
