@@ -211,6 +211,11 @@ public class WorkflowInstruction
         return instruction.Substring(colonIndex + 1);
     }
 
+    private char GetXmasKey(instruction)
+    {
+        return instruction[0];
+    }
+
     private readonly bool _isDefault;
     public bool IsDefault
     {
