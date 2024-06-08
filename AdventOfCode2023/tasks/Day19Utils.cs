@@ -36,37 +36,55 @@ public class MachinePart
     private readonly int _x;
     public int X
     {
-        get;
+        get
+        {
+        return _x;
+        }
     }
 
     private readonly int _m;
     public int M
     {
-        get;
+        get
+        {
+        return _m;
+        }
     }
 
     private readonly int _a;
     public int A
     {
-        get;
+        get
+        {
+        return _a;
+        }
     }
 
     private readonly int _s;
     public int S
     {
-        get;
+        get
+        {
+        return _s;
+        }
     }
 
     private bool? _accepted;
     public bool? Accepted
     {
-        get;
+        get
+        {
+        return _accepted;
+        }
     }
 
     private bool? _rejected;
     public bool? Rejected
     {
-        get;
+        get
+        {
+        return _rejected;
+        }
     }
 
     public void Accept()
@@ -162,13 +180,19 @@ public class Workflow
     private string _name;
     public string Name
     {
-        get;
+        get
+        {
+        return _name;
+        }
     }
 
     private WorkflowInstruction[] _instructions;
     private WorkflowInstruction[] Instructions
     {
-        get;
+        get
+        {
+        return _instructions;
+        }
     }
 
     public string GetNextCommand(MachinePart machinePart)
