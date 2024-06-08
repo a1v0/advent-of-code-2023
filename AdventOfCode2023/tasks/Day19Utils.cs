@@ -178,6 +178,23 @@ public class Workflow
             if(comparisonIsTrue) return instruction.NextCommand;
         }
     }
+
+    private int GetXmasValue(char xmasKey, MachinePart machinePart)
+    {
+        switch (xmasKey)
+        {
+            case 'x':
+                return machinePart.X;
+            case 'm':
+                return machinePart.M;
+            case 'a':
+                return machinePart.A;
+            case 's':
+                return machinePart.S;
+            default:
+                throw new Exception("Invalid XMAS key given.");
+        }
+    }
 }
 
 public class WorkflowInstruction
