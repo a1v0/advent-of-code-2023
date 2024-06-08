@@ -28,7 +28,7 @@ This repo uses xUnit for testing, though my tests aren't particularly extensive.
 | 16  | ⭐    | ⭐     |       |
 | 17  | ❌    |        | Something's not quite right. Plus, once I fix that, my code will be too slow. |
 | 18  | ❌    | ❌     | I got Part 1 to work but decided to rewrite the whole thing so that it's fighting fit for Part 2. However, despite Part 1's test passing, the real-world answer is wrong. |
-<!-- | 19  |        |        |       | -->
+| 19  | ❌    |        |       |
 <!-- | 20  |        |        |       | -->
 <!-- | 21  |        |        |       | -->
 <!-- | 22  |        |        |       | -->
