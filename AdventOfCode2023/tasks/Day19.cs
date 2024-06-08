@@ -68,6 +68,23 @@ public class Day19Task1 : BaseTask
 
         return machineParts;
     }
+
+    private Workflow[] GetWorkflows()
+    {
+        string workflowsInput = Input.Split("\n\n")[0];
+        string workflowsInputRows = workflowsInput.Split('\n');
+
+        Workflow[] workflows=new Workflow[workflowsInputRows.Length];
+
+        for (int i = 0; i < workflowsInputRows.Length; ++i)
+        {
+            string currentInput = workflowsInputRows[i];
+            Workflow workflow = new(currentInput);
+            workflows[i] = workflow;
+        }
+
+        return workflows;
+    }
 }
 
 public class Day19Task2 : Day19Task1
