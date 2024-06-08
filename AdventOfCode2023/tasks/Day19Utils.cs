@@ -203,6 +203,14 @@ public class WorkflowInstruction
         return !instruction.Contains(':');
     }
 
+    private string GetNextCommand(instruction)
+    {
+        if (IsDefault) return instruction;
+
+        int colonIndex = instruction.IndexOf(':');
+        return instruction.Substring(colonIndex + 1);
+    }
+
     private readonly bool _isDefault;
     public bool IsDefault
     {
