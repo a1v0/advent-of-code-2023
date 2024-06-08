@@ -108,6 +108,13 @@ public class Workflow
         _instructions = GetInstructions(rawWorkflow);
     }
 
+    private string GetWorkflowName(string rawWorkflow)
+    {
+        int firstBracketIndex = rawWorkflow.IndexOf('{');
+        string name = rawWorkflow.Substring(0, firstBracketIndex);
+        return name;
+    }
+
     private readonly string _name;
     public string Name
     {
