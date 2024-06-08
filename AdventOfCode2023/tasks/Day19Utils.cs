@@ -199,4 +199,10 @@ public class WorkflowInstruction
     {
         get;
     }
+
+    private readonly char _operation;
+    public readonly char Operation
+    {
+        get;
+    }
 }
