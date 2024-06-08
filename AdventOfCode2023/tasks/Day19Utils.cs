@@ -189,12 +189,18 @@ public class WorkflowInstruction
         _isDefault = CheckIsDefault(instruction);
         _nextCommand = GetNextCommand(instruction);
 
-        if(!_isDefault)
+        if (!_isDefault)
         {
             _xmasKey = GetXmasKey(instruction);
             _operation = GetOperation(instruction);
             _comparison = GetComparison(instruction);
         }
+    }
+
+    private bool CheckIsDefault(string instruction)
+    {
+        // if an instruction doesn't contain a colon, it's the default and final instruction in a workflow
+        return !instruction.Contains(':');
     }
 
     private readonly bool _isDefault;
