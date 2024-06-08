@@ -195,6 +195,19 @@ public class Workflow
                 throw new Exception("Invalid XMAS key given.");
         }
     }
+
+    private bool IsComparisonTrue(WorkflowInstruction instruction, int xmasValue)
+    {
+        switch (instruction.Operation)
+        {
+            case '<':
+                return xmasValue < instruction.Comparison;
+            case '>':
+                return xmasValue > instruction.Comparison;
+            default:
+                throw new Exception("Invalid workflow operator given.");
+        }
+    }
 }
 
 public class WorkflowInstruction
