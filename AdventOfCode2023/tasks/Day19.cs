@@ -88,7 +88,7 @@ public class Day19Task1 : BaseTask
     {
         string[] splitInput = Input.Split("\n\n");
         string partsInput = splitInput[1];
-        string partsInputRows = partsInput.Split("\n");
+        string[] partsInputRows = partsInput.Split("\n");
 
         MachinePart[] machineParts = new MachinePart[partsInputRows.Length];
 
@@ -106,7 +106,7 @@ public class Day19Task1 : BaseTask
     {
         string[] splitInput = Input.Split("\n\n");
         string workflowsInput = splitInput[0];
-        string workflowsInputRows = workflowsInput.Split("\n");
+        string[] workflowsInputRows = workflowsInput.Split("\n");
 
         Dictionary<string, Workflow> workflows = new();
 
