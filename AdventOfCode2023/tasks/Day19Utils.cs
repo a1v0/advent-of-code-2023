@@ -236,7 +236,7 @@ public class WorkflowInstruction
         return !instruction.Contains(':');
     }
 
-    private string GetNextCommand(instruction)
+    private string GetNextCommand(string instruction)
     {
         if (IsDefault) return instruction;
 
