@@ -137,24 +137,6 @@ public class Workflow
         int lengthOfInstructions = lastBracketIndex - firstBracketIndex - 1;
 
         string allInstructions = rawWorkflow.Substring(firstBracketIndex + 1, lengthOfInstructions);
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        Console.WriteLine("!!!! DELETE ME: " + allInstructions);
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
         string[] instructions = allInstructions.Split(',');
         return GetInstructions(instructions);
     }
