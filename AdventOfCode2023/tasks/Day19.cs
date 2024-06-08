@@ -32,13 +32,13 @@ public class Day19Task1 : BaseTask
 
     private void CycleThroughWorkflows(MachinePart machinePart)
     {
-        string currentWorkflowName="in";
-        while(machinePart.Accepted==null||machinePart.Rejected==null)
+        string currentWorkflowName = "in";
+        while (machinePart.Accepted == null || machinePart.Rejected == null)
         {
             Workflow currentWorkflow = Workflows[currentWorkflowName];
             string nextCommand = currentWorkflow.GetNextCommand(machinePart);
 
-            if (nextCommand=="A") machinePart.Accept();
+            if (nextCommand == "A") machinePart.Accept();
             else if (nextCommand == "R") machinePart.Reject();
             else currentWorkflowName = nextCommand;
         }
@@ -46,11 +46,11 @@ public class Day19Task1 : BaseTask
 
     private int SumAcceptedParts()
     {
-        int sum=0;
+        int sum = 0;
 
         foreach (MachinePart machinePart in MachineParts)
         {
-            bool? rejected= machinePart.Rejected,
+            bool? rejected = machinePart.Rejected,
                   accepted = machinePart.Accepted;
             if (rejected == false) continue;
             if (rejected == null || accepted == null)
@@ -86,10 +86,11 @@ public class Day19Task1 : BaseTask
 
     private MachinePart[] GetMachineParts()
     {
-        string partsInput=Input.Split("\n\n")[1];
-        string partsInputRows=partsInput.Split("\n");
+        string[] splitInput = Input.Split("\n\n");
+        string partsInput = splitInput[1];
+        string partsInputRows = partsInput.Split("\n");
 
-        MachinePart[] machineParts=new MachinePart[partsInputRows.Length];
+        MachinePart[] machineParts = new MachinePart[partsInputRows.Length];
 
         for (int i = 0; i < partsInputRows.Length; ++i)
         {
@@ -103,10 +104,11 @@ public class Day19Task1 : BaseTask
 
     private Dictionary<string, Workflow> GetWorkflows()
     {
-        string workflowsInput = Input.Split("\n\n")[0];
+        string[] splitInput = Input.Split("\n\n");
+        string workflowsInput = splitInput[0];
         string workflowsInputRows = workflowsInput.Split("\n");
 
-        Dictionary<string, Workflow> workflows=new();
+        Dictionary<string, Workflow> workflows = new();
 
         for (int i = 0; i < workflowsInputRows.Length; ++i)
         {

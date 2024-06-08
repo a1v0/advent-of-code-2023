@@ -38,7 +38,7 @@ public class MachinePart
     {
         get
         {
-        return _x;
+            return _x;
         }
     }
 
@@ -47,7 +47,7 @@ public class MachinePart
     {
         get
         {
-        return _m;
+            return _m;
         }
     }
 
@@ -56,7 +56,7 @@ public class MachinePart
     {
         get
         {
-        return _a;
+            return _a;
         }
     }
 
@@ -65,7 +65,7 @@ public class MachinePart
     {
         get
         {
-        return _s;
+            return _s;
         }
     }
 
@@ -74,7 +74,7 @@ public class MachinePart
     {
         get
         {
-        return _accepted;
+            return _accepted;
         }
     }
 
@@ -83,7 +83,7 @@ public class MachinePart
     {
         get
         {
-        return _rejected;
+            return _rejected;
         }
     }
 
@@ -177,7 +177,7 @@ public class Workflow
     {
         get
         {
-        return _name;
+            return _name;
         }
     }
 
@@ -186,7 +186,7 @@ public class Workflow
     {
         get
         {
-        return _instructions;
+            return _instructions;
         }
     }
 
@@ -298,9 +298,9 @@ public class WorkflowInstruction
     public char? XmasKey
     {
         get
-{
-    return _xmasKey;
-}
+        {
+            return _xmasKey;
+        }
     }
 
     private readonly char? _operation;
