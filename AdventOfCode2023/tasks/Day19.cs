@@ -69,7 +69,7 @@ public class Day19Task1 : BaseTask
     {
         get
         {
-            _machineParts ?= GetMachineParts();
+            _machineParts ??= GetMachineParts();
             return _machineParts;
         }
     }
@@ -79,7 +79,7 @@ public class Day19Task1 : BaseTask
     {
         get
         {
-            _workflows ?= GetWorkflows();
+            _workflows ??= GetWorkflows();
             return _workflows;
         }
     }
