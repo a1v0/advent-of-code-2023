@@ -31,6 +31,15 @@ public class Day19Task1 : BaseTask
         // 
         // 
     }
+
+    private MachinePart[]? _machineParts;
+    private MachinePart[] MachineParts
+    {
+        get{
+            _machineParts ?= GetMachineParts();
+            return _machineParts;
+        }
+    }
 }
 
 public class Day19Task2 : Day19Task1
