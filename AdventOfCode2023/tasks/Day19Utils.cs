@@ -211,9 +211,14 @@ public class WorkflowInstruction
         return instruction.Substring(colonIndex + 1);
     }
 
-    private char GetXmasKey(instruction)
+    private char GetXmasKey(string instruction)
     {
         return instruction[0];
+    }
+
+    private char GetOperation(string instruction)
+    {
+        return instruction[1];
     }
 
     private readonly bool _isDefault;
