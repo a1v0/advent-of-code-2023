@@ -154,13 +154,13 @@ public class Workflow
         return workflowInstructions.ToArray();
     }
 
-    private readonly string _name;
+    private string _name;
     public string Name
     {
         get;
     }
 
-    private readonly WorkflowInstruction[] _instructions;
+    private WorkflowInstruction[] _instructions;
     private WorkflowInstruction[] Instructions
     {
         get;
