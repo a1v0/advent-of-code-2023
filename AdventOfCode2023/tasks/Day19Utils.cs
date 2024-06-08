@@ -187,4 +187,10 @@ public class WorkflowInstruction
         // check for colon
         // - if no colon, IsDefault = true and return
     }
+
+    private readonly bool _isDefault;
+    public readonly bool IsDefault
+    {
+        get;
+    }
 }
