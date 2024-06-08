@@ -150,7 +150,7 @@ public class Workflow
     {
         List<WorkflowInstruction> workflowInstructions = new();
 
-        foreach (string instruction of instructions)
+        foreach (string instruction in instructions)
         {
             WorkflowInstruction workflowInstruction = new(instruction);
             workflowInstructions.Add(workflowInstruction);
@@ -173,7 +173,7 @@ public class Workflow
 
     public string GetNextCommand(MachinePart machinePart)
     {
-        foreach (WorkflowInstruction instruction of Instructions)
+        foreach (WorkflowInstruction instruction in Instructions)
         {
             if (instruction.IsDefault) return instruction.NextCommand;
 
