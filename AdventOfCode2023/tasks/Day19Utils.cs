@@ -104,6 +104,8 @@ public class Workflow
         // sample input: px{a<2006:qkq,m>2090:A,rfg}
         // extract and set name
         // remove brackets, split and set instructions
+        _name = GetWorkflowName(rawWorkflow);
+        _instructions = GetInstructions(rawWorkflow);
     }
 
     private readonly string _name;
