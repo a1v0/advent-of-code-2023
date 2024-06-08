@@ -175,7 +175,7 @@ public class Workflow
             int xmasValue = GetXmasValue(instruction.XmasKey, machinePart);
             bool comparisonIsTrue = IsComparisonTrue(instruction, xmasValue);
 
-            if(comparisonIsTrue) return instruction.NextCommand;
+            if (comparisonIsTrue) return instruction.NextCommand;
         }
     }
 

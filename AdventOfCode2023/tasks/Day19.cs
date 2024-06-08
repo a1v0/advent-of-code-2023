@@ -18,14 +18,12 @@ public class Day19Task1 : BaseTask
     public override string Solve()
     {
         // parse parts as MachineParts and make array
+        // parse Workflows into dictionary
         //
-        // create Workflow class
-        // - name
-        // - public GetNextInstruction method which takes a MachinePart as parameter, performs its checks and returns an instruction for what comes next
-        // parse Workflows as dictionary
+        //
         // 
         // loop through MachineParts until every one is accepted or rejected
-        // add totals and return
+        // sum totals and return
         // 
         // 
         // 
