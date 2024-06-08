@@ -166,10 +166,9 @@ public class Workflow
         get;
     }
 
-    public string GetNextInstruction(MachinePart machinePart)
+    public string GetNextCommand(MachinePart machinePart)
     {
-        // sample input: px{a<2006:qkq,m>2090:A,rfg}
-        // loop through instructions and return when a match is found
+        // loop through instructions and return command when a match is found
     }
 }
 
@@ -177,6 +176,15 @@ public class WorkflowInstruction
 {
     public WorkflowInstruction(string instruction)
     {
-      
+        // sample input: a<2006:qkq, OR m>2090:A, OR rfg
+        // 
+        // IsDefault: bool to say whether there's any condition attached or to unconditionally follow the instruction
+        // XmasKey: char of x, m, a or s.
+        // Operation: char of '<' or '>'
+        // Comparison: int of value behind operator
+        // NextCommand: string of data behind colon
+        //
+        // check for colon
+        // - if no colon, IsDefault = true and return
     }
 }
