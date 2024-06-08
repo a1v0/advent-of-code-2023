@@ -52,7 +52,7 @@ public class Day19Task1 : BaseTask
         {
             bool? rejected = machinePart.Rejected,
                   accepted = machinePart.Accepted;
-            if (rejected == false) continue;
+            if (rejected == true) continue;
             if (rejected == null || accepted == null)
             {
                 throw new Exception("Accepted/Rejected state of MachinePart is null.");
