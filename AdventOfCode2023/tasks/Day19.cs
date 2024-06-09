@@ -130,8 +130,6 @@ public class Day19Task2 : Day19Task1
     // - find the size of each range (max - min), then construct the number of possibilities. I THINK this is done by multiplying the size of each range
     //
     // Theoretically, this should only provide us with distinct paths
-    //
-    // 
     public override Solve()
     {
         PopulateRanges();
@@ -141,10 +139,6 @@ public class Day19Task2 : Day19Task1
 
     private long GetDistinctCombinations()
     {
-        // identify every possible route to an A or an R
-        // - create class called XmasRange with min/max properties, and methods to calculate range sizes
-        // - cycle through all workflows, starting at 'in' and going down every path until you reach an end
-        // - discard if path ends in R
         long sumOfDistinctCombinations = GetSumOfDistinctCombinations();
         return sumOfDistinctCombinations;
     }
@@ -163,12 +157,41 @@ public class Day19Task2 : Day19Task1
 
     private void PopulateRanges()
     {
+        // identify every possible route to an A or an R
+        // - create class called XmasRange with min/max properties, and methods to calculate range sizes
+        // - cycle through all workflows, starting at 'in' and going down every path until you reach an end
+        // - discard if path ends in R
         // use backtracking with recursion
         // iterate over each WorkflowInstruction in current location
         // create copy of current XmasRange in each iteration
         // if range ends in A, add to Ranges and return; if R, just return
         // after backing out, skip over previous instruction by updating max/min values to the reverse
         // - ensure that you correctly set and unset max/min values whilst backtracking
+    }
+
+    private void EvaluateWorkflow(string currentWorkflowName, XmasRange range)
+    {
+        Workflow workflow = Workflows[currentWorkflowName];
+        foreach (WorkflowInstruction instruction in workflow.Instructions)
+        {
+            if (instruction.IsFinal)
+            {
+                HandleEndOfPath(instruction, range);
+                return;
+            }
+            
+            if (instruction.IsDefault)
+            {
+                EvaluateWorkflow(instruction.NextCommand, range);
+                continue;
+            }
+
+            XmasRange duplicateRange = range.Duplicate();
+            duplicateRange.UpdateValues(instruction);
+            EvaluateWorkflow(instruction.NextCommand, duplicateRange);
+
+            range.UpdateValues(instruction, "inverse");
+        }
     }
 
     private List<XmasRange> _ranges = new();
