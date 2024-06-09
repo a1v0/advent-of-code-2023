@@ -144,6 +144,20 @@ public class Day19Task2 : Day19Task1
     // - create class called XmasRange with min/max properties, and methods to calculate range sizes
     // - cycle through all workflows, starting at 'in' and going down every path until you reach an end
     // - discard if path ends in R
+        long sumOfDistinctCombinations = GetSumOfDistinctCombinations();
+        return sumOfDistinctCombinations;
+    }
+
+    private long GetSumOfDistinctCombinations()
+    {
+        long sum = 0;
+        
+        foreach (XmasRange range in Ranges)
+        {
+            sum += range.GetTotalCombinations();
+        }
+
+        return sum;
     }
 
     private List<XmasRange> _ranges = new();
