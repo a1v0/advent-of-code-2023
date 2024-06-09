@@ -194,6 +194,14 @@ public class Day19Task2 : Day19Task1
         }
     }
 
+    private void HandleEndOfPath(WorkflowInstruction instruction, XmasRange range)
+    {
+        if (instruction.NextCommand == "A")
+        {
+            Ranges.Add(range);
+        }
+    }
+
     private List<XmasRange> _ranges = new();
     private List<XmasRange> Ranges
     {
