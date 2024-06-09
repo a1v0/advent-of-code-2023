@@ -16,15 +16,17 @@ public class XmasRange
 
     public long GetTotalCombinations()
     {
-        int rangeX = GetRange(MinX, MaxX),
-            rangeM = GetRange(MinM, MaxM),
-            rangeA = GetRange(MinA, MaxA),
-            rangeS = GetRange(MinS, MaxS);
+        long rangeX = GetRange(MinX, MaxX),
+             rangeM = GetRange(MinM, MaxM),
+             rangeA = GetRange(MinA, MaxA),
+             rangeS = GetRange(MinS, MaxS);
 
+        System.Console.WriteLine(rangeX.ToString() + " " + rangeM.ToString() + " " + rangeA.ToString() + " "+rangeS.ToString());
+      System.Console.WriteLine(rangeX * rangeM * rangeA * rangeS);
         return rangeX * rangeM * rangeA * rangeS;
     }
 
-    private static int GetRange(int min, int max)
+    private static long GetRange(int min, int max)
     {
         return max - min + 1;
     }
