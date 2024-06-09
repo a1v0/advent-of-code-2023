@@ -130,7 +130,7 @@ public class Day19Task2 : Day19Task1
     // - find the size of each range (max - min), then construct the number of possibilities. I THINK this is done by multiplying the size of each range
     //
     // Theoretically, this should only provide us with distinct paths
-    public override Solve()
+    public override string Solve()
     {
         PopulateRanges();
         long distinctCombinations = GetDistinctCombinations();
