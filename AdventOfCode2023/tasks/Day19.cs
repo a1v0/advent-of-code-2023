@@ -75,7 +75,7 @@ public class Day19Task1 : BaseTask
     }
 
     private Dictionary<string, Workflow>? _workflows;
-    private Dictionary<string, Workflow> Workflows
+    protected Dictionary<string, Workflow> Workflows
     {
         get
         {
