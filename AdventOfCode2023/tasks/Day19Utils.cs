@@ -479,7 +479,7 @@ public class XmasRange
 
     public void UpdateValues(WorkflowInstruction instruction)
     {
-        ref int propertyToUpdate = GetPropertyToUpdate(instruction);
+        ref int propertyToUpdate = ref GetPropertyToUpdate(instruction);
         propertyToUpdate = GetNewValue(instruction);
     }
 
