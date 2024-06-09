@@ -328,7 +328,7 @@ public class XmasRange
     }
 
     private int _minX;
-    public int _minX
+    public int MinX
     {
         get
         {
@@ -341,7 +341,7 @@ public class XmasRange
     }
 
     private int _minM;
-    public int _minM
+    public int MinM
     {
         get
         {
@@ -354,7 +354,7 @@ public class XmasRange
     }
 
     private int _minA;
-    public int _minA
+    public int MinA
     {
         get
         {
@@ -367,7 +367,7 @@ public class XmasRange
     }
 
     private int _minS;
-    public int _minS
+    public int MinS
     {
         get
         {
@@ -380,7 +380,7 @@ public class XmasRange
     }
 
     private int _maxX;
-    public int _maxX
+    public int MaxX
     {
         get
         {
@@ -393,7 +393,7 @@ public class XmasRange
     }
 
     private int _maxM;
-    public int _maxM
+    public int MaxM
     {
         get
         {
@@ -406,7 +406,7 @@ public class XmasRange
     }
 
     private int _maxA;
-    public int _maxA
+    public int MaxA
     {
         get
         {
@@ -419,7 +419,7 @@ public class XmasRange
     }
 
     private int _maxS;
-    public int _maxS
+    public int MaxS
     {
         get
         {
