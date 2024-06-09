@@ -75,7 +75,7 @@ public class Day19Task1 : BaseTask
     }
 
     private Dictionary<string, Workflow>? _workflows;
-    private Dictionary<string, Workflow> Workflows
+    protected Dictionary<string, Workflow> Workflows
     {
         get
         {
@@ -122,17 +122,85 @@ public class Day19Task1 : BaseTask
 
 public class Day19Task2 : Day19Task1
 {
-    // Not 100% sure about this, but here's a starting point:
-    // identify every possible route to an A or an R
-    // - cycle through all workflows, starting at 'in' and going down every path until you reach an end
-    // - discard if path ends in R
-    // find number of combinations per path:
-    // - create some sort of object to map the maximum and minimum values of each letter
-    // - the minimum value of a letter always starts at 1 and the max always starts at 4000
-    // - if your path contains, e.g., x<2500, you then reduce the max value of X to 2499
-    // - find the size of each range (max - min), then construct the number of possibilities. I THINK this is done by multiplying the size of each range
-    //
-    // The big question is: how do I ensure I only return DISTINCT possibilities, avoiding duplicates?
-    //
-    // 
+    public override string Solve()
+    {
+        PopulateRanges();
+        long distinctCombinations = GetDistinctCombinations();
+        return distinctCombinations.ToString();
+    }
+
+    private long GetDistinctCombinations()
+    {
+        long sumOfDistinctCombinations = GetSumOfDistinctCombinations();
+        return sumOfDistinctCombinations;
+    }
+
+    private long GetSumOfDistinctCombinations()
+    {
+        long sum = 0;
+
+        foreach (XmasRange range in Ranges)
+        {
+            sum += range.GetTotalCombinations();
+        }
+
+        return sum;
+    }
+
+    private void PopulateRanges()
+    {
+        string currentWorkflowName = "in";
+        XmasRange range = new();
+
+        EvaluateWorkflow(currentWorkflowName, range);
+    }
+
+    private void EvaluateWorkflow(string currentWorkflowName, XmasRange range)
+    {
+        Workflow workflow = Workflows[currentWorkflowName];
+        foreach (WorkflowInstruction instruction in workflow.Instructions)
+        {
+            if (instruction.IsFinal)
+            {
+                XmasRange duplicateRangeFinal = range.Duplicate();
+                if(!instruction.IsDefault)
+                {
+                    duplicateRangeFinal.UpdateValues(instruction);
+                }
+
+                HandleEndOfPath(instruction, duplicateRangeFinal);
+                continue;
+            }
+
+            else if (instruction.IsDefault)
+            {
+                XmasRange duplicateRangeDefault = range.Duplicate();
+                EvaluateWorkflow(instruction.NextCommand, duplicateRangeDefault);
+                continue;
+            }
+
+            XmasRange duplicateRange = range.Duplicate();
+            duplicateRange.UpdateValues(instruction);
+            EvaluateWorkflow(instruction.NextCommand, duplicateRange);
+
+            range.UpdateValues(instruction, true);
+        }
+    }
+
+    private void HandleEndOfPath(WorkflowInstruction instruction, XmasRange range)
+    {
+        if (instruction.NextCommand == "A")
+        {
+            Ranges.Add(range);
+        }
+    }
+
+    private List<XmasRange> _ranges = new();
+    private List<XmasRange> Ranges
+    {
+        get
+        {
+            return _ranges;
+        }
+    }
 }
