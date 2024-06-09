@@ -523,9 +523,9 @@ public class XmasRange
         bool updateMinimum = instruction.Operation == '>';
         if (updateMinimum)
         {
-            return instruction.Comparison + 1;
+            return (int)instruction.Comparison + 1;
         }
 
-        return instruction.Comparison - 1;
+        return (int)instruction.Comparison - 1;
     }
 }
