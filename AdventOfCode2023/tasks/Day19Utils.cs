@@ -337,6 +337,11 @@ public class XmasRange
         return rangeX * rangeM * rangeA * rangeS;
     }
 
+    private static int GetRange(int min, int max)
+    {
+        return max - min + 1;
+    }
+
     private int _minX;
     public int MinX
     {
