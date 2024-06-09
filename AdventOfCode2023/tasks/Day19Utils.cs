@@ -479,48 +479,57 @@ public class XmasRange
 
     public void UpdateValues(WorkflowInstruction instruction)
     {
-        ref int propertyToUpdate = ref GetPropertyToUpdate(instruction);
-        propertyToUpdate = GetNewValue(instruction);
+        bool updateMinimum = instruction.Operation == '>';
+        int newValue = GetNewValue(instruction, updateMinimum);
+        SetValue(instruction, newValue, updateMinimum);
     }
 
-    private ref int GetPropertyToUpdate(WorkflowInstruction instruction)
+    private void SetValue(WorkflowInstruction instruction, int newValue, bool updateMinimum)
     {
-        bool updateMinimum = instruction.Operation == '>';
         if (updateMinimum)
         {
             switch (instruction.XmasKey)
             {
                 case 'x':
-                    return ref MinX;
+                    MinX = newValue;
+                    break;
                 case 'm':
-                    return ref MinM;
+                    MinM = newValue;
+                    break;
                 case 'a':
-                    return ref MinA;
+                    MinA = newValue;
+                    break;
                 case 's':
-                    return ref MinS;
+                    MinS = newValue;
+                    break;
                 default:
                     throw new Exception("Invalid XmasKey provided.");
             }
+
+            return;
         }
 
         switch (instruction.XmasKey)
         {
             case 'x':
-                return ref MaxX;
+                MaxX = newValue;
+                break;
             case 'm':
-                return ref MaxM;
+                MaxM = newValue;
+                break;
             case 'a':
-                return ref MaxA;
+                MaxA = newValue;
+                break;
             case 's':
-                return ref MaxS;
+                MaxS = newValue;
+                break;
             default:
                 throw new Exception("Invalid XmasKey provided.");
         }
     }
 
-    private int GetNewValue(WorkflowInstruction instruction)
+    private int GetNewValue(WorkflowInstruction instruction, bool updateMinimum)
     {
-        bool updateMinimum = instruction.Operation == '>';
         if (updateMinimum)
         {
             return (int)instruction.Comparison + 1;
