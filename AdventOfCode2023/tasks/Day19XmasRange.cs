@@ -21,8 +21,6 @@ public class XmasRange
              rangeA = GetRange(MinA, MaxA),
              rangeS = GetRange(MinS, MaxS);
 
-        System.Console.WriteLine(rangeX.ToString() + " " + rangeM.ToString() + " " + rangeA.ToString() + " "+rangeS.ToString());
-      System.Console.WriteLine(rangeX * rangeM * rangeA * rangeS);
         return rangeX * rangeM * rangeA * rangeS;
     }
 
