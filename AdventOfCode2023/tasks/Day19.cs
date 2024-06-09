@@ -122,14 +122,6 @@ public class Day19Task1 : BaseTask
 
 public class Day19Task2 : Day19Task1
 {
-    // find number of combinations per path:
-    // - create some sort of object to map the maximum and minimum values of each letter
-    // - the minimum value of a letter always starts at 1 and the max always starts at 4000
-    // - if your path contains, e.g., x<2500, you then reduce the max value of X to 2499
-    // - go down every possible option. If you "step over" a condition in order to evaluate the following condition, set the max/min values accordingly
-    // - find the size of each range (max - min), then construct the number of possibilities. I THINK this is done by multiplying the size of each range
-    //
-    // Theoretically, this should only provide us with distinct paths
     public override string Solve()
     {
         PopulateRanges();
@@ -157,16 +149,6 @@ public class Day19Task2 : Day19Task1
 
     private void PopulateRanges()
     {
-        // identify every possible route to an A or an R
-        // - create class called XmasRange with min/max properties, and methods to calculate range sizes
-        // - cycle through all workflows, starting at 'in' and going down every path until you reach an end
-        // - discard if path ends in R
-        // use backtracking with recursion
-        // iterate over each WorkflowInstruction in current location
-        // create copy of current XmasRange in each iteration
-        // if range ends in A, add to Ranges and return; if R, just return
-        // after backing out, skip over previous instruction by updating max/min values to the reverse
-        // - ensure that you correctly set and unset max/min values whilst backtracking
     }
 
     private void EvaluateWorkflow(string currentWorkflowName, XmasRange range)
