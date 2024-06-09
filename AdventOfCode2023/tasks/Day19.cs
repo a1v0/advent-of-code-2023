@@ -122,10 +122,6 @@ public class Day19Task1 : BaseTask
 
 public class Day19Task2 : Day19Task1
 {
-    // Not 100% sure about this, but here's a starting point:
-    // identify every possible route to an A or an R
-    // - cycle through all workflows, starting at 'in' and going down every path until you reach an end
-    // - discard if path ends in R
     // find number of combinations per path:
     // - create some sort of object to map the maximum and minimum values of each letter
     // - the minimum value of a letter always starts at 1 and the max always starts at 4000
@@ -140,5 +136,13 @@ public class Day19Task2 : Day19Task1
     {
         long distinctCombinations = GetDistinctCombinations();
         return distinctCombinations.ToString();
+    }
+
+    private long GetDistinctCombinations()
+    {
+    // identify every possible route to an A or an R
+    // - create class called XmasRange with min/max properties, and methods to calculate range sizes
+    // - cycle through all workflows, starting at 'in' and going down every path until you reach an end
+    // - discard if path ends in R
     }
 }
