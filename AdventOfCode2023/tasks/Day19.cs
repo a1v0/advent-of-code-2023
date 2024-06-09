@@ -130,9 +130,15 @@ public class Day19Task2 : Day19Task1
     // - create some sort of object to map the maximum and minimum values of each letter
     // - the minimum value of a letter always starts at 1 and the max always starts at 4000
     // - if your path contains, e.g., x<2500, you then reduce the max value of X to 2499
+    // - go down every possible option. If you "step over" a condition in order to evaluate the following condition, set the max/min values accordingly
     // - find the size of each range (max - min), then construct the number of possibilities. I THINK this is done by multiplying the size of each range
     //
-    // The big question is: how do I ensure I only return DISTINCT possibilities, avoiding duplicates?
+    // Theoretically, this should only provide us with distinct paths
     //
     // 
+    public override Solve()
+    {
+        long distinctCombinations = GetDistinctCombinations();
+        return distinctCombinations.ToString();
+    }
 }
