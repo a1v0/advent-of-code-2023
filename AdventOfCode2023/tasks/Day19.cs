@@ -149,6 +149,10 @@ public class Day19Task2 : Day19Task1
 
     private void PopulateRanges()
     {
+        string currentWorkflowName = "in";
+        XmasRange range = new();
+
+        EvaluateWorkflow(currentWorkflowName, range);
     }
 
     private void EvaluateWorkflow(string currentWorkflowName, XmasRange range)

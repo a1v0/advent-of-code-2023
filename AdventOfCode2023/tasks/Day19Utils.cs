@@ -521,9 +521,9 @@ public class XmasRange
     private int GetNewValue(WorkflowInstruction instruction)
     {
         bool updateMinimum = instruction.Operation == '>';
-        if(updateMinimum)
+        if (updateMinimum)
         {
-            return instruction.Comparison +1;
+            return instruction.Comparison + 1;
         }
 
         return instruction.Comparison - 1;
