@@ -517,4 +517,15 @@ public class XmasRange
                 throw new Exception("Invalid XmasKey provided.");
         }
     }
+
+    private int GetNewValue(WorkflowInstruction instruction)
+    {
+        bool updateMinimum = instruction.Operation == '>';
+        if(updateMinimum)
+        {
+            return instruction.Comparison +1;
+        }
+
+        return instruction.Comparison - 1;
+    }
 }
