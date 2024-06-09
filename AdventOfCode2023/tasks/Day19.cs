@@ -134,16 +134,17 @@ public class Day19Task2 : Day19Task1
     // 
     public override Solve()
     {
+        PopulateRanges();
         long distinctCombinations = GetDistinctCombinations();
         return distinctCombinations.ToString();
     }
 
     private long GetDistinctCombinations()
     {
-    // identify every possible route to an A or an R
-    // - create class called XmasRange with min/max properties, and methods to calculate range sizes
-    // - cycle through all workflows, starting at 'in' and going down every path until you reach an end
-    // - discard if path ends in R
+        // identify every possible route to an A or an R
+        // - create class called XmasRange with min/max properties, and methods to calculate range sizes
+        // - cycle through all workflows, starting at 'in' and going down every path until you reach an end
+        // - discard if path ends in R
         long sumOfDistinctCombinations = GetSumOfDistinctCombinations();
         return sumOfDistinctCombinations;
     }
@@ -151,13 +152,23 @@ public class Day19Task2 : Day19Task1
     private long GetSumOfDistinctCombinations()
     {
         long sum = 0;
-        
+
         foreach (XmasRange range in Ranges)
         {
             sum += range.GetTotalCombinations();
         }
 
         return sum;
+    }
+
+    private void PopulateRanges()
+    {
+        // use backtracking with recursion
+        // iterate over each WorkflowInstruction in current location
+        // create copy of current XmasRange in each iteration
+        // if range ends in A, add to Ranges and return; if R, just return
+        // after backing out, skip over previous instruction by updating max/min values to the reverse
+        // - ensure that you correctly set and unset max/min values whilst backtracking
     }
 
     private List<XmasRange> _ranges = new();
