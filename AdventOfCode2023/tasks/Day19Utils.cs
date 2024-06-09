@@ -460,4 +460,20 @@ public class XmasRange
             return _maxS;
         }
     }
+
+    public XmasRange Duplicate()
+    {
+        XmasRange duplicateRange = new();
+
+        duplicateRange.MaxX = MaxX;
+        duplicateRange.MinX = MinX;
+        duplicateRange.MaxM = MaxM;
+        duplicateRange.MinM = MinM;
+        duplicateRange.MaxA = MaxA;
+        duplicateRange.MinA = MinA;
+        duplicateRange.MaxS = MaxS;
+        duplicateRange.MinS = MinS;
+
+        return duplicateRange;
+    }
 }
