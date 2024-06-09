@@ -326,4 +326,56 @@ public class XmasRange
         _minS = 1;
         _maxS = 4000;
     }
+
+    private int _minX;
+    public int _minX
+    {
+        get
+        {
+            return _minX;
+        }
+        set
+        {
+            return _minX;
+        }
+    }
+
+    private int _minM;
+    public int _minM
+    {
+        get
+        {
+            return _minM;
+        }
+        set
+        {
+            return _minM;
+        }
+    }
+
+    private int _minA;
+    public int _minA
+    {
+        get
+        {
+            return _minA;
+        }
+        set
+        {
+            return _minA;
+        }
+    }
+
+    private int _minS;
+    public int _minS
+    {
+        get
+        {
+            return _minS;
+        }
+        set
+        {
+            return _minS;
+        }
+    }
 }
