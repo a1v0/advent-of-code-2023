@@ -145,4 +145,13 @@ public class Day19Task2 : Day19Task1
     // - cycle through all workflows, starting at 'in' and going down every path until you reach an end
     // - discard if path ends in R
     }
+
+    private List<XmasRange> _ranges = new();
+    private List<XmasRange> Ranges
+    {
+        get
+        {
+            return _ranges;
+        }
+    }
 }
