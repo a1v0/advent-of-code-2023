@@ -248,6 +248,11 @@ public class WorkflowInstruction
         return instruction.Substring(colonIndex + 1);
     }
 
+    private bool GetIsFinal(string instruction)
+    {
+        return NextCommand == "R" || NextCommand == "A";
+    }
+
     private char GetXmasKey(string instruction)
     {
         return instruction[0];
