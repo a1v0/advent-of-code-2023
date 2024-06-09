@@ -312,3 +312,18 @@ public class WorkflowInstruction
         }
     }
 }
+
+public class XmasRange
+{
+    public XmasRange()
+    {
+        _minX = 1;
+        _maxX = 4000;
+        _minM = 1;
+        _maxM = 4000;
+        _minA = 1;
+        _maxA = 4000;
+        _minS = 1;
+        _maxS = 4000;
+    }
+}
