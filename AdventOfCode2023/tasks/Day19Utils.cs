@@ -466,14 +466,21 @@ public class XmasRange
         XmasRange duplicateRange = new();
 
         duplicateRange.MaxX = MaxX;
-        duplicateRange.MinX = MinX;
         duplicateRange.MaxM = MaxM;
-        duplicateRange.MinM = MinM;
         duplicateRange.MaxA = MaxA;
-        duplicateRange.MinA = MinA;
         duplicateRange.MaxS = MaxS;
+        duplicateRange.MinX = MinX;
+        duplicateRange.MinM = MinM;
+        duplicateRange.MinA = MinA;
         duplicateRange.MinS = MinS;
 
         return duplicateRange;
+    }
+
+    public void UpdateValues(WorkflowInstruction instruction)
+    {
+        // check whether to update min or max by checking the Operation
+        // create new method using ref keyword to return the correct property to update
+        // update values
     }
 }
