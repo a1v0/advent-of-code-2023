@@ -479,8 +479,7 @@ public class XmasRange
 
     public void UpdateValues(WorkflowInstruction instruction)
     {
-        // check whether to update min or max by checking the Operation
-        // create new method using ref keyword to return the correct property to update
-        // update values
+        ref int propertyToUpdate = GetPropertyToUpdate(instruction);
+        propertyToUpdate = GetNewValue(instruction);
     }
 }
