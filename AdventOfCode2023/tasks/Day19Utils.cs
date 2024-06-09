@@ -164,7 +164,7 @@ public class Workflow
     }
 
     private WorkflowInstruction[] _instructions;
-    private WorkflowInstruction[] Instructions
+    public WorkflowInstruction[] Instructions
     {
         get
         {
