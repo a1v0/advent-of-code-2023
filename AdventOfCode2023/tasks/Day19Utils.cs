@@ -366,7 +366,7 @@ public class XmasRange
         }
         set
         {
-            return _minX;
+            _minX = value;
         }
     }
 
@@ -379,7 +379,7 @@ public class XmasRange
         }
         set
         {
-            return _minM;
+            _minM = value;
         }
     }
 
@@ -392,7 +392,7 @@ public class XmasRange
         }
         set
         {
-            return _minA;
+            _minA = value;
         }
     }
 
@@ -405,7 +405,7 @@ public class XmasRange
         }
         set
         {
-            return _minS;
+            _minS = value;
         }
     }
 
@@ -418,7 +418,7 @@ public class XmasRange
         }
         set
         {
-            return _maxX;
+            _maxX = value;
         }
     }
 
@@ -431,7 +431,7 @@ public class XmasRange
         }
         set
         {
-            return _maxM;
+            _maxM = value;
         }
     }
 
@@ -444,7 +444,7 @@ public class XmasRange
         }
         set
         {
-            return _maxA;
+            _maxA = value;
         }
     }
 
@@ -457,7 +457,7 @@ public class XmasRange
         }
         set
         {
-            return _maxS;
+            _maxS = value;
         }
     }
 
