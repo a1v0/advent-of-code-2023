@@ -477,9 +477,11 @@ public class XmasRange
         return duplicateRange;
     }
 
-    public void UpdateValues(WorkflowInstruction instruction)
+    public void UpdateValues(WorkflowInstruction instruction, bool invertUpdate = false)
     {
         bool updateMinimum = instruction.Operation == '>';
+        if(invertUpdate) updateMinimum = !updateMinimum;
+
         int newValue = GetNewValue(instruction, updateMinimum);
         SetValue(instruction, newValue, updateMinimum);
     }

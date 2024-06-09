@@ -176,7 +176,7 @@ public class Day19Task2 : Day19Task1
             duplicateRange.UpdateValues(instruction);
             EvaluateWorkflow(instruction.NextCommand, duplicateRange);
 
-            range.UpdateValues(instruction, "inverse");
+            range.UpdateValues(instruction, true)
         }
     }
 
