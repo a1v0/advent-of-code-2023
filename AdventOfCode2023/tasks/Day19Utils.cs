@@ -224,6 +224,7 @@ public class WorkflowInstruction
     {
         _isDefault = CheckIsDefault(instruction);
         _nextCommand = GetNextCommand(instruction);
+        _isFinal = GetIsFinal(instruction);
 
         if (!_isDefault)
         {
@@ -273,6 +274,15 @@ public class WorkflowInstruction
         get
         {
             return _isDefault;
+        }
+    }
+
+    private readonly bool _isFinal;
+    public bool IsFinal
+    {
+        get
+        {
+            return _isFinal;
         }
     }
 
