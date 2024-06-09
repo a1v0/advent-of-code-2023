@@ -89,7 +89,7 @@ public class Day19Task1 : BaseTask
         string[] splitInput = Input.Split("\n\n");
         string partsInput = splitInput[1];
         string[] partsInputRows = partsInput.Split("\n");
-        MachinePart[] machineParts = new MachinePart[partsInputRows.Length - 1]; // -1 because there always seems to be a blank line at the end of the input
+        MachinePart[] machineParts = new MachinePart[partsInputRows.Length];
 
         for (int i = 0; i < machineParts.Length; ++i)
         {
