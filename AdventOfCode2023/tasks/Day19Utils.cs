@@ -482,4 +482,39 @@ public class XmasRange
         ref int propertyToUpdate = GetPropertyToUpdate(instruction);
         propertyToUpdate = GetNewValue(instruction);
     }
+
+    private ref int GetPropertyToUpdate(WorkflowInstruction instruction)
+    {
+        bool updateMinimum = instruction.Operation == '>';
+        if (updateMinimum)
+        {
+            switch (instruction.XmasKey)
+            {
+                case 'x':
+                    return ref MinX;
+                case 'm':
+                    return ref MinM;
+                case 'a':
+                    return ref MinA;
+                case 's':
+                    return ref MinS;
+                default:
+                    throw new Exception("Invalid XmasKey provided.");
+            }
+        }
+
+        switch (instruction.XmasKey)
+        {
+            case 'x':
+                return ref MaxX;
+            case 'm':
+                return ref MaxM;
+            case 'a':
+                return ref MaxA;
+            case 's':
+                return ref MaxS;
+            default:
+                throw new Exception("Invalid XmasKey provided.");
+        }
+    }
 }

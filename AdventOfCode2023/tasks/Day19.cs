@@ -179,7 +179,7 @@ public class Day19Task2 : Day19Task1
                 HandleEndOfPath(instruction, range);
                 return;
             }
-            
+
             if (instruction.IsDefault)
             {
                 EvaluateWorkflow(instruction.NextCommand, range);
