@@ -327,6 +327,16 @@ public class XmasRange
         _maxS = 4000;
     }
 
+    public long GetTotalCombinations()
+    {
+        int rangeX = GetRange(MinX, MaxX),
+            rangeM = GetRange(MinM, MaxM),
+            rangeA = GetRange(MinA, MaxA),
+            rangeS = GetRange(MinS, MaxS);
+
+        return rangeX * rangeM * rangeA * rangeS;
+    }
+
     private int _minX;
     public int MinX
     {
