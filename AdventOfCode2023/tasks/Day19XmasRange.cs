@@ -165,16 +165,16 @@ public class XmasRange
             switch (instruction.XmasKey)
             {
                 case 'x':
-                    MinX = newValue;
+                    if (newValue > MinX) MinX = newValue;
                     break;
                 case 'm':
-                    MinM = newValue;
+                    if (newValue > MinM) MinM = newValue;
                     break;
                 case 'a':
-                    MinA = newValue;
+                    if (newValue > MinA) MinA = newValue;
                     break;
                 case 's':
-                    MinS = newValue;
+                    if (newValue > MinS) MinS = newValue;
                     break;
                 default:
                     throw new Exception("Invalid XmasKey provided.");
@@ -186,16 +186,16 @@ public class XmasRange
         switch (instruction.XmasKey)
         {
             case 'x':
-                MaxX = newValue;
+                if (newValue < MaxX) MaxX = newValue;
                 break;
             case 'm':
-                MaxM = newValue;
+                if (newValue < MaxM) MaxM = newValue;
                 break;
             case 'a':
-                MaxA = newValue;
+                if (newValue < MaxA) MaxA = newValue;
                 break;
             case 's':
-                MaxS = newValue;
+                if (newValue < MaxS) MaxS = newValue;
                 break;
             default:
                 throw new Exception("Invalid XmasKey provided.");
