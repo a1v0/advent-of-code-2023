@@ -170,7 +170,10 @@ public class Day19Task2 : Day19Task1
                 }
 
                 HandleEndOfPath(instruction, duplicateRangeFinal);
-                range.UpdateValues(instruction, true);
+                if(!instruction.IsDefault)
+                {
+                    range.UpdateValues(instruction, true);
+                }
                 continue;
             }
 
