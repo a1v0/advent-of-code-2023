@@ -157,6 +157,7 @@ public class Day19Task2 : Day19Task1
 
     private void EvaluateWorkflow(string currentWorkflowName, XmasRange range)
     {
+      System.Console.WriteLine("I'm currently at '"+currentWorkflowName+"'");
         Workflow workflow = Workflows[currentWorkflowName];
         foreach (WorkflowInstruction instruction in workflow.Instructions)
         {
@@ -169,6 +170,7 @@ public class Day19Task2 : Day19Task1
                 }
 
                 HandleEndOfPath(instruction, duplicateRangeFinal);
+                range.UpdateValues(instruction, true);
                 continue;
             }
 
@@ -189,6 +191,8 @@ public class Day19Task2 : Day19Task1
 
     private void HandleEndOfPath(WorkflowInstruction instruction, XmasRange range)
     {
+      System.Console.WriteLine("I'm done! The end command is "+instruction.NextCommand);
+      System.Console.WriteLine(range.MinX.ToString()+"-"+range.MaxX.ToString()+" "+range.MinM.ToString()+"-"+range.MaxM.ToString()+" "+range.MinA.ToString()+"-"+range.MaxA.ToString()+" "+range.MinS.ToString()+"-"+range.MaxS.ToString());
         if (instruction.NextCommand == "A")
         {
             Ranges.Add(range);
