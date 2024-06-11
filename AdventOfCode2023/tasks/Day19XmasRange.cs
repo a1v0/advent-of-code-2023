@@ -2,7 +2,7 @@ namespace AdventOfCode2023;
 
 public class XmasRange
 {
-    public XmasRange()
+    public XmasRange(List<string>? trajectory)
     {
         _minX = 1;
         _maxX = 4000;
@@ -12,6 +12,15 @@ public class XmasRange
         _maxA = 4000;
         _minS = 1;
         _maxS = 4000;
+
+        if (trajectory != null)
+        {
+            _trajectory = trajectory.Slice(0, trajectory.Count);
+        }
+        else
+        {
+            _trajectory = new();
+        }
     }
 
     public long GetTotalCombinations()
@@ -210,5 +219,15 @@ public class XmasRange
         }
 
         return (int)instruction.Comparison - 1;
+    }
+
+    private List<string> _trajectory;
+    public List<string> Trajectory
+    {
+        // This property exists entirely for debugging purposes
+        get
+        {
+            return _trajectory;
+        }
     }
 }
