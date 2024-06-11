@@ -157,7 +157,6 @@ public class Day19Task2 : Day19Task1
 
     private void EvaluateWorkflow(string currentWorkflowName, XmasRange range)
     {
-      System.Console.WriteLine("I'm currently at '"+currentWorkflowName+"'");
         Workflow workflow = Workflows[currentWorkflowName];
         foreach (WorkflowInstruction instruction in workflow.Instructions)
         {
@@ -167,10 +166,11 @@ public class Day19Task2 : Day19Task1
                 if (!instruction.IsDefault)
                 {
                     duplicateRangeFinal.UpdateValues(instruction);
+                    duplicateRangeFinal.Trajectory.Add(instruction.NextCommand);
                 }
 
                 HandleEndOfPath(instruction, duplicateRangeFinal);
-                if(!instruction.IsDefault)
+                if (!instruction.IsDefault)
                 {
                     range.UpdateValues(instruction, true);
                 }
@@ -180,12 +180,14 @@ public class Day19Task2 : Day19Task1
             else if (instruction.IsDefault)
             {
                 XmasRange duplicateRangeDefault = range.Duplicate();
+                duplicateRangeDefault.Trajectory.Add(instruction.NextCommand);
                 EvaluateWorkflow(instruction.NextCommand, duplicateRangeDefault);
                 continue;
             }
 
             XmasRange duplicateRange = range.Duplicate();
             duplicateRange.UpdateValues(instruction);
+            duplicateRange.Trajectory.Add(instruction.NextCommand);
             EvaluateWorkflow(instruction.NextCommand, duplicateRange);
 
             range.UpdateValues(instruction, true);
@@ -194,8 +196,9 @@ public class Day19Task2 : Day19Task1
 
     private void HandleEndOfPath(WorkflowInstruction instruction, XmasRange range)
     {
-      System.Console.WriteLine("I'm done! The end command is "+instruction.NextCommand);
-      System.Console.WriteLine(range.MinX.ToString()+"-"+range.MaxX.ToString()+" "+range.MinM.ToString()+"-"+range.MaxM.ToString()+" "+range.MinA.ToString()+"-"+range.MaxA.ToString()+" "+range.MinS.ToString()+"-"+range.MaxS.ToString());
+        System.Console.WriteLine("X:" + range.MinX.ToString() + "-" + range.MaxX.ToString() + " M:" + range.MinM.ToString() + "-" + range.MaxM.ToString() + " A:" + range.MinA.ToString() + "-" + range.MaxA.ToString() + " S:" + range.MinS.ToString() + "-" + range.MaxS.ToString());
+        System.Console.WriteLine("  " + String.Join(' ', range.Trajectory));
+        System.Console.WriteLine("");
         if (instruction.NextCommand == "A")
         {
             Ranges.Add(range);

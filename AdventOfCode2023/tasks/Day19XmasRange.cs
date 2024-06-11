@@ -2,7 +2,7 @@ namespace AdventOfCode2023;
 
 public class XmasRange
 {
-    public XmasRange(List<string>? trajectory)
+    public XmasRange(List<string>? trajectory = null)
     {
         _minX = 1;
         _maxX = 4000;
@@ -13,13 +13,13 @@ public class XmasRange
         _minS = 1;
         _maxS = 4000;
 
+        _trajectory = new();
         if (trajectory != null)
         {
-            _trajectory = trajectory.Slice(0, trajectory.Count);
-        }
-        else
-        {
-            _trajectory = new();
+            foreach (string item in trajectory)
+            {
+                Trajectory.Add(item);
+            }
         }
     }
 
@@ -144,7 +144,7 @@ public class XmasRange
 
     public XmasRange Duplicate()
     {
-        XmasRange duplicateRange = new();
+        XmasRange duplicateRange = new(Trajectory);
 
         duplicateRange.MaxX = MaxX;
         duplicateRange.MaxM = MaxM;
