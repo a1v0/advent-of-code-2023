@@ -1,6 +1,6 @@
 namespace AdventOfCode2023;
 
-public class FlipFlopModule
+public class FlipFlopModule : BaseModule
 {
   
 }

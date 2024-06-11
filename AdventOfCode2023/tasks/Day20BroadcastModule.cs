@@ -1,6 +1,6 @@
 namespace AdventOfCode2023;
 
-public class BroadcastModule
+public class BroadcastModule : BaseModule
 {
   
 }
