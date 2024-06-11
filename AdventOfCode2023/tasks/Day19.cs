@@ -163,12 +163,16 @@ public class Day19Task2 : Day19Task1
             if (instruction.IsFinal)
             {
                 XmasRange duplicateRangeFinal = range.Duplicate();
-                if(!instruction.IsDefault)
+                if (!instruction.IsDefault)
                 {
                     duplicateRangeFinal.UpdateValues(instruction);
                 }
 
                 HandleEndOfPath(instruction, duplicateRangeFinal);
+                if (!instruction.IsDefault)
+                {
+                    range.UpdateValues(instruction, true);
+                }
                 continue;
             }
 

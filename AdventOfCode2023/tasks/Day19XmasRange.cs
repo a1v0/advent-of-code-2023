@@ -154,7 +154,7 @@ public class XmasRange
         bool updateMinimum = instruction.Operation == '>';
         if (invertUpdate) updateMinimum = !updateMinimum;
 
-        int newValue = GetNewValue(instruction, updateMinimum);
+        int newValue = GetNewValue(instruction, updateMinimum, invertUpdate);
         SetValue(instruction, newValue, updateMinimum);
     }
 
@@ -165,16 +165,16 @@ public class XmasRange
             switch (instruction.XmasKey)
             {
                 case 'x':
-                    MinX = newValue;
+                    if (newValue > MinX) MinX = newValue;
                     break;
                 case 'm':
-                    MinM = newValue;
+                    if (newValue > MinM) MinM = newValue;
                     break;
                 case 'a':
-                    MinA = newValue;
+                    if (newValue > MinA) MinA = newValue;
                     break;
                 case 's':
-                    MinS = newValue;
+                    if (newValue > MinS) MinS = newValue;
                     break;
                 default:
                     throw new Exception("Invalid XmasKey provided.");
@@ -186,29 +186,30 @@ public class XmasRange
         switch (instruction.XmasKey)
         {
             case 'x':
-                MaxX = newValue;
+                if (newValue < MaxX) MaxX = newValue;
                 break;
             case 'm':
-                MaxM = newValue;
+                if (newValue < MaxM) MaxM = newValue;
                 break;
             case 'a':
-                MaxA = newValue;
+                if (newValue < MaxA) MaxA = newValue;
                 break;
             case 's':
-                MaxS = newValue;
+                if (newValue < MaxS) MaxS = newValue;
                 break;
             default:
                 throw new Exception("Invalid XmasKey provided.");
         }
     }
 
-    private int GetNewValue(WorkflowInstruction instruction, bool updateMinimum)
+    private int GetNewValue(WorkflowInstruction instruction, bool updateMinimum, bool invertUpdate)
     {
+        int inversionPadding = invertUpdate ? 0 : 1;
         if (updateMinimum)
         {
-            return (int)instruction.Comparison + 1;
+            return (int)instruction.Comparison + inversionPadding;
         }
 
-        return (int)instruction.Comparison - 1;
+        return (int)instruction.Comparison - inversionPadding;
     }
 }
