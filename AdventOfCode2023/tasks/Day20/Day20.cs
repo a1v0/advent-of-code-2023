@@ -17,6 +17,7 @@ public class Day20Task1 : BaseTask
 {
     public override string Solve()
     {
+      return "";
         // Classes required:
         // - Pulse
         //   - private Type = "high" or "low"
