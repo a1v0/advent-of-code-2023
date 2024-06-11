@@ -166,7 +166,6 @@ public class Day19Task2 : Day19Task1
                 if (!instruction.IsDefault)
                 {
                     duplicateRangeFinal.UpdateValues(instruction);
-                    duplicateRangeFinal.Trajectory.Add(instruction.NextCommand);
                 }
 
                 HandleEndOfPath(instruction, duplicateRangeFinal);
@@ -180,14 +179,12 @@ public class Day19Task2 : Day19Task1
             else if (instruction.IsDefault)
             {
                 XmasRange duplicateRangeDefault = range.Duplicate();
-                duplicateRangeDefault.Trajectory.Add(instruction.NextCommand);
                 EvaluateWorkflow(instruction.NextCommand, duplicateRangeDefault);
                 continue;
             }
 
             XmasRange duplicateRange = range.Duplicate();
             duplicateRange.UpdateValues(instruction);
-            duplicateRange.Trajectory.Add(instruction.NextCommand);
             EvaluateWorkflow(instruction.NextCommand, duplicateRange);
 
             range.UpdateValues(instruction, true);
@@ -196,9 +193,6 @@ public class Day19Task2 : Day19Task1
 
     private void HandleEndOfPath(WorkflowInstruction instruction, XmasRange range)
     {
-        System.Console.WriteLine("X:" + range.MinX.ToString() + "-" + range.MaxX.ToString() + " M:" + range.MinM.ToString() + "-" + range.MaxM.ToString() + " A:" + range.MinA.ToString() + "-" + range.MaxA.ToString() + " S:" + range.MinS.ToString() + "-" + range.MaxS.ToString());
-        System.Console.WriteLine("  " + String.Join(' ', range.Trajectory));
-        System.Console.WriteLine("");
         if (instruction.NextCommand == "A")
         {
             Ranges.Add(range);
