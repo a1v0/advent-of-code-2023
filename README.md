@@ -28,7 +28,7 @@ This repo uses xUnit for testing, though my tests aren't particularly extensive.
 | 16  | ⭐    | ⭐     |       |
 | 17  | ❌    |        | Something's not quite right. Plus, once I fix that, my code will be too slow. |
 | 18  | ⭐    | ❌     | I got Part 1 to work but decided to rewrite the whole thing so that it's fighting fit for Part 2. This refactor has caused trouble for the code overall and it doesn't properly work anymore. |
-| 19  | ⭐    | ❌     | I can't work out how to de-duplicate my results so that I only count _unique_ combinations. |
+| 19  | ⭐    | ❌     | My end result is too low to pass the test. I must be counting something incorrectly. |
 <!-- | 20  |        |        |       | -->
 <!-- | 21  |        |        |       | -->
 <!-- | 22  |        |        |       | -->
