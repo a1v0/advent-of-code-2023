@@ -163,7 +163,7 @@ public class XmasRange
         bool updateMinimum = instruction.Operation == '>';
         if (invertUpdate) updateMinimum = !updateMinimum;
 
-        int newValue = GetNewValue(instruction, updateMinimum);
+        int newValue = GetNewValue(instruction, updateMinimum, invertUpdate);
         SetValue(instruction, newValue, updateMinimum);
     }
 
@@ -211,14 +211,15 @@ public class XmasRange
         }
     }
 
-    private int GetNewValue(WorkflowInstruction instruction, bool updateMinimum)
+    private int GetNewValue(WorkflowInstruction instruction, bool updateMinimum, bool invertUpdate)
     {
+        int inversionPadding = invertUpdate ? 0 : 1;
         if (updateMinimum)
         {
-            return (int)instruction.Comparison + 1;
+            return (int)instruction.Comparison + inversionPadding;
         }
 
-        return (int)instruction.Comparison - 1;
+        return (int)instruction.Comparison - inversionPadding;
     }
 
     private List<string> _trajectory;
