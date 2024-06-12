@@ -21,4 +21,20 @@ public class Pulse
             return _type;
         }
     }
+
+    public bool IsHigh
+    {
+        get
+        {
+            return Type=="high";
+        }
+    }
+
+    public bool IsLow
+    {
+        get
+        {
+            return !IsHigh;
+        }
+    }
 }
