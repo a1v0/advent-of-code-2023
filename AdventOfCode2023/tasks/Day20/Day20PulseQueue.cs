@@ -14,6 +14,9 @@ public class PulseQueue
     public void Add(Pulse pulse)
     {
         Queue.Add(pulse);
+
+        if (pulse.IsHigh)            ++HighPulseTally;
+        else ++LowPulseTally;
     }
 
     private static int _lowPulseTally;
@@ -40,5 +43,10 @@ public class PulseQueue
         {
           ++_highPulseTally;
         }
+    }
+
+    private static int GetProductOfTallies()
+    {
+        return HighPulseTally * LowPulseTally;
     }
 }
