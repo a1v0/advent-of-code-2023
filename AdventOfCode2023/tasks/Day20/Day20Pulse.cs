@@ -2,7 +2,7 @@ namespace AdventOfCode2023;
 
 public class Pulse
 {
-    public Pulse(string type, BaseModule destination)
+    public Pulse(string type, string destination)
     {
         if (type!="high"&&type!="low")
         {
@@ -38,8 +38,8 @@ public class Pulse
         }
     }
 
-    private BaseModule _destination;
-    public BaseModule Destination
+    private string _destination;
+    public string Destination
     {
         get
         {

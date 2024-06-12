@@ -10,6 +10,16 @@ public class BroadcastModule : BaseModule, IBaseModule
          * called, because the broadcaster oughtn't receive
          * any pulses.
          **/
-      throw new Exception("A Broadcaster object cannot ingest a pulse.");
+
+        throw new Exception("A Broadcaster object cannot ingest a pulse.");
+    }
+
+    public void EmitPulses()
+    {
+        foreach(string destination in Destinations)
+        {
+            Pulse pulse = new("low", destination);
+            PulseQueue.Add(pulse);
+        }
     }
 }
