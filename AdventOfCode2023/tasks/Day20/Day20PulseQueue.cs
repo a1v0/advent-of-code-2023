@@ -15,4 +15,17 @@ public class PulseQueue
     {
         Queue.Add(pulse);
     }
+
+    private static int _lowPulseTally;
+    private static int LowPulseTally
+    {
+        get
+        {
+          return _lowPulseTally;
+        }
+        set
+        {
+          ++_lowPulseTally;
+        }
+    }
 }
