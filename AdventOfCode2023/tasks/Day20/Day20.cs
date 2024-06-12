@@ -17,17 +17,16 @@ public class Day20Task1 : BaseTask
 {
     public override string Solve()
     {
-        return "";
-        // Classes required:
-        // - BaseModule (parent of other module types)
-        //   (this could be done in conjunction with an interface)
-        //   - public Destinations = List of names of modules
-        //   - public void EmitPulses (either create a blank method in an interface or create another method called "RunMiddleware" that does all the custom logic specific to a type of module)
-        //   - public void IngestPulse (or better name)
-        //
-        // - Classes for each type of module
-        //
-        // parse modules into dictionary
+        // parse input into dictionary of modules
+        // loop 1000 times
+        // ping broadcaster
+        // loop over contents of queue and processes pulses accordingly
+        // - deleting processed items in a list while you're iterating isn't a good approach
+        // - you might get away with not deleting at all, but the queue could potentially get very large
+        // - feels a bit hacky but: every e.g. 1000 iterations over pulses in the queue, end the loop, delete the first 1000 items and then restart the loop
+
+        int productOfPulseTallies = PulseQueue.GetProductOfTallies();
+        return productOfPulseTallies.ToString();
     }
 }
 
