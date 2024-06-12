@@ -12,4 +12,13 @@ public class Pulse
         _type = type;
         _destination = destination;
     }
+
+    private string _type;
+    private string Type
+    {
+        get
+        {
+            return _type;
+        }
+    }
 }
