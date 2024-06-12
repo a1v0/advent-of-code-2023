@@ -22,8 +22,8 @@ public class Day20Task1 : BaseTask
         // - BaseModule (parent of other module types)
         //   (this could be done in conjunction with an interface)
         //   - public Destinations = List of names of modules
-        //   - public void SendPulse (either create a blank method in an interface or create another method called "RunMiddleware" that does all the custom logic specific to a type of module)
-        //   - public void ReceivePulse (or better name)
+        //   - public void EmitPulses (either create a blank method in an interface or create another method called "RunMiddleware" that does all the custom logic specific to a type of module)
+        //   - public void IngestPulse (or better name)
         //
         // - Classes for each type of module
         //

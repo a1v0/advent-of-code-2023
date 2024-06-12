@@ -1,6 +1,6 @@
 namespace AdventOfCode2023;
 
-public class ConjunctionModule : BaseModule
+public class ConjunctionModule : BaseModule, IBaseModule
 {
   
 }

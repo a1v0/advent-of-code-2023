@@ -11,3 +11,9 @@ public class BaseModule
         }
     }
 }
+
+public interface IBaseModule
+{
+    public void EmitPulses();
+    public void IngestPulse(Pulse pulse);
+}
