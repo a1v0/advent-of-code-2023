@@ -21,15 +21,13 @@ public class Day20Task1 : BaseTask
         // Classes required:
         // - BaseModule (parent of other module types)
         //   (this could be done in conjunction with an interface)
-        //   - public Destinations = List of modules
+        //   - public Destinations = List of names of modules
         //   - public void SendPulse (either create a blank method in an interface or create another method called "RunMiddleware" that does all the custom logic specific to a type of module)
         //   - public void ReceivePulse (or better name)
         //
         // - Classes for each type of module
         //
-        // - PulseQueue
-        //   - basically this just needs a static List of pulses that can be added to
-        //   - the program would iterate over the contents of this list in some way
+        // parse modules into dictionary
     }
 }
 
