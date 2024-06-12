@@ -10,4 +10,9 @@ public class PulseQueue
             return _queue;
         }
     }
+
+    public void Add(Pulse pulse)
+    {
+        Queue.Add(pulse);
+    }
 }
