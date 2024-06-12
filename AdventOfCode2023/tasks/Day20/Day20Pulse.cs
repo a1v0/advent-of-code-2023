@@ -4,9 +4,9 @@ public class Pulse
 {
     public Pulse(string type, string destination)
     {
-        if (type!="high"&&type!="low")
+        if (type != "high" && type != "low")
         {
-            throw new Exception("Invalid Pulse type given: '"+type+"'.");
+            throw new Exception("Invalid Pulse type given: '" + type + "'.");
         }
 
         _type = type;
@@ -26,7 +26,7 @@ public class Pulse
     {
         get
         {
-            return Type=="high";
+            return Type == "high";
         }
     }
 

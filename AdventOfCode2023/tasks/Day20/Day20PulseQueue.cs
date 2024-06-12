@@ -15,7 +15,7 @@ public class PulseQueue
     {
         Queue.Add(pulse);
 
-        if (pulse.IsHigh)            ++HighPulseTally;
+        if (pulse.IsHigh) ++HighPulseTally;
         else ++LowPulseTally;
     }
 
@@ -24,11 +24,11 @@ public class PulseQueue
     {
         get
         {
-          return _lowPulseTally;
+            return _lowPulseTally;
         }
         set
         {
-          ++_lowPulseTally;
+            ++_lowPulseTally;
         }
     }
 
@@ -37,11 +37,11 @@ public class PulseQueue
     {
         get
         {
-          return _highPulseTally;
+            return _highPulseTally;
         }
         set
         {
-          ++_highPulseTally;
+            ++_highPulseTally;
         }
     }
 

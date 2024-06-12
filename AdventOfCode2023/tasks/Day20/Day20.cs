@@ -17,7 +17,7 @@ public class Day20Task1 : BaseTask
 {
     public override string Solve()
     {
-      return "";
+        return "";
         // Classes required:
         // - BaseModule (parent of other module types)
         //   (this could be done in conjunction with an interface)
