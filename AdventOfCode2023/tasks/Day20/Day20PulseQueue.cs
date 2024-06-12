@@ -28,4 +28,17 @@ public class PulseQueue
           ++_lowPulseTally;
         }
     }
+
+    private static int _highPulseTally;
+    private static int HighPulseTally
+    {
+        get
+        {
+          return _highPulseTally;
+        }
+        set
+        {
+          ++_highPulseTally;
+        }
+    }
 }
