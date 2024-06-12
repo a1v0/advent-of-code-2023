@@ -19,13 +19,7 @@ public class Day20Task1 : BaseTask
     {
       return "";
         // Classes required:
-        // - Pulse
-        //   - private Type = "high" or "low"
-        //   - public IsHigh = bool
-        //   - public IsLow = bool (returns !IsHigh)
-        //   - public Destination = module
-        //
-        // - Module (parent of other module types)
+        // - BaseModule (parent of other module types)
         //   (this could be done in conjunction with an interface)
         //   - public Destinations = List of modules
         //   - public void SendPulse (either create a blank method in an interface or create another method called "RunMiddleware" that does all the custom logic specific to a type of module)
@@ -33,7 +27,7 @@ public class Day20Task1 : BaseTask
         //
         // - Classes for each type of module
         //
-        // - Queue
+        // - PulseQueue
         //   - basically this just needs a static List of pulses that can be added to
         //   - the program would iterate over the contents of this list in some way
     }
