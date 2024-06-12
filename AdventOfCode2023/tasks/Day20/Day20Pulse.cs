@@ -37,4 +37,13 @@ public class Pulse
             return !IsHigh;
         }
     }
+
+    private BaseModule _destination;
+    public BaseModule Destination
+    {
+        get
+        {
+            return _destination;
+        }
+    }
 }
