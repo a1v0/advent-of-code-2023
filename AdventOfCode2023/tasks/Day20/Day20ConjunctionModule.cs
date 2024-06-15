@@ -10,6 +10,13 @@ public class ConjunctionModule : BaseModule, IBaseModule
         // a pulse is received, the conjunction module first updates its memory
         // for that input. Then, if it remembers high pulses for all inputs, it
         // sends a low pulse; otherwise, it sends a high pulse.
+        string pulseType = GetPulseType();
+
+        foreach (string destination in Destinations)
+        {
+            Pulse pulse = new(pulseType, destination, this);
+            PulseQueue.Add(pulse);
+        }
     }
 
     public void IngestPulse(Pulse pulse)
