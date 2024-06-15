@@ -29,6 +29,16 @@ public class ConjunctionModule : BaseModule, IBaseModule
 
         EmitPulses();
     }
+
+    private string GetPulseType()
+    {
+foreach(KeyValuePair<BaseModule,string> inputModuleEntry in InputModules)
+{
+    if (inputModuleEntry.Value != "high") return "high";
+}
+
+        return "low";
+    }
     
     private Dictionary<BaseModule, string> _inputModules = new();
     private Dictionary<BaseModule, string> InputModules
