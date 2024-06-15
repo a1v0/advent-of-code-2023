@@ -18,7 +18,7 @@ public class BroadcastModule : BaseModule, IBaseModule
     {
         foreach (string destination in Destinations)
         {
-            Pulse pulse = new("low", destination);
+            Pulse pulse = new("low", destination, this);
             PulseQueue.Add(pulse);
         }
     }

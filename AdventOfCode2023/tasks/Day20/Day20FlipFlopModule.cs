@@ -28,7 +28,7 @@ public class FlipFlopModule : BaseModule, IBaseModule
 
         foreach (string destination in Destinations)
         {
-            Pulse pulse = new(pulseType, destination);
+            Pulse pulse = new(pulseType, destination, this);
             PulseQueue.Add(pulse);
         }
     }
