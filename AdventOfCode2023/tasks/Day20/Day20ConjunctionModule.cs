@@ -15,8 +15,8 @@ public class ConjunctionModule : BaseModule, IBaseModule
 
     public void IngestPulse(Pulse pulse)
     {
-        string pulseType = pulse.IsHigh ? "high":"low";
-        
+        string pulseType = pulse.IsHigh ? "high" : "low";
+
         bool isNewInput = !InputModules.ContainsKey(pulse.Source);
         if (isNewInput) InputModules.Add(pulse.Source, pulseType)
         else InputModules[pulse.Source] = pulseType;
@@ -26,14 +26,14 @@ public class ConjunctionModule : BaseModule, IBaseModule
 
     private string GetPulseType()
     {
-foreach(KeyValuePair<BaseModule,string> inputModuleEntry in InputModules)
-{
-    if (inputModuleEntry.Value != "high") return "high";
-}
+        foreach (KeyValuePair<BaseModule, string> inputModuleEntry in InputModules)
+        {
+            if (inputModuleEntry.Value != "high") return "high";
+        }
 
         return "low";
     }
-    
+
     private Dictionary<BaseModule, string> _inputModules = new();
     private Dictionary<BaseModule, string> InputModules
     {

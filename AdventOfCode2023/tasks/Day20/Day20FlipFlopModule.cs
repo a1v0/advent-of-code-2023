@@ -12,8 +12,8 @@ public class FlipFlopModule : BaseModule, IBaseModule
 
         set
         {
-          // not actually sure whether this is the correct way of coding this type of thing
-              _isOn = !_isOn;
+            // not actually sure whether this is the correct way of coding this type of thing
+            _isOn = !_isOn;
         }
     }
 
