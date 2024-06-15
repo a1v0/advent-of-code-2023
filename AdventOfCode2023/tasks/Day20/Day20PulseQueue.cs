@@ -45,7 +45,7 @@ public class PulseQueue
         }
     }
 
-    private static int GetProductOfTallies()
+    public static int GetProductOfTallies()
     {
         return HighPulseTally * LowPulseTally;
     }
