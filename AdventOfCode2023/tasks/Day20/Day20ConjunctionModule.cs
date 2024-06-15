@@ -6,7 +6,7 @@ public class ConjunctionModule : BaseModule, IBaseModule
     {
         
     }
-    
+
     public void IngestPulse(Pulse pulse)
     {
         
