@@ -11,7 +11,7 @@ public class PulseQueue
         }
     }
 
-    public void Add(Pulse pulse)
+    public static void Add(Pulse pulse)
     {
         Queue.Add(pulse);
 
