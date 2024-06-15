@@ -17,6 +17,11 @@ public class FlipFlopModule : BaseModule, IBaseModule
         }
     }
 
+    private void FlickSwitch()
+    {
+        IsOn = !IsOn;
+    }
+
     public void EmitPulses()
     {
         // Flip-flop modules (prefix %) are either on or off; they are initially off.
