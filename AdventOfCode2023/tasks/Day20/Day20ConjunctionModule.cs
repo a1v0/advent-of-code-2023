@@ -14,7 +14,13 @@ public class ConjunctionModule : BaseModule, IBaseModule
 
     public void IngestPulse(Pulse pulse)
     {
+        string pulseType = pulse.IsHigh ? "high":"low";
         
+        bool isNewInput = !InputModules.ContainsKey(pulse.Source);
+        if (isNewInput) InputModules.Add(pulse.Source, pulseType)
+        else InputModules[pulse.Source] = pulseType;
+
+        EmitPulses();
     }
     
     private Dictionary<BaseModule, string> _inputModules = new();
