@@ -28,6 +28,16 @@ public class Day20Task1 : BaseTask
         int productOfPulseTallies = PulseQueue.GetProductOfTallies();
         return productOfPulseTallies.ToString();
     }
+
+    private Dictionary<string, BaseModule>? _modules;
+    private Dictionary<string, BaseModule> Modules
+    {
+        get
+        {
+            _modules ??= GetModules();
+            return _modules;
+        }
+    }
 }
 
 public class Day20Task2 : Day20Task1
