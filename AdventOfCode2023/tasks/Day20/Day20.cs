@@ -40,6 +40,14 @@ public class Day20Task1 : BaseTask
         ProcessPulseQueue();
     }
 
+    private void ProcessPulseQueue()
+    {
+        foreach (Pulse pulse in PulseQueue.Queue)
+        {
+            Modules[pulse.Destination].IngestPulse(pulse);
+        }
+    }
+
     private Dictionary<string, BaseModule> GetModules()
     {
         Dictionary<string, BaseModule> modules = new();
