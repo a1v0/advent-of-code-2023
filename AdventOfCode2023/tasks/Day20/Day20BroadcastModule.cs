@@ -1,0 +1,27 @@
+namespace AdventOfCode2023;
+
+public class BroadcastModule : BaseModule
+{
+    public BroadcastModule(string[] destinations) : base(destinations) { }
+
+    public override void IngestPulse(Pulse pulse)
+    {
+        /**
+         * I'm not sure whether this is a best practice,
+         * but I'm returning an error if this method is
+         * called, because the broadcaster oughtn't receive
+         * any pulses.
+         **/
+
+        throw new Exception("A Broadcaster object cannot ingest a pulse.");
+    }
+
+    public override void EmitPulses()
+    {
+        foreach (string destination in Destinations)
+        {
+            Pulse pulse = new("low", destination, this);
+            PulseQueue.Add(pulse);
+        }
+    }
+}
