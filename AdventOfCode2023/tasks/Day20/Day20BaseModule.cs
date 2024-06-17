@@ -1,6 +1,6 @@
 namespace AdventOfCode2023;
 
-abstract class BaseModule
+public class BaseModule
 {
     public BaseModule(string[] destinations)
     {
