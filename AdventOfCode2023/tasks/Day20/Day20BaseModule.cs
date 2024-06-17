@@ -2,8 +2,13 @@ namespace AdventOfCode2023;
 
 public class BaseModule
 {
-    private List<string> _destinations = new();
-    protected List<string> Destinations
+    public BaseModule(string[] destinations)
+    {
+        _destinations = destinations;
+    }
+
+    private string[] _destinations;
+    protected string[] Destinations
     {
         get
         {
