@@ -46,6 +46,8 @@ public class Day20Task1 : BaseTask
         {
             Modules[pulse.Destination].IngestPulse(pulse);
         }
+
+        PulseQueue.Clear();
     }
 
     private Dictionary<string, BaseModule> GetModules()
