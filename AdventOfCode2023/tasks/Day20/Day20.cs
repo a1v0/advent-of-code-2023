@@ -24,7 +24,7 @@ public class Day20Task1 : BaseTask
         // - deleting processed items in a list while you're iterating isn't a good approach
         // - you might get away with not deleting at all, but the queue could potentially get very large
         // - feels a bit hacky but: every e.g. 1000 iterations over pulses in the queue, end the loop, delete the first 1000 items and then restart the loop
-        for(int i = 0; i < ButtonPushes; ++i)
+        for (int i = 0; i < ButtonPushes; ++i)
         {
             PushButton();
         }
@@ -42,7 +42,7 @@ public class Day20Task1 : BaseTask
 
     private void ProcessPulseQueue()
     {
-        for(int i = 0; i<PulseQueue.Queue.Count; ++i)
+        for (int i = 0; i < PulseQueue.Queue.Count; ++i)
         {
             Pulse pulse = PulseQueue.Queue[i];
             Modules[pulse.Destination].IngestPulse(pulse);
@@ -54,7 +54,7 @@ public class Day20Task1 : BaseTask
     private Dictionary<string, BaseModule> GetModules()
     {
         Dictionary<string, BaseModule> modules = new();
-        foreach(string row in InputRows)
+        foreach (string row in InputRows)
         {
             string moduleName = GetModuleName(row);
             BaseModule module = GetModule(row);
@@ -80,24 +80,24 @@ public class Day20Task1 : BaseTask
 
         string[] destinations = destinationsCSV.Split(", ");
 
-        if(nameAndType == "broadcaster")
+        if (nameAndType == "broadcaster")
         {
             return new BroadcastModule(destinations);
         }
 
         char type = nameAndType[0];
 
-        if(type == '&')
+        if (type == '&')
         {
             return new ConjunctionModule(destinations);
         }
 
-        if(type == '%')
+        if (type == '%')
         {
             return new FlipFlopModule(destinations);
         }
 
-        throw new Exception("Invalid module type: "+ type);
+        throw new Exception("Invalid module type: " + type);
     }
 
     private Dictionary<string, BaseModule>? _modules;
