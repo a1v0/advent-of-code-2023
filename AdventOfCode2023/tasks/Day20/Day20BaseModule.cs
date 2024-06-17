@@ -1,6 +1,6 @@
 namespace AdventOfCode2023;
 
-public class BaseModule
+public class BaseModule : IBaseModule
 {
     public BaseModule(string[] destinations)
     {
@@ -14,6 +14,16 @@ public class BaseModule
         {
             return _destinations;
         }
+    }
+
+    public void EmitPulses()
+    {
+        throw new Exception("You should not be using this method. Instead, create an instance of a child Module class.");
+    }
+
+    public void IngestPulse(Pulse pulse)
+    {
+        throw new Exception("You should not be using this method. Instead, create an instance of a child Module class.");
     }
 }
 
