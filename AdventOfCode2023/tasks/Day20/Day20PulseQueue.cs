@@ -19,6 +19,11 @@ public class PulseQueue
         else ++LowPulseTally;
     }
 
+    public static void Clear()
+    {
+        Queue.Clear();
+    }
+
     private static int _lowPulseTally;
     private static int LowPulseTally
     {
