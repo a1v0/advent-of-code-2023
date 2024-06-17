@@ -41,19 +41,41 @@ public class Day20Task1 : BaseTask
         }
 
         return modules;
-// broadcaster -> a, b, c
-// %a -> b
-// %b -> c
-// %c -> inv
-// &inv -> a
-//
     }
 
-    private string GetModuleName(string input)
+    private static string GetModuleName(string input)
     {
         string pattern = @"[a-z]+";
         Match name = nameRegex.Match(input, pattern);
         return name.Value;
+    }
+
+    private static BaseModule GetModule(string input)
+    {
+        string[] inputElements = input.Split(" -> ");
+        string nameAndType = inputElements[0];
+        string destinationsCSV = inputElements[1];
+
+        string[] destinations = destinationsCSV.Split(", ");
+
+        if(nameAndType == "broadcaster")
+        {
+            return new BroadcastModule(destinations);
+        }
+
+        char type = nameAndType[0];
+
+        if(type == '&')
+        {
+            return new ConjunctionModule(destinations);
+        }
+
+        if(type == '%')
+        {
+            return new FlipFlopModule(destinations);
+        }
+
+        throw new Exception("Invalid module type: "+ type);
     }
 
     private Dictionary<string, BaseModule>? _modules;
