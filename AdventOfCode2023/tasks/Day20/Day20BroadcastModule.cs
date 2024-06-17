@@ -1,10 +1,10 @@
 namespace AdventOfCode2023;
 
-public class BroadcastModule : BaseModule, IBaseModule
+public class BroadcastModule : BaseModule
 {
     public BroadcastModule(string[] destinations) : base(destinations) { }
 
-    public new void IngestPulse(Pulse pulse)
+    public override void IngestPulse(Pulse pulse)
     {
         /**
          * I'm not sure whether this is a best practice,
@@ -16,7 +16,7 @@ public class BroadcastModule : BaseModule, IBaseModule
         throw new Exception("A Broadcaster object cannot ingest a pulse.");
     }
 
-    public new void EmitPulses()
+    public override void EmitPulses()
     {
         foreach (string destination in Destinations)
         {

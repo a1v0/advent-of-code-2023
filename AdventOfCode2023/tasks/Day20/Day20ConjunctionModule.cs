@@ -1,10 +1,10 @@
 namespace AdventOfCode2023;
 
-public class ConjunctionModule : BaseModule, IBaseModule
+public class ConjunctionModule : BaseModule
 {
     public ConjunctionModule(string[] destinations) : base(destinations) { }
 
-    public new void EmitPulses()
+    public override void EmitPulses()
     {
         string pulseType = GetPulseType();
 
@@ -15,7 +15,7 @@ public class ConjunctionModule : BaseModule, IBaseModule
         }
     }
 
-    public new void IngestPulse(Pulse pulse)
+    public override void IngestPulse(Pulse pulse)
     {
         string pulseType = pulse.IsHigh ? "high" : "low";
 

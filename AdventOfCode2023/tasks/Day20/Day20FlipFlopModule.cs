@@ -1,6 +1,6 @@
 namespace AdventOfCode2023;
 
-public class FlipFlopModule : BaseModule, IBaseModule
+public class FlipFlopModule : BaseModule
 {
     public FlipFlopModule(string[] destinations) : base(destinations) { }
 
@@ -24,7 +24,7 @@ public class FlipFlopModule : BaseModule, IBaseModule
         IsOn = !IsOn;
     }
 
-    public new void EmitPulses()
+    public override void EmitPulses()
     {
         string pulseType = IsOn ? "high" : "low";
 
@@ -35,7 +35,7 @@ public class FlipFlopModule : BaseModule, IBaseModule
         }
     }
 
-    public new void IngestPulse(Pulse pulse)
+    public override void IngestPulse(Pulse pulse)
     {
         if (pulse.IsHigh) return;
 
