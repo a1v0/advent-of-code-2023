@@ -34,7 +34,7 @@ public class Day20Task1 : BaseTask
 
     private void PushButton()
     {
-        (BroadcastModule)broadcaster = Modules["broadcaster"];
+        BroadcastModule broadcaster = (BroadcastModule)Modules["broadcaster"];
         broadcaster.EmitPulses();
 
         ProcessPulseQueue();
