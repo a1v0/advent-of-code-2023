@@ -1,3 +1,5 @@
+using System.Text.RegularExpressions;
+
 namespace AdventOfCode2023;
 
 public class Day20 : BaseDay
@@ -46,7 +48,7 @@ public class Day20Task1 : BaseTask
     private static string GetModuleName(string input)
     {
         string pattern = @"[a-z]+";
-        Match name = nameRegex.Match(input, pattern);
+        Match name = Regex.Match(input, pattern);
         return name.Value;
     }
 
