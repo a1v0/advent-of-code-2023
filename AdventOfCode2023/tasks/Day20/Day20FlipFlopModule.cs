@@ -24,7 +24,7 @@ public class FlipFlopModule : BaseModule, IBaseModule
         IsOn = !IsOn;
     }
 
-    public void EmitPulses()
+    public new void EmitPulses()
     {
         string pulseType = IsOn ? "high" : "low";
 
@@ -35,7 +35,7 @@ public class FlipFlopModule : BaseModule, IBaseModule
         }
     }
 
-    public void IngestPulse(Pulse pulse)
+    public new void IngestPulse(Pulse pulse)
     {
         if (pulse.IsHigh) return;
 

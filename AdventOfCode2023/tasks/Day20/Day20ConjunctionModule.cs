@@ -4,7 +4,7 @@ public class ConjunctionModule : BaseModule, IBaseModule
 {
     public ConjunctionModule(string[] destinations) : base(destinations) { }
 
-    public void EmitPulses()
+    public new void EmitPulses()
     {
         string pulseType = GetPulseType();
 
@@ -15,7 +15,7 @@ public class ConjunctionModule : BaseModule, IBaseModule
         }
     }
 
-    public void IngestPulse(Pulse pulse)
+    public new void IngestPulse(Pulse pulse)
     {
         string pulseType = pulse.IsHigh ? "high" : "low";
 
