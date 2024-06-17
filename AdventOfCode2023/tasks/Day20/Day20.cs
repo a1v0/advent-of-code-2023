@@ -29,6 +29,26 @@ public class Day20Task1 : BaseTask
         return productOfPulseTallies.ToString();
     }
 
+    private Dictionary<string, BaseModule> GetModules()
+    {
+        Dictionary<string, BaseModule> modules = new();
+        foreach(string row in InputRows)
+        {
+            string moduleName = GetModuleName(row);
+            BaseModule module = GetModule(row);
+
+            modules.Add(moduleName, module);
+        }
+
+        return modules;
+// broadcaster -> a, b, c
+// %a -> b
+// %b -> c
+// %c -> inv
+// &inv -> a
+//
+    }
+
     private Dictionary<string, BaseModule>? _modules;
     private Dictionary<string, BaseModule> Modules
     {
