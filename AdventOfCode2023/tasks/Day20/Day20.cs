@@ -19,16 +19,25 @@ public class Day20Task1 : BaseTask
 {
     public override string Solve()
     {
-        // parse input into dictionary of modules
-        // loop 1000 times
         // ping broadcaster
         // loop over contents of queue and processes pulses accordingly
         // - deleting processed items in a list while you're iterating isn't a good approach
         // - you might get away with not deleting at all, but the queue could potentially get very large
         // - feels a bit hacky but: every e.g. 1000 iterations over pulses in the queue, end the loop, delete the first 1000 items and then restart the loop
-
+        for(int i = 0; i < ButtonPushes; ++i)
+        {
+            PushButton();
+        }
         int productOfPulseTallies = PulseQueue.GetProductOfTallies();
         return productOfPulseTallies.ToString();
+    }
+
+    private void PushButton()
+    {
+        BroadcastModule broadcaster = Modules["broadcaster"];
+        broadcaster.EmitPulses();
+
+        ProcessPulseQueue();
     }
 
     private Dictionary<string, BaseModule> GetModules()
