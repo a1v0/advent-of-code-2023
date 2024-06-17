@@ -2,6 +2,8 @@ namespace AdventOfCode2023;
 
 public class ConjunctionModule : BaseModule, IBaseModule
 {
+    public ConjunctionModule(string[] destinations) : base(destinations) { }
+
     public void EmitPulses()
     {
         string pulseType = GetPulseType();

@@ -2,6 +2,8 @@ namespace AdventOfCode2023;
 
 public class FlipFlopModule : BaseModule, IBaseModule
 {
+    public FlipFlopModule(string[] destinations) : base(destinations) { }
+
     private bool _isOn = false;
     private bool IsOn
     {

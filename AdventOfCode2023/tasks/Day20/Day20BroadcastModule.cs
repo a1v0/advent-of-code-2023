@@ -2,6 +2,8 @@ namespace AdventOfCode2023;
 
 public class BroadcastModule : BaseModule, IBaseModule
 {
+    public BroadcastModule(string[] destinations) : base(destinations) { }
+
     public void IngestPulse(Pulse pulse)
     {
         /**
