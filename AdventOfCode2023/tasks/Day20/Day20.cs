@@ -42,8 +42,9 @@ public class Day20Task1 : BaseTask
 
     private void ProcessPulseQueue()
     {
-        foreach (Pulse pulse in PulseQueue.Queue)
+        for(int i = 0; i<PulseQueue.Queue.Count; ++i)
         {
+            Pulse pulse = PulseQueue.Queue[i];
             Modules[pulse.Destination].IngestPulse(pulse);
         }
 
