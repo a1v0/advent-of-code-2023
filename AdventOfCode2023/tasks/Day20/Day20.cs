@@ -34,8 +34,8 @@ public class Day20Task1 : BaseTask
         Dictionary<string, BaseModule> modules = new();
         foreach(string row in InputRows)
         {
-            (string moduleName, string moduleBlueprint) = GetModuleElements(row);
-            BaseModule module = GetModule(moduleBlueprint);
+            string moduleName = GetModuleName(row);
+            BaseModule module = GetModule(row);
 
             modules.Add(moduleName, module);
         }
@@ -49,10 +49,11 @@ public class Day20Task1 : BaseTask
 //
     }
 
-    private (string, string) GetModuleElements(string input)
+    private string GetModuleName(string input)
     {
-        string[] elements = input.Split(" -> ");
-        return (elements[0], elements[1]);
+        string pattern = @"[a-z]+";
+        Match name = nameRegex.Match(input, pattern);
+        return name.Value;
     }
 
     private Dictionary<string, BaseModule>? _modules;
