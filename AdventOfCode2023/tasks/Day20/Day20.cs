@@ -89,6 +89,15 @@ public class Day20Task1 : BaseTask
             return _modules;
         }
     }
+
+    private readonly int _buttonPushes = 1000;
+    private int ButtonPushes
+    {
+        get
+        {
+            return _buttonPushes;
+        }
+    }
 }
 
 public class Day20Task2 : Day20Task1
