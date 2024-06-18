@@ -37,7 +37,7 @@ public class ConjunctionModule : BaseModule
     }
 
     private Dictionary<BaseModule, string> _inputModules = new();
-    private Dictionary<BaseModule, string> InputModules
+    public Dictionary<BaseModule, string> InputModules
     {
         get
         {
