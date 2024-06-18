@@ -19,15 +19,6 @@ public class Day20Task1 : BaseTask
 {
     public override string Solve()
     {
-        // 
-        // refactor idea:
-        // instead of a base class with pointless virtual methods,
-        // go back to using an interface with the two methods on.
-        // Change anything using the type BaseModule to IBaseModule.
-        // 
-        // 
-        // 
-        // 
         PrepareSolution();
         for (int i = 0; i < ButtonPushes; ++i)
         {
