@@ -34,8 +34,11 @@ public class Day20Task1 : BaseTask
 
     private void PushButton()
     {
-        BroadcastModule broadcaster = (BroadcastModule)Modules["broadcaster"];
-        broadcaster.EmitPulses();
+        // Create dummy source module purely so I can ping the Broadcaster
+        string[] dummyDestinations = Array.Empty<string>();
+        BaseModule dummyModule = new(dummyDestinations);
+        Pulse broadcasterPulse = new("low", "broadcaster", dummyModule);
+        PulseQueue.Add(broadcasterPulse);
 
         ProcessPulseQueue();
     }
