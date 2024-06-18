@@ -23,7 +23,7 @@ public class Day20Task1 : BaseTask
         // refactor idea:
         // instead of a base class with pointless virtual methods,
         // go back to using an interface with the two methods on.
-        // Change anything using the type BaseModule to IBaseModule
+        // Change anything using the type BaseModule to IBaseModule.
         // 
         // 
         // 
@@ -33,6 +33,7 @@ public class Day20Task1 : BaseTask
         for (int i = 0; i < ButtonPushes; ++i)
         {
             PushButton();
+            //
         }
         int productOfPulseTallies = PulseQueue.GetProductOfTallies();
         return productOfPulseTallies.ToString();
