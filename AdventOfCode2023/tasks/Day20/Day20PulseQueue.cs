@@ -59,8 +59,6 @@ public class PulseQueue
 
     public static int GetProductOfTallies()
     {
-        System.Console.WriteLine("High: " + HighPulseTally.ToString());
-        System.Console.WriteLine("Low: " + LowPulseTally.ToString());
         return HighPulseTally * LowPulseTally;
     }
 }
