@@ -48,7 +48,10 @@ public class Day20Task1 : BaseTask
         for (int i = 0; i < PulseQueue.Queue.Count; ++i)
         {
             Pulse pulse = PulseQueue.Queue[i];
-            Modules[pulse.Destination].IngestPulse(pulse);
+            if (Modules.ContainsKey(pulse.Destination))
+            {
+                Modules[pulse.Destination].IngestPulse(pulse);
+            }
         }
 
         PulseQueue.Clear();
