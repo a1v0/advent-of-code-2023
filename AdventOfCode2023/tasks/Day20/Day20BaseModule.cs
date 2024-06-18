@@ -8,7 +8,7 @@ public class BaseModule
     }
 
     private string[] _destinations;
-    protected string[] Destinations
+    public string[] Destinations
     {
         get
         {
