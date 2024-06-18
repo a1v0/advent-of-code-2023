@@ -24,6 +24,13 @@ public class PulseQueue
         Queue.Clear();
     }
 
+    public static void Reset()
+    {
+        Queue.Clear();
+        _highPulseTally = 0;
+        _lowPulseTally = 0;
+    }
+
     private static int _lowPulseTally;
     private static int LowPulseTally
     {
@@ -52,6 +59,8 @@ public class PulseQueue
 
     public static int GetProductOfTallies()
     {
+        System.Console.WriteLine("High: " + HighPulseTally.ToString());
+        System.Console.WriteLine("Low: " + LowPulseTally.ToString());
         return HighPulseTally * LowPulseTally;
     }
 }
