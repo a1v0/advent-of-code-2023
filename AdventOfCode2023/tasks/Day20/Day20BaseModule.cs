@@ -2,6 +2,14 @@ namespace AdventOfCode2023;
 
 public class BaseModule
 {
+    // I'm not overly happy about the implementation here.
+    // I'd've preferred making this an abstract class, but
+    // that wouldn't work, given that I needed to use
+    // BaseModule as a type when creating collections of modules.
+    // 
+    // I experimented with using an interface, but then I'd
+    // need to recreate the Destinations property each time.
+
     public BaseModule(string[] destinations)
     {
         _destinations = destinations;
