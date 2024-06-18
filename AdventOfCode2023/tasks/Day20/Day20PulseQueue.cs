@@ -24,6 +24,13 @@ public class PulseQueue
         Queue.Clear();
     }
 
+    public static void Reset()
+    {
+        Queue.Clear();
+        _highPulseTally = 0;
+        _lowPulseTally = 0;
+    }
+
     private static int _lowPulseTally;
     private static int LowPulseTally
     {

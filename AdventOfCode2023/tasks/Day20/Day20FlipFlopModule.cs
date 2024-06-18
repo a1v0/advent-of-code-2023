@@ -14,7 +14,7 @@ public class FlipFlopModule : BaseModule
 
         set
         {
-            // not actually sure whether this is the correct way of coding this type of thing
+            // not actually sure whether this is the correct way of coding this type of toggle thing
             _isOn = !_isOn;
         }
     }

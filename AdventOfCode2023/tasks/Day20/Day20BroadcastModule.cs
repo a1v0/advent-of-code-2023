@@ -6,14 +6,7 @@ public class BroadcastModule : BaseModule
 
     public override void IngestPulse(Pulse pulse)
     {
-        /**
-         * I'm not sure whether this is a best practice,
-         * but I'm returning an error if this method is
-         * called, because the broadcaster oughtn't receive
-         * any pulses.
-         **/
-
-        throw new Exception("A Broadcaster object cannot ingest a pulse.");
+        EmitPulses();
     }
 
     public override void EmitPulses()

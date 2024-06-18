@@ -29,7 +29,7 @@ This repo uses xUnit for testing, though my tests aren't particularly extensive.
 | 17  | ❌    |        | Something's not quite right. Plus, once I fix that, my code will be too slow. |
 | 18  | ⭐    | ❌     | I got Part 1 to work but decided to rewrite the whole thing so that it's fighting fit for Part 2. This refactor has caused trouble for the code overall and it doesn't properly work anymore. |
 | 19  | ⭐    | ⭐     |       |
-| 20  | ❌    |        | Getting an unusual `Dictionary` error. Needs investigation. |
+| 20  | ⭐    | ❌     | Requires some clever solution that works out the answer via a shortcut. I've not idea how many button presses are involved, but it'll be some huge number. |
 <!-- | 21  |        |        |       | -->
 <!-- | 22  |        |        |       | -->
 <!-- | 23  |        |        |       | -->

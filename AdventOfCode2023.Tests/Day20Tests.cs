@@ -25,31 +25,8 @@ public class Day20Tests : BaseTest
     [Fact]
     public void Test2()
     {
-        // MAKE SURE THIS UNIT TEST USES THE CORRECT INPUT FILE
-        //
-        //
-        //
-        //
-        //
-        //
-        //
-        //
-        //
-        //
-        //
-        //
-        //
-        //
-        //
-        //
-        //
-        //
-        //
-        //
-        //
-        //
-        //
-        //
+        // Since I have no expected value for the test input, I've left the default value
+        // I've kept the unit test here, though, as it's the easiest way to run the debugger
         const string expected = "RANDOM_VALUE_TO_ENSURE_TEST_FAILS_UNTIL_REAL_VALUE_IS_ENTERED";
         string actual = new Day20().Solve(2);
         Assert.Equal(expected, actual);

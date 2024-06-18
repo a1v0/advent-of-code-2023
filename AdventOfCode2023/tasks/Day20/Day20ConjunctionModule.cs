@@ -19,9 +19,7 @@ public class ConjunctionModule : BaseModule
     {
         string pulseType = pulse.IsHigh ? "high" : "low";
 
-        bool isNewInput = !InputModules.ContainsKey(pulse.Source);
-        if (isNewInput) InputModules.Add(pulse.Source, pulseType);
-        else InputModules[pulse.Source] = pulseType;
+        InputModules[pulse.Source] = pulseType;
 
         EmitPulses();
     }
@@ -37,7 +35,7 @@ public class ConjunctionModule : BaseModule
     }
 
     private Dictionary<BaseModule, string> _inputModules = new();
-    private Dictionary<BaseModule, string> InputModules
+    public Dictionary<BaseModule, string> InputModules
     {
         get
         {

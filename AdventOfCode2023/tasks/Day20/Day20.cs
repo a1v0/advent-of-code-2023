@@ -19,11 +19,7 @@ public class Day20Task1 : BaseTask
 {
     public override string Solve()
     {
-        // ping broadcaster
-        // loop over contents of queue and processes pulses accordingly
-        // - deleting processed items in a list while you're iterating isn't a good approach
-        // - you might get away with not deleting at all, but the queue could potentially get very large
-        // - feels a bit hacky but: every e.g. 1000 iterations over pulses in the queue, end the loop, delete the first 1000 items and then restart the loop
+        PrepareSolution();
         for (int i = 0; i < ButtonPushes; ++i)
         {
             PushButton();
@@ -32,20 +28,27 @@ public class Day20Task1 : BaseTask
         return productOfPulseTallies.ToString();
     }
 
-    private void PushButton()
+    protected void PushButton()
     {
-        BroadcastModule broadcaster = (BroadcastModule)Modules["broadcaster"];
-        broadcaster.EmitPulses();
+        // Create dummy source module purely so I can ping the Broadcaster
+        string[] dummyDestinations = Array.Empty<string>();
+        BaseModule dummyModule = new(dummyDestinations);
+
+        Pulse broadcasterPulse = new("low", "broadcaster", dummyModule);
+        PulseQueue.Add(broadcasterPulse);
 
         ProcessPulseQueue();
     }
 
-    private void ProcessPulseQueue()
+    protected virtual void ProcessPulseQueue()
     {
         for (int i = 0; i < PulseQueue.Queue.Count; ++i)
         {
             Pulse pulse = PulseQueue.Queue[i];
-            Modules[pulse.Destination].IngestPulse(pulse);
+            if (Modules.ContainsKey(pulse.Destination))
+            {
+                Modules[pulse.Destination].IngestPulse(pulse);
+            }
         }
 
         PulseQueue.Clear();
@@ -101,7 +104,7 @@ public class Day20Task1 : BaseTask
     }
 
     private Dictionary<string, BaseModule>? _modules;
-    private Dictionary<string, BaseModule> Modules
+    protected Dictionary<string, BaseModule> Modules
     {
         get
         {
@@ -118,7 +121,80 @@ public class Day20Task1 : BaseTask
             return _buttonPushes;
         }
     }
+
+    protected void PrepareSolution()
+    {
+        PulseQueue.Reset();
+        PopulateConjunctionInputs();
+    }
+
+    private void PopulateConjunctionInputs()
+    {
+        foreach (KeyValuePair<string, BaseModule> pair in Modules)
+        {
+            BaseModule module = pair.Value;
+            foreach (string destination in module.Destinations)
+            {
+                if (!Modules.ContainsKey(destination)) continue;
+                BaseModule destinationModule = Modules[destination];
+                bool isConjunction = destinationModule is ConjunctionModule;
+
+                if (!isConjunction) continue;
+
+                ConjunctionModule destinationModuleAsConjunction = (ConjunctionModule)destinationModule;
+                destinationModuleAsConjunction.InputModules.Add(module, "low");
+            }
+        }
+    }
 }
 
 public class Day20Task2 : Day20Task1
-{ }
+{
+    public override string Solve()
+    {
+        PrepareSolution();
+        int i = 0;
+        while (!LowPulseSentToRx)
+        {
+            ++i;
+            PushButton();
+        }
+
+        return i.ToString();
+    }
+
+    protected override void ProcessPulseQueue()
+    {
+        for (int i = 0; i < PulseQueue.Queue.Count; ++i)
+        {
+            Pulse pulse = PulseQueue.Queue[i];
+
+            bool rxGetsLowPulse = pulse.Destination == "rx" && pulse.IsLow;
+            if (rxGetsLowPulse)
+            {
+                LowPulseSentToRx = true;
+                return;
+            }
+
+            if (Modules.ContainsKey(pulse.Destination))
+            {
+                Modules[pulse.Destination].IngestPulse(pulse);
+            }
+        }
+
+        PulseQueue.Clear();
+    }
+
+    private bool _lowPulseSentToRx = false;
+    private bool LowPulseSentToRx
+    {
+        get
+        {
+            return _lowPulseSentToRx;
+        }
+        set
+        {
+            _lowPulseSentToRx = value;
+        }
+    }
+}
