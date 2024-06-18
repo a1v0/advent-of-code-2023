@@ -19,9 +19,7 @@ public class ConjunctionModule : BaseModule
     {
         string pulseType = pulse.IsHigh ? "high" : "low";
 
-        bool isNewInput = !InputModules.ContainsKey(pulse.Source);
-        if (isNewInput) InputModules.Add(pulse.Source, pulseType);
-        else InputModules[pulse.Source] = pulseType;
+        InputModules[pulse.Source] = pulseType;
 
         EmitPulses();
     }
