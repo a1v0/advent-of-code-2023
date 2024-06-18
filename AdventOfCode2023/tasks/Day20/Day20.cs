@@ -19,11 +19,16 @@ public class Day20Task1 : BaseTask
 {
     public override string Solve()
     {
-        // ping broadcaster
-        // loop over contents of queue and processes pulses accordingly
-        // - deleting processed items in a list while you're iterating isn't a good approach
-        // - you might get away with not deleting at all, but the queue could potentially get very large
-        // - feels a bit hacky but: every e.g. 1000 iterations over pulses in the queue, end the loop, delete the first 1000 items and then restart the loop
+        // 
+        // refactor idea:
+        // instead of a base class with pointless virtual methods,
+        // go back to using an interface with the two methods on.
+        // Change anything using the type BaseModule to IBaseModule
+        // 
+        // 
+        // 
+        // 
+
         PulseQueue.Reset();
         for (int i = 0; i < ButtonPushes; ++i)
         {
