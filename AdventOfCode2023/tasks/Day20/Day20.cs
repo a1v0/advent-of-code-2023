@@ -28,18 +28,19 @@ public class Day20Task1 : BaseTask
         return productOfPulseTallies.ToString();
     }
 
-    private void PushButton()
+    protected void PushButton()
     {
         // Create dummy source module purely so I can ping the Broadcaster
         string[] dummyDestinations = Array.Empty<string>();
         BaseModule dummyModule = new(dummyDestinations);
+
         Pulse broadcasterPulse = new("low", "broadcaster", dummyModule);
         PulseQueue.Add(broadcasterPulse);
 
         ProcessPulseQueue();
     }
 
-    private void ProcessPulseQueue()
+    private protected void ProcessPulseQueue()
     {
         for (int i = 0; i < PulseQueue.Queue.Count; ++i)
         {
@@ -121,7 +122,7 @@ public class Day20Task1 : BaseTask
         }
     }
 
-    private void PrepareSolution()
+    protected void PrepareSolution()
     {
         PulseQueue.Reset();
         PopulateConjunctionInputs();
@@ -148,4 +149,16 @@ public class Day20Task1 : BaseTask
 }
 
 public class Day20Task2 : Day20Task1
-{ }
+{
+    public override string Solve()
+    {
+        PrepareSolution();
+        int i = 0;
+        while (CONDITION GOES HERE){
+            ++i;
+            PushButton();
+        }
+
+        return i.ToString();
+    }
+}
