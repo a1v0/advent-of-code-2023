@@ -40,7 +40,7 @@ public class Day20Task1 : BaseTask
         ProcessPulseQueue();
     }
 
-    private protected void ProcessPulseQueue()
+    protected virtual void ProcessPulseQueue()
     {
         for (int i = 0; i < PulseQueue.Queue.Count; ++i)
         {
@@ -104,7 +104,7 @@ public class Day20Task1 : BaseTask
     }
 
     private Dictionary<string, BaseModule>? _modules;
-    private Dictionary<string, BaseModule> Modules
+    protected Dictionary<string, BaseModule> Modules
     {
         get
         {
@@ -160,5 +160,26 @@ public class Day20Task2 : Day20Task1
         }
 
         return i.ToString();
+    }
+
+    protected override void ProcessPulseQueue()
+    {
+        for (int i = 0; i < PulseQueue.Queue.Count; ++i)
+        {
+            Pulse pulse = PulseQueue.Queue[i];
+            bool rxGetsLowPulse = (pulse.Destination == "rx") && pulse.IsLow;
+            if (rxGetsLowPulse)
+            {
+                LowPulseSentToRx = true;
+                return;
+            }
+
+            if (Modules.ContainsKey(pulse.Destination))
+            {
+                Modules[pulse.Destination].IngestPulse(pulse);
+            }
+        }
+
+        PulseQueue.Clear();
     }
 }
