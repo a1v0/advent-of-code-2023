@@ -154,7 +154,8 @@ public class Day20Task2 : Day20Task1
     {
         PrepareSolution();
         int i = 0;
-        while (CONDITION GOES HERE){
+        while (!LowPulseSentToRx)
+        {
             ++i;
             PushButton();
         }
@@ -167,7 +168,8 @@ public class Day20Task2 : Day20Task1
         for (int i = 0; i < PulseQueue.Queue.Count; ++i)
         {
             Pulse pulse = PulseQueue.Queue[i];
-            bool rxGetsLowPulse = (pulse.Destination == "rx") && pulse.IsLow;
+
+            bool rxGetsLowPulse = pulse.Destination == "rx" && pulse.IsLow;
             if (rxGetsLowPulse)
             {
                 LowPulseSentToRx = true;
@@ -181,5 +183,18 @@ public class Day20Task2 : Day20Task1
         }
 
         PulseQueue.Clear();
+    }
+
+    private bool _lowPulseSentToRx = false;
+    private bool LowPulseSentToRx
+    {
+        get
+        {
+            return _lowPulseSentToRx;
+        }
+        set
+        {
+            _lowPulseSentToRx = value;
+        }
     }
 }
