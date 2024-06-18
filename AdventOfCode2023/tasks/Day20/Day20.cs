@@ -135,6 +135,25 @@ public class Day20Task1 : BaseTask
         PulseQueue.Reset();
         PopulateConjunctionInputs();
     }
+
+    private void PopulateConjunctionInputs()
+    {
+        foreach (KeyValuePair<string, BaseModule> pair in Modules)
+        {
+            BaseModule module = pair.Value;
+            foreach (string destination in module.Destinations)
+            {
+                if (!Modules.ContainsKey(destination)) continue;
+                BaseModule destinationModule = Modules[destination];
+                bool isConjunction = destinationModule is ConjunctionModule;
+
+                if (!isConjunction) continue;
+
+                ConjunctionModule destinationModuleAsConjunction = (ConjunctionModule)destinationModule;
+                destinationModuleAsConjunction.InputModules.Add(module, "low");
+            }
+        }
+    }
 }
 
 public class Day20Task2 : Day20Task1
