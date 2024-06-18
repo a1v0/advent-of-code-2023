@@ -28,12 +28,10 @@ public class Day20Task1 : BaseTask
         // 
         // 
         // 
-
-        PulseQueue.Reset();
+        PrepareSolution();
         for (int i = 0; i < ButtonPushes; ++i)
         {
             PushButton();
-            //
         }
         int productOfPulseTallies = PulseQueue.GetProductOfTallies();
         return productOfPulseTallies.ToString();
@@ -130,6 +128,12 @@ public class Day20Task1 : BaseTask
         {
             return _buttonPushes;
         }
+    }
+
+    private void PrepareSolution()
+    {
+        PulseQueue.Reset();
+        PopulateConjunctionInputs();
     }
 }
 
