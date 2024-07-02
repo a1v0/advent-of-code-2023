@@ -21,8 +21,8 @@ public class Day21Task1 : BaseTask
         // - list of neighbours
         // - coordinates?
         // parse input as GardenPlots
-        // create global list of "active" plots (use a datatype that can contain only unique values, similar to Set in JavaScript)
-        // loop through active plots, add each plot's neighbours to new list of active plots and deactivate current plot
+        // create global HashSet of "active" plots
+        // loop through active plots, add each plot's neighbours to new HashSet of active plots and deactivate current plot
         // do this X times and return total active plots
     }
 }
