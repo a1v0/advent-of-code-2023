@@ -99,10 +99,10 @@ public class Day21Task1 : BaseTask
 
     private static void SetPlotNeighbours(Dictionary<(int, int), GardenPlot> gardenPlots)
     {
-        foreach (KeyValuePair pair in gardenPlots)
+        foreach (KeyValuePair<(int,int),GardenPlot> pair in gardenPlots)
         {
-            GardenPlot plot = KeyValuePair.Value;
-            (int x, int y) coordinates = KeyValuePair.Key;
+            GardenPlot plot = pair.Value;
+            (int x, int y) coordinates =pair.Key;
 
             (int, int) north = (coordinates.x, coordinates.y - 1),
                        south = (coordinates.x, coordinates.y - 1),
