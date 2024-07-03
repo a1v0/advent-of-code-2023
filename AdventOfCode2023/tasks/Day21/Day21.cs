@@ -20,15 +20,23 @@ public class Day21Task1 : BaseTask
         StepThroughGardenPlots();
         int totalActivePlots = ActivePlots.Length;
         return totalActivePlots.ToString();
-        // create global HashSet of "active" plots
-        // loop through active plots, add each plot's neighbours to new HashSet of active plots and deactivate current plot
-        // do this X times and return total active plots
+    }
+
+    private void StepThroughGardenPlots()
+    {
+        int noOfSteps = InputRows.Length<100 ? 6 : 64; // This is a bodgy way to distinguish between the unit test and the real thing
+
+        for(int i = 0; i < noOfSteps; ++i)
+        {
+            ActivePlots = UpdateActivePlots();
+        }
     }
 
     private HashSet<GardenPlot>? _activePlots = new();
     private HashSet<GardenPlot> ActivePlots
     {
         get;
+        set;
     }
 
     private Dictionary<(int x, int y), GardenPlot>? _gardenPlots;
