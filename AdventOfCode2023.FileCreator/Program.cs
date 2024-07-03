@@ -63,13 +63,17 @@
             else
             {
                 File.Create(testInputPath);
-                Console.WriteLine($"Day {dayName} input file created successfully.");
+                Console.WriteLine($"Day {dayName} test input file created successfully.");
             }
         }
 
         private static void CreateClass(string dayName)
         {
-            string fullPath = BasePath + $"/AdventOfCode2023/tasks/Day{dayName}.cs";
+            string fullPath = BasePath + $"/AdventOfCode2023/tasks/Day{dayName}";
+            CreateFolder(fullPath);
+
+            fullPath += $"/Day{dayName}.cs";
+
             bool classExists = File.Exists(fullPath);
             if (classExists)
             {
@@ -82,6 +86,13 @@
             File.WriteAllText(fullPath, fileContents);
 
             Console.WriteLine($"Day {dayName} class created successfully.");
+        }
+
+        private static void CreateFolder(string fullPath)
+        {
+            if (Directory.Exists(fullPath)) return;
+
+            Directory.CreateDirectory(fullPath);
         }
 
         private static void CreateTest(string dayName)
@@ -99,7 +110,7 @@
             fileContents = fileContents.Replace("DAY_NAME_INT_HERE", int.Parse(dayName).ToString());
             File.WriteAllText(fullPath, fileContents);
 
-            Console.WriteLine($"Day {dayName} class created successfully.");
+            Console.WriteLine($"Day {dayName} unit test suite created successfully.");
         }
 
         private static string BasePath
