@@ -17,13 +17,15 @@ public class Day21Task1 : BaseTask
 {
     public override string Solve()
     {
-        // create GardenPlot class
-        // - list of neighbours
-        // - coordinates?
-        // parse input as GardenPlots
         // create global HashSet of "active" plots
         // loop through active plots, add each plot's neighbours to new HashSet of active plots and deactivate current plot
         // do this X times and return total active plots
+    }
+
+    private HashSet<GardenPlot> _activePlots = new();
+    private HashSet<GardenPlot> ActivePlots
+    {
+        get;
     }
 
     private Dictionary<(int x, int y), GardenPlot>? _gardenPlots;
@@ -63,7 +65,7 @@ public class Day21Task1 : BaseTask
         {
             GardenPlot plot = KeyValuePair.Value;
             (int x, int y) coordinates = KeyValuePair.Key;
-            
+
             (int, int) north = (coordinates.x, coordinates.y - 1),
                        south = (coordinates.x, coordinates.y - 1),
                        east = (coordinates.x + 1, coordinates.y),
