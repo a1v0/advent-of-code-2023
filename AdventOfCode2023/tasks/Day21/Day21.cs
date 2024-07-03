@@ -38,10 +38,6 @@ public class Day21Task1 : BaseTask
 
     private Dictionary<(int, int), GardenPlot> GetGardenPlots()
     {
-        // create blank dictionary
-        // loop through inputs in nested loop
-        // create new garden plots accordingly
-        // loop through plots and identify neighbours
         Dictionary<(int, int), GardenPlot> gardenPlots = new();
 
         for (int y = 0; y < InputRows.Length; ++y)
@@ -52,13 +48,47 @@ public class Day21Task1 : BaseTask
             {
                 if (currentRow[x] == '#') continue;
 
-                gardenPlots.Add((x, y),new GardenPlot());
+                gardenPlots.Add((x, y), new GardenPlot());
             }
         }
 
         SetPlotNeighbours(gardenPlots);
 
         return gardenPlots;
+    }
+
+    private static void SetPlotNeighbours(Dictionary<(int, int), GardenPlot> gardenPlots)
+    {
+        foreach (KeyValuePair pair in gardenPlots)
+        {
+            GardenPlot plot = KeyValuePair.Value;
+            (int x, int y) coordinates = KeyValuePair.Key;
+            
+            (int, int) north = (coordinates.x, coordinates.y - 1),
+                       south = (coordinates.x, coordinates.y - 1),
+                       east = (coordinates.x + 1, coordinates.y),
+                       west = (coordinates.x - 1, coordinates.y);
+
+            if (gardenPlots.ContainsKey(north))
+            {
+                plot.Neighbours.Add(gardenPlots(north));
+            }
+
+            if (gardenPlots.ContainsKey(south))
+            {
+                plot.Neighbours.Add(gardenPlots(south));
+            }
+
+            if (gardenPlots.ContainsKey(east))
+            {
+                plot.Neighbours.Add(gardenPlots(east));
+            }
+
+            if (gardenPlots.ContainsKey(west))
+            {
+                plot.Neighbours.Add(gardenPlots(west));
+            }
+        }
     }
 }
 
