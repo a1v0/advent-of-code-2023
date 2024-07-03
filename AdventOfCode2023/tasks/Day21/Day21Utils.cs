@@ -6,4 +6,10 @@ public class GardenPlot
     {
 
     }
+
+    private List<GardenPlot> _neighbours = new();
+    public List<GardenPlot> Neighbours
+    {
+        get;
+    }
 }
