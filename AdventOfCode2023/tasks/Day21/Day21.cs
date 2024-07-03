@@ -24,9 +24,9 @@ public class Day21Task1 : BaseTask
 
     private void StepThroughGardenPlots()
     {
-        int noOfSteps = InputRows.Length<100 ? 6 : 64; // This is a bodgy way to distinguish between the unit test and the real thing
+        int noOfSteps = InputRows.Length < 100 ? 6 : 64; // This is a bodgy way to distinguish between the unit test and the real thing
 
-        for(int i = 0; i < noOfSteps; ++i)
+        for (int i = 0; i < noOfSteps; ++i)
         {
             ActivePlots = UpdateActivePlots();
         }
@@ -35,7 +35,7 @@ public class Day21Task1 : BaseTask
     private HashSet<GardenPlot> UpdateActivePlots()
     {
         HashSet<GardenPlot> newActivePlots = new();
-        foreach(GardenPlot gardenPlot in ActivePlots)
+        foreach (GardenPlot gardenPlot in ActivePlots)
         {
             foreach (GardenPlot neighbour in gardenPlot.Neighbours)
             {
@@ -49,8 +49,15 @@ public class Day21Task1 : BaseTask
     private HashSet<GardenPlot>? _activePlots = new();
     private HashSet<GardenPlot> ActivePlots
     {
-        get;
-        set;
+        get
+        {
+            return _activePlots;
+        }
+
+        set
+        {
+            _activePlots = value;
+        }
     }
 
     private Dictionary<(int x, int y), GardenPlot>? _gardenPlots;
@@ -99,10 +106,10 @@ public class Day21Task1 : BaseTask
 
     private static void SetPlotNeighbours(Dictionary<(int, int), GardenPlot> gardenPlots)
     {
-        foreach (KeyValuePair<(int,int),GardenPlot> pair in gardenPlots)
+        foreach (KeyValuePair<(int, int), GardenPlot> pair in gardenPlots)
         {
             GardenPlot plot = pair.Value;
-            (int x, int y) coordinates =pair.Key;
+            (int x, int y) coordinates = pair.Key;
 
             (int, int) north = (coordinates.x, coordinates.y - 1),
                        south = (coordinates.x, coordinates.y - 1),
