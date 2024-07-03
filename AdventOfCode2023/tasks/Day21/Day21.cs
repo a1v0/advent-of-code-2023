@@ -87,7 +87,7 @@ public class Day21Task1 : BaseTask
                      *
                      * I hope Future Me might find a better way.
                      */
-                    ActivePlots.Add(gardenPlots(x, y));
+                    ActivePlots.Add(gardenPlots[(x, y)]);
                 }
             }
         }
@@ -111,22 +111,22 @@ public class Day21Task1 : BaseTask
 
             if (gardenPlots.ContainsKey(north))
             {
-                plot.Neighbours.Add(gardenPlots(north));
+                plot.Neighbours.Add(gardenPlots[north]);
             }
 
             if (gardenPlots.ContainsKey(south))
             {
-                plot.Neighbours.Add(gardenPlots(south));
+                plot.Neighbours.Add(gardenPlots[south]);
             }
 
             if (gardenPlots.ContainsKey(east))
             {
-                plot.Neighbours.Add(gardenPlots(east));
+                plot.Neighbours.Add(gardenPlots[east]);
             }
 
             if (gardenPlots.ContainsKey(west))
             {
-                plot.Neighbours.Add(gardenPlots(west));
+                plot.Neighbours.Add(gardenPlots[west]);
             }
         }
     }
