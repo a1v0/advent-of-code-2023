@@ -18,7 +18,7 @@ public class Day21Task1 : BaseTask
     public override string Solve()
     {
         StepThroughGardenPlots();
-        int totalActivePlots = ActivePlots.Length;
+        int totalActivePlots = ActivePlots.Count;
         return totalActivePlots.ToString();
     }
 
