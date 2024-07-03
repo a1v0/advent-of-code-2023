@@ -22,10 +22,14 @@ public class Day21Task1 : BaseTask
         // do this X times and return total active plots
     }
 
-    private HashSet<GardenPlot> _activePlots = new();
+    private HashSet<GardenPlot>? _activePlots;
     private HashSet<GardenPlot> ActivePlots
     {
-        get;
+        get
+        {
+            _activePlots ??= GetStarterPlot();
+            return _activePlots;
+        }
     }
 
     private Dictionary<(int x, int y), GardenPlot>? _gardenPlots;
