@@ -32,6 +32,20 @@ public class Day21Task1 : BaseTask
         }
     }
 
+    private HashSet<GardenPlot> UpdateActivePlots()
+    {
+        HashSet<GardenPlot> newActivePlots = new();
+        foreach(GardenPlot gardenPlot in ActivePlots)
+        {
+            foreach (GardenPlot neighbour in gardenPlot.Neighbours)
+            {
+                newActivePlots.Add(neighbour);
+            }
+        }
+
+        return newActivePlots;
+    }
+
     private HashSet<GardenPlot>? _activePlots = new();
     private HashSet<GardenPlot> ActivePlots
     {
