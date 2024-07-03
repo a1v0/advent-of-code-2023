@@ -35,6 +35,14 @@ public class Day21Task1 : BaseTask
             return _gardenPlots;
         }
     }
+
+    private Dictionary<(int x, int y), GardenPlot> GetGardenPlots()
+    {
+        // create blank dictionary
+        // loop through inputs in nested loop
+        // create new garden plots accordingly
+        // loop through plots and identify neighbours
+    }
 }
 
 public class Day21Task2 : Day21Task1
