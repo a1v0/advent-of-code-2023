@@ -22,14 +22,10 @@ public class Day21Task1 : BaseTask
         // do this X times and return total active plots
     }
 
-    private HashSet<GardenPlot>? _activePlots;
+    private HashSet<GardenPlot>? _activePlots = new();
     private HashSet<GardenPlot> ActivePlots
     {
-        get
-        {
-            _activePlots ??= GetStarterPlot();
-            return _activePlots;
-        }
+        get;
     }
 
     private Dictionary<(int x, int y), GardenPlot>? _gardenPlots;
@@ -55,6 +51,19 @@ public class Day21Task1 : BaseTask
                 if (currentRow[x] == '#') continue;
 
                 gardenPlots.Add((x, y), new GardenPlot());
+
+                if (currentRow[x] == 'S')
+                {
+                    /**
+                     * This section violates the principle of not
+                     * having any side-effects in a method. However,
+                     * I would otherwise need to perform this loop all
+                     * over again.
+                     *
+                     * I hope Future Me might find a better way.
+                     */
+                    ActivePlots.Add(gardenPlots(x, y));
+                }
             }
         }
 
