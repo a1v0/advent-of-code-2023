@@ -17,6 +17,15 @@ public class Day21Task1 : BaseTask
 {
     public override string Solve()
     {
+        //
+        // the bug is that we're nowhere calling GetGardenPlots
+        // and so nothing is populated and the thing fails
+        //
+        //
+        //
+        //
+        //
+
         StepThroughGardenPlots();
         int totalActivePlots = ActivePlots.Count;
         return totalActivePlots.ToString();
