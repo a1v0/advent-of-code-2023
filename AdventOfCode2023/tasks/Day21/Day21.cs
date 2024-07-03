@@ -25,6 +25,16 @@ public class Day21Task1 : BaseTask
         // loop through active plots, add each plot's neighbours to new HashSet of active plots and deactivate current plot
         // do this X times and return total active plots
     }
+
+    private Dictionary<(int x, int y), GardenPlot>? _gardenPlots;
+    private Dictionary<(int x, int y), GardenPlot> GardenPlots
+    {
+        get
+        {
+            _gardenPlots ??= GetGardenPlots();
+            return _gardenPlots;
+        }
+    }
 }
 
 public class Day21Task2 : Day21Task1
