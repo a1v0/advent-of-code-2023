@@ -17,6 +17,9 @@ public class Day21Task1 : BaseTask
 {
     public override string Solve()
     {
+        StepThroughGardenPlots();
+        int totalActivePlots = ActivePlots.Length;
+        return totalActivePlots.ToString();
         // create global HashSet of "active" plots
         // loop through active plots, add each plot's neighbours to new HashSet of active plots and deactivate current plot
         // do this X times and return total active plots
