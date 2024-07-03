@@ -36,12 +36,29 @@ public class Day21Task1 : BaseTask
         }
     }
 
-    private Dictionary<(int x, int y), GardenPlot> GetGardenPlots()
+    private Dictionary<(int, int), GardenPlot> GetGardenPlots()
     {
         // create blank dictionary
         // loop through inputs in nested loop
         // create new garden plots accordingly
         // loop through plots and identify neighbours
+        Dictionary<(int, int), GardenPlot> gardenPlots = new();
+
+        for (int y = 0; y < InputRows.Length; ++y)
+        {
+            string currentRow = InputRows[y];
+
+            for (int x = 0; x < currentRow.Length; ++x)
+            {
+                if (currentRow[x] == '#') continue;
+
+                gardenPlots.Add((x, y),new GardenPlot());
+            }
+        }
+
+        SetPlotNeighbours(gardenPlots);
+
+        return gardenPlots;
     }
 }
 
