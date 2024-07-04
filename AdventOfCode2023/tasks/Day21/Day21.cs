@@ -58,11 +58,12 @@ public class Day21Task1 : BaseTask
         return newActivePlots;
     }
 
-    private HashSet<GardenPlot> _activePlots = new();
+    private HashSet<GardenPlot>? _activePlots;
     private HashSet<GardenPlot> ActivePlots
     {
         get
         {
+            _activePlots ??= GetInitialActivePlots();
             return _activePlots;
         }
 
