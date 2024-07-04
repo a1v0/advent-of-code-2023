@@ -94,20 +94,14 @@ public class Day21Task1 : BaseTask
             {
                 if (currentRow[x] == '#') continue;
 
-                gardenPlots.Add((x, y), new GardenPlot());
+                GardenPlot newPlot = new();
 
                 if (currentRow[x] == 'S')
                 {
-                    /**
-                     * This section violates the principle of not
-                     * having any side-effects in a method. However,
-                     * I would otherwise need to perform this loop all
-                     * over again.
-                     *
-                     * I hope Future Me might find a better way.
-                     */
-                    ActivePlots.Add(gardenPlots[(x, y)]);
+                    newPlot.IsStart = true;
                 }
+
+                gardenPlots.Add((x, y), newPlot);
             }
         }
 
