@@ -155,6 +155,12 @@ public class Day21Task1 : BaseTask
 
 public class Day21Task2 : Day21Task1
 {
-// This one is tricky.
-// The number of steps is large enough to take a stupid length of time
+    // This one is tricky.
+    // The number of steps is large enough to take an impossible length of time
+    // Add to that the challenge of having an infinite map
+    //
+    // I assume that, after a certain number of steps, a pattern will emerge,
+    // allowing me to extrapolate.
+    // Until I have worked out how that would work, though, there's little
+    // point in trying to create an infinite map, lest the work become obsolete.
 }
