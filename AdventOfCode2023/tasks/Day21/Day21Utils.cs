@@ -10,4 +10,11 @@ public class GardenPlot
             return _neighbours;
         }
     }
+
+    private bool _isStart = false;
+    public bool IsStart
+    {
+        get;
+        set;
+    }
 }
