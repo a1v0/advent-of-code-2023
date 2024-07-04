@@ -73,6 +73,25 @@ public class Day21Task1 : BaseTask
         }
     }
 
+    private HashSet<GardenPlot> GetInitialActivePlots()
+    {
+        HashSet<GardenPlot> activePlots = new();
+        foreach (KeyValuePair<(int, int), GardenPlot> pair in GardenPlots)
+        {
+            if (!pair.Value.IsStart) continue;
+
+            activePlots.Add(pair.Value);
+            break;
+        }
+
+        if (activePlots.Count != 1)
+        {
+            throw new Exception("There can be exactly one starter plot.");
+        }
+
+        return activePlots;
+    }
+
     private Dictionary<(int x, int y), GardenPlot>? _gardenPlots;
     private Dictionary<(int x, int y), GardenPlot> GardenPlots
     {
