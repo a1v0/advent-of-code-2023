@@ -17,6 +17,8 @@ public class Day21Task1 : BaseTask
 {
     public override string Solve()
     {
+System.Console.WriteLine(GardenPlots[(0,0)].Neighbours.Length);
+
       /**
        * This is in desperate need of a refactor.
        * This variable is only being declared so
