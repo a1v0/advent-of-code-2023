@@ -17,18 +17,6 @@ public class Day21Task1 : BaseTask
 {
     public override string Solve()
     {
-        /**
-         * This is in desperate need of a refactor.
-         * This variable is only being declared so
-         * that GetGardenPlots is called, without
-         * which the whole thing doesn't work.
-         *
-         *
-         *
-         *
-         */
-        var unusedVariable = GardenPlots;
-
         StepThroughGardenPlots();
         int totalActivePlots = ActivePlots.Count;
         return totalActivePlots.ToString();
@@ -166,4 +154,7 @@ public class Day21Task1 : BaseTask
 }
 
 public class Day21Task2 : Day21Task1
-{ }
+{
+// This one is tricky.
+// The number of steps is large enough to take a stupid length of time
+}
