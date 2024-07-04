@@ -17,14 +17,17 @@ public class Day21Task1 : BaseTask
 {
     public override string Solve()
     {
-        //
-        // the bug is that we're nowhere calling GetGardenPlots
-        // and so nothing is populated and the thing fails
-        //
-        //
-        //
-        //
-        //
+      /**
+       * This is in desperate need of a refactor.
+       * This variable is only being declared so
+       * that GetGardenPlots is called, without
+       * which the whole thing doesn't work.
+       *
+       *
+       *
+       *
+       */
+        var unusedVariable = GardenPlots;
 
         StepThroughGardenPlots();
         int totalActivePlots = ActivePlots.Count;
