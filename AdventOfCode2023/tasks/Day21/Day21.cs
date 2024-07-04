@@ -17,18 +17,16 @@ public class Day21Task1 : BaseTask
 {
     public override string Solve()
     {
-System.Console.WriteLine(GardenPlots[(0,0)].Neighbours.Length);
-
-      /**
-       * This is in desperate need of a refactor.
-       * This variable is only being declared so
-       * that GetGardenPlots is called, without
-       * which the whole thing doesn't work.
-       *
-       *
-       *
-       *
-       */
+        /**
+         * This is in desperate need of a refactor.
+         * This variable is only being declared so
+         * that GetGardenPlots is called, without
+         * which the whole thing doesn't work.
+         *
+         *
+         *
+         *
+         */
         var unusedVariable = GardenPlots;
 
         StepThroughGardenPlots();
@@ -126,7 +124,7 @@ System.Console.WriteLine(GardenPlots[(0,0)].Neighbours.Length);
             (int x, int y) coordinates = pair.Key;
 
             (int, int) north = (coordinates.x, coordinates.y - 1),
-                       south = (coordinates.x, coordinates.y - 1),
+                       south = (coordinates.x, coordinates.y + 1),
                        east = (coordinates.x + 1, coordinates.y),
                        west = (coordinates.x - 1, coordinates.y);
 
